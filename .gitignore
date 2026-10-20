@@ -1,0 +1,4 @@
+node_modules/
+renders/
+.hf-tmp/
+.DS_Store
