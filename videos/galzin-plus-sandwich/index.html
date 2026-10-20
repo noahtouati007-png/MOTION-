@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      /* THEME — brown + sunburst, taken from the "accompagnement" posters */
+      :root {
+        --bg-center: #6e3816;
+        --bg-edge: #2c1407;
+        --ray: #f4a27f;
+        --yellow: #ffcc4d;
+        --cream: #fdf0e3;
+        --ink: #2a1407;
+        --hot-a: #f07a1e;
+        --hot-b: #e3001b;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg-edge);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--cream);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 40% 55%, var(--bg-center) 0%, var(--bg-edge) 80%);
+      }
+      #sun {
+        position: absolute;
+        left: -340px;
+        top: -660px;
+        width: 2400px;
+        height: 2400px;
+        border-radius: 50%;
+        background: repeating-conic-gradient(var(--ray) 0deg 7.5deg, transparent 7.5deg 15deg);
+        -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.6) 30%, transparent 62%);
+        mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.6) 30%, transparent 62%);
+        opacity: 0.16;
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--yellow);
+        border-radius: 18px;
+        opacity: 0.55;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+      }
+      #logo-halo {
+        position: absolute;
+        inset: -70px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 204, 77, 0.35) 0%, rgba(255, 204, 77, 0) 65%);
+      }
+      .hot {
+        background: linear-gradient(100deg, var(--hot-a) 0%, var(--hot-b) 100%);
+      }
+
+      /* S1 · Passez de ça… */
+      #qA {
+        position: absolute;
+        left: 80px;
+        top: 320px;
+        width: 900px;
+        height: 440px;
+      }
+      #qA img {
+        position: absolute;
+        inset: 0;
+        width: 900px;
+        height: 440px;
+        filter: drop-shadow(0 30px 24px rgba(0, 0, 0, 0.5));
+      }
+      #t1 {
+        position: absolute;
+        left: 980px;
+        right: 120px;
+        top: 0;
+        height: 1080px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 210px;
+        line-height: 0.92;
+        letter-spacing: 4px;
+        text-align: center;
+      }
+      #t1 .l {
+        display: block;
+      }
+
+      /* Wave wipe */
+      #wave {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2600px;
+        height: 1080px;
+      }
+
+      /* S2 · …à ça ! */
+      #qB {
+        position: absolute;
+        left: 120px;
+        top: 290px;
+        width: 1390px;
+        height: 620px;
+        border-radius: 40px;
+        overflow: hidden;
+        border: 5px solid var(--yellow);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+      }
+      #qB img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #wipe-bar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 14px;
+        margin-left: -7px;
+        background: var(--cream);
+        box-shadow: 0 0 24px rgba(0, 0, 0, 0.35);
+      }
+      #t2 {
+        position: absolute;
+        left: 130px;
+        top: 105px;
+        padding: 18px 56px 8px;
+        border-radius: 80px;
+        font-size: 190px;
+        line-height: 1;
+        letter-spacing: 4px;
+      }
+      .t2s {
+        position: absolute;
+        left: 1560px;
+        top: 570px;
+        width: 300px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 1.1;
+        color: var(--yellow);
+      }
+
+      /* S3 · Choisissez votre accompagnement */
+      #t3 {
+        position: absolute;
+        left: 100px;
+        right: 280px;
+        top: 95px;
+        text-align: center;
+        font-size: 104px;
+        line-height: 1;
+        letter-spacing: 3px;
+      }
+      #t3 sup {
+        font-size: 70px;
+        color: var(--yellow);
+      }
+      .bowl {
+        position: absolute;
+        top: 330px;
+        width: 400px;
+        height: 400px;
+        object-fit: contain;
+        filter: drop-shadow(0 22px 20px rgba(0, 0, 0, 0.45));
+      }
+      #frites {
+        left: 140px;
+      }
+      #salade {
+        left: 660px;
+      }
+      .bowl-cap {
+        position: absolute;
+        top: 750px;
+        width: 400px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 56px;
+        color: var(--cream);
+      }
+      #cap-frites {
+        left: 140px;
+      }
+      #cap-salade {
+        left: 660px;
+      }
+      #ou {
+        position: absolute;
+        left: 545px;
+        top: 470px;
+        width: 110px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 64px;
+        color: var(--yellow);
+      }
+
+      /* Price ellipse */
+      #price {
+        position: absolute;
+        left: 1170px;
+        top: 360px;
+        width: 640px;
+        height: 400px;
+      }
+      #price-pre {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -40px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 66px;
+        color: var(--cream);
+      }
+      #price-oval {
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 640px;
+        height: 330px;
+        border-radius: 50%;
+        box-shadow: 0 26px 50px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #price-num {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 220px;
+        line-height: 1;
+        color: var(--cream);
+        margin-top: -20px;
+      }
+      #price-plus {
+        position: absolute;
+        left: 220px;
+        top: 330px;
+        width: 200px;
+        padding-top: 6px;
+        border-radius: 22px;
+        background: var(--ink);
+        text-align: center;
+        font-size: 90px;
+        line-height: 1;
+        color: var(--cream);
+      }
+
+      /* Loyalty pill */
+      #fid {
+        position: absolute;
+        left: 460px;
+        top: 828px;
+        width: 1000px;
+        height: 140px;
+        border-radius: 80px;
+        padding: 6px;
+      }
+      #fid-in {
+        width: 100%;
+        height: 100%;
+        border-radius: 76px;
+        background: var(--ink);
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        padding: 0 50px;
+      }
+      #fid-pct {
+        font-size: 130px;
+        line-height: 1;
+        color: var(--yellow);
+        padding-top: 10px;
+      }
+      #fid-txt {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 1.05;
+        color: var(--cream);
+      }
+      #fid-txt b {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-size: 54px;
+        letter-spacing: 2px;
+        color: var(--yellow);
+      }
+
+      /* End card */
+      #end {
+        position: absolute;
+        left: 960px;
+        right: 100px;
+        top: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      #end-pre {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 56px;
+        color: var(--yellow);
+      }
+      #end-title {
+        font-size: 136px;
+        line-height: 1;
+        letter-spacing: 3px;
+      }
+      #legal {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 40px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 28px;
+        color: var(--cream);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <div id="sun"></div>
+
+      <!-- S1 -->
+      <div id="qA"><img src="assets/img/sandwich-seul.png" alt="Sandwich seul" /></div>
+      <div id="t1"><span class="l" id="t1a">PASSEZ</span><span class="l" id="t1b">DE ÇA…</span></div>
+
+      <!-- S2 -->
+      <div id="qB">
+        <img id="qB-frites" src="assets/img/sandwich-frites.jpg" alt="Sandwich et frites" />
+        <img id="qB-salade" src="assets/img/sandwich-salade.jpg" alt="Sandwich et salade" />
+        <div id="wipe-bar"></div>
+      </div>
+      <div id="t2" class="hot">…À ÇA !</div>
+      <div class="t2s" id="t2-f">+ frites…</div>
+      <div class="t2s" id="t2-s">…ou + salade</div>
+
+      <!-- S3 -->
+      <div id="t3">CHOISISSEZ VOTRE ACCOMPAGNEMENT<sup>*</sup></div>
+      <img class="bowl" id="frites" src="assets/img/frites.png" alt="Frites" />
+      <div id="ou">ou</div>
+      <img class="bowl" id="salade" src="assets/img/salade.png" alt="Salade" />
+      <div class="bowl-cap" id="cap-frites">frites</div>
+      <div class="bowl-cap" id="cap-salade">salade</div>
+      <div id="price">
+        <div id="price-pre">Pour seulement</div>
+        <div id="price-oval" class="hot"><div id="price-num">2,90€</div></div>
+        <div id="price-plus">EN +</div>
+      </div>
+      <div id="fid" class="hot">
+        <div id="fid-in">
+          <div id="fid-pct">5%</div>
+          <div id="fid-txt">toujours crédités en plus sur votre<br /><b>CARTE DE FIDÉLITÉ</b></div>
+        </div>
+      </div>
+
+      <!-- End -->
+      <div id="end">
+        <div id="end-pre">Transformez une simple pause</div>
+        <div id="end-title">EN VRAI REPAS !</div>
+      </div>
+
+      <svg id="wave" viewBox="0 0 2600 1080" preserveAspectRatio="none">
+        <path
+          fill="#fdf0e3"
+          d="M200 0 C 340 180, 60 360, 220 540 S 80 900, 240 1080 L 2400 1080 C 2240 900, 2540 720, 2380 540 S 2560 180, 2420 0 Z"
+        />
+      </svg>
+
+      <div id="logo">
+        <div id="logo-halo"></div>
+        <img src="assets/img/galzin-logo.png" alt="Galzin" />
+      </div>
+      <div id="frame"></div>
+      <div id="legal">* Pour tout produit salé acheté · Photos non contractuelles</div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.55, duration: 0.8 }, 0.2);
+      tl.fromTo("#sun", { rotation: 0, autoAlpha: 0 }, { rotation: 45, autoAlpha: 0.16, duration: 15, ease: "none" }, 0);
+
+      // ── Logo intro → top-right corner
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.fromTo("#logo-halo", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.8, ease: "power2.out" }, 0.4);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.6);
+      tl.to("#logo-halo", { autoAlpha: 0, duration: 0.4 }, 1.6);
+
+      // ── S1 · Passez de ça… (1.9 → 5.2)
+      tl.fromTo("#qA", { autoAlpha: 0, scale: 0.5, rotation: -20, x: -300 }, { autoAlpha: 1, scale: 1, rotation: -3, x: 0, duration: 0.7, ease: "back.out(1.5)" }, 1.9);
+      tl.fromTo("#t1a", { autoAlpha: 0, x: 120 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "power3.out" }, 2.4);
+      tl.fromTo("#t1b", { autoAlpha: 0, x: 120 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "power3.out" }, 2.7);
+      // a slightly "sad" quiche alone: it shrinks a touch while we wait
+      tl.to("#qA", { scale: 0.92, duration: 1.6, ease: "sine.inOut" }, 3.3);
+
+      // ── Wave wipe (5.0 → 5.9): cream wave sweeps left → right, scenes swap underneath
+      // the band covers the whole frame around x≈-340, i.e. ~0.56s in: swap there
+      tl.fromTo("#wave", { x: -2620 }, { x: 1940, duration: 1.1, ease: "power1.inOut" }, 5.0);
+      tl.set(["#qA", "#t1"], { autoAlpha: 0 }, 5.56);
+
+      // ── S2 · …à ça ! (5.45 → 8.6)
+      tl.fromTo("#qB", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "power2.out" }, 5.56);
+      tl.fromTo("#qB img", { scale: 1.12 }, { scale: 1, duration: 3.0, ease: "power1.out" }, 5.56);
+      tl.fromTo("#t2", { autoAlpha: 0, scale: 0.4, rotation: 8 }, { autoAlpha: 1, scale: 1, rotation: -3, duration: 0.5, ease: "back.out(2)" }, 5.9);
+      tl.fromTo("#t2-f", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 6.4);
+      // frites → salade: the salad plate wipes in from the right
+      tl.fromTo("#qB-salade", { clipPath: "inset(0% 0% 0% 100%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power3.inOut" }, 7.2);
+      tl.fromTo("#wipe-bar", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05 }, 7.2);
+      tl.fromTo("#wipe-bar", { x: 1390 }, { x: 0, duration: 0.7, ease: "power3.inOut" }, 7.2);
+      tl.to("#wipe-bar", { autoAlpha: 0, duration: 0.15 }, 7.9);
+      tl.to("#t2-f", { autoAlpha: 0, y: -20, duration: 0.25 }, 7.25);
+      tl.fromTo("#t2-s", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 7.55);
+      tl.to(["#t2", "#t2-s"], { autoAlpha: 0, duration: 0.3, ease: "power2.in" }, 8.5);
+      tl.to("#qB", { autoAlpha: 0, scale: 0.85, y: 40, duration: 0.4, ease: "power2.in" }, 8.5);
+
+      // ── S3 · Choisissez votre accompagnement (8.8 → 12.7)
+      tl.fromTo("#t3", { autoAlpha: 0, y: -60 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 8.8);
+      tl.fromTo("#frites", { autoAlpha: 0, y: 300, rotation: -12 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.55, ease: "back.out(1.6)" }, 9.05);
+      tl.fromTo("#ou", { autoAlpha: 0, scale: 0.3 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 9.35);
+      tl.fromTo("#salade", { autoAlpha: 0, y: 300, rotation: 12 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.55, ease: "back.out(1.6)" }, 9.45);
+      tl.fromTo(".bowl-cap", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.3, stagger: 0.2 }, 9.6);
+      tl.fromTo("#price-oval", { autoAlpha: 0, scale: 0.2, rotation: -25 }, { autoAlpha: 1, scale: 1, rotation: -5, duration: 0.6, ease: "back.out(1.7)" }, 9.9);
+      tl.fromTo("#price-pre", { autoAlpha: 0, y: 30, rotation: -5 }, { autoAlpha: 1, y: 0, rotation: -5, duration: 0.35, ease: "power2.out" }, 10.3);
+      tl.fromTo("#price-plus", { autoAlpha: 0, scale: 0.3 }, { autoAlpha: 1, scale: 1, rotation: -5, duration: 0.35, ease: "back.out(2.5)" }, 10.45);
+      tl.to("#price-oval", { scale: 1.07, duration: 0.16, yoyo: true, repeat: 1 }, 10.9);
+      tl.fromTo("#fid", { autoAlpha: 0, y: 200 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(1.4)" }, 11.1);
+      tl.fromTo("#fid-pct", { scale: 0.5 }, { scale: 1, duration: 0.35, ease: "back.out(3)" }, 11.4);
+
+      // ── End card (12.7 → 15)
+      tl.to(["#t3", "#frites", "#salade", "#ou", ".bowl-cap", "#fid"], { autoAlpha: 0, duration: 0.35, ease: "power2.in" }, 12.7);
+      // plate photo comes back, smaller, on the left: centre (815,600) → (500,600), scale .6
+      tl.fromTo("#qB", { autoAlpha: 0, x: -315, y: 0, scale: 0.4 }, { autoAlpha: 1, x: -315, y: 0, scale: 0.6, duration: 0.55, ease: "back.out(1.4)", immediateRender: false }, 12.9);
+      // price → under the end title: centre (1490,560) → (1430,800), scale .55
+      tl.to("#price", { x: -60, y: 240, scale: 0.55, duration: 0.6, ease: "power3.inOut" }, 12.8);
+      // corner logo → above the title: centre (1750,140) → (1430,180)
+      tl.to("#logo", { x: 470, y: -300, scale: 220 / 360, duration: 0.6, ease: "power3.inOut" }, 12.8);
+      tl.fromTo("#end-pre", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out" }, 13.1);
+      tl.fromTo("#end-title", { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, 13.3);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.8, duration: 0.5 }, 8.9);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
