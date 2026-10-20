@@ -1,0 +1,166 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 9.167,
+        "selector": "#t3 > sup:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1662,
+          "top": 82.93,
+          "right": 1694.55,
+          "bottom": 166.93,
+          "width": 32.55,
+          "height": 84
+        },
+        "containerSelector": "#logo > img:nth-of-type(1)",
+        "text": "*",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.63,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1662,
+          "y": 82.93,
+          "width": 32.55,
+          "height": 84
+        },
+        "firstSeen": 9.167,
+        "lastSeen": 12.5,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          9.167,
+          10.833,
+          12.5
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 5.833,
+        "selector": "#qB > img:nth-of-type(1)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 61.35,
+          "top": 266.87,
+          "right": 1568.65,
+          "bottom": 933.13,
+          "width": 1507.3,
+          "height": 666.27
+        },
+        "containerSelector": "#qB",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 121.88,
+          "top": 290.84,
+          "right": 1508.12,
+          "bottom": 909.16,
+          "width": 1386.25,
+          "height": 618.33
+        },
+        "overflow": {
+          "left": 60.53,
+          "right": 60.53,
+          "top": 23.97,
+          "bottom": 23.97
+        },
+        "dataAttributes": {
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 61.35,
+          "y": 266.87,
+          "width": 1507.3,
+          "height": 666.27
+        },
+        "firstSeen": 5.833,
+        "lastSeen": 7.5,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          5.833,
+          7.5
+        ]
+      }
+    ],
+    "duration": 15,
+    "samples": [
+      0.833,
+      2.5,
+      4.167,
+      5.833,
+      7.5,
+      9.167,
+      10.833,
+      12.5,
+      14.167
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.833,
+      4.167,
+      7.5,
+      10.833,
+      14.167
+    ],
+    "checked": 19,
+    "passed": 19
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
