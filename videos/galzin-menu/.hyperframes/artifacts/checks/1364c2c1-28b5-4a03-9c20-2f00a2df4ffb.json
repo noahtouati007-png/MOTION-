@@ -1,0 +1,147 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 4.167,
+        "selector": "#card-sale > div:nth-of-type(3) > div:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 133.13,
+          "top": 716.09,
+          "right": 426.88,
+          "bottom": 818,
+          "width": 293.75,
+          "height": 101.91
+        },
+        "containerSelector": "#card-sale > div:nth-of-type(3) > div:nth-of-type(3)",
+        "text": "SANDWICH PARISIEN OU MIXTE",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 133.13,
+          "y": 716.09,
+          "width": 293.75,
+          "height": 101.91
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 4.167,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.167
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 4.167,
+        "selector": "#card-sucre > div:nth-of-type(3) > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 681.52,
+          "top": 759.55,
+          "right": 778.48,
+          "bottom": 814.55,
+          "width": 96.96,
+          "height": 55
+        },
+        "containerSelector": "#card-sucre > div:nth-of-type(3) > div:nth-of-type(3)",
+        "text": "DONUT",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 681.52,
+          "y": 759.55,
+          "width": 96.96,
+          "height": 55
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 4.167,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.167
+        ]
+      }
+    ],
+    "duration": 15,
+    "samples": [
+      0.833,
+      2.5,
+      4.167,
+      5.833,
+      7.5,
+      9.167,
+      10.833,
+      12.5,
+      14.167
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.833,
+      4.167,
+      7.5,
+      10.833,
+      14.167
+    ],
+    "checked": 49,
+    "passed": 49
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
