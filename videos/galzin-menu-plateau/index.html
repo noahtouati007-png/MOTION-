@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      :root {
+        --bg-center: #5e1d52;
+        --bg-edge: #22081f;
+        --yellow: #ffcc4d;
+        --cream: #f6efe4;
+        --ink: #2a1d12;
+        --wood-light: #9a6a3c;
+        --wood-dark: #5a3a1e;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg-edge);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--cream);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 35% 55%, var(--bg-center) 0%, var(--bg-edge) 78%);
+      }
+      #spot {
+        position: absolute;
+        left: 160px;
+        top: 160px;
+        width: 1000px;
+        height: 800px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(255, 204, 77, 0.22) 0%, rgba(255, 204, 77, 0) 65%);
+      }
+      #dots {
+        position: absolute;
+        inset: 0;
+      }
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid var(--yellow);
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--yellow);
+        border-radius: 18px;
+        opacity: 0.55;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+      }
+      #logo-halo {
+        position: absolute;
+        inset: -70px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 204, 77, 0.35) 0%, rgba(255, 204, 77, 0) 65%);
+      }
+
+      /* Left: the tray that gets filled */
+      #left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1200px;
+        height: 1080px;
+      }
+      #tray {
+        position: absolute;
+        left: 170px;
+        top: 590px;
+        width: 980px;
+        height: 330px;
+      }
+      #tray-shadow {
+        position: absolute;
+        left: 40px;
+        right: 40px;
+        top: 70px;
+        height: 290px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.45);
+        filter: blur(18px);
+      }
+      #tray-side {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 28px;
+        height: 290px;
+        border-radius: 50%;
+        background: var(--wood-dark);
+      }
+      #tray-top {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 290px;
+        border-radius: 50%;
+        border: 4px solid var(--yellow);
+        background: radial-gradient(ellipse at 45% 40%, var(--wood-light) 0%, var(--wood-dark) 100%);
+      }
+      .slot {
+        position: absolute;
+      }
+      .slot img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: 50% 100%;
+        filter: drop-shadow(0 18px 14px rgba(0, 0, 0, 0.45));
+      }
+      #slot-boisson {
+        left: 830px;
+        top: 330px;
+        width: 260px;
+        height: 400px;
+      }
+      #slot-sale {
+        left: 230px;
+        top: 450px;
+        width: 440px;
+        height: 330px;
+      }
+      #slot-sucre {
+        left: 560px;
+        top: 560px;
+        width: 360px;
+        height: 270px;
+      }
+
+      /* Badge sticker (top-left of the tray) */
+      #badge {
+        position: absolute;
+        left: 110px;
+        top: 90px;
+        width: 340px;
+        height: 340px;
+      }
+      #badge svg {
+        position: absolute;
+        inset: 0;
+        width: 340px;
+        height: 340px;
+      }
+      #badge-text {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink);
+      }
+      #badge-price {
+        font-size: 150px;
+        line-height: 0.85;
+      }
+      #badge-price small {
+        font-size: 86px;
+      }
+      #badge-bottom {
+        font-size: 46px;
+        letter-spacing: 3px;
+      }
+
+      /* Right: the recipe */
+      #recipe {
+        position: absolute;
+        left: 1200px;
+        right: 100px;
+        top: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 34px;
+      }
+      .line {
+        position: relative;
+        width: 100%;
+        height: 160px;
+      }
+      .line-title {
+        font-size: 112px;
+        line-height: 1;
+        letter-spacing: 2px;
+      }
+      .line-title .plus {
+        color: var(--yellow);
+      }
+      .caps {
+        position: relative;
+        height: 50px;
+      }
+      .cap {
+        position: absolute;
+        left: 0;
+        top: 0;
+        white-space: nowrap;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 40px;
+        color: var(--yellow);
+      }
+
+      #end {
+        position: absolute;
+        left: 950px;
+        right: 100px;
+        top: 330px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      #end-title {
+        font-size: 118px;
+        line-height: 1;
+        letter-spacing: 3px;
+      }
+      #end-sub {
+        margin-top: 14px;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 46px;
+        color: var(--yellow);
+      }
+      #legal {
+        position: absolute;
+        right: 70px;
+        bottom: 52px;
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 26px;
+        color: var(--cream);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <div id="dots"></div>
+
+      <div id="left">
+        <div id="spot"></div>
+        <div id="tray">
+          <div id="tray-shadow"></div>
+          <div id="tray-side"></div>
+          <div id="tray-top"></div>
+        </div>
+        <div class="slot" id="slot-boisson"><img id="i-cans" src="assets/img/canettes.png" alt="Boissons" /></div>
+        <div class="slot" id="slot-sale">
+          <img class="i-sale" src="assets/img/pizza.png" alt="Quart de pizza" />
+          <img class="i-sale" src="assets/img/sandwich.png" alt="Sandwich" />
+          <img class="i-sale" src="assets/img/croque.png" alt="Croque" />
+        </div>
+        <div class="slot" id="slot-sucre">
+          <img class="i-sucre" src="assets/img/donut.png" alt="Donut" />
+          <img class="i-sucre" src="assets/img/croissant.png" alt="Croissant" />
+          <img class="i-sucre" src="assets/img/chocolatine.png" alt="Chocolatine" />
+        </div>
+        <div id="badge">
+          <svg viewBox="0 0 340 340">
+            <polygon id="burst" fill="#ffcc4d" points="" />
+            <circle cx="170" cy="170" r="128" fill="none" stroke="#2a1d12" stroke-width="4" stroke-dasharray="4 10" stroke-linecap="round" />
+          </svg>
+          <div id="badge-text">
+            <div id="badge-price">5<small>€50</small></div>
+            <div id="badge-bottom">3 PRODUITS</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="recipe">
+        <div class="line" id="l1">
+          <div class="line-title">1 SALÉ</div>
+          <div class="caps">
+            <div class="cap c-sale">Quart de pizza au choix</div>
+            <div class="cap c-sale">Sandwich parisien ou mixte</div>
+            <div class="cap c-sale">Croque jambon ou fromages</div>
+          </div>
+        </div>
+        <div class="line" id="l2">
+          <div class="line-title"><span class="plus">+</span> 1 SUCRÉ</div>
+          <div class="caps">
+            <div class="cap c-sucre">Donut</div>
+            <div class="cap c-sucre">Croissant pur beurre</div>
+            <div class="cap c-sucre">Chocolatine pur beurre</div>
+          </div>
+        </div>
+        <div class="line" id="l3">
+          <div class="line-title"><span class="plus">+</span> 1 BOISSON</div>
+          <div class="caps">
+            <div class="cap">Canette 33 cl ou eau 50 cl</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="end">
+        <div id="end-title">COMPOSE TON MENU !</div>
+        <div id="end-sub">1 salé + 1 sucré + 1 boisson</div>
+      </div>
+
+      <div id="logo">
+        <div id="logo-halo"></div>
+        <img src="assets/img/galzin-logo.png" alt="Galzin" />
+      </div>
+      <div id="frame"></div>
+      <div id="legal">Photos non contractuelles</div>
+    </div>
+
+    <script>
+      const pts = [];
+      for (let i = 0; i < 44; i++) {
+        const r = i % 2 ? 150 : 168;
+        const a = (i / 44) * Math.PI * 2;
+        pts.push((170 + r * Math.cos(a)).toFixed(1) + "," + (170 + r * Math.sin(a)).toFixed(1));
+      }
+      document.getElementById("burst").setAttribute("points", pts.join(" "));
+
+      let seed = 77;
+      const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+      const dotsEl = document.getElementById("dots");
+      const dots = [];
+      for (let i = 0; i < 16; i++) {
+        const d = document.createElement("div");
+        d.className = "dot";
+        const size = Math.round(26 + rand() * 40);
+        d.style.width = d.style.height = size + "px";
+        d.style.left = Math.round(60 + rand() * 1780) + "px";
+        d.style.top = Math.round(60 + rand() * 940) + "px";
+        dotsEl.appendChild(d);
+        dots.push({ el: d, op: 0.1 + rand() * 0.14, dx: -30 + rand() * 60, dy: -40 - rand() * 50 });
+      }
+
+      const sale = [...document.querySelectorAll(".i-sale")];
+      const sucre = [...document.querySelectorAll(".i-sucre")];
+      const capSale = [...document.querySelectorAll(".c-sale")];
+      const capSucre = [...document.querySelectorAll(".c-sucre")];
+      // everything that swaps starts hidden; the timeline reveals it
+      gsap.set([...sale, ...sucre, ...capSale, ...capSucre, "#i-cans"], { autoAlpha: 0 });
+
+      const tl = gsap.timeline({ paused: true });
+      const NR = { immediateRender: false };
+      dots.forEach((d) => {
+        tl.fromTo(d.el, { autoAlpha: 0, x: 0, y: 0 }, { autoAlpha: d.op, x: d.dx, y: d.dy, duration: 15, ease: "none" }, 0);
+      });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.55, duration: 0.8 }, 0.2);
+
+      // ── Logo intro → top-right corner
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.fromTo("#logo-halo", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.8, ease: "power2.out" }, 0.4);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.7);
+      tl.to("#logo-halo", { autoAlpha: 0, duration: 0.4 }, 1.7);
+
+      // ── Tray slides up
+      tl.fromTo("#tray", { y: 520, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: "power3.out" }, 2.0);
+      tl.fromTo("#spot", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.8 }, 2.2);
+
+      // A product drops onto the tray (with a little squash on landing)
+      const drop = (el, t) => {
+        tl.fromTo(el, { autoAlpha: 0, y: -620, rotation: -14, scaleY: 1 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.45, ease: "power3.in", ...NR }, t);
+        tl.to(el, { keyframes: [{ scaleY: 0.88, scaleX: 1.06, duration: 0.08 }, { scaleY: 1, scaleX: 1, duration: 0.2, ease: "back.out(3)" }], transformOrigin: "50% 100%" }, t + 0.45);
+      };
+      const leave = (el, t, dir) =>
+        tl.fromTo(el, { autoAlpha: 1, x: 0, rotation: 0 }, { autoAlpha: 0, x: dir * 520, y: -120, rotation: dir * 25, duration: 0.4, ease: "power2.in", ...NR }, t);
+      const capIn = (el, t) => tl.fromTo(el, { autoAlpha: 0, x: -30 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "power2.out", ...NR }, t);
+      const capOut = (el, t) => tl.fromTo(el, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.2, ...NR }, t);
+      const lineIn = (sel, t) => tl.fromTo(sel + " .line-title", { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, t);
+
+      // Combo 1: pizza + donut + canettes
+      drop(sale[0], 2.6); lineIn("#l1", 2.75); capIn(capSale[0], 3.0);
+      drop(sucre[0], 3.3); lineIn("#l2", 3.45); capIn(capSucre[0], 3.7);
+      drop("#i-cans", 4.0); lineIn("#l3", 4.15);
+      tl.fromTo("#l3 .cap", { autoAlpha: 0, x: -30 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "power2.out" }, 4.4);
+
+      // Price sticker slaps on
+      tl.fromTo("#badge", { autoAlpha: 0, scale: 2.2, rotation: 30 }, { autoAlpha: 1, scale: 1, rotation: -8, duration: 0.45, ease: "power4.in" }, 4.9);
+      tl.to("#badge", { keyframes: [{ scale: 0.92, duration: 0.07 }, { scale: 1, duration: 0.25, ease: "back.out(3)" }] }, 5.35);
+      tl.fromTo("#badge svg", { rotation: 0 }, { rotation: 40, duration: 10, ease: "none" }, 4.9);
+
+      // Combo 2: sandwich + croissant
+      leave(sale[0], 6.5, -1); leave(sucre[0], 6.55, 1);
+      capOut(capSale[0], 6.5); capOut(capSucre[0], 6.5);
+      drop(sale[1], 6.85); capIn(capSale[1], 7.1);
+      drop(sucre[1], 7.15); capIn(capSucre[1], 7.4);
+      tl.to("#badge", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 7.8);
+
+      // Combo 3: croque + chocolatine
+      leave(sale[1], 8.9, -1); leave(sucre[1], 8.95, 1);
+      capOut(capSale[1], 8.9); capOut(capSucre[1], 8.9);
+      drop(sale[2], 9.25); capIn(capSale[2], 9.5);
+      drop(sucre[2], 9.55); capIn(capSucre[2], 9.8);
+      tl.to("#badge", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 10.2);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.75, duration: 0.5 }, 5.0);
+
+      // ── End card (11.5 → 15s)
+      tl.to("#recipe", { autoAlpha: 0, x: 60, duration: 0.35, ease: "power2.in" }, 11.5);
+      // left scene centre (600,540): shrink and shift so the end panel fits on the right
+      tl.to("#left", { x: -120, scale: 0.78, duration: 0.75, ease: "power3.inOut" }, 11.6);
+      // badge sticker → under the end title (global (1385,790)); it lives inside #left,
+      // which scales .78 about (600,540) and shifts -120px, so the local target is (1760,860)
+      tl.to("#badge", { x: 1480, y: 600, scale: 0.77, rotation: 0, duration: 0.75, ease: "power3.inOut" }, 11.6);
+      // corner logo → above the title: centre (1750,140) → (1385,190)
+      tl.to("#logo", { x: 425, y: -290, scale: 220 / 360, duration: 0.75, ease: "power3.inOut" }, 11.6);
+      tl.fromTo("#end-title", { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, 12.0);
+      tl.fromTo("#end-sub", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, 12.2);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
