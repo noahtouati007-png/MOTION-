@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "historyId": "717f48bc-7977-4012-8de6-ee41c7a0bd6a",
+  "currentRevision": "a90244f0-aa55-4d28-8cef-f9e7edea0319",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "CLAUDE.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "assets/fonts/bebas-neue-latin-400-normal.woff2": {
+      "hash": "a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/a7/a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412"
+    },
+    "assets/fonts/crimson-pro-latin-600-italic.woff2": {
+      "hash": "cc652c646593506722b059d8151ef80586f235606e37ef4c1863df3e3183ed78",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/cc/cc652c646593506722b059d8151ef80586f235606e37ef4c1863df3e3183ed78"
+    },
+    "assets/fonts/crimson-pro-latin-700-normal.woff2": {
+      "hash": "e34581dd821e87e007f5525f03b45f90207539a6c79132851217b5c1a0616c68",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/e3/e34581dd821e87e007f5525f03b45f90207539a6c79132851217b5c1a0616c68"
+    },
+    "assets/img/galzin-logo.png": {
+      "hash": "cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/ce/cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5"
+    },
+    "assets/img/tielles-grille.jpg": {
+      "hash": "cf4cae3b42bc76c3b7e0f7c10f30bd8daa366161acd6067042034562d605b354",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/cf/cf4cae3b42bc76c3b7e0f7c10f30bd8daa366161acd6067042034562d605b354"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/e5/e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6"
+    },
+    "index.html": {
+      "hash": "d756fcd60ea504d407e17a4510506f7899c03f935d589aaf6db1ddebd62e0d4e",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/d7/d756fcd60ea504d407e17a4510506f7899c03f935d589aaf6db1ddebd62e0d4e"
+    },
+    "meta.json": {
+      "hash": "02df9e809dbcae297f3b6a24d26e028ab127530b1ce1e9349fd45fc9e55e1495",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/02/02df9e809dbcae297f3b6a24d26e028ab127530b1ce1e9349fd45fc9e55e1495"
+    },
+    "package.json": {
+      "hash": "a48c598148a364c5b2594eb8bef8adf3c269d723565ee69e86634a59402d4a20",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/a4/a48c598148a364c5b2594eb8bef8adf3c269d723565ee69e86634a59402d4a20"
+    },
+    "assets/img/tielle-cote.png": {
+      "hash": "a12817d1d096b141480291b797a58a74c3ca8b44e495a75df035fbf857a42b6a",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/a1/a12817d1d096b141480291b797a58a74c3ca8b44e495a75df035fbf857a42b6a"
+    },
+    "assets/img/tielle-dessus.png": {
+      "hash": "e09ae59a1e74b43a528f64808eb563bbc6e828fd7e4b14335c5220fabe7a4857",
+      "content": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/e0/e09ae59a1e74b43a528f64808eb563bbc6e828fd7e4b14335c5220fabe7a4857"
+    }
+  },
+  "revisions": {
+    "a90244f0-aa55-4d28-8cef-f9e7edea0319": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792585522433,
+      "endedAt": 1792585522446,
+      "files": {
+        "assets/img/tielles-grille.jpg": {
+          "before": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/87/87c4297ff739c72e30b29ccdcc0d6e66db4ad3b9f502e44fd466572e4f5935df",
+          "after": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/cf/cf4cae3b42bc76c3b7e0f7c10f30bd8daa366161acd6067042034562d605b354"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/7f/7f395d535486fcf1d6603360e8dabd4eff6f3311073b59db474bb2f206a9dd0b",
+          "after": "/root/.cache/hyperframes/history/717f48bc-7977-4012-8de6-ee41c7a0bd6a/blobs/d7/d756fcd60ea504d407e17a4510506f7899c03f935d589aaf6db1ddebd62e0d4e"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "a90244f0-aa55-4d28-8cef-f9e7edea0319",
+      "id": "dfef55eb-9f59-4027-b4cc-841e76a51f14"
+    },
+    "revisions": {
+      "a90244f0-aa55-4d28-8cef-f9e7edea0319": [
+        {
+          "id": "dfef55eb-9f59-4027-b4cc-841e76a51f14",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/checks/dfef55eb-9f59-4027-b4cc-841e76a51f14.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792585523991,
+          "contentHash": "ee5ac70de095faac9cf245cad6265e388fc0322bb30fac2caa38a9e479ea87ed",
+          "revision": "a90244f0-aa55-4d28-8cef-f9e7edea0319",
+          "inputFingerprint": "e039f32e43afc67f0fac282e81a2f0c2c5621dc23362010142632e1768bd518c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "d4a3fd15-68e4-4bc2-bf44-d43c18f3be91",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/checks/d4a3fd15-68e4-4bc2-bf44-d43c18f3be91.json",
+        "metadata": {
+          "ok": false,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792585493203,
+        "contentHash": "a55ba06aa15d3635ac024b583ce1a0a23a8e42e25d6da7b8137ee944303cf0dc",
+        "revision": null,
+        "inputFingerprint": "310b94fb8493f82b3e92e6480b8097e6b0bab79b3c73b0f8a9bcc4a91db17344",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "a90244f0-aa55-4d28-8cef-f9e7edea0319",
+      "id": "9b94053e-a830-4e64-ae7a-cf30d7db3cf4-1"
+    },
+    "revisions": {
+      "a90244f0-aa55-4d28-8cef-f9e7edea0319": [
+        {
+          "scope": "full",
+          "id": "9b94053e-a830-4e64-ae7a-cf30d7db3cf4-0",
+          "image": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/snapshots/9fb77f99-beb9-4f24-a9e9-9f48ab3c0403/frame-00-at-3.2s.png",
+          "time": 3.2,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792585526753,
+          "contentHash": "2dc258545cc28cf748a7a0937bcff41dfd016ae7c55645f146949082d3dbd860",
+          "revision": "a90244f0-aa55-4d28-8cef-f9e7edea0319",
+          "inputFingerprint": "e039f32e43afc67f0fac282e81a2f0c2c5621dc23362010142632e1768bd518c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "9b94053e-a830-4e64-ae7a-cf30d7db3cf4-1",
+          "image": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/snapshots/9fb77f99-beb9-4f24-a9e9-9f48ab3c0403/frame-01-at-14.6s.png",
+          "time": 14.6,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792585526753,
+          "contentHash": "bf5d15ad624cae03234763b2da44be59c810993411474c9ca5c40d9b1d777d9a",
+          "revision": "a90244f0-aa55-4d28-8cef-f9e7edea0319",
+          "inputFingerprint": "e039f32e43afc67f0fac282e81a2f0c2c5621dc23362010142632e1768bd518c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "a0a9abfd-ac9b-4547-babe-35503495f8f1-0",
+        "image": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/snapshots/30f80af8-ba47-4322-ab53-f9cc361ac8e2/frame-00-at-1s.png",
+        "time": 1,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792585498804,
+        "contentHash": "aee2513fed023e0b382739d58182235b77950cdd13fc649baf021b4695063fcc",
+        "revision": null,
+        "inputFingerprint": "310b94fb8493f82b3e92e6480b8097e6b0bab79b3c73b0f8a9bcc4a91db17344",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a0a9abfd-ac9b-4547-babe-35503495f8f1-1",
+        "image": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/snapshots/30f80af8-ba47-4322-ab53-f9cc361ac8e2/frame-01-at-3.2s.png",
+        "time": 3.2,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792585498805,
+        "contentHash": "4e9cf8af18f8ac718788fb89e737f5cbbf158c4e8d752fd3a221d65e69cdde85",
+        "revision": null,
+        "inputFingerprint": "310b94fb8493f82b3e92e6480b8097e6b0bab79b3c73b0f8a9bcc4a91db17344",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a0a9abfd-ac9b-4547-babe-35503495f8f1-2",
+        "image": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/snapshots/30f80af8-ba47-4322-ab53-f9cc361ac8e2/frame-02-at-4.6s.png",
+        "time": 4.6,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792585498805,
+        "contentHash": "dcfbb7b3b23ba3b6927db49a552b1e6682bcbdaccda8a104ea5fcaff680823a1",
+        "revision": null,
+        "inputFingerprint": "310b94fb8493f82b3e92e6480b8097e6b0bab79b3c73b0f8a9bcc4a91db17344",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a0a9abfd-ac9b-4547-babe-35503495f8f1-3",
+        "image": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/snapshots/30f80af8-ba47-4322-ab53-f9cc361ac8e2/frame-03-at-6.4s.png",
+        "time": 6.4,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792585498805,
+        "contentHash": "57aa67a4d75aa041cddb15ab2cfeb4b08514554b173461f3569b218f723fd15d",
+        "revision": null,
+        "inputFingerprint": "310b94fb8493f82b3e92e6480b8097e6b0bab79b3c73b0f8a9bcc4a91db17344",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a0a9abfd-ac9b-4547-babe-35503495f8f1-4",
+        "image": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/snapshots/30f80af8-ba47-4322-ab53-f9cc361ac8e2/frame-04-at-8.4s.png",
+        "time": 8.4,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792585498805,
+        "contentHash": "61210929b3cbfd55e3bd24d8bc31721cbfb88c34ac4f6e10921967fa6febd184",
+        "revision": null,
+        "inputFingerprint": "310b94fb8493f82b3e92e6480b8097e6b0bab79b3c73b0f8a9bcc4a91db17344",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a0a9abfd-ac9b-4547-babe-35503495f8f1-5",
+        "image": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/snapshots/30f80af8-ba47-4322-ab53-f9cc361ac8e2/frame-05-at-10.8s.png",
+        "time": 10.8,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792585498805,
+        "contentHash": "bbb8d9159e64b3e367e63bd28b20d6d80cd8af21286a2249844966e83a5b5e0e",
+        "revision": null,
+        "inputFingerprint": "310b94fb8493f82b3e92e6480b8097e6b0bab79b3c73b0f8a9bcc4a91db17344",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a0a9abfd-ac9b-4547-babe-35503495f8f1-6",
+        "image": "/home/user/MOTION-/videos/galzin-tielles/.hyperframes/artifacts/snapshots/30f80af8-ba47-4322-ab53-f9cc361ac8e2/frame-06-at-14.6s.png",
+        "time": 14.6,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792585498805,
+        "contentHash": "da48e1dc35c844c222001161a882eb07754611a201d6541a03dc73601ecdca68",
+        "revision": null,
+        "inputFingerprint": "310b94fb8493f82b3e92e6480b8097e6b0bab79b3c73b0f8a9bcc4a91db17344",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "38e09725-bb28-43da-9096-4998bd0cdc94",
+      "completedAt": 1792585573839,
+      "output": "/home/user/MOTION-/videos/galzin-tielles/renders/galzin-tielles.mp4",
+      "status": "completed",
+      "revision": "a90244f0-aa55-4d28-8cef-f9e7edea0319"
+    },
+    "retainedRevisions": [
+      "a90244f0-aa55-4d28-8cef-f9e7edea0319"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

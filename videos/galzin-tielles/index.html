@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      /* THEME — light: cream and beige, chocolate text, golden crust accent */
+      :root {
+        --bg-center: #fbf3e6;
+        --bg-edge: #e7d2b2;
+        --brown: #43291a;
+        --brown-soft: #8a5a36;
+        --cream: #fdf6ea;
+        --crust: #a5560c;
+        --bronze-a: #f4cf98;
+        --bronze-b: #b27640;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg-edge);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--brown);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 55% 50%, var(--bg-center) 0%, var(--bg-edge) 85%);
+      }
+      #dots {
+        position: absolute;
+        inset: 0;
+      }
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid var(--brown-soft);
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--brown-soft);
+        border-radius: 18px;
+        opacity: 0.5;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+        filter: drop-shadow(0 14px 22px rgba(67, 41, 26, 0.35));
+      }
+
+      /* S1 · photo from the kitchen */
+      #photo {
+        position: absolute;
+        left: 120px;
+        top: 110px;
+        width: 1680px;
+        height: 860px;
+        border-radius: 40px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px rgba(67, 41, 26, 0.35);
+      }
+      #photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #photo-scrim {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 420px;
+        background: linear-gradient(0deg, rgba(43, 25, 14, 0.85) 0%, rgba(43, 25, 14, 0) 100%);
+      }
+      #photo-txt {
+        position: absolute;
+        left: 80px;
+        bottom: 60px;
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        color: var(--cream);
+      }
+      #photo-txt .house {
+        width: 150px;
+        height: 150px;
+      }
+      #photo-txt .t {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 120px;
+        line-height: 1;
+      }
+
+      /* S2 · title + stack */
+      #title {
+        position: absolute;
+        left: 120px;
+        width: 880px;
+        top: 160px;
+        text-align: center;
+        transform-origin: 50% 0%;
+      }
+      #t-a {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 230px;
+        line-height: 0.95;
+      }
+      #t-b {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 120px;
+        line-height: 1;
+      }
+      #badge {
+        position: absolute;
+        left: 430px;
+        top: 620px;
+        width: 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #badge .house {
+        width: 130px;
+        height: 130px;
+      }
+      #badge .t {
+        margin-top: 6px;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 50px;
+        line-height: 1;
+        text-align: center;
+      }
+      .tl {
+        position: absolute;
+        left: 1080px;
+        width: 560px;
+        height: 300px;
+      }
+      .tl img {
+        position: absolute;
+        inset: 0;
+        width: 560px;
+        height: 300px;
+        filter: drop-shadow(0 16px 16px rgba(67, 41, 26, 0.4));
+      }
+      .bub {
+        position: absolute;
+        left: -70px;
+        top: 110px;
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        background: var(--brown);
+        color: var(--cream);
+        font-size: 64px;
+        line-height: 94px;
+        text-align: center;
+      }
+      .bub.plus {
+        left: -150px;
+        width: 170px;
+        border-radius: 42px;
+        background: var(--crust);
+        color: var(--cream);
+      }
+
+      /* S3 · lot + price */
+      #pill {
+        position: absolute;
+        left: 150px;
+        width: 820px;
+        top: 430px;
+        height: 170px;
+        border-radius: 90px;
+        background: var(--brown);
+        color: var(--cream);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 150px;
+        line-height: 1;
+        letter-spacing: 3px;
+        padding-top: 12px;
+      }
+      #price {
+        position: absolute;
+        left: 290px;
+        top: 630px;
+        width: 540px;
+        height: 230px;
+        border-radius: 50%;
+        background: linear-gradient(100deg, var(--bronze-a) 0%, var(--bronze-b) 100%);
+        border: 8px solid var(--brown);
+        box-shadow: 0 22px 44px rgba(67, 41, 26, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #price span {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 170px;
+        line-height: 1;
+        color: var(--brown);
+        margin-top: -14px;
+      }
+      #fm-end {
+        position: absolute;
+        left: 310px;
+        width: 500px;
+        top: 885px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+      }
+      #fm-end .house {
+        width: 60px;
+        height: 60px;
+      }
+      #fm-end .t {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 50px;
+        line-height: 1;
+      }
+      #legal {
+        position: absolute;
+        left: 70px;
+        bottom: 46px;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 28px;
+        color: var(--brown);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <div id="dots"></div>
+
+      <div id="title">
+        <div id="t-a">Tielles</div>
+        <div id="t-b">individuelles</div>
+      </div>
+      <div id="badge">
+        <svg class="house" viewBox="0 0 100 100">
+          <path d="M50 6 L94 46 H80 V94 H20 V46 H6 Z" fill="#43291a" />
+          <g stroke="#fdf6ea" stroke-width="3" fill="none" stroke-linecap="round">
+            <path d="M50 86 C50 70 52 56 58 40" />
+            <path d="M52 74 C44 72 40 66 40 60 C46 60 51 64 52 74" fill="#fdf6ea" />
+            <path d="M53 64 C61 64 66 58 67 52 C60 52 55 57 53 64" fill="#fdf6ea" />
+            <path d="M55 54 C48 52 45 46 45 40 C51 41 55 46 55 54" fill="#fdf6ea" />
+            <path d="M57 45 C63 44 67 38 68 32 C62 33 58 38 57 45" fill="#fdf6ea" />
+          </g>
+        </svg>
+        <div class="t">Faites maison</div>
+      </div>
+      <div id="stack"></div>
+
+      <div id="pill">LOT DE 3+1</div>
+      <div id="price"><span>11,90€</span></div>
+      <div id="fm-end">
+        <svg class="house" viewBox="0 0 100 100"><path d="M50 6 L94 46 H80 V94 H20 V46 H6 Z" fill="#43291a" /></svg>
+        <div class="t">Faites maison</div>
+      </div>
+
+      <div id="photo">
+        <img src="assets/img/tielles-grille.jpg" alt="Tielles sur la grille" />
+        <div id="photo-scrim"></div>
+        <div id="photo-txt">
+          <svg class="house" viewBox="0 0 100 100">
+            <path d="M50 6 L94 46 H80 V94 H20 V46 H6 Z" fill="#fdf6ea" />
+            <g stroke="#43291a" stroke-width="3" fill="none" stroke-linecap="round">
+              <path d="M50 86 C50 70 52 56 58 40" />
+              <path d="M52 74 C44 72 40 66 40 60 C46 60 51 64 52 74" fill="#43291a" />
+              <path d="M53 64 C61 64 66 58 67 52 C60 52 55 57 53 64" fill="#43291a" />
+              <path d="M55 54 C48 52 45 46 45 40 C51 41 55 46 55 54" fill="#43291a" />
+              <path d="M57 45 C63 44 67 38 68 32 C62 33 58 38 57 45" fill="#43291a" />
+            </g>
+          </svg>
+          <div class="t">Faites maison</div>
+        </div>
+      </div>
+
+      <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
+      <div id="frame"></div>
+      <div id="legal">Photos non contractuelles</div>
+    </div>
+
+    <script>
+      // Stack of 4 tielles (bottom → top), numbered 1, 2, 3, +1
+      const stackEl = document.getElementById("stack");
+      const tiles = [];
+      for (let i = 0; i < 4; i++) {
+        const d = document.createElement("div");
+        d.className = "tl";
+        d.style.top = 640 - i * 128 + "px";
+        d.style.zIndex = 10 + i;
+        d.innerHTML =
+          '<img src="assets/img/tielle-cote.png" alt="Tielle" />' +
+          '<div class="bub' + (i === 3 ? " plus" : "") + '">' + (i === 3 ? "+1" : i + 1) + "</div>";
+        stackEl.appendChild(d);
+        tiles.push(d);
+      }
+
+      let seed = 1190;
+      const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+      const dotsEl = document.getElementById("dots");
+      const dots = [];
+      for (let i = 0; i < 14; i++) {
+        const d = document.createElement("div");
+        d.className = "dot";
+        const size = Math.round(26 + rand() * 40);
+        d.style.width = d.style.height = size + "px";
+        d.style.left = Math.round(60 + rand() * 1780) + "px";
+        d.style.top = Math.round(60 + rand() * 940) + "px";
+        dotsEl.appendChild(d);
+        dots.push({ el: d, op: 0.06 + rand() * 0.1, dx: -30 + rand() * 60, dy: -40 - rand() * 50 });
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      dots.forEach((d) => {
+        tl.fromTo(d.el, { autoAlpha: 0, x: 0, y: 0 }, { autoAlpha: d.op, x: d.dx, y: d.dy, duration: 15, ease: "none" }, 0);
+      });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.5, duration: 0.8 }, 0.2);
+
+      // ── Logo intro → top-right corner
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.3);
+
+      // ── S1 · kitchen photo, slow push-in (1.5 → 4.6)
+      tl.fromTo("#photo", { autoAlpha: 0, scale: 0.85, y: 80 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.6, ease: "power3.out" }, 1.5);
+      tl.fromTo("#photo img", { scale: 1.0 }, { scale: 1.1, duration: 3.4, ease: "none" }, 1.5);
+      tl.fromTo("#photo-txt", { autoAlpha: 0, x: -60 }, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power3.out" }, 2.2);
+      tl.fromTo("#photo-txt .house", { rotation: -20, scale: 0.5 }, { rotation: 0, scale: 1, duration: 0.5, ease: "back.out(2.5)" }, 2.2);
+      // the photo lifts away like a lid
+      tl.to("#photo", { y: -1150, rotation: -4, duration: 0.55, ease: "power3.in" }, 4.4);
+
+      // ── S2 · title + stacking (4.8 → 9.3)
+      tl.fromTo("#t-a", { autoAlpha: 0, y: 80 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, 4.8);
+      tl.fromTo("#t-b", { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, 5.05);
+      tl.fromTo("#badge", { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(2.2)" }, 5.4);
+      tiles.forEach((t, i) => {
+        const at = 5.3 + i * 0.5 + (i === 3 ? 0.25 : 0);
+        tl.fromTo(t, { autoAlpha: 0, y: -700, rotation: i % 2 ? 6 : -6 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.45, ease: "power3.in" }, at);
+        // little squash on landing, and the stack underneath gives a tiny bounce
+        tl.to(t, { keyframes: [{ scaleY: 0.9, scaleX: 1.04, duration: 0.07 }, { scaleY: 1, scaleX: 1, duration: 0.22, ease: "back.out(3)" }], transformOrigin: "50% 100%" }, at + 0.45);
+        tl.fromTo(t.querySelector(".bub"), { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(3)" }, at + 0.5);
+      });
+      tl.to(tiles[3], { keyframes: [{ rotation: -3, duration: 0.08 }, { rotation: 3, duration: 0.08 }, { rotation: 0, duration: 0.08 }] }, 7.4);
+
+      // ── S3 · lot de 3+1 + price (9.0 → 12.6)
+      // title shrinks into a heading above the pill: top 160 → 270, scale .42
+      tl.to("#title", { y: 110, scale: 0.42, duration: 0.6, ease: "power3.inOut" }, 9.0);
+      // "faites maison" badge moves under the price
+      tl.to("#badge", { autoAlpha: 0, scale: 0.6, duration: 0.35, ease: "power2.in" }, 9.0);
+      tl.fromTo("#fm-end", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 10.2);
+      tl.fromTo("#pill", { autoAlpha: 0, scaleX: 0.2 }, { autoAlpha: 1, scaleX: 1, duration: 0.5, ease: "back.out(1.6)" }, 9.3);
+      tl.fromTo("#price", { autoAlpha: 0, scale: 0.2, rotation: -30 }, { autoAlpha: 1, scale: 1, rotation: -6, duration: 0.6, ease: "back.out(1.8)" }, 9.75);
+      tl.to("#price", { scale: 1.08, duration: 0.16, yoyo: true, repeat: 1 }, 10.6);
+      tl.to(tiles, { y: -12, duration: 0.2, yoyo: true, repeat: 1, stagger: 0.06, ease: "power2.out" }, 11.0);
+
+      // ── End (12.6 → 15): logo comes in above the heading
+      // corner (1750,140) → (560,170), 160px
+      tl.to("#logo", { x: -400, y: -310, scale: 160 / 360, duration: 0.6, ease: "power3.inOut" }, 12.6);
+      tl.to("#price", { scale: 1.06, duration: 0.16, yoyo: true, repeat: 1 }, 13.6);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.75, duration: 0.5 }, 4.8);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
