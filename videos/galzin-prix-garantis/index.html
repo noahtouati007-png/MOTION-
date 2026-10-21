@@ -404,7 +404,10 @@
         {
           id: "p", title: "Pâtisserie", u: "9", c: ",90€", what: "PÂTISSERIES", note: "(sur sélection)",
           foot: "Pâtisseries individuelles comprises dans l'offre : <i>voir en magasin</i>",
-          prods: [],
+          prods: [
+            { src: "flan.png", x: 120, y: 420, w: 560, h: 361, r: -4 },
+            { src: "tarte-fraises.png", x: 560, y: 520, w: 360, h: 352, r: 4 },
+          ],
         },
       ];
       // Line-art pastry illustration (no photo available): a slice of layered cake + a tartlet
@@ -435,7 +438,6 @@
               '<img class="prod" id="' + o.id + "-prod" + i + '" src="assets/img/' + p.src + '" alt="" style="left:' + p.x + "px;top:" + p.y + "px;width:" + p.w + "px;height:" + p.h + 'px" />'
           )
           .join("");
-        if (o.id === "p") prods = PATISS_SVG;
         sc.innerHTML =
           '<div class="title" id="' + o.id + '-title">' + o.title + "</div>" +
           prods +
