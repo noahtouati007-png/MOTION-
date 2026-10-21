@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "429f4e15-875e-411a-b7bd-711dbba652ed",
-  "currentRevision": "28e940e7-5b51-4d00-9e06-d58a6cd3e75a",
+  "currentRevision": "0960c497-e077-43b1-b43f-52f280cb6365",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -33,8 +33,8 @@
       "content": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/08/08ad38eff3d6e13357aa5ca34e1955c5fa34d872185603c7339de77f4a04b075"
     },
     "assets/img/donut.png": {
-      "hash": "29f7e79583dee2046875df30aa18073df8206500997e087bb580929ddc68cea3",
-      "content": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/29/29f7e79583dee2046875df30aa18073df8206500997e087bb580929ddc68cea3"
+      "hash": "14ba0d8f7773edb3d7892c3c5f93eff5f6d666feb1c4a07b60672f6f5889aaca",
+      "content": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/14/14ba0d8f7773edb3d7892c3c5f93eff5f6d666feb1c4a07b60672f6f5889aaca"
     },
     "assets/img/galzin-logo.png": {
       "hash": "cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5",
@@ -49,8 +49,8 @@
       "content": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/e5/e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6"
     },
     "index.html": {
-      "hash": "d9166c149c0d27c3396622b5336da1432119811132c9bbdf205f876f7811051b",
-      "content": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/d9/d9166c149c0d27c3396622b5336da1432119811132c9bbdf205f876f7811051b"
+      "hash": "1265890072eb535e77ffb269d7068e25d4da05e9e3dd7b86dac94239b86feb2d",
+      "content": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/12/1265890072eb535e77ffb269d7068e25d4da05e9e3dd7b86dac94239b86feb2d"
     },
     "meta.json": {
       "hash": "d6cf206257cb0b1e8c9e1291ba87770e43ed291f48daea9d9a80c9ea60adc49d",
@@ -80,12 +80,31 @@
           "after": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/d9/d9166c149c0d27c3396622b5336da1432119811132c9bbdf205f876f7811051b"
         }
       }
+    },
+    "0960c497-e077-43b1-b43f-52f280cb6365": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792591823802,
+      "endedAt": 1792591823810,
+      "files": {
+        "assets/img/donut.png": {
+          "before": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/29/29f7e79583dee2046875df30aa18073df8206500997e087bb580929ddc68cea3",
+          "after": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/14/14ba0d8f7773edb3d7892c3c5f93eff5f6d666feb1c4a07b60672f6f5889aaca"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/d9/d9166c149c0d27c3396622b5336da1432119811132c9bbdf205f876f7811051b",
+          "after": "/root/.cache/hyperframes/history/429f4e15-875e-411a-b7bd-711dbba652ed/blobs/12/1265890072eb535e77ffb269d7068e25d4da05e9e3dd7b86dac94239b86feb2d"
+        }
+      }
     }
   },
   "checks": {
     "latest": {
-      "revision": "28e940e7-5b51-4d00-9e06-d58a6cd3e75a",
-      "id": "4c2fe08f-016c-4b12-9b80-9c4d19032b5a"
+      "revision": "0960c497-e077-43b1-b43f-52f280cb6365",
+      "id": "c9c822a7-7e83-456e-8fa7-75c16c0246fc"
     },
     "revisions": {
       "28e940e7-5b51-4d00-9e06-d58a6cd3e75a": [
@@ -113,6 +132,35 @@
           "contentHash": "39bcbfb365cb6fbdbed9ee12d22af6065558e60eda04c06cadf614d02bd43fe9",
           "revision": "28e940e7-5b51-4d00-9e06-d58a6cd3e75a",
           "inputFingerprint": "949c4b28768f816c381b12a440605a6fbf7db6f87b5b9ffada2b2a21d80b5ea0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "0960c497-e077-43b1-b43f-52f280cb6365": [
+        {
+          "id": "c9c822a7-7e83-456e-8fa7-75c16c0246fc",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/galzin-sandwich-panini/.hyperframes/artifacts/checks/c9c822a7-7e83-456e-8fa7-75c16c0246fc.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792591826213,
+          "contentHash": "39bcbfb365cb6fbdbed9ee12d22af6065558e60eda04c06cadf614d02bd43fe9",
+          "revision": "0960c497-e077-43b1-b43f-52f280cb6365",
+          "inputFingerprint": "0e4cdb7e25c37a9ce1f486be5263bd6d32f877f2a51074c4917d01d3b178f074",
           "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
@@ -279,13 +327,14 @@
   },
   "renders": {
     "latest": {
-      "id": "a9ef9b25-562e-4c2a-9692-3da611a4eb66",
-      "completedAt": 1792591629751,
+      "id": "f884fe9a-a108-487a-b208-3e33906e3ba0",
+      "completedAt": 1792591855444,
       "output": "/home/user/MOTION-/videos/galzin-sandwich-panini/renders/galzin-sandwich-panini.mp4",
       "status": "completed",
-      "revision": "28e940e7-5b51-4d00-9e06-d58a6cd3e75a"
+      "revision": "0960c497-e077-43b1-b43f-52f280cb6365"
     },
     "retainedRevisions": [
+      "0960c497-e077-43b1-b43f-52f280cb6365",
       "28e940e7-5b51-4d00-9e06-d58a6cd3e75a"
     ]
   },
