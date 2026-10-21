@@ -163,10 +163,11 @@
       }
       #panel {
         position: absolute;
-        left: 1170px;
-        top: 300px;
-        width: 640px;
-        padding: 40px 30px 46px;
+        left: 510px;
+        top: 190px;
+        width: 1000px;
+        left: 460px;
+        padding: 28px 30px 32px;
         border-radius: 34px;
         background: var(--cream);
         box-shadow: 0 26px 50px rgba(0, 0, 0, 0.35);
@@ -174,6 +175,9 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+      }
+      #p-ask b {
+        display: inline-block;
       }
       #p-a {
         font-family: "Crimson Pro", serif;
@@ -230,10 +234,32 @@
         font-size: 70px;
         color: var(--ink);
       }
+      #p-q {
+        margin-top: 26px;
+        font-size: 70px;
+        line-height: 1;
+        letter-spacing: 3px;
+        color: #b5651b;
+      }
+      #p-ask {
+        margin-top: 8px;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 46px;
+        line-height: 1.1;
+        color: var(--ink);
+      }
+      #p-ask b {
+        color: #b5651b;
+      }
       #legal {
         position: absolute;
-        right: 70px;
-        bottom: 46px;
+        right: 60px;
+        bottom: 40px;
+        padding: 6px 18px;
+        border-radius: 14px;
+        background: var(--cream);
         font-family: "Crimson Pro", serif;
         font-style: italic;
         font-weight: 600;
@@ -270,12 +296,12 @@
       <div id="track"><div id="strip"></div></div>
       <svg id="pointer" viewBox="0 0 60 50"><polygon points="0,0 60,0 30,50" fill="#f2a531" /></svg>
 
-      <div id="hero"><img src="assets/img/pizza-chevre.png" alt="Pizza chèvre-miel" /></div>
       <div id="panel">
-        <div id="p-a">Cette semaine, retrouvez la pizza</div>
-        <div id="p-name">chèvre-miel</div>
+        <div id="p-a">Chaque semaine, une pizza à l'honneur</div>
         <div id="p-seul">À SEULEMENT</div>
         <div id="oval"><span>8,90€</span><sup data-layout-allow-overflow="true">*</sup></div>
+        <div id="p-q">LAQUELLE CETTE SEMAINE ?</div>
+        <div id="p-ask">Demandez à la vendeuse ou regardez au rayon pizzas : <b>c'est affiché !</b></div>
       </div>
 
       <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
@@ -285,25 +311,20 @@
     </div>
 
     <script>
-      // ── Build the wheel strip: 4 pizzas repeated, the last slot is the chèvre-miel
+      // ── Build the wheel strip: the 4 pizzas repeated, it never stops on one
       const ORDER = ["poulet", "lardons", "thon", "chevre"];
-      const N = 15; // the last slot is always the chèvre-miel
+      const N = 40;
       const GAP = 700;
       const strip = document.getElementById("strip");
-      const slots = [];
       for (let i = 0; i < N; i++) {
-        const name = i === N - 1 ? "chevre" : ORDER[i % 4];
         const d = document.createElement("div");
         d.className = "pz";
         d.style.left = i * GAP + "px";
-        d.innerHTML = '<img src="assets/img/pizza-' + name + '.png" alt="" />';
+        d.innerHTML = '<img src="assets/img/pizza-' + ORDER[i % 4] + '.png" alt="" />';
         strip.appendChild(d);
-        slots.push(d);
       }
-      // strip x so that slot k is centred: 960 - (k*GAP + 320)
-      const xAt = (k) => 960 - (k * GAP + 320);
 
-      gsap.set(["#veil", "#hero", "#panel", "#legal"], { autoAlpha: 0 });
+      gsap.set(["#veil", "#panel", "#legal", "#p-q", "#p-ask"], { autoAlpha: 0 });
       const tl = gsap.timeline({ paused: true });
       tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.6, duration: 0.8 }, 0.2);
 
@@ -317,40 +338,33 @@
       tl.fromTo("#h-q", { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 2.0);
       tl.fromTo("#pointer", { autoAlpha: 0, y: -40 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "back.out(2)" }, 2.2);
 
-      // ── The wheel spins and decelerates onto the chèvre-miel (2.3 → 6.3)
-      tl.fromTo("#strip", { x: 1920 }, { x: xAt(N - 1), duration: 4.0, ease: "power4.out" }, 2.3);
-      // "click" the pointer as plates go past, slowing down
-      [2.6, 2.9, 3.2, 3.55, 3.95, 4.45, 5.1, 5.9].forEach((t) => {
+      // ── The wheel spins fast (2.3 → 6.3), then keeps turning slowly until the end
+      tl.fromTo("#strip", { x: 1920 }, { x: -9000, duration: 4.0, ease: "power2.inOut" }, 2.3);
+      tl.to("#strip", { x: -15500, duration: 8.7, ease: "none" }, 6.3);
+      [2.7, 3.0, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.45, 5.85].forEach((t) => {
         tl.to("#pointer", { keyframes: [{ rotation: -14, duration: 0.05 }, { rotation: 0, duration: 0.1 }], transformOrigin: "50% 0%" }, t);
       });
-      // winner bounce
-      tl.to(slots[N - 1], { scale: 1.12, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 }, 6.35);
-      tl.to("#h-q", { autoAlpha: 0, duration: 0.25 }, 6.4);
 
-      // ── Hero: the chèvre-miel takes the stage (6.9 → 12.4)
-      tl.to(["#pointer"], { autoAlpha: 0, duration: 0.25 }, 6.8);
-      tl.to(slots.slice(0, N - 1), { autoAlpha: 0, duration: 0.3 }, 6.8);
-      tl.set(slots[N - 1], { autoAlpha: 0 }, 7.2);
-      // slot centre (960,590) 640px → hero centre (640,615) 960px
-      tl.fromTo("#hero", { autoAlpha: 1, x: 320, y: -25, scale: 640 / 960 }, { autoAlpha: 1, x: 0, y: 0, scale: 1, rotation: -4, duration: 0.7, ease: "power3.inOut", immediateRender: false }, 7.2);
-      tl.to("#floor", { y: 60, duration: 0.7, ease: "power3.inOut" }, 7.2);
-      tl.to("#head", { y: -6, scale: 0.92, duration: 0.6, ease: "power3.inOut" }, 7.2);
-      tl.set("#panel", { autoAlpha: 1 }, 7.6);
-      tl.fromTo("#p-a", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 7.6);
-      tl.fromTo("#p-name", { autoAlpha: 0, scale: 0.5, rotation: -6 }, { autoAlpha: 1, scale: 1, rotation: -2, duration: 0.45, ease: "back.out(2)" }, 7.95);
-      tl.fromTo("#p-seul", { autoAlpha: 0, x: 60 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 8.6);
-      tl.fromTo("#oval", { autoAlpha: 0, scale: 0.2, rotation: -30 }, { autoAlpha: 1, scale: 1, rotation: -4, duration: 0.6, ease: "back.out(1.8)" }, 8.9);
-      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.85, duration: 0.4 }, 9.4);
-      tl.to("#oval", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 9.8);
-      tl.to("#hero", { rotation: 4, duration: 2.6, ease: "sine.inOut" }, 9.9);
-      tl.to("#oval", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 11.6);
-      tl.to("#p-name", { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1 }, 12.0);
+      // ── The wheel steps back, the offer card comes in front (6.3 → 9.5)
+      tl.to(["#pointer", "#h-q"], { autoAlpha: 0, duration: 0.3 }, 6.2);
+      tl.to("#track", { y: 420, scale: 0.6, duration: 0.8, ease: "power3.inOut" }, 6.3);
+      tl.to("#floor", { y: 120, duration: 0.8, ease: "power3.inOut" }, 6.3);
+      tl.fromTo("#panel", { autoAlpha: 0, y: 80, scale: 0.85 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 6.7);
+      tl.fromTo("#p-a", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 7.0);
+      tl.fromTo("#p-seul", { autoAlpha: 0, x: 60 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 7.4);
+      tl.fromTo("#oval", { autoAlpha: 0, scale: 0.2, rotation: -30 }, { autoAlpha: 1, scale: 1, rotation: -4, duration: 0.6, ease: "back.out(1.8)" }, 7.7);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.85, duration: 0.4 }, 8.2);
+      tl.to("#oval", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 8.6);
 
-      // ── End (12.5 → 15): logo comes to centre-top for the sign-off, then fade
-      // corner (1750,140) → (960,170) 240px ; head gives way
-      tl.to("#head", { autoAlpha: 0, y: -60, duration: 0.4, ease: "power2.in" }, 12.5);
-      tl.to("#logo", { x: 0, y: -310, scale: 220 / 360, duration: 0.6, ease: "power3.inOut" }, 12.6);
-      tl.to("#logo", { scale: 240 / 360, duration: 0.2, yoyo: true, repeat: 1 }, 13.4);
+      // ── Where to find it (9.6 → 14.4)
+      tl.fromTo("#p-q", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2.2)" }, 9.6);
+      tl.fromTo("#p-ask", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out" }, 10.1);
+      tl.to("#p-ask b", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 11.0);
+      tl.to("#oval", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 12.2);
+      tl.to("#p-ask b", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 13.2);
+      tl.to("#logo", { scale: 210 / 360, x: 770, y: -320, duration: 0.3, ease: "back.out(3)", yoyo: true, repeat: 1 }, 13.6);
+
+      // ── Clean exit for the loop
       tl.to("#veil", { autoAlpha: 1, duration: 0.55, ease: "power1.inOut" }, 14.4);
 
       window.__timelines["main"] = tl;
