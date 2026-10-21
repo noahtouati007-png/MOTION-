@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      /* THEME — the loyalty poster: chocolate, coral/salmon sunburst, orange→red pill */
+      :root {
+        --brown: #572d14;
+        --brown-2: #3c1f0e;
+        --cream: #fdf0e2;
+        --coral: #ee7a63;
+        --salmon: #f4a47e;
+        --orange: #f08a1c;
+        --red: #e2132b;
+        --ink: #2a1d14;
+        --gold: #c99a4a;
+        --yellow: #ffcc4d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--brown);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--cream);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 60%, #6a3a1c 0%, var(--brown) 60%, var(--brown-2) 100%);
+      }
+      #sun {
+        position: absolute;
+        left: -340px;
+        top: -660px;
+        width: 2600px;
+        height: 2600px;
+        border-radius: 50%;
+        background: repeating-conic-gradient(var(--coral) 0deg 7deg, var(--cream) 7deg 14deg, var(--salmon) 14deg 21deg, var(--cream) 21deg 28deg);
+        -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.55) 22%, transparent 42%);
+        mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.55) 22%, transparent 42%);
+        opacity: 0.85;
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--yellow);
+        border-radius: 18px;
+        opacity: 0.55;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+        filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.4));
+      }
+
+      #title {
+        position: absolute;
+        left: 220px;
+        right: 300px;
+        top: 66px;
+        text-align: center;
+      }
+      #t-a {
+        font-size: 104px;
+        line-height: 0.95;
+        letter-spacing: 3px;
+      }
+      #t-b {
+        margin-top: 8px;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 50px;
+        line-height: 1;
+      }
+
+      /* The card */
+      #cardwrap {
+        position: absolute;
+        left: 510px;
+        top: 335px;
+        width: 900px;
+        height: 566px;
+        perspective: 2000px;
+      }
+      #card {
+        position: absolute;
+        inset: 0;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 34px 60px rgba(0, 0, 0, 0.5);
+      }
+      #card img {
+        position: absolute;
+        inset: 0;
+        width: 900px;
+        height: 566px;
+      }
+      #shine {
+        position: absolute;
+        top: -50%;
+        left: -40%;
+        width: 30%;
+        height: 200%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0) 100%);
+        transform: rotate(20deg);
+      }
+
+      /* 5% pill */
+      #pill {
+        position: absolute;
+        left: 1010px;
+        top: 360px;
+        width: 820px;
+        height: 230px;
+        border-radius: 120px;
+        padding: 10px;
+        background: linear-gradient(100deg, var(--orange) 0%, var(--red) 100%);
+        box-shadow: 0 24px 44px rgba(0, 0, 0, 0.45);
+      }
+      #pill-in {
+        width: 100%;
+        height: 100%;
+        border-radius: 110px;
+        background: var(--brown-2);
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        padding: 0 50px;
+      }
+      #pct {
+        font-size: 200px;
+        line-height: 1;
+        padding-top: 14px;
+        color: var(--cream);
+      }
+      #pill-t {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 1.05;
+        color: var(--cream);
+      }
+      #pill-t b {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 6px 22px 0;
+        border-radius: 14px;
+        background: linear-gradient(100deg, #a8662d 0%, #e3a35a 100%);
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-size: 62px;
+        letter-spacing: 2px;
+        color: var(--brown-2);
+      }
+
+      /* Advantages */
+      .adv {
+        position: absolute;
+        width: 400px;
+        height: 200px;
+        border-radius: 26px;
+        background: var(--cream);
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 0 24px;
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+      }
+      .adv img {
+        width: 130px;
+        height: 130px;
+        object-fit: contain;
+        flex: none;
+      }
+      .adv .s {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1;
+        color: #7a5232;
+      }
+      .adv .b {
+        font-size: 54px;
+        line-height: 0.95;
+        letter-spacing: 1px;
+      }
+      #a1 {
+        left: 1010px;
+        top: 620px;
+      }
+      #a2 {
+        left: 1430px;
+        top: 620px;
+      }
+      #a3 {
+        left: 1010px;
+        top: 840px;
+      }
+      #a4 {
+        left: 1430px;
+        top: 840px;
+      }
+
+      #cta {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 930px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 1;
+        color: var(--cream);
+      }
+      #cta span {
+        color: var(--yellow);
+      }
+      #veil {
+        position: absolute;
+        inset: 0;
+        background: var(--brown);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <div id="sun"></div>
+
+      <div id="title">
+        <div id="t-a">OPTEZ POUR NOTRE CARTE FIDÉLITÉ</div>
+        <div id="t-b">et profitez de tous nos avantages clients !</div>
+      </div>
+
+      <div id="cardwrap">
+        <div id="card">
+          <img src="assets/img/card.png" alt="Carte de fidélité Galzin" />
+          <div id="shine"></div>
+        </div>
+      </div>
+
+      <div id="pill">
+        <div id="pill-in">
+          <div id="pct">5%</div>
+          <div id="pill-t">toujours crédités<br />en plus sur votre<br /><b>CARTE DE FIDÉLITÉ</b></div>
+        </div>
+      </div>
+
+      <div class="adv" id="a1"><img src="assets/img/ic-farine.png" alt="" /><div><div class="s">On utilise de la</div><div class="b">FARINE DE L'AVEYRON</div></div></div>
+      <div class="adv" id="a2"><img src="assets/img/ic-levain.png" alt="" /><div><div class="s">On utilise du</div><div class="b">LEVAIN À L'ANCIENNE</div></div></div>
+      <div class="adv" id="a3"><img src="assets/img/ic-circuits.png" alt="" /><div><div class="s">On favorise les</div><div class="b">CIRCUITS COURTS</div></div></div>
+      <div class="adv" id="a4"><img src="assets/img/ic-maison.png" alt="" /><div><div class="s">Tout est</div><div class="b">100% FAIT PAR NOUS</div></div></div>
+
+      <div id="cta">Demandez-la <span>en caisse !</span></div>
+
+      <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
+      <div id="frame"></div>
+      <div id="veil"></div>
+    </div>
+
+    <script>
+      gsap.set("#veil", { autoAlpha: 0 });
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.55, duration: 0.8 }, 0.2);
+
+      // ── Logo intro → top-right corner
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.2);
+
+      // ── Title
+      tl.fromTo("#t-a", { autoAlpha: 0, y: -60 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, 1.5);
+      tl.fromTo("#t-b", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out" }, 1.85);
+
+      // ── Sunburst + card flips in (2.3 → 4.5)
+      tl.fromTo("#sun", { autoAlpha: 0, scale: 0.4, rotation: 0 }, { autoAlpha: 0.85, scale: 1, rotation: 20, duration: 1.0, ease: "power2.out" }, 2.3);
+      tl.to("#sun", { rotation: 80, duration: 11.7, ease: "none" }, 3.3);
+      tl.fromTo("#card", { rotationY: -180, rotationZ: 0, scale: 0.4, autoAlpha: 0 }, { rotationY: 0, rotationZ: -5, scale: 1, autoAlpha: 1, duration: 1.0, ease: "back.out(1.2)" }, 2.5);
+      tl.fromTo("#shine", { x: 0 }, { x: 1900, duration: 0.8, ease: "power2.inOut" }, 3.6);
+
+      // ── Card moves left, the 5% pill takes the right (4.6 → 7)
+      // card centre (960,618) → (510,640), scale .9
+      tl.to("#cardwrap", { x: -450, y: 22, scale: 0.9, duration: 0.7, ease: "power3.inOut" }, 4.6);
+      tl.to("#sun", { x: -450, duration: 0.7, ease: "power3.inOut" }, 4.6);
+      tl.fromTo("#pill", { autoAlpha: 0, x: 400, scale: 0.8 }, { autoAlpha: 1, x: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 5.0);
+      tl.fromTo("#pct", { scale: 0.3, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2.5)" }, 5.35);
+      tl.to("#pill", { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1 }, 6.1);
+
+      // ── The four advantages (7 → 11.6)
+      ["#a1", "#a2", "#a3", "#a4"].forEach((sel, i) => {
+        const t = 7.0 + i * 0.55;
+        tl.fromTo(sel, { autoAlpha: 0, y: 80, scale: 0.7 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.8)" }, t);
+        tl.fromTo(sel + " img", { rotation: -25, scale: 0.4 }, { rotation: 0, scale: 1, duration: 0.5, ease: "back.out(2.5)" }, t + 0.1);
+      });
+      tl.fromTo("#shine", { x: 0 }, { x: 1900, duration: 0.8, ease: "power2.inOut", immediateRender: false }, 9.8);
+
+      // ── End card (11.7 → 14.4): back to the card + call to action
+      tl.to(["#a1", "#a2", "#a3", "#a4"], { autoAlpha: 0, y: 60, duration: 0.35, ease: "power2.in", stagger: 0.05 }, 11.7);
+      tl.to("#pill", { autoAlpha: 0, x: 300, duration: 0.4, ease: "power2.in" }, 11.8);
+      tl.to("#cardwrap", { x: 0, y: -30, scale: 0.95, duration: 0.7, ease: "power3.inOut" }, 12.0);
+      tl.to("#sun", { x: 0, duration: 0.7, ease: "power3.inOut" }, 12.0);
+      tl.to("#card", { rotationZ: 0, duration: 0.7, ease: "power3.inOut" }, 12.0);
+      tl.fromTo("#cta", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, 12.6);
+      tl.fromTo("#shine", { x: 0 }, { x: 1900, duration: 0.8, ease: "power2.inOut", immediateRender: false }, 13.0);
+      tl.to("#logo", { scale: 210 / 360, x: 770, y: -320, duration: 0.3, ease: "back.out(3)", yoyo: true, repeat: 1 }, 13.4);
+
+      // ── Clean exit for the loop (14.4 → 15)
+      tl.to("#veil", { autoAlpha: 1, duration: 0.55, ease: "power1.inOut" }, 14.4);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

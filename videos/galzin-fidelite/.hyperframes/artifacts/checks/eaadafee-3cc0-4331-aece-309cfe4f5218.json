@@ -1,0 +1,205 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 4.167,
+        "selector": "#shine",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1715.59,
+          "top": -53.99,
+          "right": 2269.38,
+          "bottom": 1109.32,
+          "width": 553.78,
+          "height": 1163.31
+        },
+        "containerSelector": "#card",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 487.05,
+          "top": 296.86,
+          "right": 1432.95,
+          "bottom": 939.14,
+          "width": 945.91,
+          "height": 642.29
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1715.59,
+          "y": -53.99,
+          "width": 553.78,
+          "height": 1163.31
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 14.167,
+        "occurrences": 7,
+        "heldMs": 0,
+        "times": [
+          4.167,
+          5.833,
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 5.833,
+        "selector": "#shine",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1359.1,
+          "top": 20.42,
+          "right": 1857.51,
+          "bottom": 1067.4,
+          "width": 498.41,
+          "height": 1046.98
+        },
+        "containerSelector": "#card",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 84.34,
+          "top": 350.97,
+          "right": 935.66,
+          "bottom": 929.03,
+          "width": 851.31,
+          "height": 578.06
+        },
+        "overflow": {
+          "right": 921.85,
+          "top": 330.55,
+          "bottom": 138.37
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1359.1,
+          "y": 20.42,
+          "width": 498.41,
+          "height": 1046.98
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 14.167,
+        "occurrences": 7,
+        "heldMs": 0,
+        "times": [
+          4.167,
+          5.833,
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      }
+    ],
+    "duration": 15,
+    "samples": [
+      0.833,
+      2.5,
+      4.167,
+      5.833,
+      7.5,
+      9.167,
+      10.833,
+      12.5,
+      14.167
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.32:1; WCAG AA requires 3:1.",
+        "text": "en caisse !",
+        "fg": "rgb(255,204,77)",
+        "bg": "rgb(168,129,108)",
+        "ratio": 2.32,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(76,61,23)",
+        "large": true,
+        "selector": "div > div:nth-of-type(10) > span",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1015.125,
+          "y": 926,
+          "width": 246.3125,
+          "height": 71
+        },
+        "time": 14.167,
+        "times": [
+          14.167
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      0.833,
+      4.167,
+      7.5,
+      10.833,
+      14.167
+    ],
+    "checked": 26,
+    "passed": 25
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
