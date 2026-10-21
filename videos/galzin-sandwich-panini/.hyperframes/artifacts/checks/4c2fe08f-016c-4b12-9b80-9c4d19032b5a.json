@@ -1,0 +1,148 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 9.875,
+        "selector": "#p1",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1295.73,
+          "top": 789.64,
+          "right": 1617.6,
+          "bottom": 892.01,
+          "width": 321.87,
+          "height": 102.37
+        },
+        "containerSelector": "#p2",
+        "text": "7,20€",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1295.73,
+          "y": 789.64,
+          "width": 321.87,
+          "height": 102.37
+        },
+        "firstSeen": 9.875,
+        "lastSeen": 9.875,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          9.875
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 10.833,
+        "selector": "#p2",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1291.8,
+          "top": 793.49,
+          "right": 1628.14,
+          "bottom": 955.52,
+          "width": 336.34,
+          "height": 162.03
+        },
+        "containerSelector": "#paper",
+        "text": "9,90€",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.07,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1291.8,
+          "y": 793.49,
+          "width": 336.34,
+          "height": 162.03
+        },
+        "firstSeen": 10.833,
+        "lastSeen": 10.833,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          10.833
+        ]
+      }
+    ],
+    "duration": 15,
+    "samples": [
+      0.833,
+      2.5,
+      4.167,
+      5.833,
+      7.5,
+      9.167,
+      10.833,
+      12.5,
+      14.167
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.833,
+      4.167,
+      7.5,
+      10.833,
+      14.167
+    ],
+    "checked": 31,
+    "passed": 31
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
