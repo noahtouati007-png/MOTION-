@@ -1,0 +1,513 @@
+{
+  "version": 1,
+  "historyId": "1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8",
+  "currentRevision": "cf4bcd97-e41f-4638-9ee6-37c913a5b78b",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "CLAUDE.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "assets/fonts/bebas-neue-latin-400-normal.woff2": {
+      "hash": "a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/a7/a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412"
+    },
+    "assets/fonts/crimson-pro-latin-600-italic.woff2": {
+      "hash": "cc652c646593506722b059d8151ef80586f235606e37ef4c1863df3e3183ed78",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/cc/cc652c646593506722b059d8151ef80586f235606e37ef4c1863df3e3183ed78"
+    },
+    "assets/fonts/crimson-pro-latin-700-normal.woff2": {
+      "hash": "e34581dd821e87e007f5525f03b45f90207539a6c79132851217b5c1a0616c68",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/e3/e34581dd821e87e007f5525f03b45f90207539a6c79132851217b5c1a0616c68"
+    },
+    "assets/fonts/dancing-script-latin-700-normal.woff2": {
+      "hash": "06b326d772e3a68977c10711110f5f38255a007f3775795efbcd3862313b2d22",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/06/06b326d772e3a68977c10711110f5f38255a007f3775795efbcd3862313b2d22"
+    },
+    "assets/img/galzin-logo.png": {
+      "hash": "cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/ce/cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5"
+    },
+    "assets/img/pizza-chevre.png": {
+      "hash": "9518c809866e6799c919eeaa214b69820ec7b74be174b19abd514a624aeb3c05",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/95/9518c809866e6799c919eeaa214b69820ec7b74be174b19abd514a624aeb3c05"
+    },
+    "assets/img/pizza-lardons.png": {
+      "hash": "279f2569b0c6577b7d530b563546142aa9ca1afe81fa5d09bfc1d55358840ba5",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/27/279f2569b0c6577b7d530b563546142aa9ca1afe81fa5d09bfc1d55358840ba5"
+    },
+    "assets/img/pizza-poulet.png": {
+      "hash": "30dbdbdd30af47f3fe766922eeb4e125e8911b10cc9c5011f37cd514a011bc70",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/30/30dbdbdd30af47f3fe766922eeb4e125e8911b10cc9c5011f37cd514a011bc70"
+    },
+    "assets/img/pizza-thon.png": {
+      "hash": "3206c51ec98fb76e6d3edfdf8bf7ea41c89e03a231d7e1a1f33435c1223a0cdf",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/32/3206c51ec98fb76e6d3edfdf8bf7ea41c89e03a231d7e1a1f33435c1223a0cdf"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/e5/e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6"
+    },
+    "index.html": {
+      "hash": "2ba736d74b63213891d9eb951e320f2d77c236728a01381403c6b4266a9410a6",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/2b/2ba736d74b63213891d9eb951e320f2d77c236728a01381403c6b4266a9410a6"
+    },
+    "meta.json": {
+      "hash": "60a926fc5a094cff106ae1378e46e9cb47853a91f47a65bdc87dcdf1a632e24e",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/60/60a926fc5a094cff106ae1378e46e9cb47853a91f47a65bdc87dcdf1a632e24e"
+    },
+    "package.json": {
+      "hash": "0c296323a76f714b0b11c47d0bb619eff7e640008bdb870a2a778376d1e92c1c",
+      "content": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/0c/0c296323a76f714b0b11c47d0bb619eff7e640008bdb870a2a778376d1e92c1c"
+    }
+  },
+  "revisions": {
+    "982ab289-a96e-42f9-a2ab-31813010c14d": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792594666046,
+      "endedAt": 1792594666048,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/2d/2d881ec3d293a5df1f60aa7224a04581e5091b4235694cf514f31ac8d9baa010",
+          "after": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/3d/3d8b7d4a5846b095fdab80593de0f4f16e89380db5add7d50972f69a45976fcb"
+        }
+      }
+    },
+    "cf4bcd97-e41f-4638-9ee6-37c913a5b78b": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792594687457,
+      "endedAt": 1792594687458,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/3d/3d8b7d4a5846b095fdab80593de0f4f16e89380db5add7d50972f69a45976fcb",
+          "after": "/root/.cache/hyperframes/history/1aa2c594-b82c-4c3a-a5c0-1edca86fe7d8/blobs/2b/2ba736d74b63213891d9eb951e320f2d77c236728a01381403c6b4266a9410a6"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "cf4bcd97-e41f-4638-9ee6-37c913a5b78b",
+      "id": "21ab8e39-dcd3-4693-9439-f922dada942e"
+    },
+    "revisions": {
+      "982ab289-a96e-42f9-a2ab-31813010c14d": [
+        {
+          "id": "82f44198-d223-4a80-b711-55e312f01139",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792594667881,
+          "contentHash": "ae9017fa393699620b3a09fe08c0a36c48ad60fb5cc1ae948d89cccf535b0e79",
+          "revision": "982ab289-a96e-42f9-a2ab-31813010c14d",
+          "inputFingerprint": "bb94c6c97991f44b48f87a81e8ef398c3aaee7b4192d2a03b16464bae2877992",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e2ab4f92-1a0e-4196-a741-fcb16777cc77"
+        }
+      ],
+      "cf4bcd97-e41f-4638-9ee6-37c913a5b78b": [
+        {
+          "id": "21ab8e39-dcd3-4693-9439-f922dada942e",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/checks/21ab8e39-dcd3-4693-9439-f922dada942e.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792594689259,
+          "contentHash": "7b7150c29c2a7e431dcd32a59900ac7b1928141c5e3b7ac8be30107a5059238e",
+          "revision": "cf4bcd97-e41f-4638-9ee6-37c913a5b78b",
+          "inputFingerprint": "3ad8114b1dbff75647f7e0a46dab3b976f3aa93e47a061011713ff0c34351ec9",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "816f4634-8a41-465c-8481-ac7e8ddd659f",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/checks/816f4634-8a41-465c-8481-ac7e8ddd659f.json",
+        "metadata": {
+          "ok": false,
+          "browserSkipped": true,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792594653872,
+        "contentHash": "f12aa40464212b8b68d4ac00b7c918e7217db5f22f2f266cc54e310d2025fc8a",
+        "revision": null,
+        "inputFingerprint": "35c58aafeb6dc7d6e511f0b0dec161419483ab835a640ad564ca52f17add6d21",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "cf4bcd97-e41f-4638-9ee6-37c913a5b78b",
+      "id": "3b7a585a-5e64-475a-a8ad-e3dd60bbb621-1"
+    },
+    "revisions": {
+      "982ab289-a96e-42f9-a2ab-31813010c14d": [
+        {
+          "scope": "full",
+          "id": "091cdbe9-aaba-44ec-a023-4a53f1e0e72b-0",
+          "time": 2.2,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792594671750,
+          "contentHash": "43cfb32a25696807a9d4bafd8d2164557f767d3a53096d37c0d903b05b6d14d1",
+          "revision": "982ab289-a96e-42f9-a2ab-31813010c14d",
+          "inputFingerprint": "bb94c6c97991f44b48f87a81e8ef398c3aaee7b4192d2a03b16464bae2877992",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e2ab4f92-1a0e-4196-a741-fcb16777cc77"
+        },
+        {
+          "scope": "full",
+          "id": "091cdbe9-aaba-44ec-a023-4a53f1e0e72b-1",
+          "time": 3.6,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792594671750,
+          "contentHash": "9f3fd7ee964b143f66132b94e09c6640a0aeacfe69eb2e766bc0b30b2c4ced8a",
+          "revision": "982ab289-a96e-42f9-a2ab-31813010c14d",
+          "inputFingerprint": "bb94c6c97991f44b48f87a81e8ef398c3aaee7b4192d2a03b16464bae2877992",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e2ab4f92-1a0e-4196-a741-fcb16777cc77"
+        },
+        {
+          "scope": "full",
+          "id": "091cdbe9-aaba-44ec-a023-4a53f1e0e72b-2",
+          "time": 6.4,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792594671750,
+          "contentHash": "68221894648ec22e18bbf6209130b47bf100a1e018860648afe746fbcbb37a5a",
+          "revision": "982ab289-a96e-42f9-a2ab-31813010c14d",
+          "inputFingerprint": "bb94c6c97991f44b48f87a81e8ef398c3aaee7b4192d2a03b16464bae2877992",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e2ab4f92-1a0e-4196-a741-fcb16777cc77"
+        },
+        {
+          "scope": "full",
+          "id": "091cdbe9-aaba-44ec-a023-4a53f1e0e72b-3",
+          "time": 9.8,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792594671750,
+          "contentHash": "38d33dc8d2c1a27221206c45b95e4d0ecb5fdfd412d690481843c38b6190271f",
+          "revision": "982ab289-a96e-42f9-a2ab-31813010c14d",
+          "inputFingerprint": "bb94c6c97991f44b48f87a81e8ef398c3aaee7b4192d2a03b16464bae2877992",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e2ab4f92-1a0e-4196-a741-fcb16777cc77"
+        },
+        {
+          "scope": "full",
+          "id": "091cdbe9-aaba-44ec-a023-4a53f1e0e72b-4",
+          "time": 13.8,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792594671750,
+          "contentHash": "05905c67254ec4d99d8f9dd92dda05e573d98b762b62b288362ddea0b8edd581",
+          "revision": "982ab289-a96e-42f9-a2ab-31813010c14d",
+          "inputFingerprint": "bb94c6c97991f44b48f87a81e8ef398c3aaee7b4192d2a03b16464bae2877992",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e2ab4f92-1a0e-4196-a741-fcb16777cc77"
+        },
+        {
+          "scope": "full",
+          "id": "091cdbe9-aaba-44ec-a023-4a53f1e0e72b-5",
+          "time": 14.55,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792594671750,
+          "contentHash": "3d5f2bae7e805d1992c82eae57ea2c3bc58aea0c2a95043c495a91930e8ed49d",
+          "revision": "982ab289-a96e-42f9-a2ab-31813010c14d",
+          "inputFingerprint": "bb94c6c97991f44b48f87a81e8ef398c3aaee7b4192d2a03b16464bae2877992",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e2ab4f92-1a0e-4196-a741-fcb16777cc77"
+        }
+      ],
+      "cf4bcd97-e41f-4638-9ee6-37c913a5b78b": [
+        {
+          "scope": "full",
+          "id": "3b7a585a-5e64-475a-a8ad-e3dd60bbb621-0",
+          "image": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/snapshots/a30de558-fd73-45cb-9884-54ba6b27aa19/frame-00-at-10.5s.png",
+          "time": 10.5,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792594691794,
+          "contentHash": "5a6175c5c48265f9bd8599c469d878dd97dca02142c0972442e7e5ae4e7c4aad",
+          "revision": "cf4bcd97-e41f-4638-9ee6-37c913a5b78b",
+          "inputFingerprint": "3ad8114b1dbff75647f7e0a46dab3b976f3aa93e47a061011713ff0c34351ec9",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "3b7a585a-5e64-475a-a8ad-e3dd60bbb621-1",
+          "image": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/snapshots/a30de558-fd73-45cb-9884-54ba6b27aa19/frame-01-at-14.55s.png",
+          "time": 14.55,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792594691794,
+          "contentHash": "8ae387fcffab021eced68ac85c5f35f1c874d715316674eb5588a4a7712da920",
+          "revision": "cf4bcd97-e41f-4638-9ee6-37c913a5b78b",
+          "inputFingerprint": "3ad8114b1dbff75647f7e0a46dab3b976f3aa93e47a061011713ff0c34351ec9",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "64b315c2-e384-4371-a2e6-9950b837513b-0",
+        "image": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/snapshots/27c56110-5498-4393-8995-ac768451bd5f/frame-00-at-2.2s.png",
+        "time": 2.2,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792594659463,
+        "contentHash": "43cfb32a25696807a9d4bafd8d2164557f767d3a53096d37c0d903b05b6d14d1",
+        "revision": null,
+        "inputFingerprint": "35c58aafeb6dc7d6e511f0b0dec161419483ab835a640ad564ca52f17add6d21",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "64b315c2-e384-4371-a2e6-9950b837513b-1",
+        "image": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/snapshots/27c56110-5498-4393-8995-ac768451bd5f/frame-01-at-3.6s.png",
+        "time": 3.6,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792594659463,
+        "contentHash": "9f3fd7ee964b143f66132b94e09c6640a0aeacfe69eb2e766bc0b30b2c4ced8a",
+        "revision": null,
+        "inputFingerprint": "35c58aafeb6dc7d6e511f0b0dec161419483ab835a640ad564ca52f17add6d21",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "64b315c2-e384-4371-a2e6-9950b837513b-2",
+        "image": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/snapshots/27c56110-5498-4393-8995-ac768451bd5f/frame-02-at-6.4s.png",
+        "time": 6.4,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792594659463,
+        "contentHash": "68221894648ec22e18bbf6209130b47bf100a1e018860648afe746fbcbb37a5a",
+        "revision": null,
+        "inputFingerprint": "35c58aafeb6dc7d6e511f0b0dec161419483ab835a640ad564ca52f17add6d21",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "64b315c2-e384-4371-a2e6-9950b837513b-3",
+        "image": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/snapshots/27c56110-5498-4393-8995-ac768451bd5f/frame-03-at-9.8s.png",
+        "time": 9.8,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792594659463,
+        "contentHash": "38d33dc8d2c1a27221206c45b95e4d0ecb5fdfd412d690481843c38b6190271f",
+        "revision": null,
+        "inputFingerprint": "35c58aafeb6dc7d6e511f0b0dec161419483ab835a640ad564ca52f17add6d21",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "64b315c2-e384-4371-a2e6-9950b837513b-4",
+        "image": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/snapshots/27c56110-5498-4393-8995-ac768451bd5f/frame-04-at-13.8s.png",
+        "time": 13.8,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792594659463,
+        "contentHash": "05905c67254ec4d99d8f9dd92dda05e573d98b762b62b288362ddea0b8edd581",
+        "revision": null,
+        "inputFingerprint": "35c58aafeb6dc7d6e511f0b0dec161419483ab835a640ad564ca52f17add6d21",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "64b315c2-e384-4371-a2e6-9950b837513b-5",
+        "image": "/home/user/MOTION-/videos/galzin-pizza-semaine/.hyperframes/artifacts/snapshots/27c56110-5498-4393-8995-ac768451bd5f/frame-05-at-14.55s.png",
+        "time": 14.55,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792594659463,
+        "contentHash": "3d5f2bae7e805d1992c82eae57ea2c3bc58aea0c2a95043c495a91930e8ed49d",
+        "revision": null,
+        "inputFingerprint": "35c58aafeb6dc7d6e511f0b0dec161419483ab835a640ad564ca52f17add6d21",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "e2ab4f92-1a0e-4196-a741-fcb16777cc77",
+      "completedAt": 1792594738255,
+      "output": "/home/user/MOTION-/videos/galzin-pizza-semaine/renders/galzin-pizza-semaine.mp4",
+      "status": "completed",
+      "revision": "cf4bcd97-e41f-4638-9ee6-37c913a5b78b"
+    },
+    "retainedRevisions": [
+      "cf4bcd97-e41f-4638-9ee6-37c913a5b78b"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

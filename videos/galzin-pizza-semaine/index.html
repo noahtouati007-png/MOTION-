@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      /* THEME — the "pizza de la semaine" poster: chocolate top, cream bottom, orange accent, bronze oval */
+      :root {
+        --brown: #3e2618;
+        --cream: #fdf0e3;
+        --cream-2: #f3dfc6;
+        --orange: #f2a531;
+        --ink: #3e2618;
+        --bronze-a: #f2c890;
+        --bronze-b: #b0743d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--brown);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--cream);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 30%, #55331f 0%, var(--brown) 70%);
+      }
+      #floor {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--orange);
+        border-radius: 18px;
+        opacity: 0.6;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+        filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.4));
+      }
+
+      #head {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 60px;
+        text-align: center;
+      }
+      #h-a {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 96px;
+        line-height: 1;
+      }
+      #h-a span {
+        color: var(--orange);
+      }
+      #h-q {
+        margin-top: 6px;
+        font-size: 64px;
+        letter-spacing: 6px;
+        color: var(--orange);
+      }
+
+      /* The pizza wheel */
+      #track {
+        position: absolute;
+        left: 0;
+        top: 330px;
+        width: 1920px;
+        height: 520px;
+      }
+      #strip {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 520px;
+      }
+      .pz {
+        position: absolute;
+        top: 70px;
+        width: 640px;
+        height: 380px;
+      }
+      .pz img {
+        position: absolute;
+        inset: 0;
+        width: 640px;
+        height: 380px;
+        object-fit: contain;
+        filter: drop-shadow(0 26px 22px rgba(0, 0, 0, 0.5));
+      }
+      #pointer {
+        position: absolute;
+        left: 930px;
+        top: 300px;
+        width: 60px;
+        height: 50px;
+      }
+
+      /* Hero after the wheel stops */
+      #hero {
+        position: absolute;
+        left: 160px;
+        top: 330px;
+        width: 960px;
+        height: 570px;
+      }
+      #hero img {
+        position: absolute;
+        inset: 0;
+        width: 960px;
+        height: 570px;
+        object-fit: contain;
+        filter: drop-shadow(0 34px 28px rgba(0, 0, 0, 0.5));
+      }
+      #panel {
+        position: absolute;
+        left: 1170px;
+        top: 300px;
+        width: 640px;
+        padding: 40px 30px 46px;
+        border-radius: 34px;
+        background: var(--cream);
+        box-shadow: 0 26px 50px rgba(0, 0, 0, 0.35);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      #p-a {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 58px;
+        line-height: 1.05;
+        color: var(--ink);
+      }
+      #p-name {
+        margin-top: 14px;
+        padding: 6px 36px 10px;
+        border-radius: 24px;
+        background: var(--brown);
+        color: var(--orange);
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 84px;
+        line-height: 1;
+      }
+      #p-seul {
+        margin-top: 34px;
+        font-size: 74px;
+        line-height: 1;
+        letter-spacing: 3px;
+        color: var(--ink);
+      }
+      #oval {
+        position: relative;
+        margin-top: 8px;
+        width: 440px;
+        height: 190px;
+        border-radius: 50%;
+        background: linear-gradient(100deg, var(--bronze-b) 0%, var(--bronze-a) 50%, var(--bronze-b) 100%);
+        box-shadow: 0 20px 40px rgba(62, 38, 24, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #oval span {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 150px;
+        line-height: 1;
+        color: var(--ink);
+        margin-top: -12px;
+      }
+      #oval sup {
+        position: absolute;
+        right: 6px;
+        top: -16px;
+        font-size: 70px;
+        color: var(--ink);
+      }
+      #legal {
+        position: absolute;
+        right: 70px;
+        bottom: 46px;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 32px;
+        color: var(--ink);
+      }
+      #veil {
+        position: absolute;
+        inset: 0;
+        background: var(--brown);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <svg id="floor" viewBox="0 0 1920 1080">
+        <path id="floor-p" fill="#fdf0e3" d="M0 640 C 400 560, 900 600, 1300 520 S 1800 380, 1920 360 L 1920 1080 L 0 1080 Z" />
+      </svg>
+
+      <div id="head">
+        <div id="h-a">La Pizza de la <span>semaine</span></div>
+        <div id="h-q">LAQUELLE CETTE SEMAINE ?</div>
+      </div>
+
+      <div id="track"><div id="strip"></div></div>
+      <svg id="pointer" viewBox="0 0 60 50"><polygon points="0,0 60,0 30,50" fill="#f2a531" /></svg>
+
+      <div id="hero"><img src="assets/img/pizza-chevre.png" alt="Pizza chèvre-miel" /></div>
+      <div id="panel">
+        <div id="p-a">Cette semaine, retrouvez la pizza</div>
+        <div id="p-name">chèvre-miel</div>
+        <div id="p-seul">À SEULEMENT</div>
+        <div id="oval"><span>8,90€</span><sup data-layout-allow-overflow="true">*</sup></div>
+      </div>
+
+      <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
+      <div id="frame"></div>
+      <div id="legal">*offre valable seulement sur la vente à emporter</div>
+      <div id="veil"></div>
+    </div>
+
+    <script>
+      // ── Build the wheel strip: 4 pizzas repeated, the last slot is the chèvre-miel
+      const ORDER = ["poulet", "lardons", "thon", "chevre"];
+      const N = 15; // the last slot is always the chèvre-miel
+      const GAP = 700;
+      const strip = document.getElementById("strip");
+      const slots = [];
+      for (let i = 0; i < N; i++) {
+        const name = i === N - 1 ? "chevre" : ORDER[i % 4];
+        const d = document.createElement("div");
+        d.className = "pz";
+        d.style.left = i * GAP + "px";
+        d.innerHTML = '<img src="assets/img/pizza-' + name + '.png" alt="" />';
+        strip.appendChild(d);
+        slots.push(d);
+      }
+      // strip x so that slot k is centred: 960 - (k*GAP + 320)
+      const xAt = (k) => 960 - (k * GAP + 320);
+
+      gsap.set(["#veil", "#hero", "#panel", "#legal"], { autoAlpha: 0 });
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.6, duration: 0.8 }, 0.2);
+
+      // ── Logo intro → top-right corner
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.2);
+
+      // ── Cream floor rises, title
+      tl.fromTo("#floor", { y: 520 }, { y: 0, duration: 0.8, ease: "power3.out" }, 1.3);
+      tl.fromTo("#h-a", { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, 1.6);
+      tl.fromTo("#h-q", { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 2.0);
+      tl.fromTo("#pointer", { autoAlpha: 0, y: -40 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "back.out(2)" }, 2.2);
+
+      // ── The wheel spins and decelerates onto the chèvre-miel (2.3 → 6.3)
+      tl.fromTo("#strip", { x: 1920 }, { x: xAt(N - 1), duration: 4.0, ease: "power4.out" }, 2.3);
+      // "click" the pointer as plates go past, slowing down
+      [2.6, 2.9, 3.2, 3.55, 3.95, 4.45, 5.1, 5.9].forEach((t) => {
+        tl.to("#pointer", { keyframes: [{ rotation: -14, duration: 0.05 }, { rotation: 0, duration: 0.1 }], transformOrigin: "50% 0%" }, t);
+      });
+      // winner bounce
+      tl.to(slots[N - 1], { scale: 1.12, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 }, 6.35);
+      tl.to("#h-q", { autoAlpha: 0, duration: 0.25 }, 6.4);
+
+      // ── Hero: the chèvre-miel takes the stage (6.9 → 12.4)
+      tl.to(["#pointer"], { autoAlpha: 0, duration: 0.25 }, 6.8);
+      tl.to(slots.slice(0, N - 1), { autoAlpha: 0, duration: 0.3 }, 6.8);
+      tl.set(slots[N - 1], { autoAlpha: 0 }, 7.2);
+      // slot centre (960,590) 640px → hero centre (640,615) 960px
+      tl.fromTo("#hero", { autoAlpha: 1, x: 320, y: -25, scale: 640 / 960 }, { autoAlpha: 1, x: 0, y: 0, scale: 1, rotation: -4, duration: 0.7, ease: "power3.inOut", immediateRender: false }, 7.2);
+      tl.to("#floor", { y: 60, duration: 0.7, ease: "power3.inOut" }, 7.2);
+      tl.to("#head", { y: -6, scale: 0.92, duration: 0.6, ease: "power3.inOut" }, 7.2);
+      tl.set("#panel", { autoAlpha: 1 }, 7.6);
+      tl.fromTo("#p-a", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 7.6);
+      tl.fromTo("#p-name", { autoAlpha: 0, scale: 0.5, rotation: -6 }, { autoAlpha: 1, scale: 1, rotation: -2, duration: 0.45, ease: "back.out(2)" }, 7.95);
+      tl.fromTo("#p-seul", { autoAlpha: 0, x: 60 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 8.6);
+      tl.fromTo("#oval", { autoAlpha: 0, scale: 0.2, rotation: -30 }, { autoAlpha: 1, scale: 1, rotation: -4, duration: 0.6, ease: "back.out(1.8)" }, 8.9);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.85, duration: 0.4 }, 9.4);
+      tl.to("#oval", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 9.8);
+      tl.to("#hero", { rotation: 4, duration: 2.6, ease: "sine.inOut" }, 9.9);
+      tl.to("#oval", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 11.6);
+      tl.to("#p-name", { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1 }, 12.0);
+
+      // ── End (12.5 → 15): logo comes to centre-top for the sign-off, then fade
+      // corner (1750,140) → (960,170) 240px ; head gives way
+      tl.to("#head", { autoAlpha: 0, y: -60, duration: 0.4, ease: "power2.in" }, 12.5);
+      tl.to("#logo", { x: 0, y: -310, scale: 220 / 360, duration: 0.6, ease: "power3.inOut" }, 12.6);
+      tl.to("#logo", { scale: 240 / 360, duration: 0.2, yoyo: true, repeat: 1 }, 13.4);
+      tl.to("#veil", { autoAlpha: 1, duration: 0.55, ease: "power1.inOut" }, 14.4);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
