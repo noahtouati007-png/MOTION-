@@ -1,0 +1,222 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/MOTION-/videos/galzin-baguette/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 4.167,
+        "selector": "#pA",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 659.55,
+          "top": 668.79,
+          "right": 1259.3,
+          "bottom": 939.24,
+          "width": 599.75,
+          "height": 270.44
+        },
+        "containerSelector": "#price",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 659.55,
+          "top": 668.79,
+          "right": 1258.78,
+          "bottom": 929.25,
+          "width": 599.23,
+          "height": 260.46
+        },
+        "overflow": {
+          "bottom": 9.99
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 659.55,
+          "y": 668.79,
+          "width": 599.75,
+          "height": 270.44
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 5.833,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          4.167,
+          5.833
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 7.5,
+        "selector": "#pB",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 659.55,
+          "top": 668.79,
+          "right": 1259.3,
+          "bottom": 939.24,
+          "width": 599.75,
+          "height": 270.44
+        },
+        "containerSelector": "#price",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 659.55,
+          "top": 668.79,
+          "right": 1258.78,
+          "bottom": 929.25,
+          "width": 599.23,
+          "height": 260.46
+        },
+        "overflow": {
+          "bottom": 9.99
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 659.55,
+          "y": 668.79,
+          "width": 599.75,
+          "height": 270.44
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 14.167,
+        "occurrences": 5,
+        "heldMs": 0,
+        "times": [
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 2.375,
+        "selector": "#t-a",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 175.95,
+          "top": 72,
+          "right": 744.03,
+          "bottom": 238,
+          "width": 568.08,
+          "height": 166
+        },
+        "containerSelector": "#t-b",
+        "text": "Baguette",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 175.95,
+          "y": 72,
+          "width": 568.08,
+          "height": 166
+        },
+        "firstSeen": 2.375,
+        "lastSeen": 2.375,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.375
+        ]
+      }
+    ],
+    "duration": 15,
+    "samples": [
+      0.833,
+      2.5,
+      4.167,
+      5.833,
+      7.5,
+      9.167,
+      10.833,
+      12.5,
+      14.167
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.833,
+      4.167,
+      7.5,
+      10.833,
+      14.167
+    ],
+    "checked": 37,
+    "passed": 37
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

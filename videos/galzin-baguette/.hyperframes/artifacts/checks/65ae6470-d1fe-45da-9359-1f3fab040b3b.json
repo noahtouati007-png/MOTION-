@@ -1,0 +1,668 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/MOTION-/videos/galzin-baguette/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 7,
+    "warningCount": 4,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 4.167,
+        "selector": "#strip-u > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 829.48,
+          "top": 685.94,
+          "right": 945.04,
+          "bottom": 919.64,
+          "width": 115.56,
+          "height": 233.7
+        },
+        "containerSelector": "#reel-u",
+        "text": "1",
+        "fixHint": "Text is 116px x 234px inside 111px x 215px and overflows by up to 19px; resize the container to at least ~114px x 234px or shrink font-size from 250px to ~230px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 831.31,
+          "top": 685.33,
+          "right": 942.16,
+          "bottom": 900.28,
+          "width": 110.85,
+          "height": 214.95
+        },
+        "overflow": {
+          "right": 2.88,
+          "bottom": 19.36
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 829.48,
+          "y": 685.94,
+          "width": 115.56,
+          "height": 233.7
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 5.833,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          4.167,
+          5.833
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 4.167,
+        "selector": "#strip-u > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 840.47,
+          "top": 860.09,
+          "right": 956.03,
+          "bottom": 1164.91,
+          "width": 115.56,
+          "height": 304.82
+        },
+        "containerSelector": "#bg",
+        "text": "0",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.33,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 840.47,
+          "y": 860.09,
+          "width": 115.56,
+          "height": 304.82
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 5.833,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          4.167,
+          5.833
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 4.167,
+        "selector": "#strip-c > div:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 979.53,
+          "top": 696.12,
+          "right": 1082.93,
+          "bottom": 824.27,
+          "width": 103.4,
+          "height": 128.15
+        },
+        "containerSelector": "#reel-c",
+        "text": "00",
+        "fixHint": "Text is 103px x 128px inside 102px x 117px and overflows by up to 12px; increase the container height to at least ~129px or shrink font-size from 120px to ~109px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 980.05,
+          "top": 695.77,
+          "right": 1081.78,
+          "bottom": 812.64,
+          "width": 101.73,
+          "height": 116.87
+        },
+        "overflow": {
+          "bottom": 11.63
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 979.53,
+          "y": 696.12,
+          "width": 103.4,
+          "height": 128.15
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 5.833,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          4.167,
+          5.833
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 7.5,
+        "selector": "#strip-u > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 818.49,
+          "top": 440.67,
+          "right": 934.05,
+          "bottom": 745.49,
+          "width": 115.56,
+          "height": 304.82
+        },
+        "containerSelector": "#bagA > img:nth-of-type(1)",
+        "text": "1",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.74,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 818.49,
+          "y": 440.67,
+          "width": 115.56,
+          "height": 304.82
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 14.167,
+        "occurrences": 5,
+        "heldMs": 0,
+        "times": [
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 7.5,
+        "selector": "#strip-u > div:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 829.48,
+          "top": 685.94,
+          "right": 945.04,
+          "bottom": 919.64,
+          "width": 115.56,
+          "height": 233.7
+        },
+        "containerSelector": "#reel-u",
+        "text": "0",
+        "fixHint": "Text is 116px x 234px inside 111px x 215px and overflows by up to 19px; resize the container to at least ~114px x 234px or shrink font-size from 250px to ~230px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 831.31,
+          "top": 685.33,
+          "right": 942.16,
+          "bottom": 900.28,
+          "width": 110.85,
+          "height": 214.95
+        },
+        "overflow": {
+          "right": 2.88,
+          "bottom": 19.36
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 829.48,
+          "y": 685.94,
+          "width": 115.56,
+          "height": 233.7
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 14.167,
+        "occurrences": 5,
+        "heldMs": 0,
+        "times": [
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "error",
+        "time": 7.5,
+        "selector": "#strip-c > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 973.67,
+          "top": 573.94,
+          "right": 1077.07,
+          "bottom": 722.76,
+          "width": 103.4,
+          "height": 148.83
+        },
+        "containerSelector": "#bg",
+        "text": "00",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.67,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 973.67,
+          "y": 573.94,
+          "width": 103.4,
+          "height": 148.83
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 14.167,
+        "occurrences": 5,
+        "heldMs": 0,
+        "times": [
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "error",
+        "time": 7.5,
+        "selector": "#strip-c > div:nth-of-type(2)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 979.53,
+          "top": 696.12,
+          "right": 1082.93,
+          "bottom": 824.27,
+          "width": 103.4,
+          "height": 128.15
+        },
+        "containerSelector": "#reel-c",
+        "text": "90",
+        "fixHint": "Text is 103px x 128px inside 102px x 117px and overflows by up to 12px; increase the container height to at least ~129px or shrink font-size from 120px to ~109px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 980.05,
+          "top": 695.77,
+          "right": 1081.78,
+          "bottom": 812.64,
+          "width": 101.73,
+          "height": 116.87
+        },
+        "overflow": {
+          "bottom": 11.63
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 979.53,
+          "y": 696.12,
+          "width": 103.4,
+          "height": 128.15
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 14.167,
+        "occurrences": 5,
+        "heldMs": 0,
+        "times": [
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 3.375,
+        "selector": "#strip-u > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 869.74,
+          "top": 739.49,
+          "right": 957.23,
+          "bottom": 878.34,
+          "width": 87.49,
+          "height": 138.85
+        },
+        "containerSelector": "#euro",
+        "text": "1",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 869.74,
+          "y": 739.49,
+          "width": 87.49,
+          "height": 138.85
+        },
+        "firstSeen": 3.375,
+        "lastSeen": 3.5,
+        "occurrences": 2,
+        "heldMs": 125,
+        "times": [
+          3.375,
+          3.5
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "warning",
+        "time": 4.167,
+        "selector": "#strip-u > div:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 840.47,
+          "top": 860.09,
+          "right": 956.03,
+          "bottom": 1164.91,
+          "width": 115.56,
+          "height": 304.82
+        },
+        "containerSelector": "#root",
+        "text": "0",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 84.91
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 840.47,
+          "y": 860.09,
+          "width": 115.56,
+          "height": 304.82
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 5.833,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          4.167,
+          5.833
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 4.167,
+        "selector": "#strip-u",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 831.31,
+          "top": 685.33,
+          "right": 953.16,
+          "bottom": 1109.99,
+          "width": 121.84,
+          "height": 424.66
+        },
+        "containerSelector": "#reel-u",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 831.31,
+          "top": 685.33,
+          "right": 942.16,
+          "bottom": 900.28,
+          "width": 110.85,
+          "height": 214.95
+        },
+        "overflow": {
+          "right": 11,
+          "bottom": 209.71
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 831.31,
+          "y": 685.33,
+          "width": 121.84,
+          "height": 424.66
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 14.167,
+        "occurrences": 7,
+        "heldMs": 0,
+        "times": [
+          4.167,
+          5.833,
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 4.167,
+        "selector": "#strip-c",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 980.05,
+          "top": 695.77,
+          "right": 1087.64,
+          "bottom": 924.49,
+          "width": 107.59,
+          "height": 228.72
+        },
+        "containerSelector": "#reel-c",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 980.05,
+          "top": 695.77,
+          "right": 1081.78,
+          "bottom": 812.64,
+          "width": 101.73,
+          "height": 116.87
+        },
+        "overflow": {
+          "right": 5.86,
+          "bottom": 111.85
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 980.05,
+          "y": 695.77,
+          "width": 107.59,
+          "height": 228.72
+        },
+        "firstSeen": 4.167,
+        "lastSeen": 14.167,
+        "occurrences": 7,
+        "heldMs": 0,
+        "times": [
+          4.167,
+          5.833,
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 2.375,
+        "selector": "#t-a",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 175.95,
+          "top": 72,
+          "right": 744.03,
+          "bottom": 238,
+          "width": 568.08,
+          "height": 166
+        },
+        "containerSelector": "#t-b",
+        "text": "Baguette",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 175.95,
+          "y": 72,
+          "width": 568.08,
+          "height": 166
+        },
+        "firstSeen": 2.375,
+        "lastSeen": 2.375,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.375
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 3.375,
+        "selector": "#euro",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 930.38,
+          "top": 736.77,
+          "right": 978.06,
+          "bottom": 829.27,
+          "width": 47.68,
+          "height": 92.5
+        },
+        "containerSelector": "#strip-c > div:nth-of-type(1)",
+        "text": "€",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 930.38,
+          "y": 736.77,
+          "width": 47.68,
+          "height": 92.5
+        },
+        "firstSeen": 3.375,
+        "lastSeen": 3.375,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          3.375
+        ]
+      }
+    ],
+    "duration": 15,
+    "samples": [
+      0.833,
+      2.5,
+      4.167,
+      5.833,
+      7.5,
+      9.167,
+      10.833,
+      12.5,
+      14.167
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 13,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "0",
+        "fg": "rgb(61,38,24)",
+        "bg": "rgb(61,38,24)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(128,113,104)",
+        "large": true,
+        "selector": "div > div:nth-of-type(6) > div:nth-of-type(1) > div:nth-of-type(1) > div > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 842.3017578125,
+          "y": 895.0431518554688,
+          "width": 110.85345458984375,
+          "height": 214.94573974609375
+        },
+        "time": 4.167,
+        "times": [
+          4.167
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      0.833,
+      4.167,
+      7.5,
+      10.833,
+      14.167
+    ],
+    "checked": 49,
+    "passed": 48
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

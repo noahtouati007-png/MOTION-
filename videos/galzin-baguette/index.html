@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      /* THEME — the baguette poster: cream on top, chocolate wave below, bronze price */
+      :root {
+        --cream: #fdf1e3;
+        --cream-2: #f3e1c9;
+        --brown: #3d2618;
+        --brown-2: #2a190f;
+        --text-cream: #fdf1e3;
+        --bronze-a: #f6d29b;
+        --bronze-b: #b6773f;
+        --gold: #e7b36a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--cream);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--brown);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 60% 30%, var(--cream) 0%, var(--cream-2) 90%);
+      }
+      #wave {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--gold);
+        border-radius: 18px;
+        opacity: 0.7;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+        filter: drop-shadow(0 14px 22px rgba(61, 38, 24, 0.35));
+      }
+
+      /* Title */
+      #title {
+        position: absolute;
+        left: 110px;
+        top: 80px;
+        width: 700px;
+        text-align: center;
+      }
+      #t-a {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 150px;
+        line-height: 1;
+      }
+      #t-b {
+        margin-top: -10px;
+        font-size: 250px;
+        line-height: 0.9;
+        letter-spacing: 6px;
+      }
+
+      /* Baguettes: A rises to the right, B is mirrored, they cross in an X */
+      .bag {
+        position: absolute;
+        left: 780px;
+        top: 218px;
+        width: 900px;
+        height: 364px;
+      }
+      .bag img {
+        position: absolute;
+        inset: 0;
+        width: 900px;
+        height: 364px;
+        filter: drop-shadow(0 22px 18px rgba(61, 38, 24, 0.4));
+      }
+      #bagB img {
+        transform: scaleX(-1);
+      }
+      #impact {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+
+      /* Bottom (on the brown wave) */
+      #par2 {
+        position: absolute;
+        left: 110px;
+        top: 690px;
+        width: 520px;
+        text-align: center;
+        color: var(--text-cream);
+      }
+      #par2-a {
+        font-size: 190px;
+        line-height: 0.9;
+        letter-spacing: 4px;
+      }
+      #par2-b {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 72px;
+        line-height: 1;
+        color: var(--gold);
+      }
+      #oval {
+        position: absolute;
+        left: 660px;
+        top: 650px;
+        width: 600px;
+        height: 330px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse at 35% 30%, var(--bronze-a) 0%, var(--bronze-b) 100%);
+        border: 6px solid var(--brown-2);
+        box-shadow: 0 22px 44px rgba(0, 0, 0, 0.45);
+      }
+      #price {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        color: var(--brown);
+      }
+      #price {
+        height: 230px;
+        overflow: hidden;
+      }
+      .pr {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      .pr .u {
+        font-size: 250px;
+        line-height: 240px;
+      }
+      .pr .c {
+        font-size: 120px;
+        line-height: 1;
+        margin-top: 26px;
+      }
+      .strip {
+        display: flex;
+        flex-direction: column;
+      }
+      #reel-u {
+        height: 210px;
+      }
+      #reel-u .strip div {
+        height: 210px;
+        font-size: 250px;
+        line-height: 230px;
+      }
+      #euro {
+        font-size: 120px;
+        line-height: 1;
+        margin-top: 18px;
+      }
+      #reel-c {
+        height: 112px;
+        margin-top: 18px;
+      }
+      #reel-c .strip div {
+        height: 112px;
+        font-size: 120px;
+        line-height: 124px;
+      }
+      .cap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 236px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 1;
+        color: var(--brown);
+      }
+      #chip {
+        position: absolute;
+        left: 1310px;
+        top: 760px;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      #chip-c {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 30%, var(--bronze-a) 0%, var(--bronze-b) 100%);
+        border: 5px solid var(--brown-2);
+        color: var(--brown);
+        font-size: 84px;
+        line-height: 132px;
+        text-align: center;
+      }
+      #chip-t {
+        font-size: 64px;
+        line-height: 0.95;
+        color: var(--gold);
+        letter-spacing: 1px;
+      }
+      #kg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 990px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 26px;
+        color: var(--text-cream);
+      }
+      #legal {
+        position: absolute;
+        left: 60px;
+        bottom: 40px;
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: var(--text-cream);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <svg id="wave" viewBox="0 0 1920 1080">
+        <path id="wave-path" fill="#3d2618" d="M0 700 C 360 600, 640 560, 960 640 S 1560 700, 1920 600 L 1920 1080 L 0 1080 Z" />
+      </svg>
+
+      <div id="title">
+        <div id="t-a">Baguette</div>
+        <div id="t-b">GALZIN</div>
+      </div>
+
+      <div class="bag" id="bagB"><img src="assets/img/baguette.png" alt="Baguette" /></div>
+      <div class="bag" id="bagA"><img src="assets/img/baguette.png" alt="Baguette" /></div>
+      <svg id="impact" viewBox="0 0 1920 1080">
+        <g stroke="#3d2618" stroke-width="16" stroke-linecap="round">
+          <line class="dash" x1="1140" y1="300" x2="1090" y2="230" />
+          <line class="dash" x1="1230" y1="280" x2="1230" y2="190" />
+          <line class="dash" x1="1320" y1="300" x2="1370" y2="230" />
+          <line class="dash" x1="1140" y1="520" x2="1090" y2="590" />
+          <line class="dash" x1="1320" y1="520" x2="1370" y2="590" />
+        </g>
+      </svg>
+
+      <div id="par2">
+        <div id="par2-a">PAR 2</div>
+        <div id="par2-b">au choix</div>
+      </div>
+
+      <div id="oval">
+        <div id="price">
+          <div class="pr" id="pA"><span class="u">1</span><span class="c">€00</span></div>
+          <div class="pr" id="pB"><span class="u">0</span><span class="c">€90</span></div>
+        </div>
+        <div class="cap" id="cap-a">la baguette vendue seule</div>
+        <div class="cap" id="cap-b">pièce · soit 1,80€ les 2</div>
+      </div>
+
+      <div id="chip">
+        <div id="chip-c">1€</div>
+        <div id="chip-t">LA BAGUETTE<br />VENDUE SEULE</div>
+      </div>
+
+      <div id="kg">
+        4€/kg pour la baguette vendue seule 1€ · 3,60€/kg pour la baguette vendue à 0,90€ par lot de 2
+      </div>
+
+      <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
+      <div id="frame"></div>
+      <div id="legal">Photo non contractuelle</div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.7, duration: 0.8 }, 0.2);
+
+      // ── Logo intro → top-right corner
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.3);
+
+      // ── The brown wave rises from the bottom
+      tl.fromTo("#wave", { y: 520 }, { y: 0, duration: 0.8, ease: "power3.out" }, 1.4);
+
+      // ── Title
+      tl.fromTo("#t-a", { autoAlpha: 0, x: -80 }, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power3.out" }, 1.8);
+      tl.fromTo("#t-b", { autoAlpha: 0, scale: 1.8 }, { autoAlpha: 1, scale: 1, duration: 0.35, ease: "power4.in" }, 2.1);
+      tl.to("#title", { keyframes: [{ y: 6, duration: 0.05 }, { y: -4, duration: 0.05 }, { y: 0, duration: 0.05 }] }, 2.45);
+
+      // ── Baguette A alone, 1 € (2.6 → 5.0)
+      tl.fromTo("#bagA", { x: 1300, rotation: 12 }, { x: 0, rotation: 0, duration: 0.7, ease: "power3.out" }, 2.6);
+      tl.fromTo("#oval", { autoAlpha: 0, scale: 0.3, rotation: -20 }, { autoAlpha: 1, scale: 1, rotation: -3, duration: 0.6, ease: "back.out(1.7)" }, 3.3);
+      tl.fromTo("#cap-a", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 3.7);
+      gsap.set("#cap-b", { autoAlpha: 0 });
+
+      // ── Baguette B joins and they cross: impact! (5.0 → 5.8)
+      tl.fromTo("#bagB", { x: -1950, rotation: -12 }, { x: 0, rotation: 0, duration: 0.55, ease: "power4.in" }, 5.0);
+      tl.to(["#bagA", "#bagB"], { keyframes: [{ y: 8, duration: 0.05 }, { y: -6, duration: 0.06 }, { y: 0, duration: 0.08 }] }, 5.55);
+      tl.fromTo(".dash", { autoAlpha: 0, scale: 0.2, transformOrigin: "50% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.22, ease: "back.out(3)", stagger: 0.04 }, 5.55);
+      tl.to(".dash", { autoAlpha: 0, duration: 0.3 }, 6.4);
+
+      // ── PAR 2 au choix + the price rolls down: 1€00 → 0€90 (5.8 → 7.2)
+      tl.fromTo("#par2-a", { autoAlpha: 0, x: -120 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "power3.out" }, 5.75);
+      tl.fromTo("#par2-b", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 6.0);
+      // price rolls like a counter: 1€00 leaves upward, 0€90 rolls in from below
+      tl.fromTo("#pA", { y: 0, autoAlpha: 1 }, { y: -240, autoAlpha: 0, duration: 0.35, ease: "power2.in" }, 6.2);
+      tl.fromTo("#pB", { y: 240, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.5, ease: "back.out(1.6)" }, 6.4);
+      tl.to("#cap-a", { autoAlpha: 0, duration: 0.2 }, 6.3);
+      tl.fromTo("#cap-b", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, 6.6);
+      tl.to("#oval", { scale: 1.08, duration: 0.16, yoyo: true, repeat: 1 }, 6.9);
+      tl.fromTo("#kg", { autoAlpha: 0 }, { autoAlpha: 0.9, duration: 0.5 }, 6.6);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.75, duration: 0.5 }, 2.0);
+
+      // ── 1 € seule chip (8.4)
+      tl.fromTo("#chip", { autoAlpha: 0, x: 80 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "power3.out" }, 8.4);
+      tl.fromTo("#chip-c", { scale: 0.3, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, 8.45);
+
+      // ── Breathing hold, then end pulse (9.5 → 15)
+      tl.to("#bagA", { y: -10, rotation: 1, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 9.3);
+      tl.to("#bagB", { y: -10, rotation: -1, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 9.5);
+      tl.to("#oval", { scale: 1.08, duration: 0.16, yoyo: true, repeat: 1 }, 11.0);
+      // end: the corner logo gives a little bounce
+      tl.to("#logo", { scale: 210 / 360, x: 770, y: -320, duration: 0.3, ease: "back.out(3)", yoyo: true, repeat: 1 }, 13.0);
+      tl.to("#oval", { scale: 1.08, duration: 0.16, yoyo: true, repeat: 1 }, 13.6);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
