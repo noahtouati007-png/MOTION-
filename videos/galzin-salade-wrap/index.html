@@ -228,6 +228,54 @@
         width: 310px;
         height: 249px;
       }
+      #end {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 520px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      #end-t {
+        font-size: 160px;
+        line-height: 1;
+        letter-spacing: 3px;
+      }
+      #end-t .ou {
+        font-size: 90px;
+        color: #2c6b69;
+      }
+      #end-row {
+        margin-top: 40px;
+        display: flex;
+        gap: 70px;
+      }
+      .ecell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+      .ecell .l {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 56px;
+        line-height: 1;
+      }
+      .ecell .o {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin-left: 0;
+      }
+      #veil {
+        position: absolute;
+        inset: 0;
+        background: var(--beige);
+      }
       #legal {
         position: absolute;
         left: 60px;
@@ -276,9 +324,18 @@
       <img class="prod" id="can" src="assets/img/canette.png" alt="Boisson 33 cl" />
       <img class="prod" id="donut" src="assets/img/donut.png" alt="Dessert" />
 
+      <div id="end">
+        <div id="end-t">SALADE <span class="ou">OU</span> WRAP</div>
+        <div id="end-row">
+          <div class="ecell"><div class="l">+ Boisson 33cl</div><div class="oval o">8,20€</div></div>
+          <div class="ecell"><div class="l">+ Boisson + Dessert</div><div class="oval o" style="width:380px">10,90€</div></div>
+        </div>
+      </div>
+
       <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
       <div id="frame"></div>
       <div id="legal">Photos non contractuelles</div>
+      <div id="veil"></div>
     </div>
 
     <script>
@@ -323,11 +380,26 @@
       tl.to("#o2", { scale: 1.1, duration: 0.15, yoyo: true, repeat: 1 }, 11.0);
       tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.75, duration: 0.5 }, 2.6);
 
-      // ── Hold (11.8 → 15)
-      tl.to(["#salade", "#wrap", "#can", "#donut"], { y: "-=10", duration: 1.0, ease: "sine.inOut", yoyo: true, repeat: 2, stagger: 0.12 }, 11.8);
-      tl.to("#o1", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 13.0);
-      tl.to("#o2", { scale: 1.1, duration: 0.15, yoyo: true, repeat: 1 }, 13.3);
-      tl.to("#logo", { scale: 210 / 360, x: 770, y: -320, duration: 0.3, ease: "back.out(3)", yoyo: true, repeat: 1 }, 13.9);
+      // ── Short hold (11.6 → 12.2)
+      tl.to(["#can", "#donut"], { y: "-=10", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1, stagger: 0.1 }, 11.6);
+
+      // ── Clear the stage (12.2 → 12.8)
+      tl.to("#salade", { x: "-=900", rotation: -15, duration: 0.5, ease: "power3.in" }, 12.2);
+      tl.to("#wrap", { x: "-=900", rotation: -15, duration: 0.5, ease: "power3.in" }, 12.25);
+      tl.to(["#st1", "#can"], { y: "+=700", duration: 0.5, ease: "power3.in" }, 12.25);
+      tl.to(["#st2", "#donut"], { y: "+=900", duration: 0.5, ease: "power3.in" }, 12.32);
+
+      // ── End card (12.7 → 14.4): logo back to the centre-top, recap of the offer
+      tl.to(["#band", "#title"], { y: -380, duration: 0.5, ease: "power3.in" }, 12.3);
+      // corner (1750,140) → centre (960,300), 280px
+      tl.to("#logo", { x: 0, y: -180, scale: 280 / 360, duration: 0.6, ease: "power3.inOut" }, 12.6);
+      tl.fromTo("#end-t", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, 12.85);
+      tl.fromTo(".ecell", { autoAlpha: 0, y: 60, scale: 0.8 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.8)", stagger: 0.15 }, 13.05);
+      tl.to(".ecell .o", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1, stagger: 0.15 }, 13.7);
+
+      // ── Clean exit for the loop (14.4 → 15): fade to the plain background
+      gsap.set("#veil", { autoAlpha: 0 });
+      tl.to("#veil", { autoAlpha: 1, duration: 0.55, ease: "power1.inOut" }, 14.4);
 
       window.__timelines["main"] = tl;
       tl.seek(0);
