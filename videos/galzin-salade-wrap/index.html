@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      /* THEME — the salade/wrap poster: chocolate band, beige page, teal price ovals */
+      :root {
+        --brown: #42271a;
+        --brown-2: #5a3725;
+        --beige: #f1e2cb;
+        --beige-2: #e6d2b4;
+        --cream: #fdf2e6;
+        --ink: #3a2213;
+        --teal-a: #4b9b98;
+        --teal-b: #7cc7bb;
+        --yellow: #ffcc4d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--beige);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--ink);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 65%, var(--beige) 0%, var(--beige-2) 90%);
+      }
+      #band {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--teal-a);
+        border-radius: 18px;
+        opacity: 0.55;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+        filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.35));
+      }
+      #title {
+        position: absolute;
+        left: 110px;
+        top: 50px;
+        width: 1300px;
+        color: var(--cream);
+      }
+      #t-a {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 1;
+      }
+      #t-b {
+        font-size: 150px;
+        line-height: 0.95;
+        letter-spacing: 3px;
+        white-space: nowrap;
+      }
+      #t-b .ou {
+        font-size: 80px;
+        letter-spacing: 1px;
+        color: var(--yellow);
+      }
+
+      .prod {
+        position: absolute;
+        filter: drop-shadow(0 22px 18px rgba(58, 34, 19, 0.35));
+      }
+      #salade {
+        left: 130px;
+        top: 340px;
+        width: 720px;
+        height: 538px;
+      }
+      #wrap {
+        left: 1080px;
+        top: 360px;
+        width: 740px;
+        height: 475px;
+      }
+      .lbl {
+        position: absolute;
+        top: 900px;
+        width: 720px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 70px;
+        line-height: 1;
+      }
+      #l-sal {
+        left: 130px;
+      }
+      #l-wrap {
+        left: 1090px;
+      }
+      #ou {
+        position: absolute;
+        left: 880px;
+        top: 520px;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: var(--brown);
+        color: var(--yellow);
+        font-size: 96px;
+        line-height: 172px;
+        text-align: center;
+        box-shadow: 0 16px 30px rgba(58, 34, 19, 0.35);
+      }
+
+      /* Staircase */
+      .step {
+        position: absolute;
+        border-radius: 26px 26px 0 0;
+        background: linear-gradient(180deg, var(--brown-2) 0%, var(--brown) 100%);
+        box-shadow: 0 -6px 0 rgba(255, 255, 255, 0.08) inset;
+      }
+      #st1 {
+        left: 900px;
+        top: 760px;
+        width: 440px;
+        height: 340px;
+      }
+      #st2 {
+        left: 1360px;
+        top: 560px;
+        width: 470px;
+        height: 540px;
+      }
+      .st-l {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 26px;
+        text-align: center;
+        color: var(--cream);
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 58px;
+        line-height: 1;
+      }
+      .st-l small {
+        font-size: 36px;
+      }
+      .oval {
+        position: absolute;
+        left: 50%;
+        top: 110px;
+        width: 330px;
+        height: 130px;
+        margin-left: -165px;
+        border-radius: 50%;
+        background: linear-gradient(100deg, var(--teal-a) 0%, var(--teal-b) 55%, var(--teal-a) 100%);
+        color: var(--ink);
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 104px;
+        line-height: 124px;
+      }
+      #o2 {
+        width: 380px;
+        margin-left: -190px;
+      }
+      #can {
+        left: 1040px;
+        top: 476px;
+        width: 150px;
+        height: 286px;
+      }
+      #donut {
+        left: 1440px;
+        top: 318px;
+        width: 310px;
+        height: 249px;
+      }
+      #legal {
+        position: absolute;
+        left: 60px;
+        bottom: 42px;
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 24px;
+        color: var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <svg id="band" viewBox="0 0 1920 1080">
+        <path fill="#42271a" d="M0 0 H1920 V250 C 1600 320, 1300 180, 960 250 S 360 300, 0 200 Z" />
+      </svg>
+
+      <div id="title">
+        <div id="t-a">Découvrez notre offre</div>
+        <div id="t-b">SALADE <span class="ou">OU</span> WRAP</div>
+      </div>
+
+      <div class="step" id="st1">
+        <div class="st-l">+ Boisson <small>33cl</small></div>
+        <div class="oval" id="o1">8,20€</div>
+      </div>
+      <div class="step" id="st2">
+        <div class="st-l">+ Dessert</div>
+        <div class="oval" id="o2">10,90€</div>
+      </div>
+
+      <img class="prod" id="salade" src="assets/img/salade.png" alt="Salade" />
+      <img class="prod" id="wrap" src="assets/img/wrap.png" alt="Wrap" />
+      <div class="lbl" id="l-sal">Salade</div>
+      <div class="lbl" id="l-wrap">Wrap</div>
+      <div id="ou">OU</div>
+      <img class="prod" id="can" src="assets/img/canette.png" alt="Boisson 33 cl" />
+      <img class="prod" id="donut" src="assets/img/donut.png" alt="Dessert" />
+
+      <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
+      <div id="frame"></div>
+      <div id="legal">Photos non contractuelles</div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.55, duration: 0.8 }, 0.2);
+
+      // ── Logo intro → top-right corner
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.2);
+
+      // ── Band + title
+      tl.fromTo("#band", { y: -340 }, { y: 0, duration: 0.7, ease: "power3.out" }, 1.3);
+      tl.fromTo("#t-a", { autoAlpha: 0, x: -60 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "power3.out" }, 1.7);
+      tl.fromTo("#t-b", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, 1.95);
+
+      // ── S1 · The duel: salade vs wrap (2.5 → 6)
+      tl.fromTo("#salade", { x: -1000, rotation: -12 }, { x: 0, rotation: 0, duration: 0.7, ease: "power3.out" }, 2.5);
+      tl.fromTo("#wrap", { x: 1100, rotation: 12 }, { x: 0, rotation: 0, duration: 0.7, ease: "power3.out" }, 2.5);
+      tl.to(["#salade", "#wrap"], { keyframes: [{ scale: 1.04, duration: 0.08 }, { scale: 1, duration: 0.2, ease: "back.out(3)" }] }, 3.2);
+      tl.fromTo("#ou", { autoAlpha: 0, scale: 2.5, rotation: -30 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.35, ease: "power4.in" }, 3.2);
+      tl.fromTo(".lbl", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out", stagger: 0.12 }, 3.6);
+      // the choice wobbles: salade, then wrap
+      tl.to("#salade", { scale: 1.07, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1 }, 4.3);
+      tl.to("#wrap", { scale: 1.07, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1 }, 4.9);
+
+      // ── Transition: both step left, "ou" + labels out (6 → 6.8)
+      tl.to(["#ou", ".lbl"], { autoAlpha: 0, scale: 0.6, duration: 0.3, ease: "power2.in" }, 6.0);
+      // salade centre (490,609) → (440,520), scale .62 ; wrap centre (1450,597) → (450,800), scale .55
+      tl.to("#salade", { x: -50, y: -89, scale: 0.62, duration: 0.7, ease: "power3.inOut" }, 6.1);
+      tl.to("#wrap", { x: -1000, y: 203, scale: 0.55, duration: 0.7, ease: "power3.inOut" }, 6.1);
+
+      // ── S2 · Staircase: + boisson → 8,20 € (6.8 → 9.3)
+      tl.fromTo("#st1", { y: 360 }, { y: 0, duration: 0.6, ease: "back.out(1.3)" }, 6.8);
+      tl.fromTo("#can", { autoAlpha: 0, y: -650, rotation: 20 }, { autoAlpha: 1, y: 0, rotation: 6, duration: 0.55, ease: "bounce.out" }, 7.2);
+      tl.fromTo("#o1", { autoAlpha: 0, scale: 0.3, rotation: -15 }, { autoAlpha: 1, scale: 1, rotation: -3, duration: 0.5, ease: "back.out(1.8)" }, 7.6);
+      tl.to("#o1", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 8.3);
+
+      // ── + dessert → 10,90 € (9.3 → 11.8)
+      tl.fromTo("#st2", { y: 560 }, { y: 0, duration: 0.6, ease: "back.out(1.3)" }, 9.3);
+      tl.fromTo("#donut", { autoAlpha: 0, x: 600, rotation: 360 }, { autoAlpha: 1, x: 0, rotation: 0, duration: 0.8, ease: "power3.out" }, 9.7);
+      tl.fromTo("#o2", { autoAlpha: 0, scale: 0.3, rotation: -15 }, { autoAlpha: 1, scale: 1, rotation: -3, duration: 0.5, ease: "back.out(1.8)" }, 10.3);
+      tl.to("#o2", { scale: 1.1, duration: 0.15, yoyo: true, repeat: 1 }, 11.0);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.75, duration: 0.5 }, 2.6);
+
+      // ── Hold (11.8 → 15)
+      tl.to(["#salade", "#wrap", "#can", "#donut"], { y: "-=10", duration: 1.0, ease: "sine.inOut", yoyo: true, repeat: 2, stagger: 0.12 }, 11.8);
+      tl.to("#o1", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 13.0);
+      tl.to("#o2", { scale: 1.1, duration: 0.15, yoyo: true, repeat: 1 }, 13.3);
+      tl.to("#logo", { scale: 210 / 360, x: 770, y: -320, duration: 0.3, ease: "back.out(3)", yoyo: true, repeat: 1 }, 13.9);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

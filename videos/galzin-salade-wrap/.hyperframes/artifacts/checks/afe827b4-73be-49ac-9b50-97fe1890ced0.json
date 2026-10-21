@@ -1,0 +1,224 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 3,
+    "findings": [
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 0.833,
+        "selector": "#st1 > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 978.56,
+          "top": 1143,
+          "right": 1204,
+          "bottom": 1207,
+          "width": 225.44,
+          "height": 64
+        },
+        "containerSelector": "#root",
+        "text": "+ Boisson",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 127
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 978.56,
+          "y": 1143,
+          "width": 225.44,
+          "height": 64
+        },
+        "firstSeen": 0.833,
+        "lastSeen": 5.833,
+        "occurrences": 4,
+        "heldMs": 0,
+        "times": [
+          0.833,
+          2.5,
+          4.167,
+          5.833
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 0.833,
+        "selector": "div.st-l > small:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1204,
+          "top": 1162,
+          "right": 1261.42,
+          "bottom": 1202,
+          "width": 57.42,
+          "height": 40
+        },
+        "containerSelector": "#root",
+        "text": "33cl",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 122
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1204,
+          "y": 1162,
+          "width": 57.42,
+          "height": 40
+        },
+        "firstSeen": 0.833,
+        "lastSeen": 5.833,
+        "occurrences": 4,
+        "heldMs": 0,
+        "times": [
+          0.833,
+          2.5,
+          4.167,
+          5.833
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 0.833,
+        "selector": "#st2 > div:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1491.23,
+          "top": 1143,
+          "right": 1698.77,
+          "bottom": 1207,
+          "width": 207.54,
+          "height": 64
+        },
+        "containerSelector": "#root",
+        "text": "+ Dessert",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 127
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1491.23,
+          "y": 1143,
+          "width": 207.54,
+          "height": 64
+        },
+        "firstSeen": 0.833,
+        "lastSeen": 9.167,
+        "occurrences": 6,
+        "heldMs": 0,
+        "times": [
+          0.833,
+          2.5,
+          4.167,
+          5.833,
+          7.5,
+          9.167
+        ]
+      }
+    ],
+    "duration": 15,
+    "samples": [
+      0.833,
+      2.5,
+      4.167,
+      5.833,
+      7.5,
+      9.167,
+      10.833,
+      12.5,
+      14.167
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.833,
+      4.167,
+      7.5,
+      10.833,
+      14.167
+    ],
+    "checked": 28,
+    "passed": 28
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
