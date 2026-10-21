@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      /* THEME — the "Prix Garantis" posters: caramel gradient, cream, bronze oval */
+      :root {
+        --bg-top: #b8805a;
+        --bg-bot: #8f573a;
+        --cream: #fdf1e3;
+        --ink: #3f2718;
+        --bronze-a: #f3c88a;
+        --bronze-b: #b96a2c;
+        --gold: #f0c27e;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg-bot);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--cream);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bot) 100%);
+      }
+      #glow {
+        position: absolute;
+        left: 360px;
+        top: 120px;
+        width: 1200px;
+        height: 900px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(253, 241, 227, 0.18) 0%, rgba(253, 241, 227, 0) 65%);
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--cream);
+        border-radius: 18px;
+        opacity: 0.45;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+        filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.35));
+      }
+
+      /* "Prix Garantis" seal */
+      #seal {
+        position: absolute;
+        left: 660px;
+        top: 340px;
+        width: 600px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform-origin: 50% 50%;
+      }
+      #seal .prix {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 120px;
+        line-height: 0.9;
+        color: var(--cream);
+      }
+      #seal .gar {
+        font-size: 210px;
+        line-height: 0.85;
+        letter-spacing: 6px;
+        color: var(--cream);
+      }
+      #seal .rule {
+        width: 520px;
+        height: 8px;
+        border-radius: 4px;
+        background: var(--cream);
+        margin: 6px 0 10px;
+      }
+
+      /* Rotating board */
+      #board {
+        position: absolute;
+        inset: 0;
+        perspective: 2200px;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        transform-origin: 50% 50% -500px;
+        backface-visibility: hidden;
+      }
+      .title {
+        position: absolute;
+        left: 200px;
+        right: 200px;
+        top: 150px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 150px;
+        line-height: 1;
+        color: var(--cream);
+        text-shadow: 0 6px 0 rgba(63, 39, 24, 0.25);
+      }
+      .prod {
+        position: absolute;
+        object-fit: contain;
+        filter: drop-shadow(0 22px 18px rgba(40, 20, 10, 0.45));
+      }
+      .oval {
+        position: absolute;
+        left: 1040px;
+        top: 330px;
+        width: 700px;
+        height: 420px;
+        border-radius: 50%;
+        background: linear-gradient(100deg, var(--bronze-b) 0%, var(--bronze-a) 45%, var(--bronze-a) 55%, var(--bronze-b) 100%);
+        border: 10px solid var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 26px 50px rgba(40, 20, 10, 0.4);
+      }
+      .oval .p {
+        display: flex;
+        align-items: flex-end;
+        color: var(--ink);
+        line-height: 0.82;
+        margin-bottom: 30px;
+      }
+      .oval .p .u {
+        font-size: 300px;
+      }
+      .oval .p .c {
+        font-size: 190px;
+      }
+      .pill {
+        position: absolute;
+        left: 960px;
+        top: 700px;
+        width: 860px;
+        height: 230px;
+        border-radius: 120px;
+        background: var(--cream);
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        padding: 0 40px;
+        gap: 26px;
+        box-shadow: 0 18px 36px rgba(40, 20, 10, 0.3);
+      }
+      .pill .three {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 230px;
+        line-height: 0.8;
+      }
+      .pill .what {
+        font-size: 92px;
+        line-height: 0.95;
+      }
+      .pill .choix {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 62px;
+        line-height: 1;
+      }
+      .pill .choix small {
+        font-size: 36px;
+      }
+      .note {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 975px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 34px;
+        color: var(--cream);
+      }
+      .note i {
+        font-weight: 600;
+      }
+      #patiss-art {
+        position: absolute;
+        left: 170px;
+        top: 360px;
+        width: 720px;
+        height: 520px;
+      }
+
+      /* End card */
+      #end {
+        position: absolute;
+        inset: 0;
+      }
+      #end-title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 300px;
+        text-align: center;
+        font-size: 120px;
+        line-height: 1;
+        letter-spacing: 4px;
+      }
+      .mini {
+        position: absolute;
+        top: 440px;
+        width: 440px;
+        text-align: center;
+      }
+      .mini .o {
+        width: 360px;
+        height: 220px;
+        margin: 0 auto;
+        border-radius: 50%;
+        background: linear-gradient(100deg, var(--bronze-b) 0%, var(--bronze-a) 50%, var(--bronze-b) 100%);
+        border: 7px solid var(--ink);
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 150px;
+        line-height: 1;
+        padding-top: 12px;
+      }
+      .mini .l {
+        margin-top: 14px;
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 54px;
+        line-height: 1;
+      }
+      .mini .s {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 34px;
+        color: var(--cream);
+      }
+      #fid {
+        position: absolute;
+        left: 560px;
+        top: 790px;
+        width: 800px;
+        height: 130px;
+        border-radius: 70px;
+        background: var(--ink);
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        padding: 0 46px;
+      }
+      #fid-pct {
+        font-size: 120px;
+        line-height: 1;
+        color: var(--cream);
+        padding-top: 8px;
+      }
+      #fid-txt {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 1.05;
+        color: var(--cream);
+      }
+      #fid-txt b {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-size: 54px;
+        letter-spacing: 2px;
+        color: var(--gold);
+      }
+      #end-note {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 965px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 32px;
+        color: var(--cream);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <div id="glow"></div>
+
+      <div id="board"></div>
+
+      <div id="end">
+        <div id="end-title">3 AU CHOIX · PRIX GARANTIS</div>
+        <div class="mini" id="m1" style="left: 160px">
+          <div class="o">6,20€</div>
+          <div class="l">Viennoiseries</div>
+          <div class="s">sur tout !*</div>
+        </div>
+        <div class="mini" id="m2" style="left: 740px">
+          <div class="o">9,50€</div>
+          <div class="l">Produits traiteur</div>
+          <div class="s">sur sélection</div>
+        </div>
+        <div class="mini" id="m3" style="left: 1320px">
+          <div class="o">9,90€</div>
+          <div class="l">Pâtisseries</div>
+          <div class="s">sur sélection</div>
+        </div>
+        <div id="fid">
+          <div id="fid-pct">5%</div>
+          <div id="fid-txt">toujours crédités en plus sur votre<br /><b>CARTE DE FIDÉLITÉ</b></div>
+        </div>
+        <div id="end-note">*Produits compris dans l'offre : voir en magasin</div>
+      </div>
+
+      <div id="seal">
+        <div class="prix">Prix</div>
+        <div class="rule"></div>
+        <div class="gar" data-layout-allow-occlusion="true">GARANTIS</div>
+      </div>
+
+      <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
+      <div id="frame"></div>
+    </div>
+
+    <script>
+      // ── Three offers, one template
+      const OFFERS = [
+        {
+          id: "v", title: "Viennoiseries", u: "6", c: ",20€", what: "VIENNOISERIES", note: "sur tout !*",
+          foot: "*Viennoiseries comprises dans l'offre : <i>voir en magasin</i>",
+          prods: [
+            { src: "croissant-2.png", x: 150, y: 560, w: 400, h: 230, r: -8 },
+            { src: "chocolatine.png", x: 470, y: 420, w: 420, h: 300, r: 6 },
+            { src: "croissant.png", x: 380, y: 650, w: 420, h: 330, r: -2 },
+          ],
+        },
+        {
+          id: "t", title: "Produits traiteur", u: "9", c: ",50€", what: "PRODUITS TRAITEUR", note: "(sur sélection)",
+          foot: "Produits traiteur compris dans l'offre : <i>voir en magasin</i>",
+          prods: [
+            { src: "sandwich.png", x: 120, y: 340, w: 640, h: 413, r: -6 },
+            { src: "croque.png", x: 560, y: 560, w: 330, h: 310, r: 8 },
+            { src: "tielle.png", x: 160, y: 690, w: 480, h: 257, r: 0 },
+          ],
+        },
+        {
+          id: "p", title: "Pâtisserie", u: "9", c: ",90€", what: "PÂTISSERIES", note: "(sur sélection)",
+          foot: "Pâtisseries individuelles comprises dans l'offre : <i>voir en magasin</i>",
+          prods: [],
+        },
+      ];
+      // Line-art pastry illustration (no photo available): a slice of layered cake + a tartlet
+      const PATISS_SVG =
+        '<svg id="patiss-art" viewBox="0 0 720 520" fill="none" stroke="#fdf1e3" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path class="pa" d="M60 420 L60 250 L380 170 L380 340 Z" />' +
+        '<path class="pa" d="M380 170 L470 220 L470 390 L380 340" />' +
+        '<path class="pa" d="M60 250 L150 300 L470 220" />' +
+        '<path class="pa" d="M60 420 L150 470 L470 390" />' +
+        '<path class="pa" d="M150 300 L150 470" />' +
+        '<path class="pa" d="M60 330 L150 380 L470 300" />' +
+        '<path class="pa" d="M70 240 C 120 200, 160 230, 210 205 S 300 185, 370 170" />' +
+        '<circle class="pa" cx="250" cy="150" r="26" />' +
+        '<path class="pa" d="M250 124 C 250 100, 270 90, 285 88" />' +
+        '<path class="pa" d="M500 400 C 500 360, 690 360, 690 400 L 670 460 C 640 480, 550 480, 520 460 Z" />' +
+        '<path class="pa" d="M500 400 C 530 420, 660 420, 690 400" />' +
+        '<circle class="pa" cx="560" cy="370" r="20" /><circle class="pa" cx="625" cy="365" r="20" /><circle class="pa" cx="595" cy="335" r="20" />' +
+        "</svg>";
+
+      const board = document.getElementById("board");
+      OFFERS.forEach((o) => {
+        const sc = document.createElement("div");
+        sc.className = "scene";
+        sc.id = "sc-" + o.id;
+        let prods = o.prods
+          .map(
+            (p, i) =>
+              '<img class="prod" id="' + o.id + "-prod" + i + '" src="assets/img/' + p.src + '" alt="" style="left:' + p.x + "px;top:" + p.y + "px;width:" + p.w + "px;height:" + p.h + 'px" />'
+          )
+          .join("");
+        if (o.id === "p") prods = PATISS_SVG;
+        sc.innerHTML =
+          '<div class="title" id="' + o.id + '-title">' + o.title + "</div>" +
+          prods +
+          '<div class="oval" id="' + o.id + '-oval"><div class="p"><span class="u">' + o.u + '</span><span class="c">' + o.c + "</span></div></div>" +
+          '<div class="pill" id="' + o.id + '-pill"><div class="three">3</div><div><div class="what">' + o.what + '</div><div class="choix">au choix <small>' + o.note + "</small></div></div></div>" +
+          '<div class="note" id="' + o.id + '-note">' + o.foot + "</div>";
+        board.appendChild(sc);
+      });
+
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.45, duration: 0.8 }, 0.2);
+
+      // ── Logo intro → top-right corner
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.2);
+
+      // ── "Prix Garantis" seal slams in, then flies to the top-left as a badge
+      tl.fromTo("#seal", { autoAlpha: 0, scale: 2.6, rotation: -14 }, { autoAlpha: 1, scale: 1, rotation: -4, duration: 0.4, ease: "power4.in" }, 1.5);
+      tl.to("#seal", { keyframes: [{ x: 8, duration: 0.04 }, { x: -6, duration: 0.04 }, { x: 0, duration: 0.05 }] }, 1.9);
+      // centre (960,540) → (300,150), scale .34
+      tl.to("#seal", { x: -660, y: -390, scale: 0.34, rotation: -6, duration: 0.6, ease: "power3.inOut" }, 2.5);
+
+      // ── Each offer: enter, show, then the board turns
+      function offerIn(o, t) {
+        const $ = (s) => "#" + o.id + s;
+        tl.fromTo($("-title"), { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (o.prods.length) {
+          o.prods.forEach((p, i) => {
+            tl.fromTo($("-prod" + i), { autoAlpha: 0, y: 260, scale: 0.7, rotation: p.r - 20 }, { autoAlpha: 1, y: 0, scale: 1, rotation: p.r, duration: 0.5, ease: "back.out(1.6)" }, t + 0.15 + i * 0.15);
+          });
+        } else {
+          document.querySelectorAll("#sc-p .pa").forEach((el, i) => {
+            const len = el.getTotalLength();
+            tl.fromTo(el, { attr: { "stroke-dasharray": len, "stroke-dashoffset": len } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.5, ease: "power2.out" }, t + 0.1 + i * 0.06);
+          });
+        }
+        tl.fromTo($("-oval"), { autoAlpha: 0, scale: 0.3, rotation: -25 }, { autoAlpha: 1, scale: 1, rotation: -3, duration: 0.55, ease: "back.out(1.7)" }, t + 0.45);
+        tl.fromTo($("-pill"), { autoAlpha: 0, x: 300 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "power3.out" }, t + 0.8);
+        tl.fromTo($("-note"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, t + 1.0);
+        tl.to($("-oval"), { scale: 1.07, duration: 0.15, yoyo: true, repeat: 1 }, t + 1.6);
+      }
+      // the board turns like a cube: outgoing face rotates away, incoming face rotates in
+      function turn(fromId, toId, t) {
+        tl.to("#sc-" + fromId, { rotationY: -90, duration: 0.45, ease: "power2.in" }, t);
+        tl.set("#sc-" + fromId, { autoAlpha: 0 }, t + 0.45);
+        if (toId) {
+          tl.set("#sc-" + toId, { autoAlpha: 1 }, t + 0.45);
+          tl.fromTo("#sc-" + toId, { rotationY: 90 }, { rotationY: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, t + 0.45);
+        }
+      }
+      gsap.set(["#sc-t", "#sc-p"], { rotationY: 90, autoAlpha: 0 });
+      offerIn(OFFERS[0], 2.8);
+      turn("v", "t", 5.6);
+      offerIn(OFFERS[1], 6.1);
+      turn("t", "p", 8.8);
+      offerIn(OFFERS[2], 9.3);
+      turn("p", null, 11.9);
+
+      // ── End card (12.3 → 15)
+      tl.fromTo("#end-title", { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, 12.3);
+      ["#m1", "#m2", "#m3"].forEach((m, i) => {
+        tl.fromTo(m, { autoAlpha: 0, y: 120 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "back.out(1.6)" }, 12.5 + i * 0.12);
+      });
+      tl.fromTo("#fid", { autoAlpha: 0, y: 80 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 13.0);
+      tl.fromTo("#end-note", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 }, 13.2);
+      // seal badge → centre top above the end title: (300,150) → (960,170)
+      tl.to("#seal", { x: 0, y: -370, scale: 0.3, rotation: 0, duration: 0.6, ease: "power3.inOut" }, 12.2);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
