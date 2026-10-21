@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Dancing Script";
+        src: url("assets/fonts/dancing-script-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      /* THEME — the 3+1 poster's chocolate brown, cream and gold */
+      :root {
+        --bg-center: #5a3822;
+        --bg-edge: #1d1109;
+        --cream: #fdf1dc;
+        --yellow: #ffcc4d;
+        --ink: #3a2414;
+        --gold-a: #f3e2bd;
+        --gold-b: #b48a52;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg-edge);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--cream);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 55%, var(--bg-center) 0%, var(--bg-edge) 80%);
+      }
+      #dots {
+        position: absolute;
+        inset: 0;
+      }
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid var(--yellow);
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--yellow);
+        border-radius: 18px;
+        opacity: 0.55;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+      }
+      #logo-halo {
+        position: absolute;
+        inset: -70px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 204, 77, 0.35) 0%, rgba(255, 204, 77, 0) 65%);
+      }
+
+      /* A product scene (built twice from the template below) */
+      .scene {
+        position: absolute;
+        inset: 0;
+      }
+      .title {
+        position: absolute;
+        left: 300px;
+        right: 300px;
+        top: 40px;
+        text-align: center;
+      }
+      .script {
+        display: inline-block;
+        font-family: "Dancing Script", cursive;
+        font-weight: 700;
+        font-size: 170px;
+        line-height: 1.15;
+        color: var(--cream);
+      }
+      .pb {
+        margin-top: -18px;
+        font-size: 66px;
+        letter-spacing: 6px;
+        color: var(--yellow);
+      }
+      .slot {
+        position: absolute;
+        top: 400px;
+        width: 330px;
+        height: 300px;
+        margin-left: -165px;
+      }
+      .slot img {
+        position: absolute;
+        left: 15px;
+        top: 60px;
+        width: 300px;
+        height: 240px;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 16px rgba(0, 0, 0, 0.5));
+      }
+      .num {
+        position: absolute;
+        left: 130px;
+        top: 0;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: var(--cream);
+        color: var(--ink);
+        font-size: 58px;
+        line-height: 78px;
+        text-align: center;
+      }
+      .glow {
+        position: absolute;
+        left: -40px;
+        top: 10px;
+        width: 410px;
+        height: 330px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(255, 204, 77, 0.45) 0%, rgba(255, 204, 77, 0) 65%);
+      }
+      .stamp {
+        position: absolute;
+        left: 50px;
+        top: -10px;
+        width: 230px;
+        padding: 8px 0 2px;
+        border-radius: 14px;
+        border: 5px solid var(--ink);
+        background: var(--yellow);
+        color: var(--ink);
+        font-size: 64px;
+        line-height: 1;
+        letter-spacing: 3px;
+        text-align: center;
+      }
+      .bottom-l {
+        position: absolute;
+        left: 180px;
+        width: 760px;
+        top: 760px;
+        text-align: center;
+      }
+      .par4 {
+        font-size: 150px;
+        line-height: 1;
+        letter-spacing: 4px;
+      }
+      .alone {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 44px;
+        color: var(--yellow);
+      }
+      .alone s {
+        text-decoration-thickness: 4px;
+      }
+      .medal {
+        position: absolute;
+        left: 1090px;
+        top: 690px;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 30%, var(--gold-a) 0%, var(--gold-b) 100%);
+        box-shadow: 0 24px 46px rgba(0, 0, 0, 0.5);
+        color: var(--ink);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .price {
+        display: flex;
+        align-items: flex-start;
+        line-height: 0.82;
+      }
+      .price .big {
+        font-size: 196px;
+      }
+      .price .sm {
+        font-size: 110px;
+        margin-top: 12px;
+      }
+      .piece {
+        margin-top: -6px;
+        font-size: 50px;
+        line-height: 1;
+        letter-spacing: 2px;
+      }
+      .les4 {
+        position: absolute;
+        left: 1450px;
+        top: 820px;
+        width: 340px;
+        font-size: 64px;
+        line-height: 1.05;
+        color: var(--cream);
+      }
+      .les4 b {
+        font-weight: 400;
+        color: var(--yellow);
+      }
+
+      /* End card */
+      #end-title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 330px;
+        text-align: center;
+        font-size: 170px;
+        line-height: 1;
+        letter-spacing: 5px;
+      }
+      #end-title .y {
+        color: var(--yellow);
+      }
+      .end-card {
+        position: absolute;
+        top: 540px;
+        width: 620px;
+        height: 380px;
+      }
+      #end-c {
+        left: 260px;
+      }
+      #end-p {
+        left: 1040px;
+      }
+      .end-card img {
+        position: absolute;
+        left: 0;
+        top: 40px;
+        width: 330px;
+        height: 270px;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 16px rgba(0, 0, 0, 0.5));
+      }
+      .end-card .medal {
+        left: 310px;
+        top: 20px;
+        width: 290px;
+        height: 290px;
+      }
+      .end-card .price .big {
+        font-size: 170px;
+      }
+      .end-card .price .sm {
+        font-size: 90px;
+      }
+      .end-card .piece {
+        font-size: 40px;
+      }
+      .end-name {
+        position: absolute;
+        left: 0;
+        top: 320px;
+        width: 330px;
+        text-align: center;
+        font-family: "Dancing Script", cursive;
+        font-weight: 700;
+        font-size: 54px;
+        color: var(--cream);
+      }
+      #legal {
+        position: absolute;
+        right: 70px;
+        bottom: 46px;
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 26px;
+        color: var(--cream);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <div id="dots"></div>
+      <div id="scenes"></div>
+
+      <div id="end-title"><span class="y">3+1</span> OFFERT</div>
+      <div class="end-card" id="end-c">
+        <img src="assets/img/croissant.png" alt="Croissant" />
+        <div class="end-name">Croissant</div>
+        <div class="medal">
+          <div class="price"><span class="big">0</span><span class="sm">€90</span></div>
+          <div class="piece">PIÈCE PAR 4</div>
+        </div>
+      </div>
+      <div class="end-card" id="end-p">
+        <img src="assets/img/chocolatine.png" alt="Chocolatine" />
+        <div class="end-name">Chocolatine</div>
+        <div class="medal">
+          <div class="price"><span class="big">1</span><span class="sm">€05</span></div>
+          <div class="piece">PIÈCE PAR 4</div>
+        </div>
+      </div>
+
+      <div id="logo">
+        <div id="logo-halo"></div>
+        <img src="assets/img/galzin-logo.png" alt="Galzin" />
+      </div>
+      <div id="frame"></div>
+      <div id="legal">Photos non contractuelles</div>
+    </div>
+
+    <script>
+      // ── One scene per product, same choreography, different data
+      const PRODUCTS = [
+        { id: "c", name: "Croissant", img: "croissant.png", offert: "OFFERT", alone: "Le croissant vendu seul", was: "1,20€", big: "0", sm: "€90", total: "3,60€" },
+        { id: "p", name: "Chocolatine", img: "chocolatine.png", offert: "OFFERTE", alone: "La chocolatine vendue seule", was: "1,40€", big: "1", sm: "€05", total: "4,20€" },
+      ];
+      const scenesEl = document.getElementById("scenes");
+      PRODUCTS.forEach((p) => {
+        const sc = document.createElement("div");
+        sc.className = "scene";
+        sc.id = "scene-" + p.id;
+        let slots = "";
+        for (let i = 0; i < 4; i++) {
+          const x = 960 + (i - 1.5) * 360;
+          slots +=
+            '<div class="slot" id="' + p.id + "-slot" + i + '" style="left:' + x + 'px">' +
+            (i === 3 ? '<div class="glow" id="' + p.id + '-glow"></div>' : "") +
+            '<img src="assets/img/' + p.img + '" alt="' + p.name + '" />' +
+            (i < 3
+              ? '<div class="num" id="' + p.id + "-num" + i + '">' + (i + 1) + "</div>"
+              : '<div class="stamp" id="' + p.id + '-stamp">+1 ' + p.offert + "</div>") +
+            "</div>";
+        }
+        sc.innerHTML =
+          '<div class="title"><div class="script" id="' + p.id + '-script">' + p.name + '</div><div class="pb" id="' + p.id + '-pb">PUR BEURRE</div></div>' +
+          slots +
+          '<div class="bottom-l"><div class="par4" id="' + p.id + '-par4">PAR 4</div><div class="alone" id="' + p.id + '-alone">' + p.alone + " <s>" + p.was + "</s></div></div>" +
+          '<div class="medal" id="' + p.id + '-medal"><div class="price"><span class="big">' + p.big + '</span><span class="sm">' + p.sm + '</span></div><div class="piece">PIÈCE</div></div>' +
+          '<div class="les4" id="' + p.id + '-les4">soit <b>' + p.total + "</b><br />les 4</div>";
+        scenesEl.appendChild(sc);
+      });
+
+      let seed = 31;
+      const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+      const dotsEl = document.getElementById("dots");
+      const dots = [];
+      for (let i = 0; i < 14; i++) {
+        const d = document.createElement("div");
+        d.className = "dot";
+        const size = Math.round(26 + rand() * 40);
+        d.style.width = d.style.height = size + "px";
+        d.style.left = Math.round(60 + rand() * 1780) + "px";
+        d.style.top = Math.round(60 + rand() * 940) + "px";
+        dotsEl.appendChild(d);
+        dots.push({ el: d, op: 0.08 + rand() * 0.12, dx: -30 + rand() * 60, dy: -40 - rand() * 50 });
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      dots.forEach((d) => {
+        tl.fromTo(d.el, { autoAlpha: 0, x: 0, y: 0 }, { autoAlpha: d.op, x: d.dx, y: d.dy, duration: 15, ease: "none" }, 0);
+      });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.55, duration: 0.8 }, 0.2);
+
+      // ── Logo intro → top-right corner
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.fromTo("#logo-halo", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.8, ease: "power2.out" }, 0.4);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.4);
+      tl.to("#logo-halo", { autoAlpha: 0, duration: 0.4 }, 1.4);
+
+      // ── The counting choreography: 1, 2, 3 … +1 offert
+      function play(p, t0, tOut) {
+        const $ = (s) => "#" + p.id + s;
+        // script name "writes" itself left → right
+        tl.fromTo($("-script"), { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power1.inOut" }, t0);
+        tl.fromTo($("-pb"), { autoAlpha: 0, y: 20, scaleX: 1.3 }, { autoAlpha: 1, y: 0, scaleX: 1, duration: 0.45, ease: "power2.out" }, t0 + 0.5);
+        for (let i = 0; i < 3; i++) {
+          const t = t0 + 0.9 + i * 0.42;
+          tl.fromTo($("-slot" + i), { autoAlpha: 0, y: -420, rotation: -10 + i * 8 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.42, ease: "bounce.out" }, t);
+          tl.fromTo($("-num" + i), { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(3)" }, t + 0.3);
+        }
+        // the free 4th one: drops from higher, lands with a glow and a stamp
+        const t4 = t0 + 2.35;
+        tl.fromTo($("-slot3"), { autoAlpha: 0, y: -520, rotation: 20 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.55, ease: "bounce.out" }, t4);
+        tl.fromTo($("-glow"), { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "power2.out" }, t4 + 0.45);
+        tl.fromTo($("-stamp"), { autoAlpha: 0, scale: 2.4, rotation: -30 }, { autoAlpha: 1, scale: 1, rotation: -8, duration: 0.32, ease: "power4.in" }, t4 + 0.55);
+        tl.to($("-slot3"), { keyframes: [{ x: -6, duration: 0.05 }, { x: 6, duration: 0.05 }, { x: 0, duration: 0.05 }] }, t4 + 0.87);
+        // prices
+        tl.fromTo($("-par4"), { autoAlpha: 0, x: -80 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, t4 + 1.0);
+        tl.fromTo($("-alone"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35 }, t4 + 1.25);
+        tl.fromTo($("-medal"), { autoAlpha: 0, scale: 0.2, rotation: -60 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.7)" }, t4 + 1.3);
+        tl.fromTo($("-les4"), { autoAlpha: 0, x: 40 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: "power2.out" }, t4 + 1.75);
+        tl.to($("-medal"), { scale: 1.07, duration: 0.15, yoyo: true, repeat: 1 }, t4 + 2.2);
+        // whole scene slides off to the left
+        tl.to("#scene-" + p.id, { x: -1950, duration: 0.5, ease: "power3.in" }, tOut);
+      }
+      play(PRODUCTS[0], 1.7, 7.1);
+      tl.fromTo("#scene-p", { x: 1950 }, { x: 0, duration: 0.5, ease: "power3.out" }, 7.45);
+      play(PRODUCTS[1], 7.6, 12.35);
+
+      // ── End card (12.8 → 15)
+      // corner logo → top centre (960,170), 220px
+      tl.to("#logo", { x: 0, y: -310, scale: 220 / 360, duration: 0.6, ease: "power3.inOut" }, 12.6);
+      tl.fromTo("#end-title", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 12.85);
+      tl.fromTo("#end-c", { autoAlpha: 0, y: 120 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(1.5)" }, 13.1);
+      tl.fromTo("#end-p", { autoAlpha: 0, y: 120 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(1.5)" }, 13.25);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.75, duration: 0.5 }, 2.0);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
