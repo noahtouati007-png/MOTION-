@@ -11,25 +11,31 @@
         font-weight: 400;
       }
       @font-face {
-        font-family: "Fredoka";
-        src: url("assets/fonts/fredoka-latin-600-normal.woff2") format("woff2");
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
         font-weight: 600;
+        font-style: italic;
       }
       @font-face {
-        font-family: "Fredoka";
-        src: url("assets/fonts/fredoka-latin-700-normal.woff2") format("woff2");
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
         font-weight: 700;
       }
-      /* THEME — Galzin x Les Minions: sunny yellow, denim blue, Galzin chocolate.
-         Placeholder look only: swap in the official licence kit (logo, font) when it arrives.
+      @font-face {
+        font-family: "Dancing Script";
+        src: url("assets/fonts/dancing-script-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      /* THEME — Galzin house look (chocolate, cream, gold) ; the Minions only show up in the yellow line.
          TikTok safe zone: reading text stays inside x 70–940, y 160–1480. */
       :root {
-        --yellow: #ffd23f;
-        --yellow-2: #ffe27a;
-        --blue: #2e5eaa;
-        --blue-2: #1f3f7a;
-        --brown: #3c2416;
-        --cream: #fff6e0;
+        --bg-center: #5a3822;
+        --bg-edge: #1d1109;
+        --cream: #fdf1dc;
+        --yellow: #ffcc4d;
+        --ink: #3a2414;
+        --gold-a: #f3e2bd;
+        --gold-b: #b48a52;
       }
       * {
         margin: 0;
@@ -41,350 +47,316 @@
         width: 1080px;
         height: 1920px;
         overflow: hidden;
-        background: var(--yellow);
+        background: var(--bg-edge);
       }
       #root {
         position: relative;
         width: 100%;
         height: 100%;
         overflow: hidden;
-        font-family: "Fredoka", sans-serif;
-        color: var(--brown);
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--cream);
       }
       #bg {
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 50% 45%, var(--yellow-2) 0%, var(--yellow) 60%);
+        background: radial-gradient(ellipse at 50% 45%, var(--bg-center) 0%, var(--bg-edge) 80%);
       }
-      #stripes {
+      #dots {
         position: absolute;
-        left: -600px;
-        top: -300px;
-        width: 2400px;
-        height: 2600px;
-        opacity: 0.18;
-        background: repeating-linear-gradient(-30deg, var(--blue) 0 26px, transparent 26px 120px);
+        inset: 0;
       }
-      #band {
+      .dot {
         position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 1080px;
-        height: 260px;
-        background: var(--blue);
-        border-top: 12px solid var(--blue-2);
-      }
-      .rivet {
-        position: absolute;
-        top: 150px;
-        width: 30px;
-        height: 30px;
         border-radius: 50%;
-        background: var(--yellow);
-        box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.2);
+        border: 3px solid var(--yellow);
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--yellow);
+        border-radius: 18px;
+        opacity: 0.55;
+      }
+      #logo {
+        position: absolute;
+        left: 465px;
+        top: 70px;
+        width: 150px;
+        height: 150px;
+      }
+
+      #title {
+        position: absolute;
+        left: 70px;
+        width: 870px;
+        top: 230px;
+        text-align: center;
+      }
+      #script {
+        display: inline-block;
+        font-family: "Dancing Script", cursive;
+        font-weight: 700;
+        font-size: 140px;
+        line-height: 1.15;
+        color: var(--cream);
+      }
+      #sub {
+        margin-top: -14px;
+        font-size: 58px;
+        letter-spacing: 6px;
+        color: var(--yellow);
       }
 
       /* Hook */
       #hook {
         position: absolute;
         left: 70px;
-        top: 360px;
-        width: 870px;
+        width: 940px;
+        top: 720px;
         text-align: center;
       }
-      #alerte {
-        display: inline-block;
-        padding: 14px 60px 22px;
-        border-radius: 80px;
-        background: var(--blue);
-        border: 10px solid var(--blue-2);
+      #hook-1 {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 72px;
+        line-height: 1.1;
         color: var(--yellow);
-        font-size: 150px;
-        font-weight: 700;
-        line-height: 1;
-        box-shadow: 0 20px 34px rgba(31, 63, 122, 0.4);
       }
-      #hook-words {
-        margin-top: 70px;
-        font-size: 128px;
-        font-weight: 700;
-        line-height: 1.02;
-        color: var(--brown);
-        paint-order: stroke fill;
-        -webkit-text-stroke: 24px var(--cream);
+      #hook-2 {
+        margin-top: 10px;
+        font-size: 150px;
+        line-height: 0.98;
+        letter-spacing: 3px;
+        color: var(--cream);
       }
       .hw {
         display: inline-block;
       }
-      .hw.b {
-        color: var(--blue);
+
+      /* Photo slots (empty until the real photos arrive) */
+      .ph {
+        position: absolute;
+        border: 3px dashed rgba(243, 226, 189, 0.5);
+        background: radial-gradient(ellipse, rgba(255, 204, 77, 0.1) 0%, rgba(255, 204, 77, 0) 70%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        color: var(--gold-a);
+        opacity: 0.85;
+      }
+      .shot {
+        position: absolute;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 16px rgba(0, 0, 0, 0.5));
+      }
+      .glow {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(255, 204, 77, 0.32) 0%, rgba(255, 204, 77, 0) 65%);
       }
 
-      /* Lockup */
-      #lockup {
+      /* One big fève at a time */
+      .card {
         position: absolute;
         left: 140px;
-        top: 420px;
+        top: 560px;
         width: 800px;
         height: 900px;
       }
-      #lk-logo {
-        position: absolute;
-        left: 200px;
-        top: 0;
-        width: 400px;
-        height: 400px;
-        filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.3));
-      }
-      #lk-x {
-        position: absolute;
-        left: 0;
-        top: 395px;
-        width: 800px;
-        text-align: center;
-        font-size: 170px;
-        font-weight: 700;
-        line-height: 1;
-        color: var(--blue);
-      }
-      #lk-lic {
-        position: absolute;
+      .card .glow {
         left: 100px;
-        top: 600px;
+        top: 80px;
         width: 600px;
-        height: 250px;
-        border-radius: 125px;
-        background: var(--blue);
-        border: 10px solid var(--blue-2);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: var(--yellow);
-        box-shadow: 0 18px 30px rgba(31, 63, 122, 0.4);
+        height: 620px;
       }
-      #lk-lic b {
-        white-space: nowrap;
-        font-size: 92px;
-        font-weight: 700;
-        line-height: 0.95;
+      .card .ph {
+        left: 195px;
+        top: 130px;
+        width: 410px;
+        height: 520px;
+        border-radius: 50%;
+        font-size: 50px;
+        line-height: 1.05;
       }
-      #lk-lic small {
-        font-size: 32px;
-        font-weight: 600;
-        opacity: 0.8;
+      .card .shot {
+        left: 150px;
+        top: 120px;
+        width: 500px;
+        height: 540px;
       }
-
-      /* Top pill used through the casting and the dive */
-      #toppill {
+      .num {
         position: absolute;
-        left: 70px;
-        top: 200px;
-        width: 870px;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: var(--cream);
+        color: var(--ink);
+        font-size: 58px;
+        line-height: 78px;
         text-align: center;
       }
-      #toppill span {
-        display: inline-block;
-        padding: 12px 48px 18px;
-        border-radius: 60px;
-        background: var(--blue);
-        color: var(--yellow);
-        font-size: 72px;
-        font-weight: 700;
-        line-height: 1;
-      }
-
-      /* Casting cards */
-      .card {
-        position: absolute;
-        left: 90px;
-        top: 380px;
-        width: 830px;
-        height: 1080px;
-      }
-      .card-n {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 830px;
-        text-align: center;
-        font-family: "Bebas Neue", sans-serif;
-        font-size: 90px;
-        line-height: 1;
-        color: var(--blue);
-      }
-      .card-art {
-        position: absolute;
-        left: 185px;
-        top: 110px;
-        width: 460px;
-        height: 600px;
-        filter: drop-shadow(0 26px 22px rgba(60, 36, 22, 0.35));
-      }
-      .card-art img,
-      .card-art svg,
-      .mini-art img,
-      .mini-art svg {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+      .card .num {
+        left: 355px;
+        top: 20px;
+        width: 90px;
+        height: 90px;
+        font-size: 74px;
+        line-height: 100px;
       }
       .card-name {
         position: absolute;
         left: 0;
-        top: 750px;
-        width: 830px;
+        top: 690px;
+        width: 800px;
         text-align: center;
         font-size: 120px;
-        font-weight: 700;
         line-height: 1;
-        color: var(--brown);
-        paint-order: stroke fill;
-        -webkit-text-stroke: 20px var(--cream);
+        letter-spacing: 3px;
+        color: var(--cream);
       }
-      .card-tag {
+      .card-of {
         position: absolute;
         left: 0;
-        top: 900px;
-        width: 830px;
+        top: 810px;
+        width: 800px;
         text-align: center;
-        font-size: 64px;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
         font-weight: 600;
-        line-height: 1;
-        color: var(--blue);
+        font-size: 50px;
+        color: var(--yellow);
       }
 
-      /* Mini fèves lined up for the dive */
+      /* Five small fèves for the dive */
       .mini {
         position: absolute;
-        width: 200px;
-        height: 260px;
+        top: 560px;
+        width: 160px;
+        height: 200px;
+        margin-left: -80px;
       }
-      .mini-art {
-        position: absolute;
+      .mini .ph {
         inset: 0;
-        filter: drop-shadow(0 14px 12px rgba(60, 36, 22, 0.35));
+        border-radius: 50%;
+        font-size: 30px;
+      }
+      .mini .shot {
+        inset: 0;
+        width: 160px;
+        height: 200px;
       }
 
       /* Galette */
       #galette {
         position: absolute;
-        left: 90px;
-        top: 1150px;
-        width: 900px;
-        height: 600px;
-      }
-      #gal-img {
-        position: absolute;
-        left: 0;
-        top: 80px;
-        width: 900px;
+        left: 140px;
+        top: 900px;
+        width: 800px;
         height: 520px;
-        filter: drop-shadow(0 26px 22px rgba(60, 36, 22, 0.45));
       }
-      #gal-img img,
-      #gal-img svg {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-      #crown {
+      #gal-glow {
         position: absolute;
-        left: 285px;
-        top: -60px;
-        width: 330px;
-        height: 190px;
-      }
-      #puffs {
-        position: absolute;
-        inset: 0;
-      }
-      .puff {
-        position: absolute;
-        width: 32px;
-        height: 32px;
+        inset: -70px;
         border-radius: 50%;
-        background: #f3b448;
+        background: radial-gradient(ellipse, rgba(255, 204, 77, 0.35) 0%, rgba(255, 204, 77, 0) 65%);
+      }
+      #galette .ph {
+        inset: 0;
+        border-radius: 50%;
+        font-size: 56px;
+      }
+      #galette .shot {
+        inset: 0;
+        width: 800px;
+        height: 520px;
       }
 
-      #question {
+      #q {
         position: absolute;
         left: 70px;
-        top: 260px;
-        width: 870px;
+        width: 940px;
+        top: 560px;
         text-align: center;
-        font-size: 124px;
-        font-weight: 700;
-        line-height: 1.02;
-        color: var(--brown);
-        paint-order: stroke fill;
-        -webkit-text-stroke: 24px var(--cream);
       }
-      #question i {
-        display: inline-block;
-        font-style: normal;
-        color: var(--blue);
+      #q-1 {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 1.1;
+        color: var(--yellow);
+      }
+      #q-2 {
+        margin-top: 6px;
+        font-size: 128px;
+        line-height: 0.98;
+        letter-spacing: 3px;
+        color: var(--cream);
       }
 
       /* Prices */
-      #prices {
+      .medal {
         position: absolute;
-        left: 120px;
-        top: 760px;
-        width: 800px;
-      }
-      .pr-row {
-        height: 170px;
-        margin-bottom: 26px;
-        border-radius: 85px;
-        background: var(--cream);
-        border: 9px solid var(--brown);
+        top: 1010px;
+        width: 270px;
+        height: 270px;
+        margin-left: -135px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 30%, var(--gold-a) 0%, var(--gold-b) 100%);
+        box-shadow: 0 24px 46px rgba(0, 0, 0, 0.5);
+        color: var(--ink);
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        padding: 0 56px 0 50px;
-        box-shadow: 0 14px 24px rgba(60, 36, 22, 0.25);
+        justify-content: center;
       }
-      .pr-parts {
-        font-size: 76px;
-        font-weight: 700;
-        line-height: 1;
-        color: var(--brown);
+      .price {
+        display: flex;
+        align-items: flex-start;
+        line-height: 0.82;
       }
-      .pr-parts small {
+      .price .big {
+        font-size: 134px;
+      }
+      .price .sm {
+        font-size: 72px;
+        margin-top: 10px;
+      }
+      .parts {
+        margin-top: 2px;
         font-size: 42px;
-        font-weight: 600;
-        color: var(--blue);
-      }
-      .pr-eur {
-        font-family: "Bebas Neue", sans-serif;
-        font-size: 140px;
         line-height: 1;
-        padding-top: 16px;
-        color: var(--blue);
-      }
-      #collect {
-        position: absolute;
-        left: 70px;
-        top: 1400px;
-        width: 870px;
-        text-align: center;
-        font-size: 60px;
-        font-weight: 700;
-        line-height: 1;
-        color: var(--brown);
+        letter-spacing: 2px;
       }
       #date {
         position: absolute;
         left: 70px;
-        top: 1712px;
-        width: 870px;
+        width: 940px;
+        top: 1330px;
         text-align: center;
-        font-size: 54px;
-        font-weight: 700;
-        line-height: 1;
-        white-space: nowrap;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 1.1;
         color: var(--yellow);
+      }
+      #legal {
+        position: absolute;
+        left: 70px;
+        width: 940px;
+        top: 1478px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 28px;
+        color: var(--cream);
       }
     </style>
   </head>
@@ -399,207 +371,133 @@
       data-height="1920"
     >
       <div id="bg"></div>
-      <div id="stripes"></div>
-      <div id="band"></div>
+      <div id="dots"></div>
+
+      <img id="logo" src="assets/img/galzin-logo.png" alt="Galzin" />
+      <div id="title"><div id="script">Galette des Rois</div><div id="sub">ÉDITION LES MINIONS</div></div>
 
       <div id="hook">
-        <div id="alerte">ALERTE !</div>
-        <div id="hook-words">
-          <span class="hw">LES</span> <span class="hw b">MINIONS</span><br />
-          <span class="hw">ONT</span> <span class="hw">ENVAHI</span><br />
-          <span class="hw">NOS</span> <span class="hw b">GALETTES</span> <span class="hw">!</span>
-        </div>
+        <div id="hook-1">Cette année,</div>
+        <div id="hook-2"><span class="hw">DES MINIONS</span> <span class="hw">SE CACHENT</span> <span class="hw">DANS NOS</span> <span class="hw">GALETTES</span></div>
       </div>
 
-      <div id="lockup">
-        <img id="lk-logo" src="assets/img/galzin-logo.png" alt="Galzin" />
-        <div id="lk-x">×</div>
-        <div id="lk-lic"><b>LES MINIONS</b><small>logo officiel à venir</small></div>
-      </div>
-
-      <div id="toppill"><span id="tp-txt">LES 5 FÈVES</span></div>
       <div id="cards"></div>
       <div id="minis"></div>
 
       <div id="galette">
-        <div id="gal-img"></div>
-        <svg id="crown" viewBox="0 0 260 150">
-          <defs>
-            <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#ffe08a" />
-              <stop offset="0.5" stop-color="#f3b448" />
-              <stop offset="1" stop-color="#c77a22" />
-            </linearGradient>
-          </defs>
-          <path d="M10 140 L22 34 L78 86 L130 16 L182 86 L238 34 L250 140 Z" fill="url(#gold)" stroke="#8a4f12" stroke-width="6" stroke-linejoin="round" />
-          <circle cx="22" cy="34" r="13" fill="#2e5eaa" />
-          <circle cx="130" cy="18" r="15" fill="#2e5eaa" />
-          <circle cx="238" cy="34" r="13" fill="#2e5eaa" />
-          <rect x="10" y="112" width="240" height="28" fill="#c77a22" />
-        </svg>
-        <div id="puffs"></div>
+        <div id="gal-glow"></div>
+        <div id="gal-art"></div>
       </div>
 
-      <div id="question">LEQUEL SE CACHE DANS <i>TA</i> GALETTE <i id="qm">?</i></div>
+      <div id="q">
+        <div id="q-1">Une fève Les Minions dans chaque galette</div>
+        <div id="q-2">LAQUELLE VAS-TU TROUVER ?</div>
+      </div>
 
       <div id="prices"></div>
-      <div id="collect">Collectionne les 5 fèves !</div>
-      <div id="date">DÈS LE 2 JANVIER CHEZ GALZIN</div>
+      <div id="date">Dès le 2 janvier<br />dans tes boutiques Galzin</div>
+      <div id="legal">Photos non contractuelles</div>
+
+      <div id="frame"></div>
     </div>
 
     <script>
-      // ── CONTENT — edit here. Drop the real photos in assets/img/ and set `img` (PNG without background).
+      // ── CONTENT — edit here. Drop the real photos in assets/img/ (PNG without background) and set `img`.
       const FEVES = [
-        { name: "FÈVE N°1", tag: "le farceur", img: "" },
-        { name: "FÈVE N°2", tag: "le gourmand", img: "" },
-        { name: "FÈVE N°3", tag: "le rêveur", img: "" },
-        { name: "FÈVE N°4", tag: "le bricoleur", img: "" },
-        { name: "FÈVE N°5", tag: "le chanteur", img: "" },
+        { name: "FÈVE 1", img: "" },
+        { name: "FÈVE 2", img: "" },
+        { name: "FÈVE 3", img: "" },
+        { name: "FÈVE 4", img: "" },
+        { name: "FÈVE 5", img: "" },
       ];
       const GALETTE_IMG = ""; // e.g. "galette.png"
       const PRICES = [
-        ["4", "12,90 €"],
-        ["6", "17,90 €"],
-        ["8", "22,90 €"],
+        { parts: "4 PARTS", big: "12", sm: "€90" },
+        { parts: "6 PARTS", big: "17", sm: "€90" },
+        { parts: "8 PARTS", big: "22", sm: "€90" },
       ];
 
-      // Placeholder fève: glazed porcelain charm with its number (replaced by `img` when set)
-      const feveSVG = (n, k) =>
-        '<svg viewBox="0 0 200 260"><defs><radialGradient id="g' + k + '" cx="0.35" cy="0.3" r="0.8">' +
-        '<stop offset="0" stop-color="#fff7d6"/><stop offset="0.55" stop-color="#ffd23f"/><stop offset="1" stop-color="#d9a414"/></radialGradient>' +
-        '<clipPath id="c' + k + '"><rect x="20" y="10" width="160" height="240" rx="80"/></clipPath></defs>' +
-        '<rect x="20" y="10" width="160" height="240" rx="80" fill="url(#g' + k + ')"/>' +
-        '<rect x="20" y="165" width="160" height="90" fill="#2e5eaa" clip-path="url(#c' + k + ')"/>' +
-        '<rect x="20" y="10" width="160" height="240" rx="80" fill="none" stroke="#1f3f7a" stroke-width="8"/>' +
-        '<text x="100" y="135" text-anchor="middle" font-family="Fredoka" font-weight="700" font-size="110" fill="#3c2416">' + n + "</text>" +
-        '<text x="100" y="222" text-anchor="middle" font-family="Fredoka" font-weight="600" font-size="32" fill="#ffd23f">à venir</text>' +
-        '<ellipse cx="70" cy="60" rx="22" ry="34" fill="#fff" opacity="0.45"/></svg>';
-      const art = (f, i, k) => (f.img ? '<img src="assets/img/' + f.img + '" alt="" />' : feveSVG(i + 1, k));
-
-      // Placeholder galette: golden puff pastry seen at 3/4, scored rosace
-      const galetteSVG = () => {
-        let score = "";
-        for (let i = 0; i < 12; i++) {
-          const a = (i / 12) * Math.PI * 2;
-          const x2 = 350 + 280 * Math.cos(a), y2 = 190 + 140 * Math.sin(a);
-          const cx = 350 + 150 * Math.cos(a + 0.5), cy = 190 + 75 * Math.sin(a + 0.5);
-          score += '<path d="M350 190 Q' + cx.toFixed(0) + " " + cy.toFixed(0) + " " + x2.toFixed(0) + " " + y2.toFixed(0) + '" fill="none" stroke="#a8601a" stroke-width="6" stroke-linecap="round" opacity="0.7"/>';
-        }
-        return (
-          '<svg viewBox="0 0 700 400"><defs><radialGradient id="gp" cx="0.45" cy="0.35" r="0.75">' +
-          '<stop offset="0" stop-color="#ffd98a"/><stop offset="0.6" stop-color="#e9a443"/><stop offset="1" stop-color="#b8701f"/></radialGradient></defs>' +
-          '<ellipse cx="350" cy="230" rx="340" ry="160" fill="#8a4f12"/>' +
-          '<ellipse cx="350" cy="205" rx="340" ry="165" fill="#d38a2e"/>' +
-          '<ellipse cx="350" cy="190" rx="320" ry="155" fill="url(#gp)"/>' +
-          score +
-          '<ellipse cx="260" cy="130" rx="110" ry="40" fill="#fff" opacity="0.18"/></svg>'
-        );
-      };
-      document.getElementById("gal-img").innerHTML = GALETTE_IMG ? '<img src="assets/img/' + GALETTE_IMG + '" alt="" />' : galetteSVG();
-
-      // Casting cards (one big fève at a time) + mini fèves (3 + 2) for the dive
+      const art = (f, i, label) => (f.img ? '<img class="shot" src="assets/img/' + f.img + '" alt="" />' : '<div class="ph">' + label + "</div>");
       const cardsEl = document.getElementById("cards");
       const minisEl = document.getElementById("minis");
-      const MINI = [
-        [120, 420], [440, 420], [760, 420],
-        [280, 720], [600, 720],
-      ];
+      const MX = (i) => 540 + (i - 2) * 180;
       FEVES.forEach((f, i) => {
         cardsEl.insertAdjacentHTML(
           "beforeend",
-          '<div class="card" id="cd' + i + '"><div class="card-n">' + (i + 1) + " / " + FEVES.length + "</div>" +
-            '<div class="card-art" id="ca' + i + '">' + art(f, i, "c" + i) + "</div>" +
-            '<div class="card-name">' + f.name + '</div><div class="card-tag">' + f.tag + "</div></div>"
+          '<div class="card" id="cd' + i + '"><div class="glow"></div>' + art(f, i, "photo<br />fève " + (i + 1)) +
+            '<div class="num">' + (i + 1) + '</div><div class="card-name">' + f.name + '</div><div class="card-of">' + (i + 1) + " / " + FEVES.length + "</div></div>"
         );
-        minisEl.insertAdjacentHTML(
-          "beforeend",
-          '<div class="mini" id="mn' + i + '" style="left:' + MINI[i][0] + "px;top:" + MINI[i][1] + 'px"><div class="mini-art" id="ma' + i + '">' + art(f, i, "m" + i) + "</div></div>"
-        );
+        minisEl.insertAdjacentHTML("beforeend", '<div class="mini" id="mn' + i + '" style="left:' + MX(i) + 'px">' + art(f, i, "fève " + (i + 1)) + "</div>");
       });
-
+      document.getElementById("gal-art").innerHTML = GALETTE_IMG ? '<img class="shot" src="assets/img/' + GALETTE_IMG + '" alt="" />' : '<div class="ph">photo galette</div>';
       document.getElementById("prices").innerHTML = PRICES.map(
-        (p, i) => '<div class="pr-row" id="pr' + i + '"><div class="pr-parts">' + p[0] + " <small>PARTS</small></div>" + '<div class="pr-eur">' + p[1] + "</div></div>"
+        (p, i) =>
+          '<div class="medal" id="md' + i + '" style="left:' + (540 + (i - 1) * 300) + 'px"><div class="price"><span class="big">' + p.big + '</span><span class="sm">' + p.sm + '</span></div><div class="parts">' + p.parts + "</div></div>"
       ).join("");
 
-      const band = document.getElementById("band");
-      for (let i = 0; i < 7; i++) band.insertAdjacentHTML("beforeend", '<div class="rivet" style="left:' + (60 + i * 160) + 'px"></div>');
-
-      const puffsEl = document.getElementById("puffs");
-      const PUFFS = [];
-      for (let i = 0; i < 12; i++) {
-        const a = (i / 12) * Math.PI * 2;
-        puffsEl.insertAdjacentHTML("beforeend", '<div class="puff" id="pf' + i + '" style="left:434px;top:300px"></div>');
-        PUFFS.push({ id: "#pf" + i, x: Math.cos(a) * 340, y: Math.sin(a) * 140 - 60 });
+      let seed = 83;
+      const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+      const dotsEl = document.getElementById("dots");
+      const dots = [];
+      for (let i = 0; i < 16; i++) {
+        const d = document.createElement("div");
+        d.className = "dot";
+        const size = Math.round(26 + rand() * 40);
+        d.style.width = d.style.height = size + "px";
+        d.style.left = Math.round(60 + rand() * 940) + "px";
+        d.style.top = Math.round(60 + rand() * 1780) + "px";
+        dotsEl.appendChild(d);
+        dots.push({ el: d, op: 0.08 + rand() * 0.12, dx: -30 + rand() * 60, dy: -50 - rand() * 60 });
       }
 
-      gsap.set(["#lockup", "#toppill", ".card", ".mini", "#question", "#prices", "#collect", "#date", "#crown", ".puff"], { autoAlpha: 0 });
-      gsap.set("#galette", { y: 900 });
+      gsap.set([".card", ".mini", "#galette", "#q", ".medal", "#date", "#legal"], { autoAlpha: 0 });
 
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo("#stripes", { x: 0 }, { x: 290, duration: 18, ease: "none" }, 0);
-
-      // ── 0 → 2 Hook (ALERTE! is already on screen at frame 0 for the thumbnail)
-      tl.fromTo("#alerte", { rotation: -6 }, { keyframes: [{ rotation: 6, duration: 0.12 }, { rotation: -5, duration: 0.12 }, { rotation: 4, duration: 0.12 }, { rotation: 0, duration: 0.12 }] }, 0);
-      tl.fromTo("#alerte", { scale: 1 }, { scale: 1.08, duration: 0.15, yoyo: true, repeat: 3, ease: "power1.inOut" }, 0);
-      gsap.utils.toArray(".hw").forEach((w, i) => {
-        tl.fromTo(w, { autoAlpha: 0, scale: 2.4, y: -40 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.22, ease: "power3.out" }, 0.25 + i * 0.15);
+      dots.forEach((d) => {
+        tl.fromTo(d.el, { autoAlpha: d.op * 0.5, x: 0, y: 0 }, { autoAlpha: d.op, x: d.dx, y: d.dy, duration: 18, ease: "none" }, 0);
       });
-      tl.to("#hook-words", { keyframes: [{ x: -12, duration: 0.05 }, { x: 10, duration: 0.05 }, { x: -6, duration: 0.05 }, { x: 0, duration: 0.05 }] }, 1.4);
-      tl.to("#hook", { autoAlpha: 0, scale: 0.8, duration: 0.3, ease: "power2.in" }, 2.2);
 
-      // ── 2.4 → 3.9 Lockup Galzin × Les Minions
-      tl.set("#lockup", { autoAlpha: 1 }, 2.4);
-      tl.fromTo("#lk-logo", { autoAlpha: 0, scale: 0.5, rotation: -14 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.7)" }, 2.4);
-      tl.fromTo("#lk-x", { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, 2.7);
-      tl.fromTo("#lk-lic", { autoAlpha: 0, y: 200, rotation: 6 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(1.6)" }, 2.85);
-      tl.to("#lockup", { autoAlpha: 0, scale: 0.6, y: -200, duration: 0.35, ease: "power3.in" }, 3.9);
+      // ── 0 → 3.4 Hook (title + logo already on screen at frame 0 for the thumbnail)
+      tl.fromTo("#script", { scale: 0.96 }, { scale: 1, duration: 1.2, ease: "power2.out" }, 0);
+      tl.fromTo("#hook-1", { scale: 0.9 }, { scale: 1, duration: 0.6, ease: "power2.out" }, 0);
+      gsap.utils.toArray(".hw").forEach((w, i) => {
+        tl.fromTo(w, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.3 + i * 0.28);
+      });
+      tl.to("#hook", { autoAlpha: 0, y: -30, duration: 0.35, ease: "power2.in" }, 3.3);
 
-      // ── 4.1 → 9.6 Casting: one fève per beat
-      tl.fromTo("#toppill", { autoAlpha: 0, y: -60 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "back.out(1.8)" }, 4.1);
+      // ── 3.7 → 10.2 The five fèves, one by one
       const CS = 1.3;
       FEVES.forEach((f, i) => {
-        const t = 4.2 + i * CS;
-        tl.fromTo("#cd" + i, { autoAlpha: 0, x: 700, rotation: 12 }, { autoAlpha: 1, x: 0, rotation: 0, duration: 0.35, ease: "back.out(1.5)" }, t);
-        tl.fromTo("#ca" + i, { y: 0 }, { y: -30, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.out" }, t + 0.35);
-        tl.to("#cd" + i, { autoAlpha: 0, x: -700, rotation: -12, duration: 0.3, ease: "power2.in" }, t + CS - 0.3);
+        const t = 3.7 + i * CS;
+        tl.fromTo("#cd" + i, { autoAlpha: 0, x: 120 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, t);
+        tl.fromTo("#cd" + i + " .num", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(2.5)" }, t + 0.15);
+        tl.to("#cd" + i, { autoAlpha: 0, x: -120, duration: 0.3, ease: "power2.in" }, t + CS - 0.3);
       });
 
-      // ── 9.7 → 12 All five lined up, galette rises, they dive in
-      tl.to("#tp-txt", { autoAlpha: 0, duration: 0.15 }, 10.6);
+      // ── 10.2 → 13 Lined up, the galette arrives, they slip inside
       FEVES.forEach((f, i) => {
-        tl.fromTo("#mn" + i, { autoAlpha: 0, scale: 0.2 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2.5)" }, 10.7 + i * 0.06);
+        tl.fromTo("#mn" + i, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 10.25 + i * 0.08);
       });
-      tl.to("#galette", { y: 0, duration: 0.5, ease: "back.out(1.3)" }, 10.8);
-      const GX = 540, GY = 1460;
+      tl.fromTo("#galette", { autoAlpha: 0, y: 140 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 10.5);
       FEVES.forEach((f, i) => {
-        const t = 11.35 + i * 0.3;
-        const dx = GX - (MINI[i][0] + 100), dy = GY - (MINI[i][1] + 130);
-        tl.to("#mn" + i, { keyframes: [{ x: dx * 0.4, y: -120, rotation: dx >= 0 ? 20 : -20, duration: 0.18, ease: "power2.out" }, { x: dx, y: dy, scale: 0.25, rotation: dx >= 0 ? 220 : -220, duration: 0.24, ease: "power2.in" }] }, t);
-        tl.set("#mn" + i, { autoAlpha: 0 }, t + 0.42);
-        tl.to("#gal-img", { keyframes: [{ scaleY: 0.86, scaleX: 1.05, duration: 0.06 }, { scaleY: 1, scaleX: 1, duration: 0.14, ease: "back.out(3)" }] }, t + 0.42);
+        const t = 11.2 + i * 0.3;
+        tl.to("#mn" + i, { x: 540 - MX(i), y: 540, scale: 0.4, autoAlpha: 0, duration: 0.55, ease: "power2.in" }, t);
       });
-      PUFFS.forEach((p, k) => {
-        tl.fromTo(p.id, { autoAlpha: 1, x: 0, y: 0, scale: 1 }, { autoAlpha: 0, x: p.x, y: p.y, scale: 0.3, duration: 0.55, ease: "power2.out", immediateRender: false }, 12.97 + (k % 3) * 0.03);
-      });
+      tl.fromTo("#gal-glow", { scale: 1 }, { scale: 1.12, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, 12.75);
 
-      // ── 12 → 13.4 The mystery
-      tl.to("#toppill", { autoAlpha: 0, duration: 0.2 }, 12.9);
-      tl.to("#galette", { y: -420, scale: 1.05, duration: 0.5, ease: "power3.inOut" }, 13);
-      tl.fromTo("#crown", { autoAlpha: 0, y: -500, rotation: -20 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.45, ease: "bounce.out" }, 13.3);
-      tl.fromTo("#question", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 13.1);
-      tl.to("#qm", { keyframes: [{ rotation: 20, scale: 1.3, duration: 0.12 }, { rotation: -15, duration: 0.12 }, { rotation: 0, scale: 1, duration: 0.16 }] }, 13.7);
-      tl.to("#galette", { keyframes: [{ rotation: -3, duration: 0.07 }, { rotation: 3, duration: 0.07 }, { rotation: 0, duration: 0.07 }] }, 13.9);
+      // ── 13.1 → 15.4 The question
+      tl.to("#title", { autoAlpha: 0, duration: 0.3 }, 13.0);
+      tl.fromTo("#q", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, 13.1);
 
-      // ── 13.4 → 15 Prices + date (the Galzin outro follows in the final edit)
-      tl.to("#question", { autoAlpha: 0, y: -40, duration: 0.25 }, 15.2);
-      tl.to("#galette", { y: -1000, scale: 0.6, duration: 0.45, ease: "power3.inOut" }, 15.2);
-      tl.set("#prices", { autoAlpha: 1 }, 15.3);
+      // ── 15.5 → 18 Prices + date (the Galzin outro follows in the final edit)
+      tl.to("#q", { autoAlpha: 0, duration: 0.3 }, 15.4);
+      tl.fromTo("#title", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, immediateRender: false }, 15.5);
+      tl.to("#galette", { y: -330, scale: 0.72, duration: 0.6, ease: "power3.inOut" }, 15.4);
       PRICES.forEach((p, i) => {
-        tl.fromTo("#pr" + i, { autoAlpha: 0, x: 500 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: "back.out(1.5)" }, 15.3 + i * 0.12);
+        tl.fromTo("#md" + i, { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, 15.7 + i * 0.12);
       });
-      tl.fromTo("#collect", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.3 }, 15.7);
-      tl.fromTo("#date", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" }, 15.75);
-      tl.to("#pr1", { scale: 1.05, duration: 0.18, yoyo: true, repeat: 1 }, 16.2);
+      tl.fromTo("#date", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 16.0);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.75, duration: 0.4 }, 16.1);
 
       window.__timelines["main"] = tl;
       tl.seek(0);

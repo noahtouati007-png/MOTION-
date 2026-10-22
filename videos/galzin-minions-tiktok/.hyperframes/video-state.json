@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "702cfc76-0a78-4126-a069-8f2b0a4b095e",
-  "currentRevision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
+  "currentRevision": "3107b7d0-4ff7-46c9-b8b3-9a12a30d04fb",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -16,14 +16,6 @@
       "hash": "a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412",
       "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/a7/a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412"
     },
-    "assets/fonts/fredoka-latin-600-normal.woff2": {
-      "hash": "22fb9018a5f785ffc9fc8612032e29883ee53142394bd74c486ceffccedf8247",
-      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/22/22fb9018a5f785ffc9fc8612032e29883ee53142394bd74c486ceffccedf8247"
-    },
-    "assets/fonts/fredoka-latin-700-normal.woff2": {
-      "hash": "de9b5e7fc840595b2bcd87a5df83fe94e6fabc8aae7352180da72114971a6cde",
-      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/de/de9b5e7fc840595b2bcd87a5df83fe94e6fabc8aae7352180da72114971a6cde"
-    },
     "assets/img/galzin-logo.png": {
       "hash": "cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5",
       "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/ce/cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5"
@@ -37,8 +29,8 @@
       "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/e5/e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6"
     },
     "index.html": {
-      "hash": "c8d56b4e12dd2be80f6358e678d7002f378b3b647bf074978036a38286d6d94a",
-      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/c8/c8d56b4e12dd2be80f6358e678d7002f378b3b647bf074978036a38286d6d94a"
+      "hash": "ac1dba3a615b0c0be0f1d20af31954928ccf6cf0e2ed469f66c999d3d3fdad9b",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/ac/ac1dba3a615b0c0be0f1d20af31954928ccf6cf0e2ed469f66c999d3d3fdad9b"
     },
     "meta.json": {
       "hash": "d6f35113adaa7fa407cf7e2709bb9ffb7e4d8d3694cfd30e70afd6e741dc987e",
@@ -47,6 +39,18 @@
     "package.json": {
       "hash": "cb317b0cdbd652914204de7d35b88f3cb4f9d99ee557b145a94c4a1ca694d35d",
       "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/cb/cb317b0cdbd652914204de7d35b88f3cb4f9d99ee557b145a94c4a1ca694d35d"
+    },
+    "assets/fonts/crimson-pro-latin-600-italic.woff2": {
+      "hash": "cc652c646593506722b059d8151ef80586f235606e37ef4c1863df3e3183ed78",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/cc/cc652c646593506722b059d8151ef80586f235606e37ef4c1863df3e3183ed78"
+    },
+    "assets/fonts/crimson-pro-latin-700-normal.woff2": {
+      "hash": "e34581dd821e87e007f5525f03b45f90207539a6c79132851217b5c1a0616c68",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/e3/e34581dd821e87e007f5525f03b45f90207539a6c79132851217b5c1a0616c68"
+    },
+    "assets/fonts/dancing-script-latin-700-normal.woff2": {
+      "hash": "06b326d772e3a68977c10711110f5f38255a007f3775795efbcd3862313b2d22",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/06/06b326d772e3a68977c10711110f5f38255a007f3775795efbcd3862313b2d22"
     }
   },
   "revisions": {
@@ -64,12 +68,62 @@
           "after": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/c8/c8d56b4e12dd2be80f6358e678d7002f378b3b647bf074978036a38286d6d94a"
         }
       }
+    },
+    "800afb6a-3265-4739-8deb-aff3f75cfa78": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792679592798,
+      "endedAt": 1792679592808,
+      "files": {
+        "assets/fonts/crimson-pro-latin-600-italic.woff2": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/cc/cc652c646593506722b059d8151ef80586f235606e37ef4c1863df3e3183ed78"
+        },
+        "assets/fonts/crimson-pro-latin-700-normal.woff2": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/e3/e34581dd821e87e007f5525f03b45f90207539a6c79132851217b5c1a0616c68"
+        },
+        "assets/fonts/dancing-script-latin-700-normal.woff2": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/06/06b326d772e3a68977c10711110f5f38255a007f3775795efbcd3862313b2d22"
+        },
+        "assets/fonts/fredoka-latin-600-normal.woff2": {
+          "before": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/22/22fb9018a5f785ffc9fc8612032e29883ee53142394bd74c486ceffccedf8247",
+          "after": null
+        },
+        "assets/fonts/fredoka-latin-700-normal.woff2": {
+          "before": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/de/de9b5e7fc840595b2bcd87a5df83fe94e6fabc8aae7352180da72114971a6cde",
+          "after": null
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/c8/c8d56b4e12dd2be80f6358e678d7002f378b3b647bf074978036a38286d6d94a",
+          "after": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/64/64ccd467270b8ba1619b49329e1300809512d12f38e6c91ebf7685e84eee0ae1"
+        }
+      }
+    },
+    "3107b7d0-4ff7-46c9-b8b3-9a12a30d04fb": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792679618043,
+      "endedAt": 1792679618045,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/64/64ccd467270b8ba1619b49329e1300809512d12f38e6c91ebf7685e84eee0ae1",
+          "after": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/ac/ac1dba3a615b0c0be0f1d20af31954928ccf6cf0e2ed469f66c999d3d3fdad9b"
+        }
+      }
     }
   },
   "checks": {
     "latest": {
-      "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
-      "id": "7f8ec49e-85fa-4a1d-ad14-b946802dec40"
+      "revision": "3107b7d0-4ff7-46c9-b8b3-9a12a30d04fb",
+      "id": "87b09688-609a-425e-b05b-f132328049f2"
     },
     "revisions": {
       "40661e04-b1b3-497b-bbb0-ce255dcbd4ef": [
@@ -97,6 +151,65 @@
           "contentHash": "b1605b233f2068a8e0e80394d002050fda78db6e7ba1820b6c98e835abfcc020",
           "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
           "inputFingerprint": "0c10f981958ab42069b7466592f8a5be95fda93733c00082ae6b6c79b1ffccc2",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "800afb6a-3265-4739-8deb-aff3f75cfa78": [
+        {
+          "id": "86822473-741c-4cdb-90c4-1cd4bf5ef9a7",
+          "scope": "project",
+          "metadata": {
+            "ok": false,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792679597799,
+          "contentHash": "1484862f284993ea27ac52d38b3f0f867b39ae815d2e4815b78af323d5b06983",
+          "revision": "800afb6a-3265-4739-8deb-aff3f75cfa78",
+          "inputFingerprint": "c62f8eed039f05139c7d41dfd8aa51e9241676e6ab69a481bdc14b672192feea",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "029877f6-d159-46ac-93d8-5c009f49688d"
+        }
+      ],
+      "3107b7d0-4ff7-46c9-b8b3-9a12a30d04fb": [
+        {
+          "id": "87b09688-609a-425e-b05b-f132328049f2",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/checks/87b09688-609a-425e-b05b-f132328049f2.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792679622422,
+          "contentHash": "ab5b8efb6b1a0436a616f1a8e6547952e475834960e03506e633c736d3ee6358",
+          "revision": "3107b7d0-4ff7-46c9-b8b3-9a12a30d04fb",
+          "inputFingerprint": "1b988d13c9a1e4693b89656344c02ff0e259e4ae10f83c8cd8d57e75dddb19f6",
           "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
@@ -135,7 +248,7 @@
   "snapshots": {
     "latest": {
       "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
-      "id": "b4b79a8d-ea19-43b7-8c2c-bdd77849ab26-3"
+      "id": "b4b79a8d-ea19-43b7-8c2c-bdd77849ab26-0"
     },
     "revisions": {
       "40661e04-b1b3-497b-bbb0-ce255dcbd4ef": [
@@ -218,6 +331,155 @@
           "inputFingerprint": "0c10f981958ab42069b7466592f8a5be95fda93733c00082ae6b6c79b1ffccc2",
           "inputScope": "local-project-files",
           "attribution": "recorded-revision"
+        }
+      ],
+      "800afb6a-3265-4739-8deb-aff3f75cfa78": [
+        {
+          "scope": "full",
+          "id": "950fabfc-3a49-42af-a5eb-13dfe2936046-0",
+          "time": 0,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679605337,
+          "contentHash": "faef9de1d25665cc300bb6c31566f42689848c05a413d3cb4ef110b540280c06",
+          "revision": "800afb6a-3265-4739-8deb-aff3f75cfa78",
+          "inputFingerprint": "c62f8eed039f05139c7d41dfd8aa51e9241676e6ab69a481bdc14b672192feea",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "029877f6-d159-46ac-93d8-5c009f49688d"
+        },
+        {
+          "scope": "full",
+          "id": "950fabfc-3a49-42af-a5eb-13dfe2936046-1",
+          "time": 2.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679605337,
+          "contentHash": "aab232df1aa6706882bf56b3300ca108f28b51a147f5cf6344ea7e2dd027cbc4",
+          "revision": "800afb6a-3265-4739-8deb-aff3f75cfa78",
+          "inputFingerprint": "c62f8eed039f05139c7d41dfd8aa51e9241676e6ab69a481bdc14b672192feea",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "029877f6-d159-46ac-93d8-5c009f49688d"
+        },
+        {
+          "scope": "full",
+          "id": "950fabfc-3a49-42af-a5eb-13dfe2936046-2",
+          "time": 4.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679605337,
+          "contentHash": "dd27058cb75a3cee0d3e091c460686f08d7fcc3df59905f3f4322ae0c2366a55",
+          "revision": "800afb6a-3265-4739-8deb-aff3f75cfa78",
+          "inputFingerprint": "c62f8eed039f05139c7d41dfd8aa51e9241676e6ab69a481bdc14b672192feea",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "029877f6-d159-46ac-93d8-5c009f49688d"
+        },
+        {
+          "scope": "full",
+          "id": "950fabfc-3a49-42af-a5eb-13dfe2936046-3",
+          "time": 11,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679605337,
+          "contentHash": "20e09f983efb8713c7d5b4fdab5e4005b86050e89007639c4e60291dfd5d40d8",
+          "revision": "800afb6a-3265-4739-8deb-aff3f75cfa78",
+          "inputFingerprint": "c62f8eed039f05139c7d41dfd8aa51e9241676e6ab69a481bdc14b672192feea",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "029877f6-d159-46ac-93d8-5c009f49688d"
+        },
+        {
+          "scope": "full",
+          "id": "950fabfc-3a49-42af-a5eb-13dfe2936046-4",
+          "time": 12,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679605337,
+          "contentHash": "40728e066a6f2d00fe4a9b60eb96bc4b37ab14d77f7fa3f1323fef109cfce2fb",
+          "revision": "800afb6a-3265-4739-8deb-aff3f75cfa78",
+          "inputFingerprint": "c62f8eed039f05139c7d41dfd8aa51e9241676e6ab69a481bdc14b672192feea",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "029877f6-d159-46ac-93d8-5c009f49688d"
+        },
+        {
+          "scope": "full",
+          "id": "950fabfc-3a49-42af-a5eb-13dfe2936046-5",
+          "time": 14.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679605337,
+          "contentHash": "d72b8ab4ab025f640b1c8f364c49b5e332f8464e13aa511349a78093348e7a95",
+          "revision": "800afb6a-3265-4739-8deb-aff3f75cfa78",
+          "inputFingerprint": "c62f8eed039f05139c7d41dfd8aa51e9241676e6ab69a481bdc14b672192feea",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "029877f6-d159-46ac-93d8-5c009f49688d"
+        },
+        {
+          "scope": "full",
+          "id": "950fabfc-3a49-42af-a5eb-13dfe2936046-6",
+          "time": 17.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679605337,
+          "contentHash": "44a11af4cd19fbda8cc57f4d030a8321b03048fb22d1ab3f3a9c15be4035237b",
+          "revision": "800afb6a-3265-4739-8deb-aff3f75cfa78",
+          "inputFingerprint": "c62f8eed039f05139c7d41dfd8aa51e9241676e6ab69a481bdc14b672192feea",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "029877f6-d159-46ac-93d8-5c009f49688d"
         }
       ]
     },
@@ -406,13 +668,14 @@
   },
   "renders": {
     "latest": {
-      "id": "94e856a0-549e-4cd5-b5a1-412cf1b93555",
-      "completedAt": 1792679107506,
-      "output": "/home/user/MOTION-/videos/galzin-minions-tiktok/renders/galzin-minions-tiktok-sans-outro.mp4",
+      "id": "029877f6-d159-46ac-93d8-5c009f49688d",
+      "completedAt": 1792679683345,
+      "output": "/home/user/MOTION-/videos/galzin-minions-tiktok/renders/tmp-sans-outro.mp4",
       "status": "completed",
-      "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef"
+      "revision": "3107b7d0-4ff7-46c9-b8b3-9a12a30d04fb"
     },
     "retainedRevisions": [
+      "3107b7d0-4ff7-46c9-b8b3-9a12a30d04fb",
       "40661e04-b1b3-497b-bbb0-ce255dcbd4ef"
     ]
   },
