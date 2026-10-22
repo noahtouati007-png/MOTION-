@@ -1,0 +1,339 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 4,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 24.5,
+        "selector": "#P3 > div:nth-of-type(3)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -26.03,
+          "top": -46.03,
+          "right": 1146.03,
+          "bottom": 1126.03,
+          "width": 1172.06,
+          "height": 1172.06
+        },
+        "containerSelector": "#P3",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 26.03,
+          "top": 46.03,
+          "bottom": 46.03
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -26.03,
+          "y": -46.03,
+          "width": 1172.06,
+          "height": 1172.06
+        },
+        "firstSeen": 24.5,
+        "lastSeen": 24.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          24.5
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 24.5,
+        "selector": "#P3 > div:nth-of-type(3)",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": -26.03,
+          "top": -46.03,
+          "right": 1146.03,
+          "bottom": 1126.03,
+          "width": 1172.06,
+          "height": 1172.06
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "top": 46.03,
+          "bottom": 46.03
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -26.03,
+          "y": -46.03,
+          "width": 1172.06,
+          "height": 1172.06
+        },
+        "firstSeen": 24.5,
+        "lastSeen": 24.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          24.5
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 138.833,
+        "selector": "#P19 > div:nth-of-type(3)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -64.38,
+          "top": -84.38,
+          "right": 1184.38,
+          "bottom": 1164.38,
+          "width": 1248.75,
+          "height": 1248.75
+        },
+        "containerSelector": "#P19",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 64.38,
+          "top": 84.38,
+          "bottom": 84.38
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -64.38,
+          "y": -84.38,
+          "width": 1248.75,
+          "height": 1248.75
+        },
+        "firstSeen": 138.833,
+        "lastSeen": 138.833,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          138.833
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 138.833,
+        "selector": "#P19 > div:nth-of-type(3)",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": -64.38,
+          "top": -84.38,
+          "right": 1184.38,
+          "bottom": 1164.38,
+          "width": 1248.75,
+          "height": 1248.75
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "left": 64.38,
+          "top": 84.38,
+          "bottom": 84.38
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -64.38,
+          "y": -84.38,
+          "width": 1248.75,
+          "height": 1248.75
+        },
+        "firstSeen": 138.833,
+        "lastSeen": 138.833,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          138.833
+        ]
+      }
+    ],
+    "duration": 147,
+    "samples": [
+      8.167,
+      24.5,
+      40.833,
+      57.167,
+      73.5,
+      89.833,
+      106.167,
+      122.5,
+      138.833
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 4,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.71:1; WCAG AA requires 3:1.",
+        "text": "Le Mixte",
+        "fg": "rgb(253,240,227)",
+        "bg": "rgb(192,136,94)",
+        "ratio": 2.71,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(74,71,67)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div:nth-of-type(20) > div:nth-of-type(5) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1080,
+          "y": 454.578125,
+          "width": 740,
+          "height": 125.4375
+        },
+        "time": 138.833,
+        "times": [
+          138.833
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.88:1; WCAG AA requires 3:1.",
+        "text": "Jambon blanc, emmental",
+        "fg": "rgb(253,240,227)",
+        "bg": "rgb(187,131,90)",
+        "ratio": 2.88,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(71,68,64)",
+        "large": true,
+        "selector": "div > div:nth-of-type(1) > div:nth-of-type(20) > div:nth-of-type(5) > div:nth-of-type(4)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1080,
+          "y": 640.015625,
+          "width": 740,
+          "height": 59.390625
+        },
+        "time": 138.833,
+        "times": [
+          138.833
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      8.167,
+      40.833,
+      73.5,
+      106.167,
+      138.833
+    ],
+    "checked": 12,
+    "passed": 10
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 147 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "enabled": true,
+    "step": 0.24500000000000455,
+    "samples": 599
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
