@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "bf480242-712b-46e5-8740-eb3792581a3a",
-  "currentRevision": "21e31703-f9c5-4d81-a5b0-ebd2b9bda803",
+  "currentRevision": "0fc44443-d7a8-4e79-8baf-01fc3a256c1d",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -29,8 +29,8 @@
       "content": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/06/06b326d772e3a68977c10711110f5f38255a007f3775795efbcd3862313b2d22"
     },
     "assets/img/baba.png": {
-      "hash": "89c4bdb50363628c3c4817ac94c5c56d34031ed55da9b8c197641ee6b9d79115",
-      "content": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/89/89c4bdb50363628c3c4817ac94c5c56d34031ed55da9b8c197641ee6b9d79115"
+      "hash": "25155a4f08810a4435b43f676ac706a851aa740077fa156e91c5bce652d33a47",
+      "content": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/25/25155a4f08810a4435b43f676ac706a851aa740077fa156e91c5bce652d33a47"
     },
     "assets/img/baguette.png": {
       "hash": "65ba334af3526584f5d3b1d5fdeb5e8dd80efa224318a10d9ead560e20273e1f",
@@ -89,8 +89,8 @@
       "content": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/3a/3a8178b246ca80dc1d41991c596ba273d9898352b5be5ff45c8c0c96e957d3fb"
     },
     "assets/img/brioche.png": {
-      "hash": "35355f0838ddf063c36821bc09bddf9258c235c28fec18c027ca16eb351e8407",
-      "content": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/35/35355f0838ddf063c36821bc09bddf9258c235c28fec18c027ca16eb351e8407"
+      "hash": "51cb66546cdda64d9d60b36d5ede7fd905a9453a9c6e06595655b0f9937179b6",
+      "content": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/51/51cb66546cdda64d9d60b36d5ede7fd905a9453a9c6e06595655b0f9937179b6"
     },
     "assets/img/chevre-noix.png": {
       "hash": "87b2b98783b6e34b4dc8ce1ad4e5289919139d7e18a35cb0eead1a1cdda7356f",
@@ -105,8 +105,8 @@
       "content": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/81/81533b24b8e8335eceff20a1b3d875d333813bab33b1385db9978bdb47c9e6b6"
     },
     "assets/img/tarte-fraises.png": {
-      "hash": "133d09a1404f72decaebbed75c5f2c6fc533622d7708235bf905a35cbf869743",
-      "content": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/13/133d09a1404f72decaebbed75c5f2c6fc533622d7708235bf905a35cbf869743"
+      "hash": "cb2e4ecd158bdcb9d3c98dde8d1cbbf9250e1bc2fab6ce6a4b156c9170c67572",
+      "content": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/cb/cb2e4ecd158bdcb9d3c98dde8d1cbbf9250e1bc2fab6ce6a4b156c9170c67572"
     },
     "assets/img/tielle.png": {
       "hash": "a12817d1d096b141480291b797a58a74c3ca8b44e495a75df035fbf857a42b6a",
@@ -199,6 +199,29 @@
           "after": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/16/166a0e2a6a5991c8acdd6d54b0900922b622d3ef649cf0c213652207cc0e52ef"
         }
       }
+    },
+    "0fc44443-d7a8-4e79-8baf-01fc3a256c1d": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792677053600,
+      "endedAt": 1792677053659,
+      "files": {
+        "assets/img/baba.png": {
+          "before": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/89/89c4bdb50363628c3c4817ac94c5c56d34031ed55da9b8c197641ee6b9d79115",
+          "after": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/25/25155a4f08810a4435b43f676ac706a851aa740077fa156e91c5bce652d33a47"
+        },
+        "assets/img/brioche.png": {
+          "before": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/35/35355f0838ddf063c36821bc09bddf9258c235c28fec18c027ca16eb351e8407",
+          "after": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/51/51cb66546cdda64d9d60b36d5ede7fd905a9453a9c6e06595655b0f9937179b6"
+        },
+        "assets/img/tarte-fraises.png": {
+          "before": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/13/133d09a1404f72decaebbed75c5f2c6fc533622d7708235bf905a35cbf869743",
+          "after": "/root/.cache/hyperframes/history/bf480242-712b-46e5-8740-eb3792581a3a/blobs/cb/cb2e4ecd158bdcb9d3c98dde8d1cbbf9250e1bc2fab6ce6a4b156c9170c67572"
+        }
+      }
     }
   },
   "checks": {
@@ -211,7 +234,6 @@
         {
           "id": "59a83add-aed9-4048-8d23-6ac5d2d4b06b",
           "scope": "project",
-          "report": "/home/user/MOTION-/videos/galzin-affiches/.hyperframes/artifacts/checks/59a83add-aed9-4048-8d23-6ac5d2d4b06b.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -233,7 +255,9 @@
           "revision": "4fad1784-bddb-4537-bd1a-dbb0bfc1e8c3",
           "inputFingerprint": "9c8c56e35b343aa987fec2e669eedab3b0f8f6191f43cf03dbccb59a037c9c6b",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "f80f1f4b-327c-4f0b-84a0-27d581847cd9"
         }
       ],
       "21e31703-f9c5-4d81-a5b0-ebd2b9bda803": [
@@ -710,15 +734,15 @@
   },
   "renders": {
     "latest": {
-      "id": "c847e50a-8b7e-4a6b-ba1b-38b4c2377ac4",
-      "completedAt": 1792660503984,
+      "id": "f80f1f4b-327c-4f0b-84a0-27d581847cd9",
+      "completedAt": 1792677490852,
       "output": "/home/user/MOTION-/videos/galzin-affiches/renders/galzin-affiches.mp4",
       "status": "completed",
-      "revision": "21e31703-f9c5-4d81-a5b0-ebd2b9bda803"
+      "revision": "0fc44443-d7a8-4e79-8baf-01fc3a256c1d"
     },
     "retainedRevisions": [
-      "21e31703-f9c5-4d81-a5b0-ebd2b9bda803",
-      "4fad1784-bddb-4537-bd1a-dbb0bfc1e8c3"
+      "0fc44443-d7a8-4e79-8baf-01fc3a256c1d",
+      "21e31703-f9c5-4d81-a5b0-ebd2b9bda803"
     ]
   },
   "pendingArtifactCleanup": []

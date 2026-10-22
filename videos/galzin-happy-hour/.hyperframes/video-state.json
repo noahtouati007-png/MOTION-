@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "c15dc9de-5d98-4fee-8d06-82dba8357a51",
-  "currentRevision": "eda7a3f8-85be-4a8c-ab3f-50b04b1105b9",
+  "currentRevision": "4b0b8fc3-7923-48c9-a507-a7ed9dfa598c",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -77,8 +77,8 @@
       "content": "/root/.cache/hyperframes/history/c15dc9de-5d98-4fee-8d06-82dba8357a51/blobs/87/870fbf4f6291269ea58274904ccdea588c1fbfb446df1446cdb14ab3c41a93e2"
     },
     "assets/img/tarte-fraises.png": {
-      "hash": "133d09a1404f72decaebbed75c5f2c6fc533622d7708235bf905a35cbf869743",
-      "content": "/root/.cache/hyperframes/history/c15dc9de-5d98-4fee-8d06-82dba8357a51/blobs/13/133d09a1404f72decaebbed75c5f2c6fc533622d7708235bf905a35cbf869743"
+      "hash": "cb2e4ecd158bdcb9d3c98dde8d1cbbf9250e1bc2fab6ce6a4b156c9170c67572",
+      "content": "/root/.cache/hyperframes/history/c15dc9de-5d98-4fee-8d06-82dba8357a51/blobs/cb/cb2e4ecd158bdcb9d3c98dde8d1cbbf9250e1bc2fab6ce6a4b156c9170c67572"
     },
     "assets/img/tielle.png": {
       "hash": "a12817d1d096b141480291b797a58a74c3ca8b44e495a75df035fbf857a42b6a",
@@ -113,6 +113,21 @@
         "index.html": {
           "before": "/root/.cache/hyperframes/history/c15dc9de-5d98-4fee-8d06-82dba8357a51/blobs/49/49584faef48ebd3e264c72ec99c3dd772b280ce322b783cd6d5ba9fd38d31d8b",
           "after": "/root/.cache/hyperframes/history/c15dc9de-5d98-4fee-8d06-82dba8357a51/blobs/f9/f99844a3d84f5e79dc5e234c08caa4dc2e9ea4b34b627208e4154adc87603703"
+        }
+      }
+    },
+    "4b0b8fc3-7923-48c9-a507-a7ed9dfa598c": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792677609450,
+      "endedAt": 1792677609450,
+      "files": {
+        "assets/img/tarte-fraises.png": {
+          "before": "/root/.cache/hyperframes/history/c15dc9de-5d98-4fee-8d06-82dba8357a51/blobs/13/133d09a1404f72decaebbed75c5f2c6fc533622d7708235bf905a35cbf869743",
+          "after": "/root/.cache/hyperframes/history/c15dc9de-5d98-4fee-8d06-82dba8357a51/blobs/cb/cb2e4ecd158bdcb9d3c98dde8d1cbbf9250e1bc2fab6ce6a4b156c9170c67572"
         }
       }
     }
@@ -431,13 +446,14 @@
   },
   "renders": {
     "latest": {
-      "id": "77dc5548-0367-43ad-9cc2-c49ba38286c6",
-      "completedAt": 1792658329787,
+      "id": "201a8eef-771d-4d31-8b4b-11fb077c66fb",
+      "completedAt": 1792677645029,
       "output": "/home/user/MOTION-/videos/galzin-happy-hour/renders/galzin-happy-hour.mp4",
       "status": "completed",
-      "revision": "eda7a3f8-85be-4a8c-ab3f-50b04b1105b9"
+      "revision": "4b0b8fc3-7923-48c9-a507-a7ed9dfa598c"
     },
     "retainedRevisions": [
+      "4b0b8fc3-7923-48c9-a507-a7ed9dfa598c",
       "eda7a3f8-85be-4a8c-ab3f-50b04b1105b9"
     ]
   },
