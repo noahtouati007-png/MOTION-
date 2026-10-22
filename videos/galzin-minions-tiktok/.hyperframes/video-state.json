@@ -1,0 +1,420 @@
+{
+  "version": 1,
+  "historyId": "702cfc76-0a78-4126-a069-8f2b0a4b095e",
+  "currentRevision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "fd0ea55029dfc62c31614321d782f47476d3d5daaaa4116b56318ed501911f1b",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/fd/fd0ea55029dfc62c31614321d782f47476d3d5daaaa4116b56318ed501911f1b"
+    },
+    "CLAUDE.md": {
+      "hash": "fd0ea55029dfc62c31614321d782f47476d3d5daaaa4116b56318ed501911f1b",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/fd/fd0ea55029dfc62c31614321d782f47476d3d5daaaa4116b56318ed501911f1b"
+    },
+    "assets/fonts/bebas-neue-latin-400-normal.woff2": {
+      "hash": "a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/a7/a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412"
+    },
+    "assets/fonts/fredoka-latin-600-normal.woff2": {
+      "hash": "22fb9018a5f785ffc9fc8612032e29883ee53142394bd74c486ceffccedf8247",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/22/22fb9018a5f785ffc9fc8612032e29883ee53142394bd74c486ceffccedf8247"
+    },
+    "assets/fonts/fredoka-latin-700-normal.woff2": {
+      "hash": "de9b5e7fc840595b2bcd87a5df83fe94e6fabc8aae7352180da72114971a6cde",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/de/de9b5e7fc840595b2bcd87a5df83fe94e6fabc8aae7352180da72114971a6cde"
+    },
+    "assets/img/galzin-logo.png": {
+      "hash": "cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/ce/cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/e5/e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6"
+    },
+    "index.html": {
+      "hash": "c8d56b4e12dd2be80f6358e678d7002f378b3b647bf074978036a38286d6d94a",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/c8/c8d56b4e12dd2be80f6358e678d7002f378b3b647bf074978036a38286d6d94a"
+    },
+    "meta.json": {
+      "hash": "d6f35113adaa7fa407cf7e2709bb9ffb7e4d8d3694cfd30e70afd6e741dc987e",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/d6/d6f35113adaa7fa407cf7e2709bb9ffb7e4d8d3694cfd30e70afd6e741dc987e"
+    },
+    "package.json": {
+      "hash": "cb317b0cdbd652914204de7d35b88f3cb4f9d99ee557b145a94c4a1ca694d35d",
+      "content": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/cb/cb317b0cdbd652914204de7d35b88f3cb4f9d99ee557b145a94c4a1ca694d35d"
+    }
+  },
+  "revisions": {
+    "40661e04-b1b3-497b-bbb0-ce255dcbd4ef": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792679014545,
+      "endedAt": 1792679014549,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/64/641fb1421220d3a264856aeb0c7d177da539a5b5d396a2c4a632381c4e6a9f50",
+          "after": "/root/.cache/hyperframes/history/702cfc76-0a78-4126-a069-8f2b0a4b095e/blobs/c8/c8d56b4e12dd2be80f6358e678d7002f378b3b647bf074978036a38286d6d94a"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
+      "id": "7f8ec49e-85fa-4a1d-ad14-b946802dec40"
+    },
+    "revisions": {
+      "40661e04-b1b3-497b-bbb0-ce255dcbd4ef": [
+        {
+          "id": "7f8ec49e-85fa-4a1d-ad14-b946802dec40",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/checks/7f8ec49e-85fa-4a1d-ad14-b946802dec40.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792679021113,
+          "contentHash": "b1605b233f2068a8e0e80394d002050fda78db6e7ba1820b6c98e835abfcc020",
+          "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
+          "inputFingerprint": "0c10f981958ab42069b7466592f8a5be95fda93733c00082ae6b6c79b1ffccc2",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "ff6e4b16-6799-4149-8b83-e54d2391eb28",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/checks/ff6e4b16-6799-4149-8b83-e54d2391eb28.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792678982848,
+        "contentHash": "dee7d61c565b423019abdd3771e85db418023eb174cb4d5bd4140b9bd53ef130",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
+      "id": "b4b79a8d-ea19-43b7-8c2c-bdd77849ab26-3"
+    },
+    "revisions": {
+      "40661e04-b1b3-497b-bbb0-ce255dcbd4ef": [
+        {
+          "scope": "full",
+          "id": "b4b79a8d-ea19-43b7-8c2c-bdd77849ab26-0",
+          "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/6a01a5e9-d710-4507-9e94-7ee70929178e/frame-00-at-11.9s.png",
+          "time": 11.9,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679025422,
+          "contentHash": "9bb1177a062b916bb47238ed6dd49e10b285f058e9ac4bbdadf862d9d19fe55a",
+          "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
+          "inputFingerprint": "0c10f981958ab42069b7466592f8a5be95fda93733c00082ae6b6c79b1ffccc2",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b4b79a8d-ea19-43b7-8c2c-bdd77849ab26-1",
+          "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/6a01a5e9-d710-4507-9e94-7ee70929178e/frame-01-at-13.2s.png",
+          "time": 13.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679025422,
+          "contentHash": "373c36cda212bf5ae30330657cc6d5abe42b24c995c3beba98a5d286b9747f99",
+          "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
+          "inputFingerprint": "0c10f981958ab42069b7466592f8a5be95fda93733c00082ae6b6c79b1ffccc2",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b4b79a8d-ea19-43b7-8c2c-bdd77849ab26-2",
+          "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/6a01a5e9-d710-4507-9e94-7ee70929178e/frame-02-at-14.5s.png",
+          "time": 14.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679025422,
+          "contentHash": "4ef7a0f1e355e311a54c73d55d3cf54ea32fe16ba6c812276e58838d76e4df9a",
+          "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
+          "inputFingerprint": "0c10f981958ab42069b7466592f8a5be95fda93733c00082ae6b6c79b1ffccc2",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b4b79a8d-ea19-43b7-8c2c-bdd77849ab26-3",
+          "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/6a01a5e9-d710-4507-9e94-7ee70929178e/frame-03-at-17.5s.png",
+          "time": 17.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792679025422,
+          "contentHash": "038c1ce8b311e72c5cc85b7f6a7f2db20119099d9479476da73ceea2fc532bd7",
+          "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef",
+          "inputFingerprint": "0c10f981958ab42069b7466592f8a5be95fda93733c00082ae6b6c79b1ffccc2",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "16f1d5a2-7e89-4caa-926d-d21c829a8bbe-0",
+        "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/c81278e6-1598-40f2-a3b9-68b36f36ab20/frame-00-at-0s.png",
+        "time": 0,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792678988568,
+        "contentHash": "54cda3dceb078b8f57906f3b848b5b38a6eb9c6960f0dda35449ae2e87d75448",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "16f1d5a2-7e89-4caa-926d-d21c829a8bbe-1",
+        "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/c81278e6-1598-40f2-a3b9-68b36f36ab20/frame-01-at-1.8s.png",
+        "time": 1.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792678988568,
+        "contentHash": "1815612f634b3dc2a87916d5dfc7689482db91c4be0a2d0a6fd97d6c633ab6b6",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "16f1d5a2-7e89-4caa-926d-d21c829a8bbe-2",
+        "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/c81278e6-1598-40f2-a3b9-68b36f36ab20/frame-02-at-3.4s.png",
+        "time": 3.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792678988568,
+        "contentHash": "07e2c861371ac549841d0bd5a4d2a97044e5e58adea1d920a08025046e5f8790",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "16f1d5a2-7e89-4caa-926d-d21c829a8bbe-3",
+        "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/c81278e6-1598-40f2-a3b9-68b36f36ab20/frame-03-at-5s.png",
+        "time": 5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792678988568,
+        "contentHash": "6d56044f8989f1f6e31c0be7ac4f71954062e3ff40248ff02cecbe69cd8ab3f6",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "16f1d5a2-7e89-4caa-926d-d21c829a8bbe-4",
+        "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/c81278e6-1598-40f2-a3b9-68b36f36ab20/frame-04-at-9.9s.png",
+        "time": 9.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792678988568,
+        "contentHash": "63ca5ccd42307660ded414f8bbda52d25889c30c3ef85b186332309f0ca533f5",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "16f1d5a2-7e89-4caa-926d-d21c829a8bbe-5",
+        "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/c81278e6-1598-40f2-a3b9-68b36f36ab20/frame-05-at-11.2s.png",
+        "time": 11.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792678988568,
+        "contentHash": "2ede59de1e7e26e2edc6f7735093d96ea4827d53e612ba79dfbfcd5f852301d2",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "16f1d5a2-7e89-4caa-926d-d21c829a8bbe-6",
+        "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/c81278e6-1598-40f2-a3b9-68b36f36ab20/frame-06-at-12.9s.png",
+        "time": 12.9,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792678988568,
+        "contentHash": "1a527652e3fe170406f31d1474074d4e2274d148694e2211d4a685d8d9d90472",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "16f1d5a2-7e89-4caa-926d-d21c829a8bbe-7",
+        "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/c81278e6-1598-40f2-a3b9-68b36f36ab20/frame-07-at-14.8s.png",
+        "time": 14.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792678988568,
+        "contentHash": "77c9aa1c9c2c17abbf753a42ce1ce4b3c067eadab07c63ad04af9e65b5f305cc",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "16f1d5a2-7e89-4caa-926d-d21c829a8bbe-8",
+        "image": "/home/user/MOTION-/videos/galzin-minions-tiktok/.hyperframes/artifacts/snapshots/c81278e6-1598-40f2-a3b9-68b36f36ab20/frame-08-at-14.55s.png",
+        "time": 14.55,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792678988568,
+        "contentHash": "dda018c293daa9a7da08a9f5bf3d813b1e3ad059ea10cf7b5f23b69a8ebfeb69",
+        "revision": null,
+        "inputFingerprint": "01862dc8d6710359bca4bd92f56250014698094911f27a7b41297eefd0a43303",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "94e856a0-549e-4cd5-b5a1-412cf1b93555",
+      "completedAt": 1792679107506,
+      "output": "/home/user/MOTION-/videos/galzin-minions-tiktok/renders/galzin-minions-tiktok-sans-outro.mp4",
+      "status": "completed",
+      "revision": "40661e04-b1b3-497b-bbb0-ce255dcbd4ef"
+    },
+    "retainedRevisions": [
+      "40661e04-b1b3-497b-bbb0-ce255dcbd4ef"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}
