@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      /* THEME — pizza red over chocolate, cream cards, bronze prices */
+      :root {
+        --bg-center: #6a2418;
+        --bg-edge: #2a120b;
+        --cream: #fdf0e3;
+        --ink: #3e2618;
+        --orange: #f2a531;
+        --bronze-a: #f2c890;
+        --bronze-b: #b0743d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg-edge);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--cream);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 35% 55%, var(--bg-center) 0%, var(--bg-edge) 80%);
+      }
+      #dots {
+        position: absolute;
+        inset: 0;
+      }
+      .dot {
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid var(--orange);
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--orange);
+        border-radius: 18px;
+        opacity: 0.55;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+        filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.4));
+      }
+      #title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 56px;
+        text-align: center;
+      }
+      #t-a {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 1;
+        color: var(--orange);
+      }
+      #t-b {
+        font-size: 120px;
+        line-height: 0.95;
+        letter-spacing: 6px;
+      }
+
+      /* Showcase */
+      .pz {
+        position: absolute;
+        left: 110px;
+        top: 300px;
+        width: 960px;
+        height: 620px;
+      }
+      .pz img {
+        position: absolute;
+        inset: 0;
+        width: 960px;
+        height: 620px;
+        object-fit: contain;
+        filter: drop-shadow(0 30px 26px rgba(0, 0, 0, 0.55));
+      }
+      .info {
+        position: absolute;
+        left: 1110px;
+        top: 360px;
+        width: 720px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .info .n {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 120px;
+        line-height: 1;
+      }
+      .info .bar {
+        width: 260px;
+        height: 8px;
+        border-radius: 4px;
+        background: var(--orange);
+        margin: 18px 0 20px;
+      }
+      .info .i {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 1.15;
+      }
+      .info .p {
+        margin-top: 34px;
+        width: 340px;
+        height: 150px;
+        border-radius: 50%;
+        background: linear-gradient(100deg, var(--bronze-b) 0%, var(--bronze-a) 50%, var(--bronze-b) 100%);
+        color: var(--ink);
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 104px;
+        line-height: 150px;
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Board */
+      #board {
+        position: absolute;
+        inset: 0;
+      }
+      #b-title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 64px;
+        text-align: center;
+        font-size: 110px;
+        line-height: 1;
+        letter-spacing: 6px;
+      }
+      #b-title span {
+        color: var(--orange);
+      }
+      .card {
+        position: absolute;
+        width: 560px;
+        height: 142px;
+        border-radius: 22px;
+        background: var(--cream);
+        color: var(--ink);
+        padding: 10px 18px 0 22px;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+      }
+      .card .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .card .cn {
+        font-size: 50px;
+        line-height: 1;
+        letter-spacing: 1px;
+        padding-top: 6px;
+      }
+      .card .cp {
+        padding: 2px 16px;
+        border-radius: 30px;
+        background: linear-gradient(100deg, var(--bronze-b) 0%, var(--bronze-a) 50%, var(--bronze-b) 100%);
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 1.1;
+      }
+      .card .ci {
+        margin-top: 6px;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 1.05;
+        color: #6b4a33;
+      }
+      #veil {
+        position: absolute;
+        inset: 0;
+        background: var(--bg-edge);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="30"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <div id="dots"></div>
+      <div id="title">
+        <div id="t-a">Faites votre choix parmi</div>
+        <div id="t-b">NOS PIZZAS</div>
+      </div>
+      <div id="show"></div>
+      <div id="board">
+        <div id="b-title">LA CARTE DES <span>PIZZAS</span></div>
+      </div>
+      <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
+      <div id="frame"></div>
+      <div id="veil"></div>
+    </div>
+
+    <script>
+      // ── The full menu (edit names / ingredients / prices here)
+      const MENU = [
+        ["Margherita", "Emmental, mozzarella, olives", "8,50€", "margherita"],
+        ["Romaine", "Emmental, mozzarella, jambon blanc, olives", "9,90€"],
+        ["Alsacienne", "Emmental, mozzarella, lardons, oignons", "10,50€", "alsacienne"],
+        ["Crémière", "Emmental, mozzarella, jambon blanc", "10,50€"],
+        ["Reine", "Emmental, mozzarella, jambon, champignons, olives", "10,50€"],
+        ["Végétarienne", "Emmental, mozzarella, champignons, tomates séchées, oignons, poivrons, olives", "10,50€", "vegetarienne"],
+        ["Chèvre Miel", "Emmental, mozzarella, chèvre, miel", "11,00€", "chevre-miel"],
+        ["Indienne", "Emmental, mozzarella, poulet, oignons, curry", "11,50€", "indienne"],
+        ["4 Fromages", "Emmental, roquefort, mozzarella, chèvre", "11,50€", "4-fromages"],
+        ["Kebab", "Emmental, mozzarella, poulet kebab", "11,50€", "kebab"],
+        ["Bolognaise", "Emmental, mozzarella, viande de bœuf, oignons, olives", "11,50€", "bolognaise"],
+        ["Poulet", "Emmental, mozzarella, poulet, pomme de terre, oignons, ketchup, olives", "12,00€"],
+        ["Tartiflette", "Emmental, mozzarella, pomme de terre, reblochon, lardons, oignons", "12,00€"],
+        ["Poulet Basquaise", "Emmental, mozzarella, émincés de poulet, poivrons, olives", "12,00€"],
+        ["Carnivore", "Sauce barbecue, emmental, mozzarella, poulet, chorizo, viande hachée, olives", "12,50€"],
+      ];
+
+      // Showcase: the pizzas we have photos for
+      const show = document.getElementById("show");
+      const featured = MENU.filter((m) => m[3]);
+      featured.forEach((m, i) => {
+        show.insertAdjacentHTML(
+          "beforeend",
+          '<div class="pz" id="pz' + i + '"><img src="assets/img/' + m[3] + '.png" alt="' + m[0] + '" /></div>' +
+            '<div class="info" id="in' + i + '"><div class="n">' + m[0] + '</div><div class="bar"></div><div class="i">' + m[1] + '</div><div class="p">' + m[2] + "</div></div>"
+        );
+      });
+
+      // Board: all 15, three columns of five
+      const board = document.getElementById("board");
+      MENU.forEach((m, i) => {
+        const col = Math.floor(i / 5), row = i % 5;
+        board.insertAdjacentHTML(
+          "beforeend",
+          '<div class="card" id="c' + i + '" style="left:' + (90 + col * 590) + "px;top:" + (230 + row * 150) + 'px">' +
+            '<div class="row"><div class="cn">' + m[0].toUpperCase() + '</div><div class="cp">' + m[2] + '</div></div><div class="ci">' + m[1] + "</div></div>"
+        );
+      });
+
+      let seed = 1938;
+      const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+      const dotsEl = document.getElementById("dots");
+      const dots = [];
+      for (let i = 0; i < 14; i++) {
+        const d = document.createElement("div");
+        d.className = "dot";
+        const size = Math.round(26 + rand() * 40);
+        d.style.width = d.style.height = size + "px";
+        d.style.left = Math.round(60 + rand() * 1780) + "px";
+        d.style.top = Math.round(60 + rand() * 940) + "px";
+        dotsEl.appendChild(d);
+        dots.push({ el: d, op: 0.08 + rand() * 0.12, dx: -40 + rand() * 80, dy: -60 - rand() * 80 });
+      }
+
+      const pzs = featured.map((_, i) => "#pz" + i);
+      const ins = featured.map((_, i) => "#in" + i);
+      gsap.set([...pzs, ...ins, "#b-title", ".card", "#veil"], { autoAlpha: 0 });
+
+      const tl = gsap.timeline({ paused: true });
+      dots.forEach((d) => {
+        tl.fromTo(d.el, { autoAlpha: 0, x: 0, y: 0 }, { autoAlpha: d.op, x: d.dx, y: d.dy, duration: 30, ease: "none" }, 0);
+      });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.55, duration: 0.8 }, 0.2);
+
+      // ── Logo intro → top-right corner, title
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.2);
+      tl.fromTo("#t-a", { autoAlpha: 0, y: -40 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.5);
+      tl.fromTo("#t-b", { autoAlpha: 0, scale: 1.6 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "power4.in" }, 1.75);
+
+      // ── Showcase: each pizza rolls in from the right, info swaps (2.4 → 16.3)
+      const STEP = 2.0;
+      featured.forEach((_, i) => {
+        const t = 2.4 + i * STEP;
+        tl.fromTo(pzs[i], { autoAlpha: 1, x: 1400, rotation: 40 }, { x: 0, rotation: 0, duration: 0.55, ease: "power3.out", immediateRender: false }, t);
+        tl.fromTo(ins[i], { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, t + 0.2);
+        tl.fromTo(ins[i] + " .p", { scale: 0.4, rotation: -20 }, { scale: 1, rotation: -4, duration: 0.45, ease: "back.out(2)" }, t + 0.35);
+        tl.to(pzs[i], { x: -1300, rotation: -40, duration: 0.45, ease: "power3.in" }, t + STEP - 0.3);
+        tl.to(ins[i], { autoAlpha: 0, y: -40, duration: 0.25, ease: "power2.in" }, t + STEP - 0.3);
+        tl.set(pzs[i], { autoAlpha: 0 }, t + STEP + 0.16);
+      });
+
+      // ── Board: the full menu (16.4 → 28.6)
+      const tb = 2.4 + featured.length * STEP + 0.1;
+      tl.to("#title", { autoAlpha: 0, y: -60, duration: 0.35, ease: "power2.in" }, tb - 0.3);
+      tl.fromTo("#b-title", { autoAlpha: 0, y: -50 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, tb);
+      MENU.forEach((_, i) => {
+        tl.fromTo("#c" + i, { autoAlpha: 0, y: 60, scale: 0.85 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.7)" }, tb + 0.3 + i * 0.11);
+      });
+      // a slow "reading" highlight running through the menu
+      MENU.forEach((_, i) => {
+        tl.to("#c" + i + " .cp", { scale: 1.12, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, tb + 1.9 + i * 0.5);
+      });
+
+      // ── End: logo sign-off, then clean fade for the loop (28.6 → 30)
+      tl.to("#logo", { scale: 210 / 360, x: 770, y: -320, duration: 0.3, ease: "back.out(3)", yoyo: true, repeat: 1 }, 28.0);
+      tl.to("#veil", { autoAlpha: 1, duration: 0.6, ease: "power1.inOut" }, 29.4);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
