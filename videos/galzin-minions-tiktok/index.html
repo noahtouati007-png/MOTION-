@@ -6,36 +6,30 @@
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
       @font-face {
-        font-family: "Bebas Neue";
-        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
-        font-weight: 400;
+        font-family: "Big Shoulders";
+        src: url("assets/fonts/big-shoulders-display-latin-800-normal.woff2") format("woff2");
+        font-weight: 800;
       }
       @font-face {
-        font-family: "Crimson Pro";
-        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
-        font-weight: 600;
-        font-style: italic;
+        font-family: "Big Shoulders";
+        src: url("assets/fonts/big-shoulders-display-latin-900-normal.woff2") format("woff2");
+        font-weight: 900;
       }
       @font-face {
-        font-family: "Crimson Pro";
-        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
-        font-weight: 700;
+        font-family: "DM Mono";
+        src: url("assets/fonts/dm-mono-latin-500-normal.woff2") format("woff2");
+        font-weight: 500;
       }
-      @font-face {
-        font-family: "Dancing Script";
-        src: url("assets/fonts/dancing-script-latin-700-normal.woff2") format("woff2");
-        font-weight: 700;
-      }
-      /* THEME — Galzin house look (chocolate, cream, gold) ; the Minions only show up in the yellow line.
+      /* THEME — "Le Championnat des Rois": a sports team sheet on Galzin chocolate.
+         Yellow + red come straight from the fèves (Minion yellow, red shorts). Straight lines only.
          TikTok safe zone: reading text stays inside x 70–940, y 160–1480. */
       :root {
-        --bg-center: #5a3822;
-        --bg-edge: #1d1109;
-        --cream: #fdf1dc;
-        --yellow: #ffcc4d;
-        --ink: #3a2414;
-        --gold-a: #f3e2bd;
-        --gold-b: #b48a52;
+        --bg: #23170e;
+        --bg-2: #2f2014;
+        --cream: #f6ecd9;
+        --yellow: #ffcc3a;
+        --red: #e2452b;
+        --line: rgba(246, 236, 217, 0.09);
       }
       * {
         margin: 0;
@@ -47,316 +41,309 @@
         width: 1080px;
         height: 1920px;
         overflow: hidden;
-        background: var(--bg-edge);
+        background: var(--bg);
       }
       #root {
         position: relative;
         width: 100%;
         height: 100%;
         overflow: hidden;
-        font-family: "Bebas Neue", sans-serif;
+        font-family: "Big Shoulders", sans-serif;
+        font-weight: 900;
         color: var(--cream);
+        text-transform: uppercase;
       }
       #bg {
         position: absolute;
         inset: 0;
-        background: radial-gradient(ellipse at 50% 45%, var(--bg-center) 0%, var(--bg-edge) 80%);
+        background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 70%);
       }
-      #dots {
+      #pitch {
         position: absolute;
         inset: 0;
       }
-      .dot {
-        position: absolute;
-        border-radius: 50%;
-        border: 3px solid var(--yellow);
+      .mono {
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+        letter-spacing: 3px;
       }
-      #frame {
+
+      /* Slanted jersey stripes */
+      .stripe {
         position: absolute;
-        inset: 28px;
-        border: 2px solid var(--yellow);
-        border-radius: 18px;
-        opacity: 0.55;
+        left: -200px;
+        width: 1480px;
+        transform: rotate(-9deg);
+      }
+      #st-y {
+        top: 1210px;
+        height: 120px;
+        background: var(--yellow);
+      }
+      #st-r {
+        top: 1350px;
+        height: 34px;
+        background: var(--red);
+      }
+
+      /* Header bar */
+      #head {
+        position: absolute;
+        left: 70px;
+        top: 170px;
+        width: 870px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 30px;
+        color: var(--cream);
+      }
+      #head b {
+        font-weight: 500;
+        color: var(--yellow);
       }
       #logo {
         position: absolute;
-        left: 465px;
-        top: 70px;
-        width: 150px;
-        height: 150px;
+        left: 800px;
+        top: 1195px;
+        width: 140px;
+        height: 140px;
       }
 
+      /* Opening title */
       #title {
         position: absolute;
         left: 70px;
-        width: 870px;
-        top: 230px;
-        text-align: center;
+        top: 250px;
+        width: 900px;
+        line-height: 0.84;
       }
-      #script {
-        display: inline-block;
-        font-family: "Dancing Script", cursive;
-        font-weight: 700;
-        font-size: 140px;
-        line-height: 1.15;
-        color: var(--cream);
+      #title div {
+        display: block;
       }
-      #sub {
-        margin-top: -14px;
-        font-size: 58px;
-        letter-spacing: 6px;
+      .t-s {
+        font-size: 150px;
+      }
+      .t-l {
+        font-size: 236px;
+        letter-spacing: -4px;
+      }
+      .t-m {
+        font-size: 168px;
+        letter-spacing: -2px;
+      }
+      .t-y {
         color: var(--yellow);
       }
-
-      /* Hook */
-      #hook {
+      #ref {
+        position: absolute;
+        left: 560px;
+        top: 700px;
+        width: 420px;
+        height: 760px;
+        object-fit: contain;
+        filter: drop-shadow(20px 30px 0 rgba(0, 0, 0, 0.35));
+      }
+      #kick {
         position: absolute;
         left: 70px;
-        width: 940px;
-        top: 720px;
-        text-align: center;
-      }
-      #hook-1 {
-        font-family: "Crimson Pro", serif;
-        font-style: italic;
-        font-weight: 600;
-        font-size: 72px;
-        line-height: 1.1;
-        color: var(--yellow);
-      }
-      #hook-2 {
-        margin-top: 10px;
-        font-size: 150px;
-        line-height: 0.98;
-        letter-spacing: 3px;
+        top: 960px;
+        width: 470px;
+        font-size: 64px;
+        line-height: 0.95;
         color: var(--cream);
       }
-      .hw {
-        display: inline-block;
+      #kick span {
+        color: var(--yellow);
       }
 
-      /* Photo slots (empty until the real photos arrive) */
-      .ph {
+      /* Player cards (one at a time) */
+      .card {
         position: absolute;
-        border: 3px dashed rgba(243, 226, 189, 0.5);
-        background: radial-gradient(ellipse, rgba(255, 204, 77, 0.1) 0%, rgba(255, 204, 77, 0) 70%);
+        inset: 0;
+      }
+      .card-num {
+        position: absolute;
+        left: 0;
+        top: 330px;
+        width: 1080px;
+        text-align: center;
+        font-size: 860px;
+        line-height: 0.8;
+        letter-spacing: -30px;
+        color: rgba(255, 204, 58, 0.06);
+        -webkit-text-stroke: 5px rgba(255, 204, 58, 0.5);
+      }
+      .card-img {
+        position: absolute;
+        left: 240px;
+        top: 360px;
+        width: 600px;
+        height: 820px;
+        object-fit: contain;
+        filter: drop-shadow(22px 30px 0 rgba(0, 0, 0, 0.35));
+      }
+      .card-bar {
+        position: absolute;
+        left: 70px;
+        top: 1240px;
+        width: 870px;
+      }
+      .card-tag {
+        display: inline-block;
+        padding: 8px 18px;
+        background: var(--red);
+        color: var(--cream);
+        font-size: 30px;
+      }
+      .card-name {
+        margin-top: 8px;
+        font-size: 170px;
+        line-height: 0.86;
+        color: var(--cream);
+      }
+
+      /* Team photo */
+      #team-h {
+        position: absolute;
+        left: 70px;
+        top: 250px;
+        width: 870px;
+        font-size: 150px;
+        line-height: 0.86;
+      }
+      #team-h span {
+        color: var(--yellow);
+      }
+      .tm {
+        position: absolute;
+        width: 170px;
+        height: 290px;
+        margin-left: -85px;
+      }
+      .tm img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: 50% 100%;
+        filter: drop-shadow(12px 16px 0 rgba(0, 0, 0, 0.35));
+      }
+      .tm i {
+        position: absolute;
+        left: 0;
+        top: 300px;
+        width: 170px;
+        text-align: center;
+        font-style: normal;
+        font-size: 44px;
+        color: var(--yellow);
+      }
+
+      /* Galette slot: viewfinder frame until the real photo arrives */
+      #galette {
+        position: absolute;
+        left: 110px;
+        top: 1080px;
+        width: 860px;
+        height: 400px;
+      }
+      #galette .slot {
+        position: absolute;
+        inset: 0;
+        background: rgba(246, 236, 217, 0.04);
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
-        font-family: "Crimson Pro", serif;
-        font-style: italic;
-        font-weight: 600;
-        color: var(--gold-a);
-        opacity: 0.85;
+        font-size: 34px;
+        color: rgba(246, 236, 217, 0.7);
       }
-      .shot {
-        position: absolute;
-        object-fit: contain;
-        filter: drop-shadow(0 18px 16px rgba(0, 0, 0, 0.5));
-      }
-      .glow {
-        position: absolute;
-        border-radius: 50%;
-        background: radial-gradient(ellipse, rgba(255, 204, 77, 0.32) 0%, rgba(255, 204, 77, 0) 65%);
-      }
-
-      /* One big fève at a time */
-      .card {
-        position: absolute;
-        left: 140px;
-        top: 560px;
-        width: 800px;
-        height: 900px;
-      }
-      .card .glow {
-        left: 100px;
-        top: 80px;
-        width: 600px;
-        height: 620px;
-      }
-      .card .ph {
-        left: 195px;
-        top: 130px;
-        width: 410px;
-        height: 520px;
-        border-radius: 50%;
-        font-size: 50px;
-        line-height: 1.05;
-      }
-      .card .shot {
-        left: 150px;
-        top: 120px;
-        width: 500px;
-        height: 540px;
-      }
-      .num {
+      #galette .c {
         position: absolute;
         width: 70px;
         height: 70px;
-        border-radius: 50%;
-        background: var(--cream);
-        color: var(--ink);
-        font-size: 58px;
-        line-height: 78px;
-        text-align: center;
-      }
-      .card .num {
-        left: 355px;
-        top: 20px;
-        width: 90px;
-        height: 90px;
-        font-size: 74px;
-        line-height: 100px;
-      }
-      .card-name {
-        position: absolute;
-        left: 0;
-        top: 690px;
-        width: 800px;
-        text-align: center;
-        font-size: 120px;
-        line-height: 1;
-        letter-spacing: 3px;
-        color: var(--cream);
-      }
-      .card-of {
-        position: absolute;
-        left: 0;
-        top: 810px;
-        width: 800px;
-        text-align: center;
-        font-family: "Crimson Pro", serif;
-        font-style: italic;
-        font-weight: 600;
-        font-size: 50px;
-        color: var(--yellow);
-      }
-
-      /* Five small fèves for the dive */
-      .mini {
-        position: absolute;
-        top: 560px;
-        width: 160px;
-        height: 200px;
-        margin-left: -80px;
-      }
-      .mini .ph {
-        inset: 0;
-        border-radius: 50%;
-        font-size: 30px;
-      }
-      .mini .shot {
-        inset: 0;
-        width: 160px;
-        height: 200px;
-      }
-
-      /* Galette */
-      #galette {
-        position: absolute;
-        left: 140px;
-        top: 900px;
-        width: 800px;
-        height: 520px;
-      }
-      #gal-glow {
-        position: absolute;
-        inset: -70px;
-        border-radius: 50%;
-        background: radial-gradient(ellipse, rgba(255, 204, 77, 0.35) 0%, rgba(255, 204, 77, 0) 65%);
-      }
-      #galette .ph {
-        inset: 0;
-        border-radius: 50%;
-        font-size: 56px;
+        border-color: var(--yellow);
+        border-style: solid;
+        border-width: 0;
       }
       #galette .shot {
+        position: absolute;
         inset: 0;
-        width: 800px;
-        height: 520px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
 
       #q {
         position: absolute;
         left: 70px;
-        width: 940px;
-        top: 560px;
-        text-align: center;
+        top: 300px;
+        width: 900px;
+        font-size: 170px;
+        line-height: 0.84;
       }
-      #q-1 {
-        font-family: "Crimson Pro", serif;
-        font-style: italic;
-        font-weight: 600;
-        font-size: 56px;
-        line-height: 1.1;
+      #q span {
         color: var(--yellow);
       }
-      #q-2 {
-        margin-top: 6px;
-        font-size: 128px;
-        line-height: 0.98;
-        letter-spacing: 3px;
-        color: var(--cream);
-      }
 
-      /* Prices */
-      .medal {
+      /* Score table */
+      #score {
         position: absolute;
-        top: 1010px;
-        width: 270px;
-        height: 270px;
-        margin-left: -135px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 35% 30%, var(--gold-a) 0%, var(--gold-b) 100%);
-        box-shadow: 0 24px 46px rgba(0, 0, 0, 0.5);
-        color: var(--ink);
+        left: 70px;
+        top: 540px;
+        width: 870px;
+      }
+      #score-h {
+        font-size: 30px;
+        color: var(--yellow);
+        margin-bottom: 18px;
+      }
+      .row {
+        position: relative;
+        height: 150px;
+        margin-bottom: 18px;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        background: var(--cream);
+        color: var(--bg);
+        clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
       }
-      .price {
-        display: flex;
-        align-items: flex-start;
-        line-height: 0.82;
-      }
-      .price .big {
-        font-size: 134px;
-      }
-      .price .sm {
-        font-size: 72px;
-        margin-top: 10px;
-      }
-      .parts {
-        margin-top: 2px;
-        font-size: 42px;
+      .row .p {
+        font-size: 96px;
         line-height: 1;
-        letter-spacing: 2px;
+      }
+      .row .p small {
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+        font-size: 30px;
+        letter-spacing: 3px;
+      }
+      .row .e {
+        font-size: 130px;
+        line-height: 1;
+        color: var(--red);
       }
       #date {
         position: absolute;
         left: 70px;
-        width: 940px;
-        top: 1330px;
-        text-align: center;
-        font-family: "Crimson Pro", serif;
-        font-style: italic;
-        font-weight: 600;
-        font-size: 56px;
-        line-height: 1.1;
+        top: 1200px;
+        width: 700px;
+        font-size: 92px;
+        line-height: 0.9;
+        color: var(--cream);
+      }
+      #date span {
         color: var(--yellow);
       }
       #legal {
         position: absolute;
         left: 70px;
-        width: 940px;
-        top: 1478px;
-        text-align: center;
-        font-family: "Crimson Pro", serif;
-        font-weight: 700;
-        font-size: 28px;
-        color: var(--cream);
+        top: 1440px;
+        font-size: 26px;
+        color: rgba(246, 236, 217, 0.7);
       }
     </style>
   </head>
@@ -365,139 +352,163 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="18"
+      data-duration="21"
       data-fps="30"
       data-width="1080"
       data-height="1920"
     >
       <div id="bg"></div>
-      <div id="dots"></div>
+      <svg id="pitch" viewBox="0 0 1080 1920" fill="none" stroke="rgba(246,236,217,0.09)" stroke-width="4">
+        <rect x="40" y="40" width="1000" height="1840" />
+        <line x1="40" y1="960" x2="1040" y2="960" />
+        <rect x="240" y="40" width="600" height="300" />
+        <rect x="390" y="40" width="300" height="110" />
+        <rect x="240" y="1580" width="600" height="300" />
+        <rect x="390" y="1770" width="300" height="110" />
+      </svg>
+      <div class="stripe" id="st-y"></div>
+      <div class="stripe" id="st-r"></div>
+
+      <div id="head" class="mono"><span>GALZIN <b>×</b> LES MINIONS</span><span id="head-r">SAISON 2027</span></div>
+
+      <!-- Opening -->
+      <div id="title">
+        <div class="t-s">LE</div>
+        <div class="t-m">CHAMPIONNAT</div>
+        <div class="t-l">DES</div>
+        <div class="t-l t-y">ROIS</div>
+      </div>
+      <img id="ref" src="assets/img/feve-01.png" alt="" />
+      <div id="kick">10 FÈVES <span>LES MINIONS</span> ENTRENT SUR LE TERRAIN</div>
+
+      <!-- Line-up -->
+      <div id="cards"></div>
+
+      <!-- Team photo + galette -->
+      <div id="team-h">L'ÉQUIPE <span>AU COMPLET</span></div>
+      <div id="team"></div>
+      <div id="galette">
+        <div class="slot mono" id="gal-slot">[ PHOTO GALETTE ]</div>
+        <div class="c" style="left: 0; top: 0; border-left-width: 8px; border-top-width: 8px"></div>
+        <div class="c" style="right: 0; top: 0; border-right-width: 8px; border-top-width: 8px"></div>
+        <div class="c" style="left: 0; bottom: 0; border-left-width: 8px; border-bottom-width: 8px"></div>
+        <div class="c" style="right: 0; bottom: 0; border-right-width: 8px; border-bottom-width: 8px"></div>
+      </div>
+
+      <div id="q">QUEL <span>CHAMPION</span> SE CACHE DANS TA GALETTE ?</div>
+
+      <!-- Prices -->
+      <div id="score">
+        <div id="score-h" class="mono">// TABLEAU DES PRIX</div>
+        <div id="rows"></div>
+      </div>
+      <div id="date">DÈS LE 2 JANVIER <span>CHEZ GALZIN</span></div>
+      <div id="legal" class="mono">PHOTOS NON CONTRACTUELLES</div>
 
       <img id="logo" src="assets/img/galzin-logo.png" alt="Galzin" />
-      <div id="title"><div id="script">Galette des Rois</div><div id="sub">ÉDITION LES MINIONS</div></div>
-
-      <div id="hook">
-        <div id="hook-1">Cette année,</div>
-        <div id="hook-2"><span class="hw">DES MINIONS</span> <span class="hw">SE CACHENT</span> <span class="hw">DANS NOS</span> <span class="hw">GALETTES</span></div>
-      </div>
-
-      <div id="cards"></div>
-      <div id="minis"></div>
-
-      <div id="galette">
-        <div id="gal-glow"></div>
-        <div id="gal-art"></div>
-      </div>
-
-      <div id="q">
-        <div id="q-1">Une fève Les Minions dans chaque galette</div>
-        <div id="q-2">LAQUELLE VAS-TU TROUVER ?</div>
-      </div>
-
-      <div id="prices"></div>
-      <div id="date">Dès le 2 janvier<br />dans tes boutiques Galzin</div>
-      <div id="legal">Photos non contractuelles</div>
-
-      <div id="frame"></div>
     </div>
 
     <script>
-      // ── CONTENT — edit here. Drop the real photos in assets/img/ (PNG without background) and set `img`.
+      // ── CONTENT — edit here
       const FEVES = [
-        { name: "FÈVE 1", img: "" },
-        { name: "FÈVE 2", img: "" },
-        { name: "FÈVE 3", img: "" },
-        { name: "FÈVE 4", img: "" },
-        { name: "FÈVE 5", img: "" },
+        { name: "L'ARBITRE", img: "feve-01.png" },
+        { name: "LE RUGBYMAN", img: "feve-02.png" },
+        { name: "LE VOLLEYEUR", img: "feve-03.png" },
+        { name: "LE BOXEUR", img: "feve-04.png" },
+        { name: "LE BASKETTEUR", img: "feve-05.png" },
+        { name: "LE FOOTBALLEUR", img: "feve-06.png" },
+        { name: "LE SPRINTEUR", img: "feve-07.png" },
+        { name: "LE TENNISMAN", img: "feve-08.png" },
+        { name: "LE SUPPORTER", img: "feve-09.png" },
+        { name: "LE CHAMPION", img: "feve-10.png" },
       ];
-      const GALETTE_IMG = ""; // e.g. "galette.png"
+      const GALETTE_IMG = ""; // e.g. "galette.png" — replaces the [ PHOTO GALETTE ] frame
       const PRICES = [
-        { parts: "4 PARTS", big: "12", sm: "€90" },
-        { parts: "6 PARTS", big: "17", sm: "€90" },
-        { parts: "8 PARTS", big: "22", sm: "€90" },
+        ["4", "12,90 €"],
+        ["6", "17,90 €"],
+        ["8", "22,90 €"],
       ];
 
-      const art = (f, i, label) => (f.img ? '<img class="shot" src="assets/img/' + f.img + '" alt="" />' : '<div class="ph">' + label + "</div>");
+      const pad = (n) => (n < 10 ? "0" : "") + n;
       const cardsEl = document.getElementById("cards");
-      const minisEl = document.getElementById("minis");
-      const MX = (i) => 540 + (i - 2) * 180;
+      const teamEl = document.getElementById("team");
+      // team photo: two rows of five
+      const TPOS = (i) => ({ x: 540 + ((i % 5) - 2) * 180, y: i < 5 ? 520 : 900 });
       FEVES.forEach((f, i) => {
         cardsEl.insertAdjacentHTML(
           "beforeend",
-          '<div class="card" id="cd' + i + '"><div class="glow"></div>' + art(f, i, "photo<br />fève " + (i + 1)) +
-            '<div class="num">' + (i + 1) + '</div><div class="card-name">' + f.name + '</div><div class="card-of">' + (i + 1) + " / " + FEVES.length + "</div></div>"
+          '<div class="card" id="cd' + i + '"><div class="card-num" id="cn' + i + '">' + pad(i + 1) + '</div><img class="card-img" id="ci' + i + '" src="assets/img/' + f.img + '" alt="" />' +
+            '<div class="card-bar"><div class="card-tag mono">N°' + pad(i + 1) + " / " + FEVES.length + '</div><div class="card-name" id="cm' + i + '">' + f.name + "</div></div></div>"
         );
-        minisEl.insertAdjacentHTML("beforeend", '<div class="mini" id="mn' + i + '" style="left:' + MX(i) + 'px">' + art(f, i, "fève " + (i + 1)) + "</div>");
+        const p = TPOS(i);
+        teamEl.insertAdjacentHTML("beforeend", '<div class="tm" id="tm' + i + '" style="left:' + p.x + "px;top:" + p.y + 'px"><img src="assets/img/' + f.img + '" alt="" /><i>' + pad(i + 1) + "</i></div>");
       });
-      document.getElementById("gal-art").innerHTML = GALETTE_IMG ? '<img class="shot" src="assets/img/' + GALETTE_IMG + '" alt="" />' : '<div class="ph">photo galette</div>';
-      document.getElementById("prices").innerHTML = PRICES.map(
-        (p, i) =>
-          '<div class="medal" id="md' + i + '" style="left:' + (540 + (i - 1) * 300) + 'px"><div class="price"><span class="big">' + p.big + '</span><span class="sm">' + p.sm + '</span></div><div class="parts">' + p.parts + "</div></div>"
+      if (GALETTE_IMG) document.getElementById("gal-slot").innerHTML = '<img class="shot" src="assets/img/' + GALETTE_IMG + '" alt="" />';
+      document.getElementById("rows").innerHTML = PRICES.map(
+        (p, i) => '<div class="row" id="rw' + i + '"><div class="p">' + p[0] + ' <small>PARTS</small></div><div class="e">' + p[1] + "</div></div>"
       ).join("");
 
-      let seed = 83;
-      const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
-      const dotsEl = document.getElementById("dots");
-      const dots = [];
-      for (let i = 0; i < 16; i++) {
-        const d = document.createElement("div");
-        d.className = "dot";
-        const size = Math.round(26 + rand() * 40);
-        d.style.width = d.style.height = size + "px";
-        d.style.left = Math.round(60 + rand() * 940) + "px";
-        d.style.top = Math.round(60 + rand() * 1780) + "px";
-        dotsEl.appendChild(d);
-        dots.push({ el: d, op: 0.08 + rand() * 0.12, dx: -30 + rand() * 60, dy: -50 - rand() * 60 });
-      }
-
-      gsap.set([".card", ".mini", "#galette", "#q", ".medal", "#date", "#legal"], { autoAlpha: 0 });
+      gsap.set(["#logo", ".card", "#team-h", ".tm", "#galette", "#q", "#score", "#date", "#legal"], { autoAlpha: 0 });
 
       const tl = gsap.timeline({ paused: true });
-      dots.forEach((d) => {
-        tl.fromTo(d.el, { autoAlpha: d.op * 0.5, x: 0, y: 0 }, { autoAlpha: d.op, x: d.dx, y: d.dy, duration: 18, ease: "none" }, 0);
-      });
 
-      // ── 0 → 3.4 Hook (title + logo already on screen at frame 0 for the thumbnail)
-      tl.fromTo("#script", { scale: 0.96 }, { scale: 1, duration: 1.2, ease: "power2.out" }, 0);
-      tl.fromTo("#hook-1", { scale: 0.9 }, { scale: 1, duration: 0.6, ease: "power2.out" }, 0);
-      gsap.utils.toArray(".hw").forEach((w, i) => {
-        tl.fromTo(w, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.3 + i * 0.28);
-      });
-      tl.to("#hook", { autoAlpha: 0, y: -30, duration: 0.35, ease: "power2.in" }, 3.3);
+      // ── 0 → 3.2 Opening (title + referee already on screen at frame 0 for the thumbnail)
+      tl.fromTo("#ref", { rotation: -4, y: 0 }, { rotation: 3, y: -16, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      tl.fromTo("#st-y", { x: -900 }, { x: 0, duration: 0.5, ease: "power4.out" }, 0.15);
+      tl.fromTo("#st-r", { x: 900 }, { x: 0, duration: 0.5, ease: "power4.out" }, 0.25);
+      tl.fromTo("#kick", { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.6);
+      tl.to(["#title", "#kick"], { x: -1100, duration: 0.45, ease: "power3.in" }, 3.0);
+      tl.to("#ref", { x: 700, duration: 0.45, ease: "power3.in" }, 3.0);
+      tl.to(["#st-y", "#st-r"], { y: 430, duration: 0.45, ease: "power3.inOut" }, 3.0);
 
-      // ── 3.7 → 10.2 The five fèves, one by one
-      const CS = 1.3;
+      // ── 3.4 → 12.4 Line-up, one player per beat
+      const CS = 0.9;
       FEVES.forEach((f, i) => {
-        const t = 3.7 + i * CS;
-        tl.fromTo("#cd" + i, { autoAlpha: 0, x: 120 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, t);
-        tl.fromTo("#cd" + i + " .num", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(2.5)" }, t + 0.15);
-        tl.to("#cd" + i, { autoAlpha: 0, x: -120, duration: 0.3, ease: "power2.in" }, t + CS - 0.3);
+        const t = 3.4 + i * CS;
+        tl.set("#head-r", { textContent: "COMPOSITION · " + pad(i + 1) }, t);
+        tl.set("#cd" + i, { autoAlpha: 1 }, t);
+        tl.fromTo("#cn" + i, { autoAlpha: 0, y: 120 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+        tl.fromTo("#ci" + i, { x: 520, rotation: 8 }, { x: 0, rotation: 0, duration: 0.3, ease: "back.out(1.4)" }, t);
+        tl.fromTo("#cm" + i, { x: -300, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.25, ease: "power3.out" }, t + 0.06);
+        tl.to("#ci" + i, { x: -560, rotation: -8, duration: 0.2, ease: "power2.in" }, t + CS - 0.2);
+        tl.to(["#cn" + i, "#cm" + i], { autoAlpha: 0, duration: 0.15 }, t + CS - 0.15);
+        tl.set("#cd" + i, { autoAlpha: 0 }, t + CS);
       });
 
-      // ── 10.2 → 13 Lined up, the galette arrives, they slip inside
+      // ── 12.4 → 15 Team photo
+      tl.set("#head-r", { textContent: "L'ÉQUIPE" }, 12.4);
+      tl.fromTo("#team-h", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 12.4);
       FEVES.forEach((f, i) => {
-        tl.fromTo("#mn" + i, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 10.25 + i * 0.08);
+        tl.fromTo("#tm" + i, { autoAlpha: 0, y: 80 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, 12.5 + i * 0.07);
       });
-      tl.fromTo("#galette", { autoAlpha: 0, y: 140 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" }, 10.5);
+
+      // ── 14.4 → 16.4 Everyone dives into the galette
+      tl.to("#team-h", { autoAlpha: 0, duration: 0.25 }, 14.3);
+      tl.to(["#st-y", "#st-r"], { autoAlpha: 0, duration: 0.3 }, 14.3);
+      tl.fromTo("#galette", { autoAlpha: 0, y: 120 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 14.4);
       FEVES.forEach((f, i) => {
-        const t = 11.2 + i * 0.3;
-        tl.to("#mn" + i, { x: 540 - MX(i), y: 540, scale: 0.4, autoAlpha: 0, duration: 0.55, ease: "power2.in" }, t);
+        const p = TPOS(i);
+        tl.to("#tm" + i, { keyframes: [{ y: -50, duration: 0.15, ease: "power2.out" }, { x: 540 - p.x, y: 1230 - p.y, scale: 0.35, duration: 0.35, ease: "power2.in" }] }, 14.9 + i * 0.1);
+        tl.set("#tm" + i, { autoAlpha: 0 }, 15.4 + i * 0.1);
       });
-      tl.fromTo("#gal-glow", { scale: 1 }, { scale: 1.12, duration: 0.25, yoyo: true, repeat: 1, ease: "power1.inOut" }, 12.75);
+      tl.to("#galette", { keyframes: [{ y: 14, duration: 0.06 }, { y: 0, duration: 0.12 }] }, 16.3);
 
-      // ── 13.1 → 15.4 The question
-      tl.to("#title", { autoAlpha: 0, duration: 0.3 }, 13.0);
-      tl.fromTo("#q", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, 13.1);
+      // ── 16.4 → 18.6 The question
+      tl.set("#head-r", { textContent: "TIRAGE AU SORT" }, 16.4);
+      tl.fromTo("#q", { autoAlpha: 0, x: -60 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 16.4);
+      tl.to("#galette", { y: -120, duration: 0.5, ease: "power2.inOut" }, 16.4);
 
-      // ── 15.5 → 18 Prices + date (the Galzin outro follows in the final edit)
-      tl.to("#q", { autoAlpha: 0, duration: 0.3 }, 15.4);
-      tl.fromTo("#title", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, immediateRender: false }, 15.5);
-      tl.to("#galette", { y: -330, scale: 0.72, duration: 0.6, ease: "power3.inOut" }, 15.4);
+      // ── 18.6 → 21 Score table + date (the Galzin outro follows in the final edit)
+      tl.to(["#q", "#galette"], { autoAlpha: 0, duration: 0.25 }, 18.6);
+      tl.set("#head-r", { textContent: "BILLETTERIE" }, 18.7);
+      tl.set("#score", { autoAlpha: 1 }, 18.7);
+      tl.fromTo("#score-h", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, 18.7);
       PRICES.forEach((p, i) => {
-        tl.fromTo("#md" + i, { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, 15.7 + i * 0.12);
+        tl.fromTo("#rw" + i, { x: 900 }, { x: 0, duration: 0.35, ease: "power4.out" }, 18.75 + i * 0.1);
       });
-      tl.fromTo("#date", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" }, 16.0);
-      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 0.75, duration: 0.4 }, 16.1);
+      tl.fromTo("#date", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 19.0);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 19.1);
+      tl.fromTo("#logo", { autoAlpha: 0, rotation: -20 }, { autoAlpha: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 19.1);
 
       window.__timelines["main"] = tl;
       tl.seek(0);
