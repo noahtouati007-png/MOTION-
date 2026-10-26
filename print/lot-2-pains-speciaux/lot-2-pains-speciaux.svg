@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Étiquette prix Galzin — Lot de 2 pains spéciaux — 100 x 70 mm
+     Polices : Bebas Neue, Crimson Pro, Dancing Script (Google Fonts, gratuites) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="100mm" height="70mm" viewBox="0 0 1000 700">
+  <g id="Fond">
+    <rect x="0" y="0" width="1000" height="700" rx="28" fill="#fdf0e3"/>
+  </g>
+  <g id="Cadre">
+    <rect x="20" y="20" width="960" height="660" rx="18" fill="none" stroke="#b0743d" stroke-width="4"/>
+    <rect x="32" y="32" width="936" height="636" rx="12" fill="none" stroke="#b0743d" stroke-width="1.5"/>
+  </g>
+  <g id="Titre">
+    <text x="500" y="128" text-anchor="middle" font-family="Dancing Script" font-weight="700" font-size="78" fill="#5a2e14">le lot de</text>
+    <line x1="215" y1="104" x2="330" y2="104" stroke="#b0743d" stroke-width="3"/>
+    <line x1="670" y1="104" x2="785" y2="104" stroke="#b0743d" stroke-width="3"/>
+    <rect x="337" y="97" width="14" height="14" fill="#b0743d" transform="rotate(45 344 104)"/>
+    <rect x="649" y="97" width="14" height="14" fill="#b0743d" transform="rotate(45 656 104)"/>
+    <text x="500" y="282" text-anchor="middle" font-family="Bebas Neue" font-size="134" letter-spacing="3" fill="#2a1d12"><tspan fill="#b0743d">2 </tspan>PAINS SPÉCIAUX</text>
+  </g>
+  <g id="Bandeau_prix">
+    <rect x="58" y="330" width="884" height="250" rx="16" fill="#3e2618"/>
+    <rect x="72" y="344" width="856" height="222" rx="10" fill="none" stroke="#ffcc4d" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+  </g>
+  <g id="Prix">
+    <text x="418" y="545" text-anchor="end" font-family="Bebas Neue" font-size="250" fill="#fdf0e3">4</text>
+    <text x="426" y="450" font-family="Bebas Neue" font-size="120" fill="#ffcc4d">€</text>
+    <text x="482" y="545" font-family="Bebas Neue" font-size="250" fill="#fdf0e3">50</text>
+  </g>
+  <g id="Prix_unitaire">
+    <text x="500" y="640" text-anchor="middle" font-family="Crimson Pro" font-style="italic" font-weight="600" font-size="46" fill="#5a2e14">soit 2,25 € la pièce</text>
+  </g>
+</svg>
