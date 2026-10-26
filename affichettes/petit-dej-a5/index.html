@@ -2,122 +2,120 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
-<title>Galzin – Affichette Petit-déj A5</title>
+<title>Galzin – Affichette Petit-déj Tartine A5</title>
 <style>
-  /* A5 portrait à 300 dpi : 1748 × 2480 px. Modifiez les textes directement ci-dessous. */
-  @font-face { font-family: "Bebas Neue"; src: url(assets/fonts/bebas-neue-latin-400-normal.woff2); }
-  @font-face { font-family: "Crimson Pro"; font-weight: 700; src: url(assets/fonts/crimson-pro-latin-700-normal.woff2); }
+  /* A5 portrait à 300 dpi : 1748 × 2480 px. Les textes se modifient directement plus bas. */
+  @font-face { font-family: "Anton"; src: url(assets/fonts/anton-latin-400-normal.woff2); }
+  @font-face { font-family: "Zilla Slab"; font-weight: 700; font-style: italic; src: url(assets/fonts/zilla-slab-latin-700-italic.woff2); }
+  @font-face { font-family: "Zilla Slab"; font-weight: 700; src: url(assets/fonts/zilla-slab-latin-700-normal.woff2); }
   @font-face { font-family: "Crimson Pro"; font-weight: 600; font-style: italic; src: url(assets/fonts/crimson-pro-latin-600-italic.woff2); }
-  @font-face { font-family: "Dancing Script"; src: url(assets/fonts/dancing-script-latin-700-normal.woff2); }
-  :root { --red: #a61d12; --brown: #4a2c19; --yellow: #fdd87f; --gold: #f1bd43; --cream: #fff4d6; }
+  @font-face { font-family: "Crimson Pro"; font-weight: 700; src: url(assets/fonts/crimson-pro-latin-700-normal.woff2); }
+  :root { --cream: #f7efe3; --brown: #4a2a17; --choc: #5b2f15; --teal: #4fa3a5; --white: #fffaf2; }
   @page { size: 148mm 210mm; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 1748px; height: 2480px; background: var(--yellow); }
-  #page {
-    position: relative; width: 1748px; height: 2480px; overflow: hidden;
-    background: radial-gradient(ellipse 75% 45% at 50% 52%, #f3c04a 0%, #f8cd62 45%, var(--yellow) 100%);
-    font-family: "Bebas Neue", sans-serif; color: var(--brown);
-  }
+  html, body { width: 1748px; height: 2480px; background: var(--cream); }
+  #page { position: relative; width: 1748px; height: 2480px; overflow: hidden; background: var(--cream); color: var(--brown); }
   .abs { position: absolute; }
   img { display: block; }
-  .shadow { filter: drop-shadow(0 22px 20px rgba(74, 44, 25, 0.35)); }
+  .sh { filter: drop-shadow(0 26px 22px rgba(0, 0, 0, 0.45)); }
 
-  #page { display: flex; flex-direction: column; align-items: center; padding: 50px 80px 0; }
-  #head { text-align: center; height: 420px; }
-  #script { font-family: "Dancing Script"; font-size: 200px; color: #c0560c; line-height: 1; }
-  #title { margin-top: -30px; font-size: 300px; line-height: 0.9; color: var(--red); letter-spacing: 6px; }
+  #title1 { top: 95px; width: 100%; text-align: center; font-family: "Anton"; font-size: 205px; line-height: 1; color: var(--brown); letter-spacing: 2px; }
+  #title2 { top: 300px; width: 100%; text-align: center; font-family: "Zilla Slab"; font-style: italic; font-weight: 700; font-size: 168px; line-height: 1; color: var(--brown); }
 
-  #grid { position: relative; width: 1588px; height: 880px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
-  .item { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 20px; }
-  .item .ph { flex: 1; display: flex; align-items: center; justify-content: center; }
-  .item .l { font-size: 96px; line-height: 0.95; text-align: center; color: var(--brown); }
-  .item .s { font-family: "Crimson Pro"; font-style: italic; font-weight: 600; font-size: 58px; line-height: 1.05; color: #6e4426; text-align: center; }
-  .op { position: absolute; font-size: 190px; line-height: 1; color: var(--red); transform: translate(-50%, -50%); }
+  .pill { position: absolute; background: var(--teal); border-radius: 34px; color: var(--white); font-family: "Anton"; line-height: 1;
+          padding: 26px 56px 30px; box-shadow: 0 10px 0 rgba(74, 42, 23, 0.12); }
+  .pill small { font-size: 0.55em; }
+  .pill .it { display: block; margin-top: 10px; font-family: "Zilla Slab"; font-style: italic; font-weight: 700; font-size: 58px; color: #e9fbfa; }
+  .plus { position: absolute; width: 150px; height: 150px; }
+  .plus::before, .plus::after { content: ""; position: absolute; background: var(--brown); border-radius: 6px; }
+  .plus::before { left: 0; top: 52px; width: 150px; height: 46px; }
+  .plus::after { left: 52px; top: 0; width: 46px; height: 150px; }
 
-  #price { display: flex; align-items: center; justify-content: center; gap: 40px; color: var(--red); height: 380px; margin-top: 100px; }
-  #price .eq { font-size: 220px; }
-  #price .f { font-family: "Crimson Pro"; font-style: italic; font-weight: 600; font-size: 90px; color: var(--brown); line-height: 1; text-align: right; }
-  #price .n { font-size: 380px; line-height: 0.8; padding-top: 30px; }
-  #price .n small { font-size: 220px; }
+  #price { left: 960px; top: 600px; width: 700px; height: 340px; border-radius: 50%; border: 12px solid var(--brown);
+           background: linear-gradient(115deg, #b0652c 0%, #e7a368 35%, #c27a3d 60%, #9b5222 100%);
+           display: flex; align-items: center; justify-content: center; transform: rotate(-3deg);
+           box-shadow: 0 18px 30px rgba(74, 42, 23, 0.3); }
+  #price span { font-family: "Zilla Slab"; font-weight: 700; font-size: 250px; line-height: 1; color: #3b1f0e; letter-spacing: -4px; margin-top: -10px; }
 
-  #vien {
-    position: relative; width: 1588px; height: 250px; border-radius: 125px;
-    background: var(--brown); color: var(--cream); padding: 0 60px; display: flex; align-items: center; gap: 36px;
-  }
-  #vien .plus { font-size: 200px; color: #ffd36b; line-height: 1; padding-top: 18px; }
-  #vien .t { font-family: "Crimson Pro"; font-weight: 700; font-size: 74px; line-height: 1.05; }
-  #vien .t i { font-weight: 600; color: #ffd36b; }
-  #vien .pics { position: absolute; right: 40px; top: -60px; width: 520px; height: 360px; }
-  #vien .pics img { position: absolute; }
+  #slogan { left: 1180px; top: 1150px; width: 520px; text-align: center; font-family: "Zilla Slab"; font-style: italic; font-weight: 700; font-size: 64px; line-height: 1.1; color: var(--white); }
 
-  #bottom { width: 1588px; margin-top: 36px; display: flex; align-items: center; gap: 40px; }
-  #supp {
-    flex: 1; padding: 24px 44px; border-radius: 40px; border: 6px solid var(--brown);
-    background: rgba(255, 244, 214, 0.92); font-family: "Crimson Pro"; font-weight: 700; font-size: 56px; line-height: 1.15;
-  }
-  #supp b { font-family: "Bebas Neue"; font-weight: 400; font-size: 80px; color: var(--red); letter-spacing: 1px; }
-  #supp .h { font-family: "Bebas Neue"; font-size: 62px; letter-spacing: 4px; color: var(--red); }
-  #logo { width: 280px; flex: none; }
-  #legal { position: absolute; left: 0; width: 100%; text-align: center; bottom: 14px; font-family: "Crimson Pro"; font-style: italic; font-weight: 600; font-size: 30px; color: #6e4426; }
+  #vien { left: 660px; top: 2040px; width: 1030px; height: 210px; border-radius: 105px; background: var(--cream); border: 8px solid #c27a3d;
+          display: flex; align-items: center; padding-left: 50px; gap: 26px; color: var(--brown); }
+  #vien .p { font-family: "Anton"; font-size: 150px; line-height: 1; color: var(--brown); padding-bottom: 8px; }
+  #vien .t { font-family: "Anton"; font-size: 70px; line-height: 1.05; }
+  #vien .t i { font-family: "Zilla Slab"; font-weight: 700; font-style: italic; font-size: 52px; color: #9b5222; }
+  #vien img { position: absolute; }
+
+  #supp { left: 660px; top: 2270px; width: 1030px; text-align: center; font-family: "Crimson Pro"; font-weight: 700; font-size: 46px; line-height: 1.3; color: var(--white); }
+  #supp b { font-family: "Anton"; font-weight: 400; font-size: 54px; color: #ffcf8a; letter-spacing: 1px; }
+
+  #logo { left: 105px; top: 1945px; width: 230px; }
+  #fid { left: 95px; top: 2215px; width: 520px; height: 140px; border-radius: 70px; border: 7px solid var(--white); background: var(--choc);
+         display: flex; align-items: center; padding-left: 12px; gap: 14px; color: var(--white); }
+  #fid .pc { flex: none; width: 150px; height: 112px; border-radius: 56px; background: var(--white); color: var(--choc); font-family: "Anton"; font-size: 72px;
+             display: flex; align-items: center; justify-content: center; line-height: 1; }
+  #fid .tx { font-family: "Crimson Pro"; font-weight: 700; font-size: 37px; line-height: 1; }
+  #fid .tx .c { display: inline-block; margin-top: 6px; background: #c27a3d; color: #3b1f0e; font-family: "Anton"; font-size: 34px; padding: 4px 16px 6px; border-radius: 18px; }
+  #legal { left: 22px; bottom: 14px; font-family: "Crimson Pro"; font-weight: 700; font-size: 32px; color: var(--white); }
 </style>
 </head>
 <body>
 <div id="page">
-  <div id="head">
-    <div id="script">Petit-déj</div>
-    <div id="title">TARTINE</div>
-  </div>
+  <!-- motif boulangerie très léger -->
+  <svg class="abs" style="left: 0; top: 0" width="1748" height="2480">
+    <defs>
+      <pattern id="doodle" width="420" height="380" patternUnits="userSpaceOnUse">
+        <g fill="none" stroke="#e6d8c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <!-- croissant -->
+          <path d="M30 90 Q 80 20 150 70 Q 120 60 110 95 Q 95 70 75 80 Q 85 100 60 110 Q 55 90 30 90 Z" />
+          <!-- baguette -->
+          <path d="M210 40 L 380 80 Q 400 95 380 105 L 205 70 Q 190 50 210 40 Z" /><path d="M250 55 l 15 15 M290 63 l 15 15 M330 72 l 15 15" />
+          <!-- cupcake -->
+          <path d="M60 250 L 75 320 H 145 L 160 250 Z" /><path d="M50 250 Q 50 200 110 195 Q 170 200 170 250 Z" /><path d="M85 260 L 92 315 M110 260 V 315 M135 260 L 128 315" />
+          <!-- blé -->
+          <path d="M300 340 Q 300 250 320 180" /><path d="M305 300 q -30 -10 -35 -40 q 30 5 35 40 M308 260 q -28 -10 -32 -38 q 28 5 32 38 M314 222 q -24 -10 -28 -34 q 26 5 28 34 M306 300 q 30 -12 36 -40 q -30 6 -36 40 M310 260 q 28 -12 32 -38 q -28 6 -32 38" />
+          <!-- pain -->
+          <path d="M190 170 Q 190 120 240 120 Q 290 120 290 170 V 205 H 190 Z" /><path d="M215 140 l 20 20 M245 135 l 20 20" />
+        </g>
+      </pattern>
+    </defs>
+    <rect width="1748" height="2480" fill="url(#doodle)" opacity="0.85" />
+    <!-- vague marron -->
+    <path d="M0 1380 C 420 1380, 820 1300, 1100 1080 C 1350 880, 1500 720, 1748 640 L 1748 2480 L 0 2480 Z" fill="var(--choc)" />
+  </svg>
 
-  <div id="grid">
-    <div class="item">
-      <div class="ph"><img class="shadow" src="assets/img/cafe.png" style="width: 520px" alt="" /></div>
-      <div class="l">1 BOISSON CHAUDE</div>
-      <div class="s">thé, café ou chocolat</div>
-    </div>
-    <div class="item">
-      <div class="ph"><img class="shadow" src="assets/img/tartine.png" style="width: 470px" alt="" /></div>
-      <div class="l">1 TARTINE</div>
-      <div class="s">baguette</div>
-    </div>
-    <div class="item">
-      <div class="ph"><img class="shadow" src="assets/img/beurre.png" style="width: 400px" alt="" /></div>
-      <div class="l">1 BEURRE</div>
-      <div class="s">portion individuelle</div>
-    </div>
-    <div class="item">
-      <div class="ph"><img class="shadow" src="assets/img/confiture.png" style="width: 320px" alt="" /></div>
-      <div class="l">1 CONFITURE</div>
-      <div class="s">portion individuelle</div>
-    </div>
-    <div class="op" style="left: 50%; top: 24%">+</div>
-    <div class="op" style="left: 3%; top: 74%">+</div>
-    <div class="op" style="left: 50%; top: 74%">+</div>
-  </div>
+  <div id="title1" class="abs">FORMULE</div>
+  <div id="title2" class="abs">Petit Déj' Tartine</div>
 
-  <div id="price">
-    <div class="eq">=</div>
-    <div class="f">la<br />formule</div>
-    <div class="n">3,80<small>€</small></div>
-  </div>
+  <div class="pill" style="left: 140px; top: 520px; font-size: 118px; transform: rotate(-2deg)">Boisson chaude<span class="it">thé, café ou chocolat</span></div>
+  <div class="plus" style="left: 105px; top: 770px"></div>
+  <div class="pill" style="left: 190px; top: 850px; font-size: 118px; transform: rotate(1.5deg)">Tartine baguette</div>
+  <div class="plus" style="left: 105px; top: 1010px"></div>
+  <div class="pill" style="left: 150px; top: 1090px; font-size: 110px; transform: rotate(-1.5deg)">Beurre <small>&amp;</small> Confiture<span class="it">portions individuelles</span></div>
 
-  <div id="vien">
-    <div class="plus">+1€</div>
+  <div id="price" class="abs"><span>3,80€</span></div>
+
+  <!-- photos -->
+  <div id="slogan" class="abs">Pour bien commencer la journée !</div>
+  <img class="abs sh" src="assets/img/confiture.png" style="left: 1310px; top: 1440px; width: 360px; transform: rotate(10deg)" alt="" />
+  <img class="abs sh" src="assets/img/beurre.png" style="left: 860px; top: 1380px; width: 420px; transform: rotate(-6deg)" alt="" />
+  <img class="abs sh" src="assets/img/cafe.png" style="left: 30px; top: 1400px; width: 700px" alt="" />
+  <img class="abs sh" src="assets/img/tartine.png" style="left: 640px; top: 1500px; width: 640px; transform: rotate(-3deg)" alt="" />
+
+  <div id="vien" class="abs">
+    <div class="p">+1€</div>
     <div class="t">un croissant <i>ou</i><br />une chocolatine</div>
-    <div class="pics">
-      <img class="shadow" src="assets/img/croissant.png" style="width: 300px; left: 0; top: 40px; transform: rotate(-10deg)" alt="" />
-      <img class="shadow" src="assets/img/chocolatine.png" style="width: 290px; left: 230px; top: 70px; transform: rotate(8deg)" alt="" />
-    </div>
+    <img class="sh" src="assets/img/croissant.png" style="right: 190px; top: -125px; width: 230px; transform: rotate(-10deg)" alt="" />
+    <img class="sh" src="assets/img/chocolatine.png" style="right: 0px; top: -95px; width: 220px; transform: rotate(8deg)" alt="" />
   </div>
+  <div id="supp" class="abs">Supplément beurre ou confiture <b>+0,30€</b><br />Supplément café latte <b>+0,30€</b></div>
 
-  <div id="bottom">
-    <div id="supp">
-      <div class="h">SUPPLÉMENTS</div>
-      Beurre ou confiture en plus : <b>+0,30€</b><br />
-      Café latte : <b>+0,30€</b>
-    </div>
-    <img id="logo" src="assets/img/galzin-logo.png" alt="Galzin" />
+  <img id="logo" class="abs" src="assets/img/galzin-logo.png" alt="Galzin" />
+  <div id="fid" class="abs">
+    <div class="pc">5%</div>
+    <div class="tx">toujours crédités<br />en plus sur votre<br /><span class="c">CARTE DE FIDÉLITÉ</span></div>
   </div>
-  <div id="legal">Photos non contractuelles</div>
+  <div id="legal" class="abs">Photos non contractuelles</div>
 </div>
 </body>
 </html>
