@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("assets/fonts/bebas-neue-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Crimson Pro";
+        src: url("assets/fonts/crimson-pro-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: "Dancing Script";
+        src: url("assets/fonts/dancing-script-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      /* THEME — morning: warm cream, sunrise yellow, coffee brown */
+      :root {
+        --cream: #fdf3e4;
+        --cream-2: #f3dcbb;
+        --sun: #ffcc4d;
+        --orange: #e8912d;
+        --brown: #4a2c19;
+        --brown-2: #2f1b0f;
+        --bronze-a: #f2c890;
+        --bronze-b: #b0743d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--cream);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Bebas Neue", sans-serif;
+        color: var(--brown);
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 120%, #ffe2a6 0%, var(--cream) 55%, var(--cream-2) 100%);
+      }
+      #sun {
+        position: absolute;
+        left: 660px;
+        top: 640px;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffd56b 0%, rgba(255, 204, 77, 0.55) 45%, rgba(255, 204, 77, 0) 70%);
+      }
+      #rays {
+        position: absolute;
+        left: -40px;
+        top: -260px;
+        width: 2000px;
+        height: 2000px;
+        border-radius: 50%;
+        background: repeating-conic-gradient(rgba(255, 204, 77, 0.22) 0deg 6deg, transparent 6deg 12deg);
+        -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.6) 25%, transparent 55%);
+        mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.6) 25%, transparent 55%);
+      }
+      #frame {
+        position: absolute;
+        inset: 28px;
+        border: 2px solid var(--orange);
+        border-radius: 18px;
+        opacity: 0.55;
+      }
+      #logo {
+        position: absolute;
+        left: 780px;
+        top: 300px;
+        width: 360px;
+        height: 360px;
+      }
+      #logo img {
+        position: absolute;
+        inset: 0;
+        width: 360px;
+        height: 360px;
+        filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.3));
+      }
+
+      #title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 54px;
+        text-align: center;
+      }
+      #t-a {
+        font-family: "Dancing Script", cursive;
+        font-weight: 700;
+        font-size: 120px;
+        line-height: 1;
+        color: var(--orange);
+      }
+      #t-b {
+        margin-top: -6px;
+        font-size: 120px;
+        line-height: 0.95;
+        letter-spacing: 6px;
+      }
+
+      /* The equation row */
+      .it {
+        position: absolute;
+        top: 330px;
+        width: 330px;
+        height: 420px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .it .vis {
+        width: 330px;
+        height: 290px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .it .vis img {
+        max-width: 330px;
+        max-height: 290px;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 16px rgba(74, 44, 25, 0.35));
+      }
+      .it .vis svg {
+        filter: drop-shadow(0 18px 16px rgba(74, 44, 25, 0.3));
+      }
+      .it .lbl {
+        margin-top: 18px;
+        text-align: center;
+        font-size: 52px;
+        line-height: 1;
+        letter-spacing: 2px;
+      }
+      .it .sub {
+        margin-top: 6px;
+        text-align: center;
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 34px;
+        line-height: 1;
+        color: #7a5232;
+      }
+      .op {
+        position: absolute;
+        top: 470px;
+        width: 70px;
+        text-align: center;
+        font-size: 110px;
+        line-height: 1;
+        color: #a24c0c;
+      }
+      #eq {
+        position: absolute;
+        left: 1500px;
+        top: 360px;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 30%, var(--bronze-a) 0%, var(--bronze-b) 100%);
+        box-shadow: 0 26px 50px rgba(74, 44, 25, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #eq .s {
+        font-family: "Crimson Pro", serif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1;
+      }
+      #eq .p {
+        display: flex;
+        align-items: flex-start;
+        line-height: 0.85;
+      }
+      #eq .p .u {
+        font-size: 210px;
+      }
+      #eq .p .c {
+        font-size: 110px;
+        margin-top: 12px;
+      }
+
+      /* +1€ viennoiserie */
+      #vien {
+        position: absolute;
+        left: 280px;
+        top: 790px;
+        width: 1360px;
+        height: 200px;
+        border-radius: 110px;
+        background: var(--brown);
+        color: var(--cream);
+        display: flex;
+        align-items: center;
+        padding: 0 50px 0 30px;
+        gap: 26px;
+        box-shadow: 0 20px 40px rgba(47, 27, 15, 0.35);
+      }
+      #vien img {
+        height: 150px;
+        object-fit: contain;
+      }
+      #vien .plus {
+        font-size: 120px;
+        line-height: 1;
+        color: var(--sun);
+        padding-top: 12px;
+      }
+      #vien .t {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 52px;
+        line-height: 1.05;
+      }
+      #vien .t i {
+        font-weight: 600;
+        color: var(--sun);
+      }
+
+      /* Supplements */
+      #supp {
+        position: absolute;
+        left: 280px;
+        top: 790px;
+        width: 1360px;
+        height: 200px;
+        display: flex;
+        gap: 30px;
+      }
+      .sp {
+        flex: 1;
+        border-radius: 34px;
+        background: var(--cream);
+        border: 5px solid var(--brown);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 0 26px;
+        box-shadow: 0 16px 30px rgba(74, 44, 25, 0.25);
+      }
+      .sp svg {
+        width: 120px;
+        height: 120px;
+        flex: none;
+      }
+      .sp .t {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1.05;
+      }
+      .sp .t b {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-size: 60px;
+        color: #a24c0c;
+        letter-spacing: 1px;
+      }
+      #veil {
+        position: absolute;
+        inset: 0;
+        background: var(--cream);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <div id="rays"></div>
+      <div id="sun"></div>
+
+      <div id="title">
+        <div id="t-a">Petit-déj</div>
+        <div id="t-b">TARTINE</div>
+      </div>
+
+      <!-- 1 boisson chaude -->
+      <div class="it" id="i1" style="left: 70px">
+        <div class="vis">
+          <svg width="250" height="270" viewBox="0 0 250 270">
+            <g fill="none" stroke="#b9a48e" stroke-width="7" stroke-linecap="round">
+              <path class="steam" d="M90 70 C 70 50, 110 35, 90 10" />
+              <path class="steam" d="M125 70 C 105 50, 145 35, 125 10" />
+              <path class="steam" d="M160 70 C 140 50, 180 35, 160 10" />
+            </g>
+            <ellipse cx="125" cy="252" rx="115" ry="16" fill="#e7d3b6" />
+            <path d="M40 95 H210 L196 230 Q194 248 175 248 H75 Q56 248 54 230 Z" fill="#fdf3e4" stroke="#4a2c19" stroke-width="7" />
+            <ellipse cx="125" cy="95" rx="85" ry="16" fill="#6b3b1d" stroke="#4a2c19" stroke-width="7" />
+            <path d="M206 125 Q 250 125 245 165 Q 240 200 198 200" fill="none" stroke="#4a2c19" stroke-width="12" />
+            <path d="M60 150 H190" stroke="#e8912d" stroke-width="10" />
+          </svg>
+        </div>
+        <div class="lbl">BOISSON CHAUDE</div>
+        <div class="sub">thé, café ou chocolat</div>
+      </div>
+      <div class="op" id="o1" style="left: 390px">+</div>
+
+      <!-- 1 tartine -->
+      <div class="it" id="i2" style="left: 440px">
+        <div class="vis"><img src="assets/img/tartine.png" alt="Tartine baguette" /></div>
+        <div class="lbl">TARTINE</div>
+        <div class="sub">baguette</div>
+      </div>
+      <div class="op" id="o2" style="left: 760px">+</div>
+
+      <!-- 1 beurre -->
+      <div class="it" id="i3" style="left: 810px">
+        <div class="vis">
+          <svg width="230" height="180" viewBox="0 0 230 180">
+            <ellipse cx="115" cy="165" rx="100" ry="12" fill="#e7d3b6" />
+            <path d="M20 70 L115 40 L210 70 L210 140 L115 168 L20 140 Z" fill="#fff6c8" stroke="#4a2c19" stroke-width="6" stroke-linejoin="round" />
+            <path d="M20 70 L115 98 L210 70" fill="none" stroke="#4a2c19" stroke-width="6" stroke-linejoin="round" />
+            <path d="M115 98 V168" stroke="#4a2c19" stroke-width="6" />
+            <path d="M48 78 L115 58 L182 78 L115 98 Z" fill="#f2c890" />
+            <text x="115" y="84" text-anchor="middle" font-family="Bebas Neue" font-size="26" fill="#4a2c19">BEURRE</text>
+          </svg>
+        </div>
+        <div class="lbl">BEURRE</div>
+        <div class="sub">portion individuelle</div>
+      </div>
+      <div class="op" id="o3" style="left: 1130px">+</div>
+
+      <!-- 1 confiture -->
+      <div class="it" id="i4" style="left: 1180px">
+        <div class="vis">
+          <svg width="200" height="240" viewBox="0 0 200 240">
+            <ellipse cx="100" cy="228" rx="85" ry="12" fill="#e7d3b6" />
+            <path d="M30 40 H170 Q178 40 178 50 V60 H22 V50 Q22 40 30 40 Z" fill="#c8231c" stroke="#4a2c19" stroke-width="6" />
+            <path d="M22 60 L28 68 L34 60 L40 68 L46 60 L52 68 L58 60 L64 68 L70 60 L76 68 L82 60 L88 68 L94 60 L100 68 L106 60 L112 68 L118 60 L124 68 L130 60 L136 68 L142 60 L148 68 L154 60 L160 68 L166 60 L172 68 L178 60" fill="#fff" stroke="#c8231c" stroke-width="4" />
+            <path d="M36 72 H164 V200 Q164 222 142 222 H58 Q36 222 36 200 Z" fill="#8e1a2a" stroke="#4a2c19" stroke-width="6" />
+            <rect x="58" y="110" width="84" height="62" rx="10" fill="#fdf3e4" stroke="#4a2c19" stroke-width="4" />
+            <circle cx="100" cy="141" r="18" fill="#d8304a" />
+            <path d="M100 123 q6 -10 14 -6" stroke="#3c7a2a" stroke-width="5" fill="none" />
+          </svg>
+        </div>
+        <div class="lbl">CONFITURE</div>
+        <div class="sub">portion individuelle</div>
+      </div>
+      <div class="op" id="o4" style="left: 1440px">=</div>
+
+      <div id="eq">
+        <div class="s">la formule</div>
+        <div class="p"><span class="u">3</span><span class="c">€80</span></div>
+      </div>
+
+      <div id="vien">
+        <div class="plus">+1€</div>
+        <img src="assets/img/croissant.png" alt="Croissant" />
+        <div class="t">un croissant <i>ou</i><br />une chocolatine</div>
+        <img src="assets/img/chocolatine.png" alt="Chocolatine" />
+      </div>
+
+      <div id="supp">
+        <div class="sp" id="sp1">
+          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="#fff6c8" stroke="#4a2c19" stroke-width="5" /><circle cx="60" cy="60" r="30" fill="#8e1a2a" /></svg>
+          <div class="t">Beurre ou confiture<br />en plus : <b>+0,30€</b></div>
+        </div>
+        <div class="sp" id="sp2">
+          <svg viewBox="0 0 120 120"><path d="M28 34 H92 L86 100 Q84 110 74 110 H46 Q36 110 34 100 Z" fill="#fdf3e4" stroke="#4a2c19" stroke-width="5" /><path d="M32 52 H88" stroke="#c8935a" stroke-width="14" /><ellipse cx="60" cy="34" rx="32" ry="8" fill="#fff" stroke="#4a2c19" stroke-width="5" /></svg>
+          <div class="t">Café latte :<br /><b>+0,30€</b></div>
+        </div>
+      </div>
+
+      <div id="logo"><img src="assets/img/galzin-logo.png" alt="Galzin" /></div>
+      <div id="frame"></div>
+      <div id="veil"></div>
+    </div>
+
+    <script>
+      gsap.set(["#veil", "#supp", ".sp"], { autoAlpha: 0 });
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#frame", { autoAlpha: 0 }, { autoAlpha: 0.55, duration: 0.8 }, 0.2);
+      tl.fromTo("#rays", { rotation: 0 }, { rotation: 30, duration: 15, ease: "none" }, 0);
+
+      // ── Sunrise + logo → corner
+      tl.fromTo("#sun", { y: 300, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.4, ease: "power2.out" }, 0);
+      tl.fromTo("#logo img", { autoAlpha: 0, scale: 0.6, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.9, ease: "back.out(1.6)" }, 0.1);
+      tl.to("#logo", { x: 790, y: -340, scale: 170 / 360, duration: 0.7, ease: "power3.inOut" }, 1.2);
+
+      // ── Title: "Petit-déj" writes itself, TARTINE stamps
+      tl.fromTo("#t-a", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power1.inOut" }, 1.5);
+      tl.fromTo("#t-b", { autoAlpha: 0, scale: 1.7 }, { autoAlpha: 1, scale: 1, duration: 0.35, ease: "power4.in" }, 2.0);
+
+      // ── The equation builds (2.6 → 7.2)
+      const items = ["#i1", "#i2", "#i3", "#i4"], ops = ["#o1", "#o2", "#o3", "#o4"];
+      items.forEach((sel, i) => {
+        const t = 2.6 + i * 0.95;
+        tl.fromTo(sel + " .vis", { autoAlpha: 0, y: -500, rotation: i % 2 ? 10 : -10 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.5, ease: "bounce.out" }, t);
+        tl.fromTo(sel + " .lbl", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" }, t + 0.35);
+        tl.fromTo(sel + " .sub", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, t + 0.5);
+        tl.fromTo(ops[i], { autoAlpha: 0, scale: 0.2 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2.5)" }, t + 0.6);
+      });
+      tl.fromTo(".steam", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: -6, duration: 0.8, ease: "sine.inOut", stagger: 0.15 }, 3.0);
+      tl.to(".steam", { y: -16, autoAlpha: 0.35, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 7, stagger: 0.2 }, 3.9);
+      tl.fromTo("#eq", { autoAlpha: 0, scale: 0.2, rotation: -60 }, { autoAlpha: 1, scale: 1, rotation: -4, duration: 0.6, ease: "back.out(1.8)" }, 6.5);
+      tl.to("#eq", { scale: 1.08, duration: 0.16, yoyo: true, repeat: 1 }, 7.3);
+
+      // ── +1€ croissant ou chocolatine (7.8 → 10.6)
+      tl.fromTo("#vien", { autoAlpha: 0, y: 260 }, { autoAlpha: 1, y: 0, duration: 0.55, ease: "back.out(1.4)" }, 7.8);
+      tl.fromTo("#vien img", { scale: 0.3, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)", stagger: 0.15 }, 8.1);
+      tl.fromTo("#vien .plus", { scale: 0.3 }, { scale: 1, duration: 0.35, ease: "back.out(3)" }, 8.0);
+      tl.to("#vien", { autoAlpha: 0, y: 200, duration: 0.4, ease: "power2.in" }, 10.6);
+
+      // ── Supplements (10.9 → 14.4)
+      tl.set("#supp", { autoAlpha: 1 }, 10.9);
+      tl.fromTo(".sp", { autoAlpha: 0, y: 160, scale: 0.85 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.6)", stagger: 0.18 }, 10.9);
+      tl.to(".sp b", { scale: 1.1, duration: 0.16, yoyo: true, repeat: 1, stagger: 0.25 }, 12.0);
+      tl.to("#eq", { scale: 1.08, duration: 0.16, yoyo: true, repeat: 1 }, 13.0);
+      tl.to("#logo", { scale: 210 / 360, x: 770, y: -320, duration: 0.3, ease: "back.out(3)", yoyo: true, repeat: 1 }, 13.6);
+
+      // ── Clean exit for the loop
+      tl.to("#veil", { autoAlpha: 1, duration: 0.55, ease: "power1.inOut" }, 14.4);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

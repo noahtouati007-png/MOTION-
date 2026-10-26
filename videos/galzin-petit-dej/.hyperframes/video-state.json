@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "historyId": "06a57a10-f9e5-434b-9fcd-5b6213b1a0a7",
+  "currentRevision": "9d2eb72d-45b1-4620-adbe-a1ce0919deb6",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "assets/fonts/bebas-neue-latin-400-normal.woff2": {
+      "hash": "a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/a7/a7c90c89240c134f7fdd33d40c000ec90b79d675ea53e8cc5a6d423c073de412"
+    },
+    "assets/fonts/crimson-pro-latin-600-italic.woff2": {
+      "hash": "cc652c646593506722b059d8151ef80586f235606e37ef4c1863df3e3183ed78",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/cc/cc652c646593506722b059d8151ef80586f235606e37ef4c1863df3e3183ed78"
+    },
+    "assets/fonts/crimson-pro-latin-700-normal.woff2": {
+      "hash": "e34581dd821e87e007f5525f03b45f90207539a6c79132851217b5c1a0616c68",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/e3/e34581dd821e87e007f5525f03b45f90207539a6c79132851217b5c1a0616c68"
+    },
+    "assets/fonts/dancing-script-latin-700-normal.woff2": {
+      "hash": "06b326d772e3a68977c10711110f5f38255a007f3775795efbcd3862313b2d22",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/06/06b326d772e3a68977c10711110f5f38255a007f3775795efbcd3862313b2d22"
+    },
+    "assets/img/baguette.png": {
+      "hash": "65ba334af3526584f5d3b1d5fdeb5e8dd80efa224318a10d9ead560e20273e1f",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/65/65ba334af3526584f5d3b1d5fdeb5e8dd80efa224318a10d9ead560e20273e1f"
+    },
+    "assets/img/chocolatine.png": {
+      "hash": "b146eac40e12a1a7da7e077bca1922b1b68c00acbb59bfe9fbc39cc8bcd0337f",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/b1/b146eac40e12a1a7da7e077bca1922b1b68c00acbb59bfe9fbc39cc8bcd0337f"
+    },
+    "assets/img/croissant.png": {
+      "hash": "34739add6e6d01bb9357d2197013f4fc10a86b28d83d819388599d2f6afe9fd3",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/34/34739add6e6d01bb9357d2197013f4fc10a86b28d83d819388599d2f6afe9fd3"
+    },
+    "assets/img/galzin-logo.png": {
+      "hash": "cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/ce/cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5"
+    },
+    "assets/img/tartine.png": {
+      "hash": "bf1dd036ce72894b1aeb18601b94622e0efc81aeed8cd9ded3daa53e2b3ee968",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/bf/bf1dd036ce72894b1aeb18601b94622e0efc81aeed8cd9ded3daa53e2b3ee968"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/e5/e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6"
+    },
+    "index.html": {
+      "hash": "e4c802b65a877f86f684e14ce3a0d7defa496127009038c168cc6089ce603ca6",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/e4/e4c802b65a877f86f684e14ce3a0d7defa496127009038c168cc6089ce603ca6"
+    },
+    "meta.json": {
+      "hash": "ce9bc84b7d21c2632ca96e541739368630697f3b39a2bea8cb601850aac348a3",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/ce/ce9bc84b7d21c2632ca96e541739368630697f3b39a2bea8cb601850aac348a3"
+    },
+    "package.json": {
+      "hash": "5739325afc6195b7dc6cea343e46660796800937d5e91da967bde8b6d3f12fe3",
+      "content": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/57/5739325afc6195b7dc6cea343e46660796800937d5e91da967bde8b6d3f12fe3"
+    }
+  },
+  "revisions": {
+    "9d2eb72d-45b1-4620-adbe-a1ce0919deb6": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793013501768,
+      "endedAt": 1793013501769,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/18/1870963a6881f14f7cbd3ae0d3093c65c891ecf984b5758b461d3f61ceb37538",
+          "after": "/root/.cache/hyperframes/history/06a57a10-f9e5-434b-9fcd-5b6213b1a0a7/blobs/e4/e4c802b65a877f86f684e14ce3a0d7defa496127009038c168cc6089ce603ca6"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "9d2eb72d-45b1-4620-adbe-a1ce0919deb6",
+      "id": "4a0cc11c-aee0-4280-9a5e-26073b82eed2"
+    },
+    "revisions": {
+      "9d2eb72d-45b1-4620-adbe-a1ce0919deb6": [
+        {
+          "id": "4a0cc11c-aee0-4280-9a5e-26073b82eed2",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/galzin-petit-dej/.hyperframes/artifacts/checks/4a0cc11c-aee0-4280-9a5e-26073b82eed2.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793013507443,
+          "contentHash": "7ead52044ce828c2943465b542fa2807182e44e3dfcd63e2707a56834ace5e2b",
+          "revision": "9d2eb72d-45b1-4620-adbe-a1ce0919deb6",
+          "inputFingerprint": "6e40f1f64870ae4e0e91a753f60e9cf0eaf94e148f9d0cfbcb8c8a0bc451b24c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "3475cd8b-d8ef-430d-82d7-e7aae5319f9f",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/galzin-petit-dej/.hyperframes/artifacts/checks/3475cd8b-d8ef-430d-82d7-e7aae5319f9f.json",
+        "metadata": {
+          "ok": false,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793013480844,
+        "contentHash": "4d8f5917f7166f4990dc9dafb6a60d134bca59940da3cdc505c259f5aba79a1e",
+        "revision": null,
+        "inputFingerprint": "f774190805276ff5c25bf80e7997217c2f93ec445b841b3c7f298edf5dc53bdd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "7285bcee-c131-46e4-8c29-2885201b8aa7-4"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "7285bcee-c131-46e4-8c29-2885201b8aa7-0",
+        "image": "/home/user/MOTION-/videos/galzin-petit-dej/.hyperframes/artifacts/snapshots/a976d9dc-dc95-43c4-928b-4d9c26b81091/frame-00-at-5.5s.png",
+        "time": 5.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013485318,
+        "contentHash": "68d919c4ef8b0332f18a96151e4c722994253351ab5eec567eec8b65c56facb6",
+        "revision": null,
+        "inputFingerprint": "f774190805276ff5c25bf80e7997217c2f93ec445b841b3c7f298edf5dc53bdd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7285bcee-c131-46e4-8c29-2885201b8aa7-1",
+        "image": "/home/user/MOTION-/videos/galzin-petit-dej/.hyperframes/artifacts/snapshots/a976d9dc-dc95-43c4-928b-4d9c26b81091/frame-01-at-7.6s.png",
+        "time": 7.6,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013485318,
+        "contentHash": "12a0c356877a332beea15c673cc8510cefe40c435406f585bdbbe1c40fa22d1e",
+        "revision": null,
+        "inputFingerprint": "f774190805276ff5c25bf80e7997217c2f93ec445b841b3c7f298edf5dc53bdd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7285bcee-c131-46e4-8c29-2885201b8aa7-2",
+        "image": "/home/user/MOTION-/videos/galzin-petit-dej/.hyperframes/artifacts/snapshots/a976d9dc-dc95-43c4-928b-4d9c26b81091/frame-02-at-9.5s.png",
+        "time": 9.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013485318,
+        "contentHash": "42bb49023432345c20577ab1b73c41cdaa52c0707d199a2ae0fcb48446478749",
+        "revision": null,
+        "inputFingerprint": "f774190805276ff5c25bf80e7997217c2f93ec445b841b3c7f298edf5dc53bdd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7285bcee-c131-46e4-8c29-2885201b8aa7-3",
+        "image": "/home/user/MOTION-/videos/galzin-petit-dej/.hyperframes/artifacts/snapshots/a976d9dc-dc95-43c4-928b-4d9c26b81091/frame-03-at-12.5s.png",
+        "time": 12.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013485318,
+        "contentHash": "a0bfbf392d2af791325c03576e6f4df6adc12955f371266a60c02d711768e50c",
+        "revision": null,
+        "inputFingerprint": "f774190805276ff5c25bf80e7997217c2f93ec445b841b3c7f298edf5dc53bdd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "7285bcee-c131-46e4-8c29-2885201b8aa7-4",
+        "image": "/home/user/MOTION-/videos/galzin-petit-dej/.hyperframes/artifacts/snapshots/a976d9dc-dc95-43c4-928b-4d9c26b81091/frame-04-at-14.55s.png",
+        "time": 14.55,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793013485318,
+        "contentHash": "602e8e4c2aa19ddaf60b2d9ef8626866fa2962c4280af7ab332dcd8d44d0229c",
+        "revision": null,
+        "inputFingerprint": "f774190805276ff5c25bf80e7997217c2f93ec445b841b3c7f298edf5dc53bdd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "509a73b7-40f6-44b4-b92a-64d93eb7229c",
+      "completedAt": 1793013557962,
+      "output": "/home/user/MOTION-/videos/galzin-petit-dej/renders/galzin-petit-dej.mp4",
+      "status": "completed",
+      "revision": "9d2eb72d-45b1-4620-adbe-a1ce0919deb6"
+    },
+    "retainedRevisions": [
+      "9d2eb72d-45b1-4620-adbe-a1ce0919deb6"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

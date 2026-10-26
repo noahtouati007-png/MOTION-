@@ -1,0 +1,335 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 4,
+    "findings": [
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "warning",
+        "time": 2.5,
+        "selector": "#sun",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 660,
+          "top": 640,
+          "right": 1260,
+          "bottom": 1240,
+          "width": 600,
+          "height": 600
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 160
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 660,
+          "y": 640,
+          "width": 600,
+          "height": 600
+        },
+        "firstSeen": 0.833,
+        "lastSeen": 14.167,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          0.833,
+          2.5,
+          4.167,
+          5.833,
+          7.5,
+          9.167,
+          10.833,
+          12.5,
+          14.167
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 4.625,
+        "selector": "#t-b",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 791.03,
+          "top": 153,
+          "right": 1128.95,
+          "bottom": 297,
+          "width": 337.92,
+          "height": 144
+        },
+        "containerSelector": "div.vis > svg:nth-of-type(1) > text:nth-of-type(1)",
+        "text": "TARTINE",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 791.03,
+          "y": 153,
+          "width": 337.92,
+          "height": 144
+        },
+        "firstSeen": 4.625,
+        "lastSeen": 4.625,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          4.625
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 5.833,
+        "selector": "div.vis > svg:nth-of-type(1) > g:nth-of-type(1)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 194.23,
+          "top": 364,
+          "right": 275.77,
+          "bottom": 425.46,
+          "width": 81.55,
+          "height": 61.46
+        },
+        "containerSelector": "#i1 > div:nth-of-type(1) > svg:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 110,
+          "top": 370,
+          "right": 360,
+          "bottom": 640,
+          "width": 250,
+          "height": 270
+        },
+        "overflow": {
+          "top": 6
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 194.23,
+          "y": 364,
+          "width": 81.55,
+          "height": 61.46
+        },
+        "firstSeen": 5.833,
+        "lastSeen": 12.5,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          5.833,
+          9.167,
+          12.5
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 6.625,
+        "selector": "div.s",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1595.07,
+          "top": 444.36,
+          "right": 1712.06,
+          "bottom": 520.92,
+          "width": 116.99,
+          "height": 76.56
+        },
+        "containerSelector": "span.c",
+        "text": "la formule",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1595.07,
+          "y": 444.36,
+          "width": 116.99,
+          "height": 76.56
+        },
+        "firstSeen": 6.625,
+        "lastSeen": 6.625,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.625
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 7.5,
+        "selector": "#o4",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1453,
+          "top": 459,
+          "right": 1497,
+          "bottom": 591,
+          "width": 44,
+          "height": 132
+        },
+        "containerSelector": "#eq",
+        "text": "=",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.3,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1453,
+          "y": 459,
+          "width": 44,
+          "height": 132
+        },
+        "firstSeen": 7.5,
+        "lastSeen": 7.5,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          7.5
+        ]
+      }
+    ],
+    "duration": 15,
+    "samples": [
+      0.833,
+      2.5,
+      4.167,
+      5.833,
+      7.5,
+      9.167,
+      10.833,
+      12.5,
+      14.167
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 5,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.833,
+      4.167,
+      7.5,
+      10.833,
+      14.167
+    ],
+    "checked": 65,
+    "passed": 65
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "first_frame_empty",
+        "severity": "warning",
+        "message": "Frame 0 shows only the background, and the first frame is the thumbnail on social players: have the title or key image already on screen at 0 s instead of entering from nothing; see references/review.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"BEURRE\" renders at 26 px for 10.25 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "BEURRE",
+        "selector": "div.vis > svg:nth-of-type(1) > text:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 945.54,
+          "y": 418.38,
+          "width": 61.86,
+          "height": 33.13
+        },
+        "time": 4.75,
+        "times": [
+          4.75
+        ],
+        "fontPx": 26,
+        "floorPx": 28,
+        "seconds": 10.25,
+        "elements": [
+          {
+            "selector": "div.vis > svg:nth-of-type(1) > text:nth-of-type(1)",
+            "text": "BEURRE",
+            "fontPx": 26,
+            "time": 4.75,
+            "seconds": 10.25
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 120
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
