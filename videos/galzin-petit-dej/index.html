@@ -149,6 +149,20 @@
         object-fit: contain;
         filter: drop-shadow(0 18px 16px rgba(74, 44, 25, 0.35));
       }
+      .it .cup {
+        position: relative;
+        width: 330px;
+      }
+      .it .cup img {
+        display: block;
+        width: 330px;
+      }
+      .it .cup .smoke {
+        position: absolute;
+        left: 118px;
+        top: -78px;
+        filter: none;
+      }
       .it .vis svg {
         filter: drop-shadow(0 18px 16px rgba(74, 44, 25, 0.3));
       }
@@ -270,10 +284,32 @@
         padding: 0 26px;
         box-shadow: 0 16px 30px rgba(74, 44, 25, 0.25);
       }
-      .sp svg {
-        width: 120px;
-        height: 120px;
+      .sp .duo {
         flex: none;
+        width: 170px;
+        height: 120px;
+        position: relative;
+      }
+      .sp .duo img {
+        position: absolute;
+        width: 110px;
+        filter: drop-shadow(0 6px 6px rgba(74, 44, 25, 0.35));
+      }
+      .sp .duo img:first-child {
+        left: 0;
+        top: 8px;
+        transform: rotate(-8deg);
+      }
+      .sp .duo img + img {
+        left: 64px;
+        top: 14px;
+        width: 100px;
+        transform: rotate(10deg);
+      }
+      .sp .duo img:only-child {
+        left: 10px;
+        top: 4px;
+        transform: none;
       }
       .sp .t {
         font-family: "Crimson Pro", serif;
@@ -317,18 +353,16 @@
       <!-- 1 boisson chaude -->
       <div class="it" id="i1" style="left: 70px">
         <div class="vis">
-          <svg width="250" height="270" viewBox="0 0 250 270">
-            <g fill="none" stroke="#b9a48e" stroke-width="7" stroke-linecap="round">
-              <path class="steam" d="M90 70 C 70 50, 110 35, 90 10" />
-              <path class="steam" d="M125 70 C 105 50, 145 35, 125 10" />
-              <path class="steam" d="M160 70 C 140 50, 180 35, 160 10" />
-            </g>
-            <ellipse cx="125" cy="252" rx="115" ry="16" fill="#e7d3b6" />
-            <path d="M40 95 H210 L196 230 Q194 248 175 248 H75 Q56 248 54 230 Z" fill="#fdf3e4" stroke="#4a2c19" stroke-width="7" />
-            <ellipse cx="125" cy="95" rx="85" ry="16" fill="#6b3b1d" stroke="#4a2c19" stroke-width="7" />
-            <path d="M206 125 Q 250 125 245 165 Q 240 200 198 200" fill="none" stroke="#4a2c19" stroke-width="12" />
-            <path d="M60 150 H190" stroke="#e8912d" stroke-width="10" />
-          </svg>
+          <div class="cup">
+            <img src="assets/img/cafe.png" alt="Boisson chaude" />
+            <svg class="smoke" width="140" height="90" viewBox="0 0 140 90">
+              <g fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="7" stroke-linecap="round">
+                <path class="steam" d="M35 85 C 15 65, 55 50, 35 20" />
+                <path class="steam" d="M70 85 C 50 65, 90 50, 70 15" />
+                <path class="steam" d="M105 85 C 85 65, 125 50, 105 20" />
+              </g>
+            </svg>
+          </div>
         </div>
         <div class="lbl">BOISSON CHAUDE</div>
         <div class="sub">thé, café ou chocolat</div>
@@ -346,14 +380,7 @@
       <!-- 1 beurre -->
       <div class="it" id="i3" style="left: 810px">
         <div class="vis">
-          <svg width="230" height="180" viewBox="0 0 230 180">
-            <ellipse cx="115" cy="165" rx="100" ry="12" fill="#e7d3b6" />
-            <path d="M20 70 L115 40 L210 70 L210 140 L115 168 L20 140 Z" fill="#fff6c8" stroke="#4a2c19" stroke-width="6" stroke-linejoin="round" />
-            <path d="M20 70 L115 98 L210 70" fill="none" stroke="#4a2c19" stroke-width="6" stroke-linejoin="round" />
-            <path d="M115 98 V168" stroke="#4a2c19" stroke-width="6" />
-            <path d="M48 78 L115 58 L182 78 L115 98 Z" fill="#f2c890" />
-            <text x="115" y="84" text-anchor="middle" font-family="Bebas Neue" font-size="26" fill="#4a2c19">BEURRE</text>
-          </svg>
+          <img src="assets/img/beurre.png" alt="Beurre individuel" style="max-width: 290px" />
         </div>
         <div class="lbl">BEURRE</div>
         <div class="sub">portion individuelle</div>
@@ -363,20 +390,12 @@
       <!-- 1 confiture -->
       <div class="it" id="i4" style="left: 1180px">
         <div class="vis">
-          <svg width="200" height="240" viewBox="0 0 200 240">
-            <ellipse cx="100" cy="228" rx="85" ry="12" fill="#e7d3b6" />
-            <path d="M30 40 H170 Q178 40 178 50 V60 H22 V50 Q22 40 30 40 Z" fill="#c8231c" stroke="#4a2c19" stroke-width="6" />
-            <path d="M22 60 L28 68 L34 60 L40 68 L46 60 L52 68 L58 60 L64 68 L70 60 L76 68 L82 60 L88 68 L94 60 L100 68 L106 60 L112 68 L118 60 L124 68 L130 60 L136 68 L142 60 L148 68 L154 60 L160 68 L166 60 L172 68 L178 60" fill="#fff" stroke="#c8231c" stroke-width="4" />
-            <path d="M36 72 H164 V200 Q164 222 142 222 H58 Q36 222 36 200 Z" fill="#8e1a2a" stroke="#4a2c19" stroke-width="6" />
-            <rect x="58" y="110" width="84" height="62" rx="10" fill="#fdf3e4" stroke="#4a2c19" stroke-width="4" />
-            <circle cx="100" cy="141" r="18" fill="#d8304a" />
-            <path d="M100 123 q6 -10 14 -6" stroke="#3c7a2a" stroke-width="5" fill="none" />
-          </svg>
+          <img src="assets/img/confiture.png" alt="Confiture individuelle" style="max-width: 232px" />
         </div>
         <div class="lbl">CONFITURE</div>
         <div class="sub">portion individuelle</div>
       </div>
-      <div class="op" id="o4" style="left: 1440px">=</div>
+      <div class="op" id="o4" style="left: 1440px; color: #6e3005">=</div>
 
       <div id="eq">
         <div class="s">la formule</div>
@@ -392,11 +411,11 @@
 
       <div id="supp">
         <div class="sp" id="sp1">
-          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="#fff6c8" stroke="#4a2c19" stroke-width="5" /><circle cx="60" cy="60" r="30" fill="#8e1a2a" /></svg>
+          <span class="duo"><img src="assets/img/beurre.png" alt="" /><img src="assets/img/confiture.png" alt="" /></span>
           <div class="t">Beurre ou confiture<br />en plus : <b>+0,30€</b></div>
         </div>
         <div class="sp" id="sp2">
-          <svg viewBox="0 0 120 120"><path d="M28 34 H92 L86 100 Q84 110 74 110 H46 Q36 110 34 100 Z" fill="#fdf3e4" stroke="#4a2c19" stroke-width="5" /><path d="M32 52 H88" stroke="#c8935a" stroke-width="14" /><ellipse cx="60" cy="34" rx="32" ry="8" fill="#fff" stroke="#4a2c19" stroke-width="5" /></svg>
+          <span class="duo"><img src="assets/img/cafe.png" alt="" style="width: 150px" /></span>
           <div class="t">Café latte :<br /><b>+0,30€</b></div>
         </div>
       </div>

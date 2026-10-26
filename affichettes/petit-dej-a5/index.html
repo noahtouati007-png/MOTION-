@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Galzin – Affichette Petit-déj A5</title>
+<style>
+  /* A5 portrait à 300 dpi : 1748 × 2480 px. Modifiez les textes directement ci-dessous. */
+  @font-face { font-family: "Bebas Neue"; src: url(assets/fonts/bebas-neue-latin-400-normal.woff2); }
+  @font-face { font-family: "Crimson Pro"; font-weight: 700; src: url(assets/fonts/crimson-pro-latin-700-normal.woff2); }
+  @font-face { font-family: "Crimson Pro"; font-weight: 600; font-style: italic; src: url(assets/fonts/crimson-pro-latin-600-italic.woff2); }
+  @font-face { font-family: "Dancing Script"; src: url(assets/fonts/dancing-script-latin-700-normal.woff2); }
+  :root { --red: #a61d12; --brown: #4a2c19; --yellow: #fdd87f; --gold: #f1bd43; --cream: #fff4d6; }
+  @page { size: 148mm 210mm; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1748px; height: 2480px; background: var(--yellow); }
+  #page {
+    position: relative; width: 1748px; height: 2480px; overflow: hidden;
+    background: radial-gradient(ellipse 75% 45% at 50% 52%, #f3c04a 0%, #f8cd62 45%, var(--yellow) 100%);
+    font-family: "Bebas Neue", sans-serif; color: var(--brown);
+  }
+  .abs { position: absolute; }
+  img { display: block; }
+  .shadow { filter: drop-shadow(0 22px 20px rgba(74, 44, 25, 0.35)); }
+
+  #page { display: flex; flex-direction: column; align-items: center; padding: 50px 80px 0; }
+  #head { text-align: center; height: 420px; }
+  #script { font-family: "Dancing Script"; font-size: 200px; color: #c0560c; line-height: 1; }
+  #title { margin-top: -30px; font-size: 300px; line-height: 0.9; color: var(--red); letter-spacing: 6px; }
+
+  #grid { position: relative; width: 1588px; height: 880px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+  .item { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 20px; }
+  .item .ph { flex: 1; display: flex; align-items: center; justify-content: center; }
+  .item .l { font-size: 96px; line-height: 0.95; text-align: center; color: var(--brown); }
+  .item .s { font-family: "Crimson Pro"; font-style: italic; font-weight: 600; font-size: 58px; line-height: 1.05; color: #6e4426; text-align: center; }
+  .op { position: absolute; font-size: 190px; line-height: 1; color: var(--red); transform: translate(-50%, -50%); }
+
+  #price { display: flex; align-items: center; justify-content: center; gap: 40px; color: var(--red); height: 380px; margin-top: 100px; }
+  #price .eq { font-size: 220px; }
+  #price .f { font-family: "Crimson Pro"; font-style: italic; font-weight: 600; font-size: 90px; color: var(--brown); line-height: 1; text-align: right; }
+  #price .n { font-size: 380px; line-height: 0.8; padding-top: 30px; }
+  #price .n small { font-size: 220px; }
+
+  #vien {
+    position: relative; width: 1588px; height: 250px; border-radius: 125px;
+    background: var(--brown); color: var(--cream); padding: 0 60px; display: flex; align-items: center; gap: 36px;
+  }
+  #vien .plus { font-size: 200px; color: #ffd36b; line-height: 1; padding-top: 18px; }
+  #vien .t { font-family: "Crimson Pro"; font-weight: 700; font-size: 74px; line-height: 1.05; }
+  #vien .t i { font-weight: 600; color: #ffd36b; }
+  #vien .pics { position: absolute; right: 40px; top: -60px; width: 520px; height: 360px; }
+  #vien .pics img { position: absolute; }
+
+  #bottom { width: 1588px; margin-top: 36px; display: flex; align-items: center; gap: 40px; }
+  #supp {
+    flex: 1; padding: 24px 44px; border-radius: 40px; border: 6px solid var(--brown);
+    background: rgba(255, 244, 214, 0.92); font-family: "Crimson Pro"; font-weight: 700; font-size: 56px; line-height: 1.15;
+  }
+  #supp b { font-family: "Bebas Neue"; font-weight: 400; font-size: 80px; color: var(--red); letter-spacing: 1px; }
+  #supp .h { font-family: "Bebas Neue"; font-size: 62px; letter-spacing: 4px; color: var(--red); }
+  #logo { width: 280px; flex: none; }
+  #legal { position: absolute; left: 0; width: 100%; text-align: center; bottom: 14px; font-family: "Crimson Pro"; font-style: italic; font-weight: 600; font-size: 30px; color: #6e4426; }
+</style>
+</head>
+<body>
+<div id="page">
+  <div id="head">
+    <div id="script">Petit-déj</div>
+    <div id="title">TARTINE</div>
+  </div>
+
+  <div id="grid">
+    <div class="item">
+      <div class="ph"><img class="shadow" src="assets/img/cafe.png" style="width: 520px" alt="" /></div>
+      <div class="l">1 BOISSON CHAUDE</div>
+      <div class="s">thé, café ou chocolat</div>
+    </div>
+    <div class="item">
+      <div class="ph"><img class="shadow" src="assets/img/tartine.png" style="width: 470px" alt="" /></div>
+      <div class="l">1 TARTINE</div>
+      <div class="s">baguette</div>
+    </div>
+    <div class="item">
+      <div class="ph"><img class="shadow" src="assets/img/beurre.png" style="width: 400px" alt="" /></div>
+      <div class="l">1 BEURRE</div>
+      <div class="s">portion individuelle</div>
+    </div>
+    <div class="item">
+      <div class="ph"><img class="shadow" src="assets/img/confiture.png" style="width: 320px" alt="" /></div>
+      <div class="l">1 CONFITURE</div>
+      <div class="s">portion individuelle</div>
+    </div>
+    <div class="op" style="left: 50%; top: 24%">+</div>
+    <div class="op" style="left: 3%; top: 74%">+</div>
+    <div class="op" style="left: 50%; top: 74%">+</div>
+  </div>
+
+  <div id="price">
+    <div class="eq">=</div>
+    <div class="f">la<br />formule</div>
+    <div class="n">3,80<small>€</small></div>
+  </div>
+
+  <div id="vien">
+    <div class="plus">+1€</div>
+    <div class="t">un croissant <i>ou</i><br />une chocolatine</div>
+    <div class="pics">
+      <img class="shadow" src="assets/img/croissant.png" style="width: 300px; left: 0; top: 40px; transform: rotate(-10deg)" alt="" />
+      <img class="shadow" src="assets/img/chocolatine.png" style="width: 290px; left: 230px; top: 70px; transform: rotate(8deg)" alt="" />
+    </div>
+  </div>
+
+  <div id="bottom">
+    <div id="supp">
+      <div class="h">SUPPLÉMENTS</div>
+      Beurre ou confiture en plus : <b>+0,30€</b><br />
+      Café latte : <b>+0,30€</b>
+    </div>
+    <img id="logo" src="assets/img/galzin-logo.png" alt="Galzin" />
+  </div>
+  <div id="legal">Photos non contractuelles</div>
+</div>
+</body>
+</html>
