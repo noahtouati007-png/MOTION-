@@ -6,6 +6,7 @@ Unités : 1 unité = 0,1 mm. Les ovales de prix sont livrés vides.
 """
 import base64
 import io
+from html import escape
 import sys
 from pathlib import Path
 
@@ -20,7 +21,7 @@ PRIX = ""  # prix laissés vides : l'ovale est prêt, on tape le prix dans Illus
 _cache = {}
 
 
-def href(name, max_px=900):
+def href(name, max_px=700):
     if name not in _cache:
         im = Image.open(IMG / f"{name}.png")
         im.thumbnail((max_px, max_px))
@@ -30,7 +31,7 @@ def href(name, max_px=900):
     return _cache[name]
 
 
-def image(name, x, y, w, h, max_px=900):
+def image(name, x, y, w, h, max_px=700):
     return (f'<image id="{name}" x="{x:.0f}" y="{y:.0f}" width="{w:.0f}" height="{h:.0f}" '
             f'preserveAspectRatio="xMidYMid meet" xlink:href="{href(name, max_px)}"/>')
 
@@ -40,7 +41,7 @@ def text(x, y, txt, size, fill, font=IMPACT, anchor="middle", italic=False, bold
     wt = ' font-weight="bold"' if bold else ""
     tr = f' transform="rotate({rot} {x:.0f} {y:.0f})"' if rot else ""
     return (f'<text x="{x:.0f}" y="{y:.0f}" text-anchor="{anchor}" font-family="{font}" '
-            f'font-size="{size:.0f}" fill="{fill}"{st}{wt}{tr}>{txt}</text>')
+            f'font-size="{size:.0f}" fill="{fill}"{st}{wt}{tr}>{escape(txt, quote=False)}</text>')
 
 
 def lines(x, y, rows, size, fill, lead=1.05, **kw):
@@ -155,7 +156,7 @@ def arche():
     return (f'M{AX0} {ATOP + AR}A{AR} {AR} 0 0 1 {AX1} {ATOP + AR}V{ABOT}H{AX0}Z')
 
 
-def stop_base(contenu, titre_doc):
+def stop_face(contenu, prefix):
     L = [f'<g id="FOND"><rect width="{SW}" height="{SH}" fill="{C["chocolat"]}"/>'
          f'<path d="{arche()}" fill="{C["creme"]}"/></g>']
     L.append(contenu)
@@ -165,7 +166,7 @@ def stop_base(contenu, titre_doc):
              + folliet(SW / 2, ABOT + 280, 2300)
              + text(AX1 - 80, ABOT - 90, "Photos non contractuelles", 95, C["creme"], HEROICA, "end", italic=True)
              + '</g>')
-    return svg(SW, SH, "\n".join(L), titre_doc)
+    return "\n".join(L).replace('id="', f'id="{prefix}_')
 
 
 def clip_arche():
@@ -173,7 +174,7 @@ def clip_arche():
 
 
 def stop_recto():
-    v = (f'<g id="VAGUES" clip-path="url(#Arche)">{clip_arche()}'
+    v = (f'<g id="VAGUES" clip-path="url(#Arche)">'
          f'<path fill="{C["chocolat"]}" d="M0 5450C1400 5050 2800 5750 {SW} 5250V8350C3800 8800 2200 8100 0 8600Z"/>'
          f'<path fill="none" stroke="{C["caramel"]}" stroke-width="30" '
          f'd="M0 5380C1400 4980 2800 5680 {SW} 5180"/>'
@@ -201,11 +202,11 @@ def stop_recto():
          + ovale_prix(2150, 10950, 430, 230, PRIX, "cuivre", rot=-4)
          + ovale_prix(4250, 10950, 430, 230, PRIX, "cuivre", rot=-4)
          + '</g>')
-    return stop_base(v + t + p, "Galzin - Stop-trottoir recto")
+    return stop_face(v + t + p, "RECTO")
 
 
 def stop_verso():
-    v = (f'<g id="VAGUES" clip-path="url(#Arche)">{clip_arche()}'
+    v = (f'<g id="VAGUES" clip-path="url(#Arche)">'
          f'<path fill="{C["chocolat"]}" d="M0 7000C1500 6550 3200 7350 {SW} 6750V{SH}H0Z"/>'
          f'<path fill="none" stroke="{C["caramel"]}" stroke-width="30" '
          f'd="M0 6920C1500 6470 3200 7270 {SW} 6670"/></g>')
@@ -221,7 +222,16 @@ def stop_verso():
          + ovale_prix(4000, 4500, 600, 320, PRIX, "cuivre", rot=-5)
          + ovale_prix(1300, 8900, 600, 320, PRIX, "turquoise", rot=4)
          + '</g>')
-    return stop_base(v + t + p, "Galzin - Stop-trottoir verso")
+    return stop_face(v + t + p, "VERSO")
+
+
+def stop_trottoir():
+    """Recto et verso côte à côte dans un seul fichier (écart de 6 cm entre les deux faces)."""
+    gap = 600
+    body = (f'<defs>{clip_arche()}</defs>'
+            f'<g id="RECTO">{stop_recto()}</g>'
+            f'<g id="VERSO" transform="translate({SW + gap} 0)">{stop_verso()}</g>')
+    return svg(SW * 2 + gap, SH, body, "Galzin - Stop-trottoir recto et verso")
 
 
 if __name__ == "__main__":
@@ -233,8 +243,7 @@ if __name__ == "__main__":
                                                            titre_doc="Galzin - Boissons froides 50x70"),
         "galzin-carte-boissons-chaudes-A5.svg": menu_boissons(1480, 2100, "Chaudes", CHAUDES, 4,
                                                               titre_doc="Galzin - Carte boissons chaudes A5"),
-        "galzin-stop-trottoir-recto.svg": stop_recto(),
-        "galzin-stop-trottoir-verso.svg": stop_verso(),
+        "galzin-stop-trottoir-recto-verso.svg": stop_trottoir(),
     }
     for name, content in out.items():
         (HERE / name).write_text(content, encoding="utf-8")
