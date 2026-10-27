@@ -44,4 +44,5 @@ Si Illustrator signale Heroica manquante, choisir la Heroica installée dans Tex
 3. **Produits listés** = pastilles turquoise légèrement inclinées, reliées par des « + » chocolat épais.
 4. **Photos** détourées, grandes, qui débordent sur la vague pour donner du relief.
 5. **Bas d'affiche** : logo Galzin rond + badge « 5% carte de fidélité » + « Photos non contractuelles ». Ajouter « L'abus d'alcool… » dès qu'il y a de l'alcool.
-6. Une affiche = une seule promesse lisible à 3 mètres : titre, offre, prix.
+6. Prix inconnus : livrer les ovales **vides**, jamais de « 0,00€ ».
+7. Une affiche = une seule promesse lisible à 3 mètres : titre, offre, prix.

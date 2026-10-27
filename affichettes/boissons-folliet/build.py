@@ -2,7 +2,7 @@
 
 Usage : python3 build.py
 Produit des SVG à ouvrir dans Illustrator : textes, formes, dégradés modifiables, photos intégrées.
-Unités : 1 unité = 0,1 mm. Les prix sont à compléter (« 0,00€ » dans les ovales).
+Unités : 1 unité = 0,1 mm. Les ovales de prix sont livrés vides.
 """
 import base64
 import io
@@ -16,7 +16,7 @@ sys.path.insert(0, str(HERE.parent / "_kit-galzin"))
 from build import C, IMPACT, HEROICA, ovale_prix, plus, svg  # noqa: E402
 
 IMG = HERE / "images"
-PRIX = "0,00€"
+PRIX = ""  # prix laissés vides : l'ovale est prêt, on tape le prix dans Illustrator
 _cache = {}
 
 

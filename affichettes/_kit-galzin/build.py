@@ -84,8 +84,9 @@ def ovale_prix(cx, cy, rx, ry, prix, style="cuivre", size=None, rot=0):
     txt = C["blanc"] if style == "rouge" else C["chocolat_fonce"]
     return (f'<g transform="rotate({rot} {cx} {cy})">'
             f'<ellipse cx="{cx}" cy="{cy}" rx="{rx}" ry="{ry}" fill="{fill}"{stroke}/>'
-            f'<text x="{cx}" y="{cy + size * 0.36:.0f}" text-anchor="middle" font-family="{HEROICA}" '
-            f'font-weight="bold" font-size="{size:.0f}" fill="{txt}">{prix}</text></g>')
+            + (f'<text x="{cx}" y="{cy + size * 0.36:.0f}" text-anchor="middle" font-family="{HEROICA}" '
+               f'font-weight="bold" font-size="{size:.0f}" fill="{txt}">{prix}</text>' if prix else "")
+            + '</g>')
 
 
 def badge_fidelite(x, y, w=820):
