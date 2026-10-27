@@ -18,7 +18,7 @@ Les groupes nommés du gabarit : `FOND`, `VAGUES`, `PHOTOS`, `TEXTES`, `PRIX`, `
 ## Typographies
 
 - **Impact** : titres en capitales (« FORMULE », « DÉCOUVREZ L'OFFRE », pastilles produits, « 5% », « CARTE DE FIDÉLITÉ »).
-- **Heroica** : accroches, prix, mots-clés (« Petit Déjeuner », « Boisson », « Dessert », « 5,50€ »).
+- **Heroica** (toujours, avec Impact : ce sont les deux seules polices) : accroches, prix, mots-clés (« Petit Déjeuner », « Boisson », « Dessert », « 5,50€ »).
 - **Heroica italique** : slogans et mentions (« Pour bien commencer la journée ! », « Pour seulement », « Photos non contractuelles »).
 
 Si Illustrator signale Heroica manquante, choisir la Heroica installée dans Texte > Polices manquantes : les textes restent modifiables.
@@ -32,7 +32,7 @@ Si Illustrator signale Heroica manquante, choisir la Heroica installée dans Tex
 | Crème | `#FDF0E2` | fond principal, textes sur chocolat |
 | Sable | `#EEDDC5` | fond clair alternatif |
 | Caramel | `#C58243` | fond bas (pizza), liserés, étiquette fidélité |
-| Turquoise | `#51A3A3` | pastilles produits, ovales de prix |
+| Turquoise | `#51A3A3` | **visuels froids uniquement** : pastilles, ovales de prix |
 | Turquoise clair | `#6CBDB5` | reflet des dégradés turquoise |
 | Orange → Rouge | `#E8721D` → `#E30F20` | promos chocs (OFFRE+, « pour seulement ») |
 | Cuivre | `#8A4A1C` / `#D89D58` / `#F1C680` | dégradé métal des ovales de prix |
@@ -44,5 +44,6 @@ Si Illustrator signale Heroica manquante, choisir la Heroica installée dans Tex
 3. **Produits listés** = pastilles turquoise légèrement inclinées, reliées par des « + » chocolat épais.
 4. **Photos** détourées, grandes, qui débordent sur la vague pour donner du relief.
 5. **Bas d'affiche** : logo Galzin rond + badge « 5% carte de fidélité » + « Photos non contractuelles ». Ajouter « L'abus d'alcool… » dès qu'il y a de l'alcool.
-6. Prix inconnus : livrer les ovales **vides**, jamais de « 0,00€ ».
-7. Une affiche = une seule promesse lisible à 3 mètres : titre, offre, prix.
+6. **Température des couleurs** : produits chauds (pizza, café, viennoiseries, plats) = chocolat, caramel, cuivre, orange-rouge, **sans turquoise**. Le turquoise est réservé aux visuels froids (boissons froides, glaces, salades, fraîcheur).
+7. Prix inconnus : livrer les ovales **vides**, jamais de « 0,00€ ».
+8. Une affiche = une seule promesse lisible à 3 mètres : titre, offre, prix.

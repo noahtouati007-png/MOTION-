@@ -6,6 +6,7 @@ Unités : 1 unité = 0,1 mm (A3 = 2970 x 4200).
 """
 import base64
 import io
+import math
 import sys
 from html import escape
 from pathlib import Path
@@ -40,52 +41,50 @@ def text(x, y, txt, size, fill, font=IMPACT, anchor="middle", italic=False, bold
             f'font-size="{size:.0f}" fill="{fill}"{st}{wt}{tr}>{escape(txt, quote=False)}</text>')
 
 
+def eclat(cx, cy, R, r, n=18):
+    """Éclat (starburst) comme sur l'affiche OFFRE+."""
+    pts = []
+    for i in range(n * 2):
+        a = math.pi * i / n
+        rad = R if i % 2 == 0 else r
+        pts.append(f"{cx + rad * math.cos(a):.0f} {cy + rad * math.sin(a):.0f}")
+    return f'<path fill="url(#OrangeRouge)" d="M{"L".join(pts)}Z"/>'
+
+
 def affiche():
     L = [f'<g id="FOND"><rect width="{W}" height="{H}" fill="{C["creme"]}"/></g>']
+    L.append('<g id="ECLAT">' + eclat(W / 2, 2650, 1450, 1080) + '</g>')
     L.append(
         '<g id="VAGUES">'
-        f'<path fill="{C["chocolat"]}" d="M0 0H{W}V520C2300 720 1500 440 800 600C450 680 200 690 0 650Z"/>'
-        f'<path fill="none" stroke="{C["caramel"]}" stroke-width="14" d="M0 700C200 740 450 730 800 650'
-        f'C1500 490 2300 770 {W} 570"/>'
-        f'<path fill="{C["chocolat"]}" d="M0 3380C800 3150 1700 3520 {W} 3150V{H}H0Z"/>'
-        f'<path fill="none" stroke="{C["caramel"]}" stroke-width="14" d="M0 3320C800 3090 1700 3460 {W} 3090"/>'
+        f'<path fill="{C["chocolat"]}" d="M0 0H{W}V480C2300 680 1500 400 800 560C450 640 200 650 0 610Z"/>'
+        f'<path fill="none" stroke="{C["caramel"]}" stroke-width="14" d="M0 660C200 700 450 690 800 610'
+        f'C1500 450 2300 730 {W} 530"/>'
+        f'<path fill="{C["chocolat"]}" d="M0 3480C900 3280 1900 3640 {W} 3330V{H}H0Z"/>'
+        f'<path fill="none" stroke="{C["caramel"]}" stroke-width="14" d="M0 3420C900 3220 1900 3580 {W} 3270"/>'
         '</g>')
-    L.append(
-        '<g id="PHOTOS">'
-        + image("pizza-chevre", -380, 1520, 1500, 900)
-        + image("pizza-poulet", 1850, 1480, 1500, 900)
-        + image("pizza-thon", 285, 1850, 2400, 1420)
-        + '</g>')
+    L.append('<g id="PHOTOS">' + image("pizza-lardons", 100, 1820, 2770, 1620, 1000) + '</g>')
     L.append(
         '<g id="TEXTES">'
-        + text(W / 2, 330, "CHAQUE SEMAINE, UNE NOUVELLE", 175, C["creme"])
-        + text(W / 2, 1180, "Pizza", 600, C["chocolat"], HEROICA, bold=True)
-        + f'<g transform="rotate(-3 {W/2} 1390)"><rect x="{W/2 - 780}" y="1235" width="1560" height="310" '
-          f'rx="70" fill="{C["turquoise"]}"/></g>'
-        + text(W / 2, 1465, "de la semaine", 230, C["creme"], HEROICA, italic=True, bold=True, rot=-3)
-        # pastille mystère
-        + f'<g id="MYSTERE" transform="rotate(10 2480 1750)"><circle cx="2480" cy="1750" r="300" '
-          f'fill="{C["chocolat"]}" stroke="{C["creme"]}" stroke-width="22"/>'
-        + text(2480, 1930, "?", 520, C["creme"])
-        + '</g>'
-        + f'<g transform="rotate(-6 640 1660)"><rect x="40" y="1560" width="1200" height="210" rx="60" '
-          f'fill="{C["chocolat"]}"/></g>'
-        + text(640, 1700, "Laquelle cette semaine ?", 112, C["creme"], HEROICA, italic=True, bold=True, rot=-6)
-        + text(W / 2, 3640, "À DÉCOUVRIR EN MAGASIN !", 235, C["creme"])
-        + text(W / 2, 3780, "Son nom est affiché en boutique, chaque semaine une surprise", 92, C["creme"],
-               HEROICA, italic=True, bold=True)
+        + text(W / 2, 320, "UNE NOUVELLE RECETTE CHAQUE SEMAINE", 160, C["creme"])
+        + text(W / 2, 1180, "LA PIZZA", 600, C["chocolat"])
+        + f'<g transform="rotate(-3 {W/2} 1430)"><rect x="{W/2 - 900}" y="1270" width="1800" height="330" '
+          f'rx="80" fill="{C["chocolat"]}"/></g>'
+        + text(W / 2, 1515, "de la semaine", 250, C["cuivre_clair"], HEROICA, italic=True, bold=True, rot=-3)
+        + text(W / 2, 3760, "À DÉCOUVRIR EN MAGASIN !", 240, C["creme"])
+        + text(W / 2, 3880, "Sa recette est affichée en boutique : laissez-vous surprendre !", 88,
+               C["cuivre_clair"], HEROICA, italic=True, bold=True)
         + '</g>')
     L.append(
         '<g id="PRIX">'
-        + f'<g transform="rotate(-5 2230 2830)"><rect x="1880" y="2735" width="700" height="190" rx="50" '
+        + f'<g transform="rotate(-6 2330 1730)"><rect x="1990" y="1640" width="680" height="180" rx="50" '
           f'fill="{C["chocolat"]}"/></g>'
-        + text(2230, 2870, "seulement", 130, C["creme"], HEROICA, italic=True, bold=True, rot=-5)
-        + ovale_prix(2230, 3170, 560, 290, "8,90€", "rouge", rot=-5)
+        + text(2330, 1770, "seulement", 125, C["creme"], HEROICA, italic=True, bold=True, rot=-6)
+        + ovale_prix(2330, 2080, 560, 300, "8,90€", "cuivre", rot=-6)
         + '</g>')
     L.append(
         '<g id="LOGO_MENTIONS">'
-        f'<image id="galzin-logo" x="120" y="3830" width="330" height="330" xlink:href="{href("galzin-logo", 700)}"/>'
-        + badge_fidelite(520, 3880, 700)
+        f'<image id="galzin-logo" x="110" y="3920" width="260" height="260" xlink:href="{href("galzin-logo", 700)}"/>'
+        + badge_fidelite(420, 3960, 600)
         + text(W - 60, H - 50, "Photos non contractuelles", 50, C["creme"], HEROICA, "end", italic=True)
         + '</g>')
     return svg(W, H, "\n".join(L), "Galzin - Pizza de la semaine A3")
