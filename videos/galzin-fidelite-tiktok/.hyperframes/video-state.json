@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "b1796338-79eb-4391-a340-baf6444e7096",
-  "currentRevision": "1d1c9a6a-15ea-4347-a943-85ba72cb580f",
+  "currentRevision": "cdb92187-aec9-47c5-be53-3b67f93f453e",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -69,8 +69,8 @@
       "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/83/8343bcd11a7eb41e0c3094f529a3c10505bfb9d70249e79557db8f726a83058e"
     },
     "review/planche-contact.jpg": {
-      "hash": "a251cfa83e5b2735e54c01b780db7f119c77669c322441b82de597ddd4e19ae5",
-      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/a2/a251cfa83e5b2735e54c01b780db7f119c77669c322441b82de597ddd4e19ae5"
+      "hash": "5ca68edac5277d92ab28c9a5ffba4960a597b7b075fc280c2387b21dde285359",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/5c/5ca68edac5277d92ab28c9a5ffba4960a597b7b075fc280c2387b21dde285359"
     },
     "assets/img/site-accueil.png": {
       "hash": "401c34a623bfae7f52e9f30b469c9d652bb02c337a20bde1b78bb37002d62057",
@@ -83,6 +83,10 @@
     "review/entree-0s.png": {
       "hash": "f4405ac90ae95a23253c984f786fa84fd0c6e641c1a0bcb4577baea7ab1dd67d",
       "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/f4/f4405ac90ae95a23253c984f786fa84fd0c6e641c1a0bcb4577baea7ab1dd67d"
+    },
+    "review/zoom-activer-ma-carte.png": {
+      "hash": "698ca1946f6e60b8dcb5112fca54b827f6a2f454a0ae640162e5f2d334f0086b",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/69/698ca1946f6e60b8dcb5112fca54b827f6a2f454a0ae640162e5f2d334f0086b"
     }
   },
   "revisions": {
@@ -178,6 +182,25 @@
         "index.html": {
           "before": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/ec/ecd658b33f3848e11246cb729f1b334d87454d3422adb904664b8b7b9cdf3f12",
           "after": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/c7/c7d32a761e1bdfcbf6d02b68f01abebce7c178e50e34c0cd016159d8144cf6e5"
+        }
+      }
+    },
+    "cdb92187-aec9-47c5-be53-3b67f93f453e": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793091907556,
+      "endedAt": 1793091907570,
+      "files": {
+        "review/planche-contact.jpg": {
+          "before": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/a2/a251cfa83e5b2735e54c01b780db7f119c77669c322441b82de597ddd4e19ae5",
+          "after": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/5c/5ca68edac5277d92ab28c9a5ffba4960a597b7b075fc280c2387b21dde285359"
+        },
+        "review/zoom-activer-ma-carte.png": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/69/698ca1946f6e60b8dcb5112fca54b827f6a2f454a0ae640162e5f2d334f0086b"
         }
       }
     }
@@ -1382,5 +1405,16 @@
       ]
     },
     "unversioned": []
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "d989c10b-e5a7-4167-92e8-0f5fde130c55",
+      "completedAt": 1793091948787,
+      "output": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/renders/galzin-fidelite-tiktok-silent.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
 }
