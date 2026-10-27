@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "historyId": "e9e37f51-60e9-429c-987a-3889abab94b6",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/e9e37f51-60e9-429c-987a-3889abab94b6/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/e9e37f51-60e9-429c-987a-3889abab94b6/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "assets/img/beignet.png": {
+      "hash": "2be48de27c0c638f8d2f3b69846a24f138f5ffa73e471a4ded6ef15639836be7",
+      "content": "/root/.cache/hyperframes/history/e9e37f51-60e9-429c-987a-3889abab94b6/blobs/2b/2be48de27c0c638f8d2f3b69846a24f138f5ffa73e471a4ded6ef15639836be7"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/e9e37f51-60e9-429c-987a-3889abab94b6/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6",
+      "content": "/root/.cache/hyperframes/history/e9e37f51-60e9-429c-987a-3889abab94b6/blobs/e5/e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6"
+    },
+    "index.html": {
+      "hash": "2c4d9f153ede6264a38c07d7dcec5ac5a1708b736621c75b3a694df3a0590c2f",
+      "content": "/root/.cache/hyperframes/history/e9e37f51-60e9-429c-987a-3889abab94b6/blobs/2c/2c4d9f153ede6264a38c07d7dcec5ac5a1708b736621c75b3a694df3a0590c2f"
+    },
+    "meta.json": {
+      "hash": "c15397ba03dd81f8134572ed4d41a46f1fc9e8bb847a3354268031340ef157da",
+      "content": "/root/.cache/hyperframes/history/e9e37f51-60e9-429c-987a-3889abab94b6/blobs/c1/c15397ba03dd81f8134572ed4d41a46f1fc9e8bb847a3354268031340ef157da"
+    },
+    "package.json": {
+      "hash": "0b28e1afbb8fa2bdc6a92cc4817f04e5652f3d6c507114ca78b225e80d51bc6e",
+      "content": "/root/.cache/hyperframes/history/e9e37f51-60e9-429c-987a-3889abab94b6/blobs/0b/0b28e1afbb8fa2bdc6a92cc4817f04e5652f3d6c507114ca78b225e80d51bc6e"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "57fa53fd-6f67-4990-8154-5a6b040b61fc"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "id": "57fa53fd-6f67-4990-8154-5a6b040b61fc",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/galzin-beignet-pop/.hyperframes/artifacts/checks/57fa53fd-6f67-4990-8154-5a6b040b61fc.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793093210175,
+        "contentHash": "db999629221bc1e6f8f9a690f0b57d9dd0605d3967a0f108058b0a79aa1cb9b1",
+        "revision": null,
+        "inputFingerprint": "621d381b503cc688bd9ecc59db3c748a008613f5617b842371c4f81ffdf700fa",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "a98fbb86-64f9-4ec8-8755-0a5c82b1c688-5"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "a98fbb86-64f9-4ec8-8755-0a5c82b1c688-0",
+        "image": "/home/user/MOTION-/videos/galzin-beignet-pop/.hyperframes/artifacts/snapshots/e1ddcebb-5081-4fa5-86fd-9310098ccd0e/frame-00-at-0.2s.png",
+        "time": 0.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793093213646,
+        "contentHash": "84110818e062943fb374126ed57fa8fbd6484d9c4ba8eb0ac90a955e2c12b956",
+        "revision": null,
+        "inputFingerprint": "621d381b503cc688bd9ecc59db3c748a008613f5617b842371c4f81ffdf700fa",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a98fbb86-64f9-4ec8-8755-0a5c82b1c688-1",
+        "image": "/home/user/MOTION-/videos/galzin-beignet-pop/.hyperframes/artifacts/snapshots/e1ddcebb-5081-4fa5-86fd-9310098ccd0e/frame-01-at-0.5s.png",
+        "time": 0.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793093213646,
+        "contentHash": "07653c18f11060aa2595a461061d5d711835dfae0c3f4260e956838d5a7e3fcd",
+        "revision": null,
+        "inputFingerprint": "621d381b503cc688bd9ecc59db3c748a008613f5617b842371c4f81ffdf700fa",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a98fbb86-64f9-4ec8-8755-0a5c82b1c688-2",
+        "image": "/home/user/MOTION-/videos/galzin-beignet-pop/.hyperframes/artifacts/snapshots/e1ddcebb-5081-4fa5-86fd-9310098ccd0e/frame-02-at-2s.png",
+        "time": 2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793093213646,
+        "contentHash": "9b936effdaafa7d3229938b13f7b43158fa92f4a2fd73496d8729a8bffa73c49",
+        "revision": null,
+        "inputFingerprint": "621d381b503cc688bd9ecc59db3c748a008613f5617b842371c4f81ffdf700fa",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a98fbb86-64f9-4ec8-8755-0a5c82b1c688-3",
+        "image": "/home/user/MOTION-/videos/galzin-beignet-pop/.hyperframes/artifacts/snapshots/e1ddcebb-5081-4fa5-86fd-9310098ccd0e/frame-03-at-3.7s.png",
+        "time": 3.7,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793093213646,
+        "contentHash": "cc0f43cf6b103745e90225aceb8d281f5d602e12e1d9ff60c031e7b75845522b",
+        "revision": null,
+        "inputFingerprint": "621d381b503cc688bd9ecc59db3c748a008613f5617b842371c4f81ffdf700fa",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a98fbb86-64f9-4ec8-8755-0a5c82b1c688-4",
+        "image": "/home/user/MOTION-/videos/galzin-beignet-pop/.hyperframes/artifacts/snapshots/e1ddcebb-5081-4fa5-86fd-9310098ccd0e/frame-04-at-4.05s.png",
+        "time": 4.05,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793093213646,
+        "contentHash": "e43ba529e6bc725b570312726327543a42699901f4e9bff9918a858a372ba8b4",
+        "revision": null,
+        "inputFingerprint": "621d381b503cc688bd9ecc59db3c748a008613f5617b842371c4f81ffdf700fa",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "a98fbb86-64f9-4ec8-8755-0a5c82b1c688-5",
+        "image": "/home/user/MOTION-/videos/galzin-beignet-pop/.hyperframes/artifacts/snapshots/e1ddcebb-5081-4fa5-86fd-9310098ccd0e/frame-05-at-4.365s.png",
+        "time": 4.365,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793093213646,
+        "contentHash": "e71c2b08e37495e21d8dfb54803a62630d00b160aaa3f2216d2c46eb8ed288cb",
+        "revision": null,
+        "inputFingerprint": "621d381b503cc688bd9ecc59db3c748a008613f5617b842371c4f81ffdf700fa",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "c83d060b-0a75-423b-b80b-db8839519de1",
+      "completedAt": 1793093289239,
+      "output": "/home/user/MOTION-/videos/galzin-beignet-pop/renders/beignet-pop-transparent.webm",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}
