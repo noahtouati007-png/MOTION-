@@ -1,0 +1,906 @@
+{
+  "version": 1,
+  "historyId": "b1796338-79eb-4391-a340-baf6444e7096",
+  "currentRevision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "assets/fonts/anton-latin-400-normal.woff2": {
+      "hash": "d0fa07ff63dd60cbc0e2f58e29c802dca2a5ae0276c999f59c6111ab7bbaec3b",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/d0/d0fa07ff63dd60cbc0e2f58e29c802dca2a5ae0276c999f59c6111ab7bbaec3b"
+    },
+    "assets/fonts/montserrat-latin-500-normal.woff2": {
+      "hash": "2b53300fb9471520df2f4905847fb7a209879b2029ae893c05c6ee346b1320cd",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/2b/2b53300fb9471520df2f4905847fb7a209879b2029ae893c05c6ee346b1320cd"
+    },
+    "assets/fonts/montserrat-latin-700-normal.woff2": {
+      "hash": "f9d9e65b15372cebcafc3acd1e664a564c5c4b23278de4d5760de9a13c530371",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/f9/f9d9e65b15372cebcafc3acd1e664a564c5c4b23278de4d5760de9a13c530371"
+    },
+    "assets/fonts/montserrat-latin-800-normal.woff2": {
+      "hash": "ba826fb84c2e961578adf3a08b5778b87905d4443445d1d56d84f9f157d5ea4b",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/ba/ba826fb84c2e961578adf3a08b5778b87905d4443445d1d56d84f9f157d5ea4b"
+    },
+    "assets/fonts/montserrat-latin-900-normal.woff2": {
+      "hash": "5b6958520638bb8609f9eacb17c4d189563efeae96d5da49f7c2043988697205",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/5b/5b6958520638bb8609f9eacb17c4d189563efeae96d5da49f7c2043988697205"
+    },
+    "assets/fonts/zilla-slab-latin-700-italic.woff2": {
+      "hash": "81dad87e98f037656238d0e49e98bbe93be520917c71e3871cb232226f98d6cc",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/81/81dad87e98f037656238d0e49e98bbe93be520917c71e3871cb232226f98d6cc"
+    },
+    "assets/fonts/zilla-slab-latin-700-normal.woff2": {
+      "hash": "896b6ebb8cd10aca90bdff88a5a1b648cbc0d50751740bd5a6d012007aef9ebe",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/89/896b6ebb8cd10aca90bdff88a5a1b648cbc0d50751740bd5a6d012007aef9ebe"
+    },
+    "assets/img/card.png": {
+      "hash": "d79b61e18e07317719106e1081aca3f2545d5fba8da57f472ac2b35980646fc6",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/d7/d79b61e18e07317719106e1081aca3f2545d5fba8da57f472ac2b35980646fc6"
+    },
+    "assets/img/galzin-logo.png": {
+      "hash": "cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/ce/cecafd282174ffd12acad46cfec18e5123f19caa77390c6481e97ebe1594aeb5"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/e5/e5da816b77f863aa4798d974bc68d65805329ca4d39ebcf353967c5b47e677a6"
+    },
+    "index.html": {
+      "hash": "dd26e3049914f21b079013d05264b465c1feca52af5c09f403a2b8348e4c5524",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/dd/dd26e3049914f21b079013d05264b465c1feca52af5c09f403a2b8348e4c5524"
+    },
+    "meta.json": {
+      "hash": "ce0bee0341589bb4701527761f305d09303e8b6ed3fa474c6405ac3b44e9993a",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/ce/ce0bee0341589bb4701527761f305d09303e8b6ed3fa474c6405ac3b44e9993a"
+    },
+    "package.json": {
+      "hash": "8343bcd11a7eb41e0c3094f529a3c10505bfb9d70249e79557db8f726a83058e",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/83/8343bcd11a7eb41e0c3094f529a3c10505bfb9d70249e79557db8f726a83058e"
+    },
+    "review/planche-contact.jpg": {
+      "hash": "789e6abc2b553a10edac30068480019dbf7dcb70496df2f6d7bb704bcc805a72",
+      "content": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/78/789e6abc2b553a10edac30068480019dbf7dcb70496df2f6d7bb704bcc805a72"
+    }
+  },
+  "revisions": {
+    "b4db9468-2459-4720-bfa4-4168e614bb4c": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793089432261,
+      "endedAt": 1793089432262,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/d8/d8673a2be7faaf4eb1a18355fc7de8ddbe5ce9852fb1ae7f6651324bc0cfb447",
+          "after": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/72/72a4a57d26444c3d9e56960da7268e75468bfb9b8fc385aeeff42e9e16d86b2f"
+        }
+      }
+    },
+    "f5725e0b-4a95-49a1-8977-dfc3cda506ac": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793089466706,
+      "endedAt": 1793089466707,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/72/72a4a57d26444c3d9e56960da7268e75468bfb9b8fc385aeeff42e9e16d86b2f",
+          "after": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/a2/a2eca9ab9f428071a09eca3b501c1fe380f8a00f5c269938fd33351efaf24a04"
+        }
+      }
+    },
+    "6d98c482-e468-4a59-b60a-bb28804a76ac": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793089507947,
+      "endedAt": 1793089507951,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/a2/a2eca9ab9f428071a09eca3b501c1fe380f8a00f5c269938fd33351efaf24a04",
+          "after": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/dd/dd26e3049914f21b079013d05264b465c1feca52af5c09f403a2b8348e4c5524"
+        },
+        "review/planche-contact.jpg": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/b1796338-79eb-4391-a340-baf6444e7096/blobs/78/789e6abc2b553a10edac30068480019dbf7dcb70496df2f6d7bb704bcc805a72"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+      "id": "abbfbaa6-e2c3-427e-bb32-29fd451483c4"
+    },
+    "revisions": {
+      "b4db9468-2459-4720-bfa4-4168e614bb4c": [
+        {
+          "id": "86e3613a-2af2-42ae-bc9e-dc8e74ee7bf1",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/checks/86e3613a-2af2-42ae-bc9e-dc8e74ee7bf1.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793089435683,
+          "contentHash": "de7ff28a07ac69c98a629239915a91b68c11d9450b6a1d1026b0c5917e348440",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "f5725e0b-4a95-49a1-8977-dfc3cda506ac": [
+        {
+          "id": "6f7accad-c6fd-44e0-b599-637462cfe88c",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/checks/6f7accad-c6fd-44e0-b599-637462cfe88c.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793089469972,
+          "contentHash": "b3dd195b2f5661c585aec563983e838d9c523520bb052f25ccaf539e85b45d63",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "6d98c482-e468-4a59-b60a-bb28804a76ac": [
+        {
+          "id": "abbfbaa6-e2c3-427e-bb32-29fd451483c4",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/checks/abbfbaa6-e2c3-427e-bb32-29fd451483c4.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793089511185,
+          "contentHash": "d015779267695235d42c88e551d7ede0c6f9cada400d246845b7f28c61e1651c",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "e0f70588-40b7-44b5-9ca5-6ffc2896e0c5",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/checks/e0f70588-40b7-44b5-9ca5-6ffc2896e0c5.json",
+        "metadata": {
+          "ok": false,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793089420000,
+        "contentHash": "87f754a663e42970a37165960d389eebd1717201d811b73b4608b9d8c68c772f",
+        "revision": null,
+        "inputFingerprint": "91351a5d823ce4b16632dc22527ba095afd59b696456c08684475978ce5b5460",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+      "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-8"
+    },
+    "revisions": {
+      "b4db9468-2459-4720-bfa4-4168e614bb4c": [
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-0",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-00-at-0.02s.png",
+          "time": 0.02,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "f4405ac90ae95a23253c984f786fa84fd0c6e641c1a0bcb4577baea7ab1dd67d",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-1",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-01-at-0.5s.png",
+          "time": 0.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "22d90c6c0a781b1c05ae2eee9f27dfc8159b497db1dae0d12b5334368d3b0c48",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-2",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-02-at-1.5s.png",
+          "time": 1.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "e2c3e458daf34650f99a0cf3cca59c43dcec96cd25d9180b101a4dc214e4ccce",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-3",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-03-at-3.75s.png",
+          "time": 3.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "a49140e540976c5567eeb80f6e89b9543dff36845421cdc958dda8641589ebea",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-4",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-04-at-4.2s.png",
+          "time": 4.2,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "f8b629675f213d39413e3477807c7a277eaa8b9874f45ecae63b72ccc02699e8",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-5",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-05-at-5.4s.png",
+          "time": 5.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "17b5f134be1b3a9bbd1a2a79a50c4ed48e6032a31a677fae1c98250c9b6b82e1",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-6",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-06-at-7.6s.png",
+          "time": 7.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "0ba4092225156eeb38fcee03eaaae7e5c922e6bf94e601d2026b9719fd3f66be",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-7",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-07-at-8.95s.png",
+          "time": 8.95,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "ba82a672ff852a6345689d4860b1054d79565a84e018258c6514f1a538e659ef",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-8",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-08-at-11.6s.png",
+          "time": 11.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "bd519b14f4a39af7ae48099e6860c33055ec11eb64ca92df0facb80c18c8eae8",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-9",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-09-at-13.6s.png",
+          "time": 13.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "fe68c22fe0751dc474cc8e7ec0275481dff5e4e6a5ebed19ea7c3bbef0e209ef",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-10",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-10-at-16.8s.png",
+          "time": 16.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "84ee39a485a4dfb402c92ff6a4322e89444bdf30eac74c1da98a505a74c86110",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-11",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-11-at-18.9s.png",
+          "time": 18.9,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "9c1b26cb3f3b2ede35ea87d279bc8623897b195a84a1eedc70554e7be17272f5",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-12",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-12-at-21.5s.png",
+          "time": 21.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "e5f837788918023d13e39544a90398f58f57f7d2ba98afa1a2f020acd62c632b",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e3e48b15-1be2-42fe-9fc0-bfd2d3e3abf9-13",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ee33aabe-03fb-4be7-bf3f-ae0868418807/frame-13-at-21.34s.png",
+          "time": 21.34,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089441792,
+          "contentHash": "de312783a3cab66514849d2d075e5631ec5120f69373551a564607765c32dfe5",
+          "revision": "b4db9468-2459-4720-bfa4-4168e614bb4c",
+          "inputFingerprint": "3039bb5b2f5df7e2c8169d3f1ab6d36e6e7090f8f66b818b9401d5e853200cc0",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "f5725e0b-4a95-49a1-8977-dfc3cda506ac": [
+        {
+          "scope": "full",
+          "id": "26f12391-2215-41fc-a64f-e9ab52a0e2ae-0",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ea2fa609-3347-4308-b8e9-c47ad78e2aa2/frame-00-at-1.6s.png",
+          "time": 1.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089474581,
+          "contentHash": "15b5ebac11be196bb3da5ab3a1d8be9a8f73b08bb59fa7257fca877d2ef5ccce",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "26f12391-2215-41fc-a64f-e9ab52a0e2ae-1",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ea2fa609-3347-4308-b8e9-c47ad78e2aa2/frame-01-at-3.95s.png",
+          "time": 3.95,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089474581,
+          "contentHash": "fe97e9bdae4bda40f692bb1124aaa246625988226f61aca029906f2459e8d066",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "26f12391-2215-41fc-a64f-e9ab52a0e2ae-2",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ea2fa609-3347-4308-b8e9-c47ad78e2aa2/frame-02-at-7.7s.png",
+          "time": 7.7,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089474581,
+          "contentHash": "36e5028e55501f217acc98f119a2e2956b3903b89eb02499e5d46864a214c637",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "26f12391-2215-41fc-a64f-e9ab52a0e2ae-3",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ea2fa609-3347-4308-b8e9-c47ad78e2aa2/frame-03-at-8.95s.png",
+          "time": 8.95,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089474581,
+          "contentHash": "ba82a672ff852a6345689d4860b1054d79565a84e018258c6514f1a538e659ef",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "26f12391-2215-41fc-a64f-e9ab52a0e2ae-4",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ea2fa609-3347-4308-b8e9-c47ad78e2aa2/frame-04-at-12s.png",
+          "time": 12,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089474581,
+          "contentHash": "ad2feff83f02470bee8ba66661bdd5e627b092bbab32c7a1da99512566a00e62",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "26f12391-2215-41fc-a64f-e9ab52a0e2ae-5",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ea2fa609-3347-4308-b8e9-c47ad78e2aa2/frame-05-at-13.8s.png",
+          "time": 13.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089474581,
+          "contentHash": "ae9d764c0523ed8ad2a17cef232b9c629264a5bd78e943478ae594cc9640f627",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "26f12391-2215-41fc-a64f-e9ab52a0e2ae-6",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ea2fa609-3347-4308-b8e9-c47ad78e2aa2/frame-06-at-18.9s.png",
+          "time": 18.9,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089474581,
+          "contentHash": "da9779a67fe2cc3ecf6d1a3089fd8a11bf456da8c7f1f3cdf92ebedb00cd6cd9",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "26f12391-2215-41fc-a64f-e9ab52a0e2ae-7",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ea2fa609-3347-4308-b8e9-c47ad78e2aa2/frame-07-at-21.5s.png",
+          "time": 21.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089474582,
+          "contentHash": "8e20e901c9cfceba455c6c4516f0d4c78103d328471530159f9074486d1f3f3b",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "26f12391-2215-41fc-a64f-e9ab52a0e2ae-8",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/ea2fa609-3347-4308-b8e9-c47ad78e2aa2/frame-08-at-21.34s.png",
+          "time": 21.34,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089474582,
+          "contentHash": "c67e2d64460518e7f2c94a7083229d562188531a8d4c82a8b59d96d3f9bc58cc",
+          "revision": "f5725e0b-4a95-49a1-8977-dfc3cda506ac",
+          "inputFingerprint": "fd1004e459a14e88ee3fa684516cf1e17cd0c4a782629c29ff76dcdc0484e486",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "6d98c482-e468-4a59-b60a-bb28804a76ac": [
+        {
+          "scope": "full",
+          "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-0",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/bc68ad35-1c03-46dc-a2b5-12518e751662/frame-00-at-1.6s.png",
+          "time": 1.6,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089515869,
+          "contentHash": "f97aa01dbb99d35059c91441cd0b9a581c8d4583e7b4c5f67459406551701b4a",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-1",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/bc68ad35-1c03-46dc-a2b5-12518e751662/frame-01-at-3.95s.png",
+          "time": 3.95,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089515869,
+          "contentHash": "7e1b47bb94d606577dced1fd29a3f4267f0cef9e4cbd524f421b28d79be3eb4f",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-2",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/bc68ad35-1c03-46dc-a2b5-12518e751662/frame-02-at-7.9s.png",
+          "time": 7.9,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089515869,
+          "contentHash": "dbf62932e24a6309856e79b22577b9246eb08d3ec97d5c29e5f3fa836ee4474a",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-3",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/bc68ad35-1c03-46dc-a2b5-12518e751662/frame-03-at-8.95s.png",
+          "time": 8.95,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089515869,
+          "contentHash": "ba82a672ff852a6345689d4860b1054d79565a84e018258c6514f1a538e659ef",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-4",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/bc68ad35-1c03-46dc-a2b5-12518e751662/frame-04-at-12s.png",
+          "time": 12,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089515869,
+          "contentHash": "3a8b6feed310312a6f52c75451ff61e20121dfc6f7447cf4424b46909ff194da",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-5",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/bc68ad35-1c03-46dc-a2b5-12518e751662/frame-05-at-13.8s.png",
+          "time": 13.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089515869,
+          "contentHash": "33a59563bddfdce832e12c3d99baee42dab00440a55776d8cc5e62afe62f5cb8",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-6",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/bc68ad35-1c03-46dc-a2b5-12518e751662/frame-06-at-18.9s.png",
+          "time": 18.9,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089515869,
+          "contentHash": "48e276e7fca2648230815614622bd9798e02ec8698e089493612b44839d9f593",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-7",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/bc68ad35-1c03-46dc-a2b5-12518e751662/frame-07-at-21.5s.png",
+          "time": 21.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089515869,
+          "contentHash": "8e20e901c9cfceba455c6c4516f0d4c78103d328471530159f9074486d1f3f3b",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "b2ce3f75-7294-4b40-8322-ab9dd7694d67-8",
+          "image": "/home/user/MOTION-/videos/galzin-fidelite-tiktok/.hyperframes/artifacts/snapshots/bc68ad35-1c03-46dc-a2b5-12518e751662/frame-08-at-21.34s.png",
+          "time": 21.34,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793089515869,
+          "contentHash": "c67e2d64460518e7f2c94a7083229d562188531a8d4c82a8b59d96d3f9bc58cc",
+          "revision": "6d98c482-e468-4a59-b60a-bb28804a76ac",
+          "inputFingerprint": "c122d0e1cd72b9234cf581c141c716f8693c0c2d37791f0a5aac4a76bb89408c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": []
+  }
+}

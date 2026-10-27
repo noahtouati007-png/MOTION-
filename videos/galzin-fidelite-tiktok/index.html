@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Montserrat"; font-weight: 500; src: url(assets/fonts/montserrat-latin-500-normal.woff2); }
+      @font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/montserrat-latin-700-normal.woff2); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/montserrat-latin-800-normal.woff2); }
+      @font-face { font-family: "Montserrat"; font-weight: 900; src: url(assets/fonts/montserrat-latin-900-normal.woff2); }
+      @font-face { font-family: "Anton"; src: url(assets/fonts/anton-latin-400-normal.woff2); }
+      @font-face { font-family: "Zilla Slab"; font-weight: 700; font-style: italic; src: url(assets/fonts/zilla-slab-latin-700-italic.woff2); }
+      @font-face { font-family: "Zilla Slab"; font-weight: 700; src: url(assets/fonts/zilla-slab-latin-700-normal.woff2); }
+
+      :root {
+        --cream: #f7eddd;
+        --paper: #fffaf2;
+        --brown: #4a2a17;
+        --choc: #5b2f15;
+        --gold: #c9963f;
+        --gold-l: #ffcf8a;
+        --green: #2e7d4f;
+        --red: #e0352b;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--cream); }
+      #root {
+        position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        background: radial-gradient(ellipse 80% 55% at 50% 48%, #fff6e6 0%, var(--cream) 60%, #efdfc6 100%);
+        font-family: "Montserrat", sans-serif; color: var(--brown);
+      }
+      .abs { position: absolute; }
+      img { display: block; }
+
+      /* ── Step captions (safe zone: below 150px, left of 960px) */
+      .cap {
+        position: absolute; left: 60px; top: 190px; width: 880px;
+        display: flex; align-items: center; gap: 28px;
+      }
+      .cap .num {
+        flex: none; width: 128px; height: 128px; border-radius: 50%; background: var(--choc);
+        color: var(--gold-l); font-family: "Anton"; font-size: 84px; line-height: 1;
+        display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 0 rgba(74, 42, 23, 0.15);
+      }
+      .cap .txt { font-weight: 800; font-size: 66px; line-height: 1.04; color: var(--brown); letter-spacing: -1px; }
+      .cap .txt em { font-style: normal; color: #9a5a1c; }
+      .cap .txt .url { color: #9a5a1c; }
+
+      /* ── Card */
+      #cardw {
+        position: absolute; left: 130px; top: 701px; width: 820px; height: 518px;
+        border-radius: 34px; box-shadow: 0 30px 50px rgba(74, 42, 23, 0.35);
+        transform-origin: 50% 50%;
+      }
+      #cardw .face { position: absolute; inset: 0; border-radius: 34px; overflow: hidden; background: #fff; }
+      #cardw .face img { width: 100%; height: 100%; object-fit: cover; }
+      #laser {
+        position: absolute; left: -20px; right: -20px; top: 0; height: 14px; border-radius: 7px;
+        background: var(--red); box-shadow: 0 0 22px 8px rgba(224, 53, 43, 0.65);
+      }
+      #shine {
+        position: absolute; top: -40px; bottom: -40px; width: 180px; left: -260px; transform: skewX(-20deg);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0));
+      }
+      #glow {
+        position: absolute; inset: -40px; border-radius: 60px;
+        background: radial-gradient(ellipse at center, rgba(255, 207, 138, 0.9), rgba(255, 207, 138, 0) 70%);
+      }
+      #okb {
+        position: absolute; right: -50px; top: -60px; width: 190px; height: 190px; border-radius: 50%;
+        background: var(--green); border: 10px solid var(--paper); box-shadow: 0 14px 24px rgba(0, 0, 0, 0.25);
+        display: flex; align-items: center; justify-content: center;
+      }
+
+      /* ── Scene 1: counter + register */
+      #counter { left: 0; top: 1030px; width: 1080px; height: 890px; }
+      #register { left: 60px; top: 690px; width: 380px; height: 360px; }
+
+      /* ── Scene 2 */
+      #scanner { left: 500px; top: 560px; width: 400px; height: 330px; transform-origin: 80% 30%; }
+      #flash { inset: 0; background: #fff; }
+      #bip {
+        left: 580px; top: 440px; width: 290px; height: 170px; transform-origin: 30% 100%;
+      }
+      #bip .b {
+        position: absolute; inset: 0; border-radius: 85px; background: var(--red); border: 8px solid var(--paper);
+        color: #fff; font-family: "Anton"; font-size: 104px; display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 14px 24px rgba(0, 0, 0, 0.25); transform: rotate(-6deg);
+      }
+
+      /* ── Scene 3: house + phone */
+      #house { left: 340px; top: 690px; width: 400px; height: 400px; transform-origin: 50% 66%; }
+      #phone {
+        left: 280px; top: 480px; width: 520px; height: 1060px; border-radius: 74px; background: #24150c; padding: 20px;
+        box-shadow: 0 40px 70px rgba(74, 42, 23, 0.45);
+      }
+      #screen { position: relative; width: 480px; height: 1020px; border-radius: 56px; overflow: hidden; background: var(--paper); }
+      #notch { left: 170px; top: 14px; width: 140px; height: 34px; border-radius: 17px; background: #24150c; }
+      #sbar { left: 40px; top: 18px; font-weight: 700; font-size: 22px; color: var(--brown); }
+      #urlbar {
+        left: 24px; top: 70px; width: 432px; height: 64px; border-radius: 32px; background: #efe3cf;
+        display: flex; align-items: center; padding-left: 26px; gap: 12px; font-weight: 700; font-size: 30px; color: var(--brown);
+      }
+      #urlbar .caret { width: 3px; height: 34px; background: var(--brown); }
+      .pg { left: 0; top: 150px; width: 480px; height: 870px; }
+      #pg1 { display: flex; flex-direction: column; align-items: center; padding-top: 24px; }
+      #pg1 .logo { width: 150px; }
+      #pg1 h2 { margin-top: 14px; font-family: "Zilla Slab"; font-style: italic; font-weight: 700; font-size: 50px; color: var(--brown); }
+      #pg1 .mini { margin-top: 22px; width: 400px; border-radius: 18px; box-shadow: 0 12px 22px rgba(74, 42, 23, 0.25); }
+      #pg1 p { margin-top: 26px; width: 400px; text-align: center; font-weight: 700; font-size: 26px; line-height: 1.3; color: #6e4426; }
+      .btn {
+        position: relative; overflow: hidden; border-radius: 26px; background: var(--choc); color: var(--gold-l);
+        font-weight: 800; font-size: 34px; display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 10px 0 #2e170a;
+      }
+      #btn1 { margin-top: 40px; width: 400px; height: 104px; }
+      .ripple { position: absolute; width: 60px; height: 60px; border-radius: 50%; background: rgba(255, 207, 138, 0.55); left: 170px; top: 22px; }
+      #pg2 { padding: 26px 34px 0; }
+      #pg2 h3 { font-weight: 800; font-size: 40px; color: var(--brown); margin-bottom: 26px; }
+      .fld { margin-bottom: 26px; }
+      .fld .lb { font-weight: 700; font-size: 24px; color: #7a5232; margin-bottom: 8px; }
+      .fld .bx {
+        height: 82px; border-radius: 18px; background: #fff; border: 4px solid #e2cfb2; padding: 0 22px;
+        display: flex; align-items: center; font-weight: 500; font-size: 30px; color: var(--brown); white-space: pre;
+      }
+      .fld .bx.on { border-color: var(--gold); }
+      #btn2 { margin-top: 18px; width: 412px; height: 100px; }
+      #finger { left: 640px; top: 1700px; width: 170px; height: 220px; transform-origin: 30% 10%; }
+
+      /* ── Scene 6 sparkles */
+      .spark { position: absolute; left: 540px; top: 960px; width: 34px; height: 34px; margin: -17px 0 0 -17px; }
+
+      /* ── Scene 7: cagnotte */
+      #stamp {
+        left: 655px; top: 690px; width: 270px; height: 270px; border-radius: 50%; background: var(--choc);
+        border: 10px solid var(--gold-l); display: flex; flex-direction: column; align-items: center; justify-content: center;
+        box-shadow: 0 20px 34px rgba(74, 42, 23, 0.35); transform: rotate(-8deg);
+      }
+      #stamp .v { font-family: "Anton"; font-size: 118px; line-height: 0.9; color: var(--gold-l); }
+      #stamp .s { font-weight: 800; font-size: 24px; color: var(--paper); letter-spacing: 2px; }
+      #pot {
+        left: 90px; top: 920px; width: 790px; height: 280px; border-radius: 40px; background: var(--paper);
+        border: 6px solid var(--choc); box-shadow: 0 18px 30px rgba(74, 42, 23, 0.2); padding: 26px 40px;
+      }
+      #pot .lb { font-weight: 800; font-size: 32px; letter-spacing: 4px; color: #7a5232; }
+      #pot .amt { position: relative; height: 120px; margin-top: 4px; overflow: hidden; }
+      #pot .amt span { position: absolute; left: 0; top: 0; font-family: "Anton"; font-size: 116px; line-height: 1; color: var(--choc); }
+      #gauge { position: absolute; left: 40px; right: 40px; bottom: 30px; height: 30px; border-radius: 15px; background: #efe3cf; overflow: hidden; }
+      #gauge .f { width: 100%; height: 100%; border-radius: 15px; background: linear-gradient(90deg, #c9963f, #f2c66d); transform-origin: 0 50%; }
+      #piggy { right: 34px; top: 30px; width: 150px; height: 150px; }
+      .tk {
+        left: 90px; top: 1260px; height: 110px; padding: 0 34px; border-radius: 30px; background: #fff; border: 5px dashed #c9a77a;
+        display: flex; align-items: center; gap: 18px; font-weight: 800; font-size: 44px; color: var(--brown);
+      }
+      .tk small { font-weight: 700; font-size: 30px; color: #7a5232; }
+      .coin {
+        left: 640px; top: 1255px; height: 120px; padding: 0 30px 0 14px; border-radius: 60px; background: linear-gradient(135deg, #f7d27a, #c9963f);
+        border: 6px solid #9a6a22; display: flex; align-items: center; gap: 12px; font-family: "Anton"; font-size: 54px; color: var(--brown);
+        box-shadow: 0 12px 20px rgba(74, 42, 23, 0.3);
+      }
+      .coin i { width: 84px; height: 84px; border-radius: 50%; background: #fff3cf; border: 5px solid #9a6a22; font-style: normal; font-size: 52px; display: flex; align-items: center; justify-content: center; }
+      #c7 { flex-direction: column; align-items: flex-start; gap: 0; top: 180px; }
+      #c7 .txt { font-size: 62px; }
+      #c7 .txt b { color: #9a5a1c; font-weight: 900; }
+      #sub7 { left: 60px; top: 1420px; width: 880px; text-align: center; font-family: "Zilla Slab"; font-style: italic; font-weight: 700; font-size: 54px; line-height: 1.1; color: var(--choc); }
+
+      /* ── Scene 8: end card */
+      #endbg { inset: 0; background: radial-gradient(ellipse 80% 55% at 50% 42%, #fff4dc 0%, var(--cream) 60%, #ead6b8 100%); }
+      #endlogo { left: 310px; top: 360px; width: 460px; }
+      #endt { left: 60px; top: 860px; width: 900px; text-align: center; font-weight: 900; font-size: 74px; line-height: 1.05; color: var(--brown); letter-spacing: -1px; }
+      #endurl {
+        left: 300px; top: 1060px; width: 480px; height: 120px; border-radius: 60px; background: var(--choc); color: var(--gold-l);
+        font-family: "Anton"; font-size: 76px; display: flex; align-items: center; justify-content: center; letter-spacing: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22" data-width="1080" data-height="1920">
+      <!-- faint bakery doodles -->
+      <svg class="abs" style="left: 0; top: 0" width="1080" height="1920" data-layout-allow-overlap>
+        <defs>
+          <pattern id="doodle" width="420" height="380" patternUnits="userSpaceOnUse">
+            <g fill="none" stroke="#eadcc6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 90 Q 80 20 150 70 Q 120 60 110 95 Q 95 70 75 80 Q 85 100 60 110 Q 55 90 30 90 Z" />
+              <path d="M210 40 L 380 80 Q 400 95 380 105 L 205 70 Q 190 50 210 40 Z" /><path d="M250 55 l 15 15 M290 63 l 15 15 M330 72 l 15 15" />
+              <path d="M60 250 L 75 320 H 145 L 160 250 Z" /><path d="M50 250 Q 50 200 110 195 Q 170 200 170 250 Z" />
+              <path d="M300 340 Q 300 250 320 180" /><path d="M305 300 q -30 -10 -35 -40 q 30 5 35 40 M308 260 q -28 -10 -32 -38 q 28 5 32 38 M306 300 q 30 -12 36 -40 q -30 6 -36 40" />
+              <path d="M190 170 Q 190 120 240 120 Q 290 120 290 170 V 205 H 190 Z" />
+            </g>
+          </pattern>
+        </defs>
+        <rect width="1080" height="1920" fill="url(#doodle)" opacity="0.8" />
+      </svg>
+
+      <!-- ── Scene 1: counter & register -->
+      <svg id="counter" class="abs" viewBox="0 0 1080 890" data-layout-allow-overlap>
+        <defs>
+          <linearGradient id="wtop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b07a4a" /><stop offset="1" stop-color="#8a5530" /></linearGradient>
+          <linearGradient id="wfront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b3a1c" /><stop offset="1" stop-color="#4a2a17" /></linearGradient>
+        </defs>
+        <rect x="0" y="0" width="1080" height="200" fill="url(#wtop)" />
+        <g stroke="#9c6538" stroke-width="4" fill="none" opacity="0.7">
+          <path d="M0 50 C 200 40, 400 70, 620 52 S 960 40, 1080 58" /><path d="M0 120 C 260 110, 460 140, 700 118 S 980 112, 1080 130" /><path d="M0 170 C 300 165, 520 185, 760 168 S 1000 165, 1080 176" />
+        </g>
+        <rect x="0" y="200" width="1080" height="28" fill="#3b2010" />
+        <rect x="0" y="228" width="1080" height="662" fill="url(#wfront)" />
+        <g stroke="#3b2010" stroke-width="6" opacity="0.6"><path d="M270 228 V 890 M540 228 V 890 M810 228 V 890" /></g>
+      </svg>
+      <svg id="register" class="abs" viewBox="0 0 380 360" data-layout-allow-overlap>
+        <rect x="150" y="10" width="200" height="120" rx="18" fill="#2b1a10" />
+        <rect x="166" y="26" width="168" height="74" rx="10" fill="#3d6b52" />
+        <text x="250" y="76" text-anchor="middle" font-family="Anton" font-size="40" fill="#cfeedd">5,20 €</text>
+        <rect x="236" y="128" width="28" height="60" fill="#2b1a10" />
+        <path d="M20 190 H 360 L 340 330 H 40 Z" fill="#6b3a1c" stroke="#2b1a10" stroke-width="8" stroke-linejoin="round" />
+        <g fill="#f7eddd">
+          <rect x="70" y="210" width="44" height="30" rx="7" /><rect x="128" y="210" width="44" height="30" rx="7" /><rect x="186" y="210" width="44" height="30" rx="7" /><rect x="244" y="210" width="44" height="30" rx="7" />
+          <rect x="74" y="252" width="44" height="30" rx="7" /><rect x="132" y="252" width="44" height="30" rx="7" /><rect x="190" y="252" width="44" height="30" rx="7" /><rect x="248" y="252" width="44" height="30" rx="7" fill="#c9963f" />
+        </g>
+        <rect x="10" y="326" width="360" height="30" rx="8" fill="#2b1a10" />
+      </svg>
+
+      <!-- ── Scene 3: house -->
+      <svg id="house" class="abs" viewBox="0 0 400 400" data-layout-allow-overlap>
+        <path d="M200 30 L 370 180 H 330 V 370 H 70 V 180 H 30 Z" fill="#c9963f" stroke="#4a2a17" stroke-width="14" stroke-linejoin="round" />
+        <rect x="160" y="240" width="80" height="130" rx="10" fill="#4a2a17" />
+        <rect x="95" y="210" width="50" height="50" rx="6" fill="#fff4dc" stroke="#4a2a17" stroke-width="8" />
+        <rect x="255" y="210" width="50" height="50" rx="6" fill="#fff4dc" stroke="#4a2a17" stroke-width="8" />
+        <rect x="270" y="60" width="40" height="80" fill="#4a2a17" />
+      </svg>
+
+      <!-- ── Phone -->
+      <div id="phone" class="abs">
+        <div id="screen">
+          <div id="notch" class="abs"></div>
+          <div id="sbar" class="abs">9:41</div>
+          <div id="urlbar" class="abs">
+            <svg width="22" height="28" viewBox="0 0 22 28"><rect x="1" y="12" width="20" height="15" rx="4" fill="#4a2a17" /><path d="M5 12 V 8 a 6 6 0 0 1 12 0 V 12" fill="none" stroke="#4a2a17" stroke-width="3.5" /></svg>
+            <span id="urltxt"></span><span class="caret" id="caret1"></span>
+          </div>
+          <div id="pg1" class="pg abs">
+            <img class="logo" src="assets/img/galzin-logo.png" alt="" />
+            <h2>Carte de fidélité</h2>
+            <img class="mini" src="assets/img/card.png" alt="" />
+            <p>Activez votre carte et cumulez sur chaque achat</p>
+            <div class="btn" id="btn1">Activer ma carte<span class="ripple" id="rip1"></span></div>
+          </div>
+          <div id="pg2" class="pg abs">
+            <h3>Activer ma carte</h3>
+            <div class="fld"><div class="lb">Nom</div><div class="bx" id="f1" data-v="Marie Dupont"></div></div>
+            <div class="fld"><div class="lb">Email</div><div class="bx" id="f2" data-v="marie@email.fr"></div></div>
+            <div class="fld"><div class="lb">N° de carte</div><div class="bx" id="f3" data-v="2938 4471 0563"></div></div>
+            <div class="btn" id="btn2">Valider<span class="ripple" id="rip2"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card (the real Galzin card) -->
+      <div id="cardw">
+        <div id="glow"></div>
+        <div class="face">
+          <img src="assets/img/card.png" alt="Carte de fidélité Galzin" />
+          <div id="shine"></div>
+        </div>
+        <div id="laser"></div>
+        <div id="okb">
+          <svg width="110" height="110" viewBox="0 0 110 110"><path id="okpath" d="M22 58 L 46 82 L 90 30" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </div>
+      </div>
+
+      <!-- ── Scanner -->
+      <svg id="scanner" class="abs" viewBox="0 0 400 330" data-layout-allow-overlap>
+        <path d="M60 60 Q 40 40 70 30 L 300 20 Q 330 20 330 50 L 330 110 Q 330 140 300 140 L 220 145 L 270 300 Q 275 322 250 324 L 205 326 Q 185 326 180 305 L 130 140 L 90 120 Q 60 105 60 60 Z" fill="#2b1a10" stroke="#120a05" stroke-width="6" stroke-linejoin="round" />
+        <path d="M70 70 L 60 80" stroke="#e0352b" stroke-width="10" stroke-linecap="round" />
+        <rect x="150" y="40" width="150" height="60" rx="14" fill="#4a2a17" />
+        <rect x="190" y="160" width="40" height="70" rx="12" fill="#c9963f" />
+        <path id="beam" d="M58 74 L -40 330 L 120 330 Z" fill="rgba(224,53,43,0.28)" />
+      </svg>
+
+      <div id="bip" class="abs"><div class="b">BIP !</div></div>
+
+      <!-- ── Finger -->
+      <svg id="finger" class="abs" viewBox="0 0 170 220" data-layout-allow-overlap>
+        <path d="M52 20 Q 52 4 68 4 Q 84 4 84 20 V 92 Q 92 82 104 86 Q 116 90 116 104 Q 124 96 136 100 Q 148 105 148 120 Q 156 116 162 124 Q 168 132 166 150 L 160 186 Q 152 214 120 216 L 78 216 Q 52 214 40 190 L 10 132 Q 4 116 18 110 Q 32 106 42 122 L 52 138 Z"
+          fill="#f2c7a1" stroke="#4a2a17" stroke-width="7" stroke-linejoin="round" />
+        <path d="M84 96 V 130 M116 106 V 136 M148 124 V 146" stroke="#4a2a17" stroke-width="5" stroke-linecap="round" fill="none" />
+      </svg>
+
+      <!-- ── Scene 7 -->
+      <div id="stamp" class="abs"><div class="v">5%</div><div class="s">CRÉDITÉS</div></div>
+      <div id="pot" class="abs">
+        <div class="lb">MA CAGNOTTE</div>
+        <div class="amt"><span id="a0">0,00 €</span><span id="a1">0,60 €</span><span id="a2">1,02 €</span><span id="a3">2,02 €</span></div>
+        <svg id="piggy" class="abs" viewBox="0 0 150 150">
+          <ellipse cx="75" cy="85" rx="60" ry="46" fill="#f2b6a0" stroke="#4a2a17" stroke-width="7" />
+          <rect x="58" y="36" width="34" height="9" rx="4" fill="#4a2a17" />
+          <circle cx="118" cy="78" r="15" fill="#e99c86" stroke="#4a2a17" stroke-width="6" />
+          <circle cx="92" cy="70" r="5" fill="#4a2a17" />
+          <path d="M40 124 V 140 M100 124 V 140" stroke="#4a2a17" stroke-width="10" stroke-linecap="round" />
+          <path d="M48 50 L 40 30 L 64 42" fill="#f2b6a0" stroke="#4a2a17" stroke-width="6" stroke-linejoin="round" />
+        </svg>
+        <div id="gauge"><div class="f"></div></div>
+      </div>
+      <div class="tk abs" id="tk1"><small>Achat</small>12,00 €</div>
+      <div class="tk abs" id="tk2"><small>Achat</small>8,40 €</div>
+      <div class="tk abs" id="tk3"><small>Achat</small>20,00 €</div>
+      <div class="coin abs" id="cn1"><i>€</i>+0,60</div>
+      <div class="coin abs" id="cn2"><i>€</i>+0,42</div>
+      <div class="coin abs" id="cn3"><i>€</i>+1,00</div>
+      <div id="sub7" class="abs">À utiliser lors de vos prochains passages</div>
+
+      <!-- ── Captions -->
+      <div class="cap" id="c1"><div class="num">1</div><div class="txt">Demandez-la<br /><em>en caisse</em></div></div>
+      <div class="cap" id="c2"><div class="num">2</div><div class="txt">On vous<br /><em>la bipe</em></div></div>
+      <div class="cap" id="c3"><div class="num">3</div><div class="txt">Chez vous, allez sur <span class="url">galzin.fr</span></div></div>
+      <div class="cap" id="c4"><div class="num">4</div><div class="txt">Cliquez sur <em>« Activer ma carte »</em></div></div>
+      <div class="cap" id="c5"><div class="num">5</div><div class="txt">Remplissez<br /><em>vos infos</em></div></div>
+      <div class="cap" id="c6">
+        <div class="num" style="background: var(--green)"><svg width="74" height="74" viewBox="0 0 110 110"><path d="M22 58 L 46 82 L 90 30" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+        <div class="txt">Carte<br /><em>activée !</em></div>
+      </div>
+      <div class="cap" id="c7"><div class="txt"><b>5 %</b> de chaque achat<br />crédités sur votre carte</div></div>
+
+      <div id="flash" class="abs"></div>
+
+      <!-- ── Scene 8: end card -->
+      <div id="endbg" class="abs"></div>
+      <img id="endlogo" class="abs" src="assets/img/galzin-logo.png" alt="Galzin" />
+      <div id="endt" class="abs">Demandez votre carte<br />en boutique</div>
+      <div id="endurl" class="abs">galzin.fr</div>
+    </div>
+
+    <script>
+      // ── Build typed-text spans (deterministic, done once at load)
+      function spans(el, text) {
+        el.textContent = "";
+        return text.split("").map((ch) => {
+          const s = document.createElement("span");
+          s.textContent = ch;
+          el.appendChild(s);
+          return s;
+        });
+      }
+      const urlChars = spans(document.getElementById("urltxt"), "galzin.fr");
+      const f1 = spans(document.getElementById("f1"), document.getElementById("f1").dataset.v);
+      const f2 = spans(document.getElementById("f2"), document.getElementById("f2").dataset.v);
+      const f3 = spans(document.getElementById("f3"), document.getElementById("f3").dataset.v);
+
+      // ── Sparkles (fixed angles, no randomness)
+      const root = document.getElementById("root");
+      const sparks = [];
+      for (let i = 0; i < 14; i++) {
+        const s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        s.setAttribute("viewBox", "0 0 34 34");
+        s.setAttribute("class", "spark");
+        s.innerHTML = '<path d="M17 0 L21 13 L34 17 L21 21 L17 34 L13 21 L0 17 L13 13 Z" fill="' + (i % 3 === 0 ? "#ffffff" : "#e8b34c") + '"/>';
+        root.insertBefore(s, document.getElementById("flash"));
+        sparks.push(s);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const hide = [
+        "#counter", "#register", "#scanner", "#bip", "#flash", "#house", "#phone", "#finger", "#pg2", "#laser", "#shine", "#glow", "#okb",
+        "#stamp", "#pot", ".tk", ".coin", "#sub7", ".cap", "#endbg", "#endlogo", "#endt", "#endurl", ".spark", "#caret1", "#a1", "#a2", "#a3",
+      ];
+      gsap.set(hide, { autoAlpha: 0 });
+      gsap.set([...urlChars, ...f1, ...f2, ...f3], { autoAlpha: 0 });
+      gsap.set("#gauge .f", { scaleX: 0 });
+      gsap.set(".ripple", { scale: 0, autoAlpha: 0 });
+
+      function capIn(sel, at) {
+        tl.fromTo(sel, { autoAlpha: 0, x: -60 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "back.out(1.6)", immediateRender: false }, at);
+        tl.fromTo(sel + " .num", { scale: 0.3, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)", immediateRender: false }, at);
+      }
+      function capOut(sel, at) {
+        tl.to(sel, { autoAlpha: 0, x: 60, duration: 0.25, ease: "power2.in" }, at);
+      }
+
+      // ═════ Scene 1 (0 → 2.5): the card leaves the real shot and lands on the counter
+      gsap.set("#cardw", { scale: 2.5, x: 0, y: 0, rotation: 0 });
+      tl.to("#cardw", { scale: 0.6, x: 220, y: 120, rotation: -6, duration: 0.75, ease: "power3.out" }, 0.05);
+      tl.fromTo("#counter", { autoAlpha: 0, y: 300 }, { autoAlpha: 1, y: 0, duration: 0.55, ease: "power3.out", immediateRender: false }, 0.2);
+      tl.fromTo("#register", { autoAlpha: 0, y: 160, scale: 0.8 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)", immediateRender: false }, 0.4);
+      capIn("#c1", 0.55);
+      tl.to("#cardw", { x: 70, rotation: -3, duration: 0.7, ease: "power2.inOut" }, 1.15); // slides along the counter
+      tl.to("#cardw", { y: 112, duration: 0.15, ease: "power1.out", yoyo: true, repeat: 1 }, 1.85);
+      capOut("#c1", 2.35);
+
+      // ═════ Scene 2 (2.5 → 5.0): the seller scans it — BIP
+      capIn("#c2", 2.5);
+      tl.fromTo("#scanner", { autoAlpha: 0, x: 420, y: -200, rotation: 25 }, { autoAlpha: 1, x: 0, y: 0, rotation: 0, duration: 0.55, ease: "power3.out", immediateRender: false }, 2.55);
+      tl.fromTo("#laser", { autoAlpha: 1, y: 30 }, { y: 480, duration: 0.5, ease: "sine.inOut", immediateRender: false }, 3.12);
+      tl.to("#laser", { autoAlpha: 0, duration: 0.1 }, 3.62);
+      tl.fromTo("#flash", { autoAlpha: 0.75 }, { autoAlpha: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, 3.66);
+      tl.fromTo("#bip", { autoAlpha: 0, scale: 0.2 }, { autoAlpha: 1, scale: 1, duration: 0.35, ease: "back.out(2.6)", immediateRender: false }, 3.66);
+      tl.to("#cardw", { scale: 0.64, duration: 0.12, yoyo: true, repeat: 1, ease: "power1.out" }, 3.66);
+      tl.to("#scanner", { rotation: -8, duration: 0.12, yoyo: true, repeat: 1 }, 3.66);
+      tl.to("#bip", { autoAlpha: 0, scale: 0.6, duration: 0.25, ease: "power2.in" }, 4.4);
+      tl.to("#scanner", { x: 420, y: -200, rotation: 25, autoAlpha: 0, duration: 0.4, ease: "power2.in" }, 4.4);
+      capOut("#c2", 4.8);
+
+      // ═════ Scene 3 (5.0 → 8.0): home → phone on galzin.fr
+      tl.to(["#counter", "#register"], { y: 700, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 4.8);
+      tl.to("#cardw", { y: 900, rotation: 12, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 4.8);
+      capIn("#c3", 5.05);
+      tl.fromTo("#house", { autoAlpha: 0, scale: 0.2, y: 120 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.8)", immediateRender: false }, 5.15);
+      tl.to("#house", { scale: 7, autoAlpha: 0, duration: 0.55, ease: "power3.in" }, 5.95); // zoom through the door
+      tl.fromTo("#phone", { autoAlpha: 0, scale: 0.55, y: 160 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.6, ease: "power3.out", immediateRender: false }, 6.25);
+      tl.fromTo("#caret1", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05, immediateRender: false }, 6.6);
+      tl.to(urlChars, { autoAlpha: 1, duration: 0.01, stagger: 0.06 }, 6.7);
+      tl.fromTo("#pg1 > *", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out", stagger: 0.08, immediateRender: false }, 7.35);
+      tl.to("#caret1", { autoAlpha: 0, duration: 0.05 }, 7.3);
+      capOut("#c3", 7.8);
+
+      // ═════ Scene 4 (8.0 → 10.0): tap « Activer ma carte »
+      capIn("#c4", 8.0);
+      tl.fromTo("#finger", { autoAlpha: 0, x: 200, y: 200 }, { autoAlpha: 1, x: -40, y: -390, duration: 0.65, ease: "power3.out", immediateRender: false }, 8.1);
+      tl.to("#finger", { scale: 0.9, duration: 0.1, yoyo: true, repeat: 1 }, 8.85);
+      tl.to("#btn1", { scale: 0.93, duration: 0.1, yoyo: true, repeat: 1 }, 8.85);
+      tl.fromTo("#rip1", { autoAlpha: 1, scale: 0 }, { autoAlpha: 0, scale: 9, duration: 0.6, ease: "power2.out", immediateRender: false }, 8.9);
+      tl.to("#finger", { x: 200, y: 200, autoAlpha: 0, duration: 0.4, ease: "power2.in" }, 9.4);
+      tl.to("#pg1", { x: -480, duration: 0.45, ease: "power3.inOut" }, 9.6);
+      tl.fromTo("#pg2", { autoAlpha: 1, x: 480 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "power3.inOut", immediateRender: false }, 9.6);
+      capOut("#c4", 9.8);
+
+      // ═════ Scene 5 (10.0 → 12.5): the form fills itself
+      capIn("#c5", 10.0);
+      tl.to("#f1", { borderColor: "#c9963f", duration: 0.05 }, 10.2);
+      tl.to(f1, { autoAlpha: 1, duration: 0.01, stagger: 0.04 }, 10.25);
+      tl.to("#f1", { borderColor: "#e2cfb2", duration: 0.05 }, 10.8);
+      tl.to("#f2", { borderColor: "#c9963f", duration: 0.05 }, 10.8);
+      tl.to(f2, { autoAlpha: 1, duration: 0.01, stagger: 0.035 }, 10.85);
+      tl.to("#f2", { borderColor: "#e2cfb2", duration: 0.05 }, 11.4);
+      tl.to("#f3", { borderColor: "#c9963f", duration: 0.05 }, 11.4);
+      tl.to(f3, { autoAlpha: 1, duration: 0.01, stagger: 0.035 }, 11.45);
+      tl.to("#f3", { borderColor: "#e2cfb2", duration: 0.05 }, 11.95);
+      tl.fromTo("#finger", { autoAlpha: 0, x: 200, y: 200 }, { autoAlpha: 1, x: -40, y: -350, duration: 0.4, ease: "power3.out", immediateRender: false }, 11.75);
+      tl.to("#btn2", { scale: 0.93, duration: 0.1, yoyo: true, repeat: 1 }, 12.15);
+      tl.fromTo("#rip2", { autoAlpha: 1, scale: 0 }, { autoAlpha: 0, scale: 9, duration: 0.5, ease: "power2.out", immediateRender: false }, 12.2);
+      capOut("#c5", 12.3);
+
+      // ═════ Scene 6 (12.5 → 14.5): card activated
+      tl.to("#finger", { autoAlpha: 0, y: 0, duration: 0.3, ease: "power2.in" }, 12.4);
+      tl.to("#phone", { scale: 0.5, y: 300, autoAlpha: 0, duration: 0.45, ease: "power3.in" }, 12.45);
+      capIn("#c6", 12.6);
+      tl.fromTo("#cardw", { autoAlpha: 0, scale: 0.3, x: -30, y: 60, rotation: -20 }, { autoAlpha: 1, scale: 0.88, x: -30, y: 60, rotation: 0, duration: 0.55, ease: "back.out(1.5)", immediateRender: false }, 12.7);
+      tl.fromTo("#glow", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, immediateRender: false }, 13.15);
+      tl.fromTo("#shine", { autoAlpha: 1, x: 0 }, { autoAlpha: 1, x: 1160, duration: 0.6, ease: "power2.inOut", immediateRender: false }, 13.15);
+      tl.fromTo("#okb", { autoAlpha: 0, scale: 0, rotation: -90 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2.2)", immediateRender: false }, 13.25);
+      tl.fromTo("#okpath", { strokeDasharray: 120, strokeDashoffset: 120 }, { strokeDashoffset: 0, duration: 0.35, ease: "power2.out", immediateRender: false }, 13.4);
+      sparks.forEach((s, i) => {
+        const a = (i / sparks.length) * Math.PI * 2;
+        const r = 420 + (i % 3) * 70;
+        tl.fromTo(s, { autoAlpha: 1, x: 0, y: 60, scale: 0.3, rotation: 0 },
+          { x: Math.cos(a) * r, y: 60 + Math.sin(a) * r * 0.75, scale: 1.2, rotation: 180, duration: 0.8, ease: "power3.out", immediateRender: false }, 13.25);
+        tl.to(s, { autoAlpha: 0, scale: 0.2, duration: 0.3 }, 13.85 + (i % 4) * 0.05);
+      });
+      capOut("#c6", 14.3);
+
+      // ═════ Scene 7 (14.5 → 19.5): 5 % of every purchase piles up on the card
+      tl.to("#glow", { autoAlpha: 0, duration: 0.3 }, 14.3);
+      tl.to("#okb", { autoAlpha: 0, scale: 0.5, duration: 0.25 }, 14.3);
+      tl.to("#cardw", { scale: 0.56, y: -290, x: -90, rotation: -4, duration: 0.6, ease: "power3.inOut" }, 14.4);
+      tl.fromTo("#c7", { autoAlpha: 0, y: -40 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "back.out(1.6)", immediateRender: false }, 14.55);
+      tl.fromTo("#stamp", { autoAlpha: 0, scale: 3, rotation: -30 }, { autoAlpha: 1, scale: 1, rotation: -8, duration: 0.5, ease: "back.out(1.8)", immediateRender: false }, 14.8);
+      tl.fromTo("#pot", { autoAlpha: 0, y: 120 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, 14.9);
+      const buys = [
+        ["#tk1", "#cn1", "#a0", "#a1", 0.3, 15.35],
+        ["#tk2", "#cn2", "#a1", "#a2", 0.51, 16.45],
+        ["#tk3", "#cn3", "#a2", "#a3", 1.0, 17.55],
+      ];
+      buys.forEach(([tk, cn, from, to, fill, t]) => {
+        tl.fromTo(tk, { autoAlpha: 0, x: -200 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: false }, t);
+        tl.fromTo(cn, { autoAlpha: 0, scale: 0.2, x: 0, y: 0 }, { autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2.4)", immediateRender: false }, t + 0.25);
+        tl.to(cn, { x: -150, y: -260, scale: 0.55, duration: 0.4, ease: "power2.in" }, t + 0.6);
+        tl.to(cn, { autoAlpha: 0, duration: 0.08 }, t + 0.98);
+        tl.to(from, { yPercent: -100, autoAlpha: 0, duration: 0.2, ease: "power2.in" }, t + 0.98);
+        tl.fromTo(to, { autoAlpha: 1, yPercent: 100 }, { yPercent: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, t + 1.0);
+        tl.to("#gauge .f", { scaleX: fill, duration: 0.35, ease: "power2.out" }, t + 1.0);
+        tl.to("#piggy", { scale: 1.15, duration: 0.1, yoyo: true, repeat: 1, transformOrigin: "50% 60%" }, t + 0.98);
+        tl.to(tk, { autoAlpha: 0, x: 120, duration: 0.2, ease: "power2.in" }, t + 0.9);
+      });
+      tl.to("#stamp", { scale: 1.12, duration: 0.15, yoyo: true, repeat: 3, ease: "sine.inOut" }, 18.4);
+      tl.fromTo("#sub7", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: -100, duration: 0.45, ease: "power3.out", immediateRender: false }, 18.1);
+
+      // ═════ Scene 8 (19.5 → 22): end card
+      tl.fromTo("#endbg", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35, immediateRender: false }, 19.4);
+      tl.to(["#stamp", "#pot", "#sub7", "#c7"], { autoAlpha: 0, duration: 0.01 }, 19.76);
+      tl.fromTo("#endlogo", { autoAlpha: 0, scale: 0.4, rotation: -20 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)", immediateRender: false }, 19.45);
+      tl.fromTo("#endt", { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, 19.7);
+      tl.fromTo("#endurl", { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(2)", immediateRender: false }, 19.9);
+      tl.to("#cardw", { autoAlpha: 0, duration: 0.01 }, 19.85);
+      tl.fromTo("#cardw", { autoAlpha: 1, scale: 0.42, x: 0, y: 400, rotation: 8 }, { autoAlpha: 1, scale: 0.42, rotation: -4, y: 390, duration: 0.6, ease: "back.out(1.6)", immediateRender: false }, 20.4);
+      tl.set("#cardw", { zIndex: 5 }, 20.4);
+      tl.to("#endurl", { scale: 1.06, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
