@@ -47,73 +47,83 @@ def pastille(cx, cy, w, h, fill, txt, size, color, rot=-4, font=IMPACT, **kw):
             + text(cx, cy + size * 0.36, txt, size, color, font, rot=rot, **kw))
 
 
+def tirets(cx, cy, cote, color):
+    """Petits traits décoratifs de part et d'autre d'une accroche (comme sur la maquette)."""
+    sg = -1 if cote == "g" else 1
+    return (f'<g fill="none" stroke="{color}" stroke-width="16" stroke-linecap="round">'
+            f'<path d="M{cx} {cy - 40}l{sg * 90} -40"/><path d="M{cx} {cy}l{sg * 120} 0"/>'
+            f'<path d="M{cx} {cy + 40}l{sg * 90} 40"/></g>')
+
+
+def ligne_compo(items, y, size, color, gap=None):
+    """Éléments Impact séparés par des « + », centrés (largeur Impact ~0,45 em/lettre)."""
+    gap = gap or size * 1.6
+    ws = [len(t) * size * 0.45 for t in items]
+    x = (W - sum(ws) - gap * (len(items) - 1)) / 2
+    out = ""
+    for i, (t, w) in enumerate(zip(items, ws)):
+        out += text(x + w / 2, y, t, size, color)
+        x += w
+        if i < len(items) - 1:
+            out += plus(x + gap / 2, y - size * 0.36, size * 0.8, C["cuivre_clair"])
+            x += gap
+    return out
+
+
 def affiche():
-    L = [f'<g id="FOND"><rect width="{W}" height="{H}" fill="{C["creme"]}"/></g>']
+    L = [f'<g id="FOND"><rect width="{W}" height="{H}" fill="{C["chocolat"]}"/></g>']
+    # vague caramel = la table sous le plateau
     L.append(
         '<g id="VAGUES">'
-        f'<path fill="{C["chocolat"]}" d="M0 0H{W}V720C2300 900 1500 650 800 810C450 890 200 890 0 860Z"/>'
-        f'<path fill="none" stroke="{C["caramel"]}" stroke-width="14" d="M0 920C200 950 450 950 800 870'
-        f'C1500 710 2300 960 {W} 780"/>'
-        f'<path fill="{C["chocolat"]}" d="M0 3380C900 3200 1900 3480 {W} 3220V{H}H0Z"/>'
-        f'<path fill="none" stroke="{C["caramel"]}" stroke-width="14" d="M0 3320C900 3140 1900 3420 {W} 3160"/>'
+        f'<path fill="{C["caramel"]}" d="M0 1640C900 1440 2000 1720 {W} 1460V2420C2000 2580 1000 2360 0 2520Z"/>'
+        f'<path fill="none" stroke="{C["cuivre_clair"]}" stroke-width="14" '
+        f'd="M0 1590C900 1390 2000 1670 {W} 1410"/>'
         '</g>')
 
-    # Plateau : boisson chaude + pain + beurre + confiture
-    assiette = '<g id="PLATEAU">' + image("plateau", 80, 1110, 2450, 1094, 1200) + '</g>'
-    boissons = (
-        '<g id="BOISSONS">'
-        + image("espresso", 300, 2620, 620, 470)
-        + image("cafe-allonge", 1175, 2600, 620, 490)
-        + image("chocolat-chaud", 2060, 2560, 620, 540)
+    L.append(
+        '<g id="PHOTOS">'
+        + image("plateau", 110, 1290, 2750, 1228, 1200)
+        + image("espresso", 260, 2780, 600, 400)
+        + image("cafe-allonge", 1185, 2760, 600, 420)
+        + image("chocolat-chaud", 2110, 2730, 600, 450)
         + '</g>')
-    vienno = ('<g id="VIENNOISERIES">'
-              + image("croissant", 1800, 3260, 620, 480, 900, rot=-6)
-              + image("chocolatine", 2300, 3350, 580, 420, 900, rot=6)
-              + '</g>')
-    L.append('<g id="PHOTOS">' + assiette + boissons + vienno + '</g>')
 
-    def ligne_compo(items, y, size, gap=170):
-        """Éléments Impact séparés par des « + », centrés (largeur Impact ~0,45 em/lettre)."""
-        ws = [len(t) * size * 0.45 for t in items]
-        x = (W - sum(ws) - gap * (len(items) - 1)) / 2
-        out = ""
-        for i, (t, w) in enumerate(zip(ws and items, ws)):
-            out += text(x + w / 2, y, t, size, C["chocolat"])
-            x += w
-            if i < len(items) - 1:
-                out += plus(x + gap / 2, y - size * 0.36, size * 0.8)
-                x += gap
-        return out
-
-    compo = [("1 BOISSON CHAUDE", 480), ("PAIN", 1260), ("BEURRE", 1850), ("CONFITURE", 2470)]
     L.append(
         '<g id="TEXTES">'
-        f'<image id="galzin-logo" x="110" y="90" width="600" height="600" xlink:href="{href("galzin-logo", 900)}"/>'
-        + text(1850, 410, "LA FORMULE", 360, C["creme"])
-        + text(1850, 660, "du matin", 250, C["cuivre_clair"], HEROICA, italic=True, bold=True, rot=-3)
-        # composition de la formule
-        + ligne_compo([t for t, _ in compo], 2330, 120)
-        + text(W / 2, 2530, "Votre boisson chaude au choix", 150, C["chocolat"], HEROICA, italic=True, bold=True)
-        + text(610, 3200, "EXPRESSO", 115, C["chocolat"])
-        + text(1485, 3200, "CAFÉ ALLONGÉ", 115, C["chocolat"])
-        + text(2370, 3200, "CHOCOLAT CHAUD", 115, C["chocolat"])
-        # +1€ viennoiserie
-        + f'<g id="PLUS_1"><circle cx="330" cy="3640" r="230" fill="url(#OrangeRouge)" stroke="{C["creme"]}" '
-          f'stroke-width="16"/>' + text(330, 3720, "+1€", 210, C["creme"]) + '</g>'
-        + text(620, 3600, "Avec un croissant", 125, C["creme"], HEROICA, "start", italic=True, bold=True)
-        + text(620, 3740, "ou un pain au chocolat", 125, C["creme"], HEROICA, "start", italic=True, bold=True)
-        + text(620, 3860, "+ LE BEURRE ET LA CONFITURE", 85, C["cuivre_clair"], anchor="start")
+        f'<image id="galzin-logo" x="1185" y="50" width="600" height="600" xlink:href="{href("galzin-logo", 900)}"/>'
+        + text(1350, 960, "LA FORMULE", 320, C["creme"])
+        + text(1350, 1250, "du matin", 300, C["cuivre_clair"], HEROICA, italic=True, bold=True, rot=-3)
+        + tirets(700, 1150, "g", C["cuivre_clair"]) + tirets(2000, 1130, "d", C["cuivre_clair"])
+        # boissons au choix
+        + text(W / 2, 2720, "Avec votre boisson chaude", 150, C["creme"], HEROICA, italic=True, bold=True)
+        + tirets(560, 2670, "g", C["cuivre_clair"]) + tirets(2410, 2670, "d", C["cuivre_clair"])
+        + f'<g stroke="{C["cuivre_clair"]}" stroke-width="6"><path d="M1020 2800V3290"/><path d="M1950 2800V3290"/></g>'
+        + text(560, 3280, "EXPRESSO", 105, C["creme"])
+        + text(1485, 3280, "CAFÉ ALLONGÉ", 105, C["creme"])
+        + text(2410, 3280, "CHOCOLAT CHAUD", 105, C["creme"])
+        # encadré viennoiserie
+        + f'<rect x="80" y="3350" width="{W - 160}" height="650" rx="40" fill="{C["chocolat_fonce"]}" '
+          f'stroke="{C["cuivre_clair"]}" stroke-width="8"/>'
+        + '<g id="VIENNOISERIES">' + image("croissant", 1720, 3380, 560, 430, 900, rot=-8)
+        + image("chocolatine", 1930, 3560, 450, 320, 900, rot=6) + '</g>'
+        + f'<g id="PLUS_1"><circle cx="320" cy="3600" r="190" fill="url(#OrangeRouge)" stroke="{C["creme"]}" '
+          f'stroke-width="14"/>' + text(320, 3670, "+1€", 175, C["creme"]) + '</g>'
+        + text(560, 3540, "Avec un croissant", 118, C["creme"], HEROICA, "start", italic=True, bold=True)
+        + text(560, 3665, "ou un pain au chocolat", 118, C["creme"], HEROICA, "start", italic=True, bold=True)
+        + text(560, 3770, "+ LE BEURRE ET LA CONFITURE", 78, C["cuivre_clair"], anchor="start")
+        + ligne_compo(["1 BOISSON CHAUDE", "PAIN", "BEURRE", "CONFITURE", "CROISSANT OU PAIN AU CHOCOLAT"],
+                      3950, 58, C["creme"])
         + '</g>')
     L.append(
         '<g id="PRIX">'
-        + ovale_prix(2470, 1030, 420, 240, "3,80€", "cuivre", rot=-6)
-        + pastille(2350, 3820, 860, 150, C["caramel"], "FORMULE AVEC VIENNOISERIE", 80, C["chocolat_fonce"])
-        + ovale_prix(2350, 4010, 360, 140, "4,80€", "cuivre", size=170, rot=-4)
+        + ovale_prix(2480, 930, 360, 220, "3,80€", "cuivre", rot=-8)
+        + pastille(2640, 3480, 600, 130, C["caramel"], "FORMULE AVEC VIENNOISERIE", 52, C["chocolat_fonce"])
+        + ovale_prix(2650, 3720, 260, 150, "4,80€", "cuivre", size=170, rot=-5)
         + '</g>')
     L.append(
         '<g id="LOGO_MENTIONS">'
-        + badge_fidelite(110, 3960, 560)
-        + text(1500, H - 30, "Photos non contractuelles", 45, C["creme"], HEROICA, italic=True)
+        + badge_fidelite(100, 4030, 480)
+        + text(W - 60, H - 40, "Photos non contractuelles", 45, C["creme"], HEROICA, "end", italic=True)
         + '</g>')
     return svg(W, H, "\n".join(L), "Galzin - La formule du matin A3")
 
