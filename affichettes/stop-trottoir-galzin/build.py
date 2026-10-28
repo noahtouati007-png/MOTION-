@@ -84,11 +84,11 @@ def recto():
          + accroche(MID, 2950, "LE DUO", C["caramel"])
          + text(MID, 3480, "Café + Croissant", 440, C["chocolat"], HEROICA, bold=True)
          + image("cafe", 800, 3800, 1450, 1090, 1000)
-         + image("croissant", 2050, 3900, 1800, 1430, 1000, rot=-10)
+         + image("croissant-galzin", 2050, 3900, 1800, 1430, 1000, rot=-10)
          # 2. 3 viennoiseries
          + accroche(MID, 6120, "AU CHOIX", C["cuivre_clair"])
          + text(MID, 6650, "3 Viennoiseries", 470, C["creme"], HEROICA, bold=True)
-         + image("croissant", 760, 6950, 1500, 1200, 1000, rot=-12)
+         + image("croissant-galzin", 760, 6950, 1500, 1200, 1000, rot=-12)
          + image("chocolatine", 1950, 7200, 1500, 1060, 1000, rot=4)
          + image("feuillete-pomme", 3150, 6950, 1550, 900, 1000, rot=10)
          # 3. sandwich / salade + boisson
@@ -121,15 +121,17 @@ def verso():
     t = ('<g id="TEXTES_PHOTOS">'
          + accroche(MID, 3050, "FORMULE", C["caramel"])
          + text(MID, 3700, "Espresso", 620, C["chocolat"], HEROICA, bold=True)
-         + image("croissant", 800, 4100, 2200, 1750, 1000, rot=-10)
+         + image("croissant-galzin", 800, 4100, 2200, 1750, 1000, rot=-10)
          + image("espresso", 2350, 4500, 2100, 1700, 1000)
          + accroche(MID, 7700, "FORMULE", C["cuivre_clair"])
          + text(MID, 8300, "Petit-déjeuner", 520, C["creme"], HEROICA, bold=True)
-         + image("plateau", 650, 8750, 4100, 1830, 1200)
+         # même composition qu'avant (tasse Folliet + jus), avec le croissant Galzin
+         + image("croissant-galzin", 750, 9050, 2200, 1750, 1500, rot=-8)
+         + image("tasse-jus", 1250, 8620, 3350, 2620, 1000)
          + '</g>')
     p = ('<g id="PRIX">'
          + ovale_prix(3950, 4250, 560, 300, "", "cuivre", rot=-6)
-         + ovale_prix(4100, 8800, 520, 280, "", "cuivre", rot=-6)
+         + ovale_prix(1350, 8900, 520, 280, "", "cuivre", rot=5)
          + '</g>')
     return face(v + t + p, "VERSO")
 
