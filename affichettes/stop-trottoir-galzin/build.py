@@ -83,8 +83,8 @@ def recto():
          # 1. café + croissant
          + accroche(MID, 2950, "LE DUO", C["caramel"])
          + text(MID, 3480, "Café + Croissant", 440, C["chocolat"], HEROICA, bold=True)
-         + image("croissant-galzin", 700, 3750, 2600, 1750, 1000)
-         + image("gobelet", 2300, 3650, 1300, 1640, 800)
+         + image("tasse-cafe", 700, 3700, 1700, 1630, 1000)
+         + image("croissant-entier", 2150, 3900, 2400, 1580, 1000, rot=-6)
          # 2. 3 viennoiseries
          + accroche(MID, 6120, "AU CHOIX", C["cuivre_clair"])
          + text(MID, 6650, "3 Viennoiseries", 470, C["creme"], HEROICA, bold=True)
@@ -104,7 +104,7 @@ def recto():
          + image("canette", 4170, 10300, 380, 720, 600, rot=-8)
          + '</g>')
     p = ('<g id="PRIX">'
-         + ovale_prix(4150, 4950, 460, 250, "", "cuivre", rot=-6)
+         + ovale_prix(4100, 3800, 460, 250, "", "cuivre", rot=-6)
          + ovale_prix(1350, 8150, 560, 300, "", "cuivre", rot=5)
          + ovale_prix(1680, 11120, 400, 210, "", "cuivre", rot=-4)
          + ovale_prix(3720, 11120, 400, 210, "", "cuivre", rot=-4)
