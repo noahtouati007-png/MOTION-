@@ -47,3 +47,27 @@ Si Illustrator signale Heroica manquante, choisir la Heroica installée dans Tex
 6. **Température des couleurs** : produits chauds (pizza, café, viennoiseries, plats) = chocolat, caramel, cuivre, orange-rouge, **sans turquoise**. Le turquoise est réservé aux visuels froids (boissons froides, glaces, salades, fraîcheur).
 7. Prix inconnus : livrer les ovales **vides**, jamais de « 0,00€ ».
 8. Une affiche = une seule promesse lisible à 3 mètres : titre, offre, prix.
+
+## Références validées (`references/`)
+
+Les affiches finales validées sont rangées dans `references/`. À relire avant chaque nouvelle demande.
+
+### Ce que montre la version finale de « La formule du matin » (`formule-matin-final-valide.jpg`)
+
+- **Échelle XXL** : le titre en Impact remplit toute la largeur à côté du logo (logo en haut à gauche, titre à droite). L'accroche Heroica (« du matin ») est énorme, en cuivre clair, entre deux groupes de **tirets épais**.
+- **Photo produit héroïque** : le plateau occupe presque toute la largeur et **déborde du bord de page**. Il est posé sur une vague caramel qui évoque la table.
+- **Prix géant** : l'ovale cuivre est très grand, à cheval sur la photo, et **déborde du bord droit**. Le prix est écrit en Heroica noir/chocolat foncé.
+- **Accroches secondaires en Heroica non gras** (« Avec votre boisson chaude »), grandes, en crème, encadrées de tirets.
+- **Filets verticaux épais** couleur cuivre pour séparer les choix (boissons).
+- **Bloc du bas en deux cases** dans un cadre arrondi cuivre :
+  - à gauche, le prix 4,80€ dans un grand ovale cuivre, la photo des viennoiseries et la mention « AU CHOIX » ;
+  - à droite, la pastille caramel « FORMULE AVEC VIENNOISERIE » et « Avec un croissant / OU / Une Chocolatine » en Heroica.
+  - La pastille « +1€ » orange-rouge **chevauche le coin du cadre**, elle n'est pas dedans.
+- **Moins de texte** : pas de ligne de composition, pas de badge fidélité quand la place manque. On garde l'essentiel lisible de loin.
+- **Vocabulaire maison** : on dit **« Chocolatine »**, pas « pain au chocolat ».
+
+### Leçons générales
+1. Viser plus grand : moins d'éléments, chacun plus gros. Laisser photos et prix déborder des bords.
+2. Fond chocolat plein + une vague caramel ou crème sous le produit héros : ça marche très bien pour les produits chauds.
+3. Les tirets décoratifs autour des accroches Heroica font partie du style.
+4. En cas de référence fournie (même faite par IA), garder sa composition et la passer dans la charte : polices, logo, couleurs, ovales.
