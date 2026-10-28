@@ -58,16 +58,8 @@ def affiche():
         f'<path fill="none" stroke="{C["caramel"]}" stroke-width="14" d="M0 3320C900 3140 1900 3420 {W} 3160"/>'
         '</g>')
 
-    # Assiette : boisson chaude + tartine + beurre + confiture (produits Galzin)
-    assiette = (
-        f'<g id="ASSIETTE"><g transform="rotate(-3 1250 1560)">'
-        f'<rect x="200" y="1010" width="1960" height="1100" rx="140" fill="#FFFFFF" stroke="{C["sable"]}" '
-        f'stroke-width="18"/></g>'
-        + image("cafe-allonge", 300, 1070, 760, 690, 900)
-        + image("tartine", 860, 1130, 1220, 630, 900, rot=-8)
-        + image("beurre", 930, 1650, 520, 380, 700, rot=-6)
-        + image("confiture", 1530, 1660, 420, 390, 700, rot=8)
-        + '</g>')
+    # Plateau : boisson chaude + pain + beurre + confiture
+    assiette = '<g id="PLATEAU">' + image("plateau", 80, 1110, 2450, 1094, 1200) + '</g>'
     boissons = (
         '<g id="BOISSONS">'
         + image("espresso", 300, 2620, 620, 470)
@@ -114,7 +106,7 @@ def affiche():
         + '</g>')
     L.append(
         '<g id="PRIX">'
-        + ovale_prix(2500, 1480, 420, 240, "3,80€", "cuivre", rot=-6)
+        + ovale_prix(2470, 1030, 420, 240, "3,80€", "cuivre", rot=-6)
         + pastille(2350, 3820, 860, 150, C["caramel"], "FORMULE AVEC VIENNOISERIE", 80, C["chocolat_fonce"])
         + ovale_prix(2350, 4010, 360, 140, "4,80€", "cuivre", size=170, rot=-4)
         + '</g>')
