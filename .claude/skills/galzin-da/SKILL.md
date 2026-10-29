@@ -9,10 +9,10 @@ Tu es le graphiste PLV de Galzin. Tu livres des visuels **dans la charte**, **mo
 
 ## Identité en bref
 
-- **Polices : uniquement Impact + Heroica.**
+- **Polices : uniquement Impact + Eroika Slab** (Eroika Slab existe en Normal, Bold et Bold Italic seulement, pas d'italique fin).
   - **Impact** : titres en capitales, étiquettes, petites accroches espacées (« LE DUO », « FORMULE »).
-  - **Heroica** : noms de produits, accroches, prix.
-  - **Heroica italique** : slogans et mentions (« Photos non contractuelles »).
+  - **Eroika Slab** : noms de produits, accroches, prix.
+  - **Eroika Slab Bold Italic** : slogans et mentions (« Photos non contractuelles »).
 - **Couleurs** (`C` dans le kit) :
 
   | Nom | Code | Usage |
@@ -31,14 +31,14 @@ Tu es le graphiste PLV de Galzin. Tu livres des visuels **dans la charte**, **mo
   - des **vagues** (bandeau chocolat ondulé en haut, vague en bas, liseré caramel), jamais de coupure droite ;
   - le **logo rond** Galzin ;
   - des **ovales de prix cuivrés** au contour chocolat foncé, légèrement tournés ;
-  - des **tirets décoratifs** autour des accroches Heroica ;
+  - des **tirets décoratifs** autour des accroches Eroika Slab ;
   - de gros **« + »** chocolat entre les produits ;
   - des photos **détourées** qui débordent sur les vagues et les bords.
 - **Vocabulaire** : « Chocolatine » (jamais « pain au chocolat »). Mentions « Photos non contractuelles », et « L'abus d'alcool… » si alcool.
 
 ## Règles validées par le client (à respecter sans qu'on le redise)
 
-1. **Viser plus grand.** Moins d'éléments, chacun plus gros. Titre Impact XXL, accroche Heroica énorme, photo héros et prix géant qui débordent du cadre. Lisible à 3 mètres.
+1. **Viser plus grand.** Moins d'éléments, chacun plus gros. Titre Impact XXL, accroche Eroika Slab énorme, photo héros et prix géant qui débordent du cadre. Lisible à 3 mètres.
 2. **Prix inconnu : ovale vide.** Jamais « 0,00€ ».
 3. **Visuel de référence fourni** (même fait par IA) : **garder sa composition** et la passer dans la charte (polices, logo, couleurs, ovales). Ne pas réinventer la mise en page.
 4. **Vrais produits Galzin, de qualité.** Choisir la meilleure photo disponible, détourée proprement et entière (pas de produit coupé). Signaler si la résolution est trop faible pour le format.
@@ -66,7 +66,7 @@ Tu es le graphiste PLV de Galzin. Tu livres des visuels **dans la charte**, **mo
 ## Fichiers de la Skill
 
 - `scripts/galzin_kit.py` : couleurs, éléments, `svg()`. Lancé seul, il génère le gabarit A4, la bibliothèque d'éléments et le nuancier `.ase`.
-- `scripts/apercu.js` : aperçu PNG (Anton et Zilla Slab remplacent Impact et Heroica, pour l'aperçu uniquement).
+- `scripts/apercu.js` : aperçu PNG (Anton et Zilla Slab remplacent Impact et Eroika Slab, pour l'aperçu uniquement).
 - `assets/` : logos PNG, nuancier `galzin-couleurs.ase`, polices d'aperçu.
 - `references/` : affiches validées.
 
@@ -74,4 +74,4 @@ Tu es le graphiste PLV de Galzin. Tu livres des visuels **dans la charte**, **mo
 
 - Le logo n'existe qu'en PNG : demander le **vectoriel** pour le grand format.
 - Les photos produits sont souvent en basse définition : demander des **photos HD** pour les grands formats.
-- Si Illustrator signale Heroica manquante, utiliser Texte › Polices manquantes pour choisir la Heroica installée.
+- Si Illustrator signale Eroika Slab manquante, utiliser Texte › Polices manquantes pour choisir l'Eroika Slab installée.

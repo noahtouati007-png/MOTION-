@@ -8,7 +8,7 @@ const F = path.resolve(__dirname, '../assets/fonts-apercu');
   let svg = fs.readFileSync(file, 'utf8').replace(/<\?xml[^>]*>/, '');
   const m = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/); const w = +pw, h = Math.round(w * m[2] / m[1]);
   svg = svg.replace(/width="[\d.]+mm" height="[\d.]+mm"/, `width="${w}" height="${h}"`);
-  const ff = (st, wt, f) => `@font-face{font-family:Heroica;font-style:${st};font-weight:${wt};src:url(file://${F}/${f})}`;
+  const ff = (st, wt, f) => `@font-face{font-family:"Eroika Slab";font-style:${st};font-weight:${wt};src:url(file://${F}/${f})}`;
   const css = `@font-face{font-family:Impact;src:url(file://${F}/anton-latin-400-normal.woff2)}` +
     ff('normal', 400, 'zilla-slab-latin-700-normal.woff2') + ff('normal', 700, 'zilla-slab-latin-700-normal.woff2') +
     ff('italic', 400, 'zilla-slab-latin-700-italic.woff2') + ff('italic', 700, 'zilla-slab-latin-700-italic.woff2');

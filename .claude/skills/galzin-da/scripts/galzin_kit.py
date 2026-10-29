@@ -9,6 +9,7 @@ Tous les SVG produits s'ouvrent dans Illustrator (Fichier > Ouvrir) avec textes,
 dégradés modifiables. Unités : 1 unité = 0,1 mm (A4 = 2100 x 2970).
 """
 import base64
+import re
 import io
 import struct
 from html import escape
@@ -35,7 +36,7 @@ C = {
 }
 
 IMPACT = "Impact"
-HEROICA = "Heroica"
+HEROICA = "Eroika Slab"  # graisses disponibles : Normal, Bold, Bold Italic
 
 DEFS = f"""
   <defs>
@@ -157,7 +158,18 @@ def photo(x, y, w, h, label):
             f'font-size="60" fill="{C["caramel"]}">{label}</text></g>')
 
 
+def _graisses(body):
+    """Eroika Slab n'existe qu'en Normal, Bold et Bold Italic : tout italique passe en Bold Italic."""
+    def fix(m):
+        t = m.group(0)
+        if 'font-style="italic"' in t and "font-weight" not in t:
+            t = t.replace('font-style="italic"', 'font-style="italic" font-weight="bold"')
+        return t
+    return re.sub(r'<text [^>]*font-family="' + HEROICA + r'"[^>]*>', fix, body)
+
+
 def svg(w, h, body, title):
+    body = _graisses(body)
     return (f'<?xml version="1.0" encoding="UTF-8"?>\n'
             f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
             f'width="{w / 10}mm" height="{h / 10}mm" viewBox="0 0 {w} {h}">\n'
@@ -239,9 +251,9 @@ def bibliotheque():
         '<g id="TYPOS">'
         f'<text x="100" y="1210" font-family="{IMPACT}" font-size="170" fill="{C["chocolat"]}">IMPACT — TITRES</text>'
         f'<text x="100" y="1400" font-family="{HEROICA}" font-weight="bold" font-size="170" '
-        f'fill="{C["chocolat"]}">Heroica — Accroches</text>'
+        f'fill="{C["chocolat"]}">Eroika Slab Bold — Accroches</text>'
         f'<text x="100" y="1520" font-family="{HEROICA}" font-style="italic" font-size="90" '
-        f'fill="{C["chocolat"]}">Heroica italique — slogans &amp; mentions</text>'
+        f'fill="{C["chocolat"]}">Eroika Slab Bold Italique — slogans &amp; mentions</text>'
         '</g>')
 
     # Ovales de prix

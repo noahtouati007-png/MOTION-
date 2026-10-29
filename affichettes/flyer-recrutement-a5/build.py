@@ -126,15 +126,15 @@ def verso():
               + t(120, y, titre, 62, CR, IMPACT)
               + puces(110, y + 95, rows, 42, CH))
         y += 335
-    o += (f'<rect x="80" y="1550" width="{W - 160}" height="355" rx="30" fill="none" stroke="{CA}" '
+    o += (f'<rect x="80" y="1540" width="{W - 160}" height="350" rx="30" fill="none" stroke="{CA}" '
           f'stroke-width="8"/>'
-          + t(120, 1635, "Étudiant(e), débutant(e)... postulez !", 46, CH, bold=True)
-          + t(120, 1695, f"Contact : Philippe – {MAIL}", 36, CA, bold=True)
-          + t(120, 1755, "Dans votre mail, précisez bien :", 36, CH, italic=True, bold=True)
-          + puces(120, 1810, ["La zone de Montpellier souhaitée", "Le type de contrat recherché",
+          + t(120, 1610, "Étudiant(e), débutant(e)... postulez !", 46, CH, bold=True)
+          + t(120, 1665, f"Contact : Philippe – {MAIL}", 36, CA, bold=True)
+          + t(120, 1720, "Dans votre mail, précisez bien :", 36, CH, italic=True, bold=True)
+          + puces(120, 1772, ["La zone de Montpellier souhaitée", "Le type de contrat recherché",
                               "Le nombre d'heures par semaine"], 34, CH)
-          + qr_vectoriel(1170, 1600, 190)
-          + t(1265, 1890, "Scannez pour postuler", 24, CH, anchor="middle", italic=True))
+          + qr_vectoriel(1170, 1585, 190)
+          + t(1265, 1865, "Scannez pour postuler", 24, CH, anchor="middle", italic=True))
     o += pied("VENEZ NOUS RENCONTRER SUR NOTRE STAND !")
     return o
 

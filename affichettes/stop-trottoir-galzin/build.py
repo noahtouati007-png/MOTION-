@@ -3,7 +3,7 @@
 Usage : python3 build.py  ->  galzin-stop-trottoir-recto-verso.svg (à ouvrir dans Illustrator).
 Format d'une face : 54 x 125 cm (5400 x 12500, 1 unité = 0,1 mm), fenêtre en arche. Les deux faces
 sont côte à côte (groupes RECTO / VERSO). Ovales de prix livrés vides.
-Typo : titres produits en Heroica, petites accroches en Impact espacé entre tirets.
+Typo : titres produits en Eroika Slab, petites accroches en Impact espacé entre tirets.
 """
 import base64
 import io
