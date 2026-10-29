@@ -71,3 +71,5 @@ Les affiches finales validées sont rangées dans `references/`. À relire avant
 2. Fond chocolat plein + une vague caramel ou crème sous le produit héros : ça marche très bien pour les produits chauds.
 3. Les tirets décoratifs autour des accroches Heroica font partie du style.
 4. En cas de référence fournie (même faite par IA), garder sa composition et la passer dans la charte : polices, logo, couleurs, ovales.
+
+> La version à jour et autonome de cette charte est la Skill `.claude/skills/galzin-da/` (chargée automatiquement par Claude Code quand on demande un visuel Galzin).
