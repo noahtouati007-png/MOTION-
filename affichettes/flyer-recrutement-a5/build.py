@@ -52,9 +52,8 @@ def puces(x, y, rows, size, fill, lead=1.35):
 
 
 MAIL = "philippe@galzin.fr"
-QR_URL = (f"mailto:{MAIL}?subject=" + quote("Candidature Galzin - World Job Café")
-          + "&body=" + quote("Bonjour,\r\n\r\nPoste souhaité :\r\nZone de Montpellier :\r\n"
-                             "Type de contrat :\r\nHeures par semaine :\r\n\r\n"))
+QR_URL = (f"mailto:{MAIL}?subject=" + quote("Candidature Galzin")
+          + "&body=" + quote("Poste :\r\nZone :\r\nContrat :\r\nHeures/semaine :\r\nDimanches et fériés :\r\n"))
 
 
 def qr_vectoriel(x, y, size, data=QR_URL):
@@ -102,9 +101,13 @@ def recto():
             ("En fixe", ["Une boutique de rattachement,", "une équipe, des habitudes."]),
             ("En itinérant", ["Vous tournez entre plusieurs", "boutiques selon les besoins."]))):
         x = 80 + i * 680
-        o += (f'<rect x="{x}" y="1480" width="640" height="340" rx="30" fill="{C["sable"]}"/>'
+        o += (f'<rect x="{x}" y="1480" width="640" height="290" rx="30" fill="{C["sable"]}"/>'
               + t(x + 40, 1580, titre, 72, CH, bold=True)
               + lines(x + 40, 1680, rows, 40, CH, 1.4))
+    # info clé : ouverture dimanches et jours fériés
+    o += (f'<g id="DIMANCHES" transform="rotate(-1.5 {W/2} 1850)">'
+          f'<rect x="60" y="1795" width="{W - 120}" height="110" rx="30" fill="url(#OrangeRouge)"/>'
+          + t(W / 2, 1873, "OUVERTS LES DIMANCHES ET JOURS FÉRIÉS", 60, CR, IMPACT, "middle", ls=2) + '</g>')
     o += pied("PLUS DE 85 ANS DE SAVOIR-FAIRE")
     return o
 
