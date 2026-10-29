@@ -9,6 +9,7 @@ import io
 import sys
 from html import escape
 from pathlib import Path
+from urllib.parse import quote
 
 import qrcode
 from PIL import Image
@@ -51,7 +52,9 @@ def puces(x, y, rows, size, fill, lead=1.35):
 
 
 MAIL = "philippe@galzin.fr"
-QR_URL = f"mailto:{MAIL}?subject=Candidature%20Galzin%20-%20World%20Job%20Caf%C3%A9"
+QR_URL = (f"mailto:{MAIL}?subject=" + quote("Candidature Galzin - World Job Café")
+          + "&body=" + quote("Bonjour,\r\n\r\nPoste souhaité :\r\nZone de Montpellier :\r\n"
+                             "Type de contrat :\r\nHeures par semaine :\r\n\r\n"))
 
 
 def qr_vectoriel(x, y, size, data=QR_URL):
@@ -119,14 +122,16 @@ def verso():
         o += (f'<rect x="80" y="{y - 70}" width="{W - 160}" height="90" rx="22" fill="{CH}"/>'
               + t(120, y, titre, 62, CR, IMPACT)
               + puces(110, y + 95, rows, 42, CH))
-        y += 360
-    o += (f'<rect x="80" y="1640" width="{W - 160}" height="280" rx="30" fill="none" stroke="{CA}" '
+        y += 335
+    o += (f'<rect x="80" y="1550" width="{W - 160}" height="355" rx="30" fill="none" stroke="{CA}" '
           f'stroke-width="8"/>'
-          + t(120, 1720, "Étudiant(e) ou débutant(e) ?", 52, CH, bold=True)
-          + lines(120, 1775, ["Parlons de vos disponibilités.", "Contact : Philippe"], 40, CH, 1.35)
-          + t(120, 1890, MAIL, 46, CA, bold=True)
-          + qr_vectoriel(1180, 1670, 170)
-          + t(1265, 1895, "Scannez pour postuler", 24, CH, anchor="middle", italic=True))
+          + t(120, 1635, "Étudiant(e), débutant(e)... postulez !", 46, CH, bold=True)
+          + t(120, 1695, f"Contact : Philippe – {MAIL}", 36, CA, bold=True)
+          + t(120, 1755, "Dans votre mail, précisez bien :", 36, CH, italic=True, bold=True)
+          + puces(120, 1810, ["La zone de Montpellier souhaitée", "Le type de contrat recherché",
+                              "Le nombre d'heures par semaine"], 34, CH)
+          + qr_vectoriel(1170, 1600, 190)
+          + t(1265, 1890, "Scannez pour postuler", 24, CH, anchor="middle", italic=True))
     o += pied("VENEZ NOUS RENCONTRER SUR NOTRE STAND !")
     return o
 
