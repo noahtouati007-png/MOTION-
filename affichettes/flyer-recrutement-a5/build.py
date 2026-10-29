@@ -10,6 +10,7 @@ import sys
 from html import escape
 from pathlib import Path
 
+import qrcode
 from PIL import Image
 
 HERE = Path(__file__).parent
@@ -47,6 +48,24 @@ def puces(x, y, rows, size, fill, lead=1.35):
         out += f'<circle cx="{x + 10}" cy="{yy - size * 0.32:.0f}" r="{size * 0.16:.0f}" fill="{CA}"/>'
         out += t(x + 40, yy, r, size, fill)
     return out
+
+
+MAIL = "philippe@galzin.fr"
+QR_URL = f"mailto:{MAIL}?subject=Candidature%20Galzin%20-%20World%20Job%20Caf%C3%A9"
+
+
+def qr_vectoriel(x, y, size, data=QR_URL):
+    """QR code 100 % vectoriel (un carré par module), modifiable dans Illustrator."""
+    q = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_M, border=0)
+    q.add_data(data)
+    q.make(fit=True)
+    m = q.get_matrix()
+    n = len(m)
+    c = size / n
+    d = "".join(f"M{x + j * c:.2f} {y + i * c:.2f}h{c:.2f}v{c:.2f}h{-c:.2f}z"
+                for i, row in enumerate(m) for j, v in enumerate(row) if v)
+    return (f'<g id="QR_CODE"><rect x="{x - c * 2:.1f}" y="{y - c * 2:.1f}" width="{size + c * 4:.1f}" '
+            f'height="{size + c * 4:.1f}" fill="#FFFFFF"/><path fill="{CH}" d="{d}"/></g>')
 
 
 def bandeau(titre, sous):
@@ -104,10 +123,10 @@ def verso():
     o += (f'<rect x="80" y="1640" width="{W - 160}" height="280" rx="30" fill="none" stroke="{CA}" '
           f'stroke-width="8"/>'
           + t(120, 1720, "Étudiant(e) ou débutant(e) ?", 52, CH, bold=True)
-          + lines(120, 1790, ["Parlons de vos disponibilités.", "Contact : [À COMPLÉTER]"], 40, CH, 1.45)
-          + f'<rect x="1150" y="1665" width="230" height="230" rx="12" fill="none" stroke="{CH}" '
-            f'stroke-width="6" stroke-dasharray="18 12"/>'
-          + t(1265, 1790, "QR CODE", 40, CH, IMPACT, "middle"))
+          + lines(120, 1775, ["Parlons de vos disponibilités.", "Contact : Philippe"], 40, CH, 1.35)
+          + t(120, 1890, MAIL, 46, CA, bold=True)
+          + qr_vectoriel(1180, 1670, 170)
+          + t(1265, 1895, "Scannez pour postuler", 24, CH, anchor="middle", italic=True))
     o += pied("VENEZ NOUS RENCONTRER SUR NOTRE STAND !")
     return o
 
