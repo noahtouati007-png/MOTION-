@@ -1,0 +1,680 @@
+<title>Dossier stratégique Immo Décodé</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;700;800&display=swap">
+<style>
+  /* Mise en page : un dossier d'agence, chaque partie ouverte par le toit du logo, fond sable, cahier quadrillé. */
+  :root {
+    --sable: #f2e8dc;
+    --clair: #fbf6ef;
+    --terra: #c8553d;
+    --nuit: #1f2a44;
+    --olive: #6b7f4e;
+    --encre-douce: #4a5268;
+    --trait: rgba(31, 42, 68, 0.14);
+    --grille: rgba(200, 85, 61, 0.07);
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--sable);
+    color: var(--nuit);
+    font: 400 17px/1.6 var(--sans);
+    background-image:
+      repeating-linear-gradient(0deg, var(--grille) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grille) 0 1px, transparent 1px 32px);
+  }
+  .wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 700; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(32px, 5vw, 50px); line-height: 1.05; }
+  h3 { font-size: 23px; line-height: 1.2; }
+  p { margin: 0; max-width: 66ch; }
+  .lead { font-size: 20px; line-height: 1.55; color: var(--nuit); }
+  .muted { color: var(--encre-douce); font-size: 15px; }
+  .label { font: 800 12px/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); }
+  .num { font-variant-numeric: tabular-nums; }
+  svg.ic { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+  /* ── Couverture */
+  .cover { background: var(--nuit); color: var(--clair); position: relative; overflow: hidden; }
+  .cover .wrap { padding-block: 72px 56px; display: grid; gap: 40px; }
+  .cover-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font: 700 12px/1.4 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(251, 246, 239, 0.7); }
+  .cover-logo { width: min(440px, 80%); display: block; }
+  .cover h1 { font-size: clamp(44px, 8vw, 92px); line-height: 0.98; color: var(--clair); }
+  .cover h1 em { font-style: italic; font-weight: 600; color: var(--terra); }
+  .cover .lead { color: rgba(251, 246, 239, 0.85); max-width: 52ch; }
+  .cover-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; border-top: 1px solid rgba(251, 246, 239, 0.2); padding-top: 24px; }
+  .cover-meta div { min-width: 0; }
+  .cover-meta b { display: block; font: 700 22px/1.2 var(--serif); color: var(--clair); }
+  .cover-meta span { font-size: 14px; color: rgba(251, 246, 239, 0.65); }
+  .cover-roof { position: absolute; right: -60px; bottom: -40px; width: 420px; opacity: 0.08; stroke: var(--clair); }
+
+  /* ── Sommaire */
+  .toc { padding-block: 64px 24px; }
+  .toc ol { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px 28px; counter-reset: t; }
+  .toc li { counter-increment: t; display: flex; gap: 14px; align-items: baseline; border-bottom: 1px solid var(--trait); padding-block: 10px; }
+  .toc li::before { content: counter(t, decimal-leading-zero); font: 700 15px var(--serif); color: var(--terra); font-variant-numeric: tabular-nums; }
+  .toc a { color: inherit; text-decoration: none; font-weight: 500; }
+  .toc a:hover, .toc a:focus-visible { color: var(--terra); }
+
+  /* ── Parties */
+  section.part { padding-block: 72px; border-top: 1px solid var(--trait); }
+  .part-head { display: grid; grid-template-columns: auto 1fr; gap: 6px 22px; align-items: end; margin-bottom: 34px; }
+  .roofnum { position: relative; width: 84px; height: 72px; display: grid; place-items: end center; }
+  .roofnum svg { position: absolute; inset: 0 0 auto; width: 84px; height: 34px; stroke: var(--terra); stroke-width: 7; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .roofnum b { font: 700 40px/1 var(--serif); color: var(--nuit); font-variant-numeric: tabular-nums; }
+  .part-head .label { grid-column: 2; align-self: end; }
+  .part-head h2 { grid-column: 2; }
+  .part-head .roofnum { grid-row: 1 / span 2; }
+  .part-intro { margin-bottom: 36px; }
+
+  .grid { display: grid; gap: 20px; }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .g4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .grid > * { min-width: 0; }
+  .card { background: var(--clair); border-radius: 18px; padding: 26px; border: 1px solid var(--trait); }
+  .card h3 { margin-bottom: 8px; }
+  .dark { background: var(--nuit); color: var(--clair); border-color: transparent; }
+  .dark .muted { color: rgba(251, 246, 239, 0.7); }
+
+  /* Tableaux */
+  .tbl { overflow-x: auto; border-radius: 16px; border: 1px solid var(--trait); background: var(--clair); }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 620px; }
+  th { text-align: left; font: 800 11px/1.3 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--clair); background: var(--nuit); padding: 14px 16px; }
+  td { padding: 14px 16px; border-top: 1px solid var(--trait); vertical-align: top; }
+  td:first-child { font-weight: 700; }
+  tr.hl td { background: rgba(200, 85, 61, 0.08); }
+
+  /* Le compte : profil */
+  .profile { display: grid; grid-template-columns: auto 1fr; gap: 26px; align-items: center; }
+  .profile img { width: 132px; height: 132px; border-radius: 50%; display: block; }
+  .profile .handle { font: 700 26px/1.2 var(--serif); }
+  .profile .bio { margin-top: 8px; font-size: 16px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 99px; font: 700 13px/1 var(--sans); background: var(--sable); color: var(--nuit); }
+  .chip.t { background: var(--terra); color: var(--clair); }
+  .chip.o { background: var(--olive); color: var(--clair); }
+  .chip.n { background: var(--nuit); color: var(--clair); }
+
+  /* Objectifs */
+  .kpi { background: var(--clair); border: 1px solid var(--trait); border-radius: 18px; padding: 22px; display: grid; gap: 6px; }
+  .kpi b { font: 700 44px/1 var(--serif); color: var(--nuit); font-variant-numeric: tabular-nums; }
+  .kpi span { font-size: 14px; color: var(--encre-douce); }
+  .kpi.hero { background: var(--terra); border-color: transparent; }
+  .kpi.hero b, .kpi.hero span { color: var(--clair); }
+  .steps-line { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; align-items: center; }
+
+  /* Personas */
+  .persona { display: grid; gap: 12px; }
+  .persona .who { display: flex; gap: 14px; align-items: center; }
+  .persona .av { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--sable); color: var(--terra); flex: none; }
+  .persona .av svg { width: 30px; height: 30px; }
+  .persona dl { margin: 0; display: grid; gap: 8px; font-size: 15px; }
+  .persona dt { font: 800 11px/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--terra); }
+  .persona dd { margin: 3px 0 0; }
+
+  /* Positionnement : carte 2x2 */
+  .map { position: relative; background: var(--clair); border: 1px solid var(--trait); border-radius: 18px; aspect-ratio: 1.25; max-width: 100%; overflow: hidden; }
+  .map svg { width: 100%; height: 100%; display: block; }
+  .quote { font: 600 italic clamp(22px, 3vw, 30px)/1.35 var(--serif); color: var(--nuit); border-left: 6px solid var(--terra); padding-left: 22px; max-width: 46ch; }
+
+  /* Concept */
+  .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; counter-reset: f; }
+  .flow .card { position: relative; padding-top: 58px; }
+  .flow .card::before { counter-increment: f; content: counter(f); position: absolute; top: 18px; left: 26px; width: 30px; height: 30px; border-radius: 50%; background: var(--terra); color: var(--clair); font: 700 16px/30px var(--serif); text-align: center; }
+  .phones { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 8px; }
+  .phones figure { margin: 0; flex: none; width: 150px; }
+  .phones img { width: 150px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 16px; border: 4px solid var(--nuit); display: block; max-width: 100%; }
+  .phones figcaption { font-size: 13px; margin-top: 8px; line-height: 1.35; }
+
+  /* Frise des phases */
+  .timeline { background: var(--clair); border: 1px solid var(--trait); border-radius: 18px; padding: 26px; overflow-x: auto; }
+  .timeline svg { width: 100%; min-width: 640px; display: block; }
+
+  /* Piliers */
+  .stack { display: flex; height: 54px; border-radius: 14px; overflow: hidden; margin-bottom: 20px; }
+  .stack div { display: grid; place-items: center; color: var(--clair); font: 800 14px var(--sans); }
+
+  /* Listes de contrôle */
+  .checks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+  .checks li { display: flex; gap: 14px; align-items: flex-start; background: var(--clair); border: 1px solid var(--trait); border-radius: 14px; padding: 16px 18px; }
+  .checks li > div { min-width: 0; }
+  .tick { width: 26px; height: 26px; border-radius: 50%; background: var(--olive); color: var(--clair); display: grid; place-items: center; flex: none; margin-top: 2px; }
+  .tick svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 3; fill: none; }
+
+  /* Ton */
+  .dodont { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .dodont ul { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 10px; }
+  .dodont li { padding-left: 26px; position: relative; font-size: 15px; }
+  .dodont .yes li::before { content: "+"; position: absolute; left: 0; color: var(--olive); font: 800 18px/1.2 var(--sans); }
+  .dodont .no li::before { content: "–"; position: absolute; left: 0; color: var(--terra); font: 800 18px/1.2 var(--sans); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .sw { border-radius: 14px; padding: 16px; min-height: 120px; display: flex; flex-direction: column; justify-content: flex-end; font-size: 13px; border: 1px solid var(--trait); }
+  .sw b { font: 700 18px var(--serif); }
+
+  /* Semaine type */
+  .week { display: grid; grid-template-columns: repeat(7, minmax(120px, 1fr)); gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+  .day { background: var(--clair); border: 1px solid var(--trait); border-radius: 14px; padding: 14px; display: grid; gap: 8px; align-content: start; min-height: 150px; }
+  .day .d { font: 700 18px var(--serif); }
+  .day .h { font: 700 12px var(--sans); color: var(--encre-douce); font-variant-numeric: tabular-nums; }
+  .day .f { font-size: 14px; line-height: 1.35; }
+  .day.c-immo { border-top: 6px solid var(--olive); }
+  .day.c-inv { border-top: 6px solid var(--nuit); }
+  .day.c-reno { border-top: 6px solid var(--terra); }
+  .day.c-vis { border-top: 6px solid #e0a080; }
+  .day.c-off { opacity: 0.7; }
+
+  /* Process */
+  .process { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: s; }
+  .process li { counter-increment: s; display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; }
+  .process li::before { content: counter(s); width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--terra); color: var(--terra); font: 700 17px/34px var(--serif); text-align: center; }
+  .process li > div { min-width: 0; padding-top: 6px; }
+
+  .prob { display: inline-block; padding: 4px 10px; border-radius: 99px; font: 800 11px/1.2 var(--sans); letter-spacing: 0.06em; text-transform: uppercase; }
+  .prob.f { background: var(--terra); color: var(--clair); }
+  .prob.m { background: #e9b9a6; color: var(--nuit); }
+  .prob.l { background: rgba(107, 127, 78, 0.25); color: var(--nuit); }
+
+  footer { background: var(--nuit); color: var(--clair); }
+  footer .wrap { padding-block: 48px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+  footer img { width: 200px; }
+  footer p { color: rgba(251, 246, 239, 0.7); font-size: 14px; }
+
+  a:focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 4px; }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .profile { grid-template-columns: 1fr; }
+    .part-head { grid-template-columns: 1fr; }
+    .part-head .roofnum { grid-row: auto; }
+    .part-head .label, .part-head h2 { grid-column: 1; }
+  }
+  @media print {
+    body { background-image: none; }
+    section.part { break-before: page; padding-block: 36px; border-top: none; }
+    .card, .kpi, .checks li, .day, .persona, tr { break-inside: avoid; }
+    .tbl, .timeline { overflow: visible; }
+    .week { overflow: visible; grid-template-columns: repeat(7, 1fr); }
+    .phones { flex-wrap: wrap; overflow: visible; }
+  }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-maison" viewBox="0 0 120 120"><path d="M18 58 L60 22 L102 58"/><path d="M30 48 V100 H90 V48"/><path d="M50 100 V72 H70 V100"/></symbol>
+  <symbol id="i-cle" viewBox="0 0 120 120"><circle cx="38" cy="60" r="20"/><path d="M58 60 H104 M90 60 V76 M104 60 V72"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 120 120"><rect x="28" y="14" width="64" height="92" rx="12"/><rect x="40" y="26" width="40" height="18" rx="4"/><path d="M42 62h8M70 62h8M42 78h8M70 78h8M42 94h8M70 94h8M56 62h8M56 94h8"/></symbol>
+  <symbol id="i-marteau" viewBox="0 0 120 120"><path d="M24 26 h56 a8 8 0 0 1 8 8 v10 a8 8 0 0 1 -8 8 h-56 z"/><path d="M88 34 h14"/><path d="M50 52 v54"/></symbol>
+  <symbol id="i-photo" viewBox="0 0 120 120"><path d="M18 40 h84 a8 8 0 0 1 8 8 v46 a8 8 0 0 1 -8 8 h-84 a8 8 0 0 1 -8 -8 v-46 a8 8 0 0 1 8 -8 z"/><path d="M40 40 l8 -14 h24 l8 14"/><circle cx="60" cy="71" r="18"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 120 120"><path d="M60 108 C60 108 28 74 28 50 a32 32 0 0 1 64 0 c0 24 -32 58 -32 58 z"/><circle cx="60" cy="50" r="11"/></symbol>
+  <symbol id="i-graph" viewBox="0 0 120 120"><path d="M16 104 H106"/><path d="M30 90 V70 M54 90 V54 M78 90 V40 M102 90 V24"/><path d="M24 50 L48 36 L70 42 L100 16"/></symbol>
+  <symbol id="i-loupe" viewBox="0 0 120 120"><circle cx="52" cy="52" r="30"/><path d="M74 74 L104 104"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 120 120"><path d="M30 12 h42 l20 20 v76 h-62 z"/><path d="M72 12 v20 h20"/><path d="M44 58 h32 M44 74 h32 M44 90 h20"/></symbol>
+  <symbol id="i-euro" viewBox="0 0 120 120"><path d="M88 30 a34 34 0 1 0 0 60"/><path d="M20 52 H70 M20 68 H66"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4.5"/></symbol>
+</svg>
+
+<header class="cover">
+  <svg class="cover-roof" viewBox="0 0 360 140" fill="none" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M20 130 L180 14 L340 130"/></svg>
+  <div class="wrap">
+    <div class="cover-top"><span>Mise en application · Les médias sociaux dans la stratégie digitale globale de la marque</span><span>Novembre 2026</span></div>
+    <img class="cover-logo" src="img/logo-principal-negatif.svg" alt="Logo Immo Décodé : un toit terracotta au-dessus des mots IMMO DÉCODÉ">
+    <h1>Dossier <em>stratégique</em></h1>
+    <p class="lead">Un compte Instagram et TikTok qui décode l'immobilier, la rénovation et l'investissement à Montpellier, en vidéos motion design de 30 secondes.</p>
+    <div class="cover-meta">
+      <div><b>@immo.decode</b><span>Instagram · TikTok</span></div>
+      <div><b>2 nov. → 13 déc.</b><span>6 semaines de campagne</span></div>
+      <div><b>3 000 abonnés</b><span>Objectif au 13 décembre</span></div>
+      <div><b>#DevineLePrix</b><span>Le format challenge</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <nav class="toc wrap" aria-label="Sommaire">
+    <p class="label">Sommaire</p>
+    <ol>
+      <li><a href="#objectifs">Objectifs</a></li>
+      <li><a href="#cible">Cible et personas</a></li>
+      <li><a href="#positionnement">Positionnement</a></li>
+      <li><a href="#plateformes">Choix des plateformes</a></li>
+      <li><a href="#concept">Thème et concept</a></li>
+      <li><a href="#editorial">Stratégie éditoriale</a></li>
+      <li><a href="#piliers">Piliers de contenu</a></li>
+      <li><a href="#accessibilite">Accessibilité</a></li>
+      <li><a href="#ton">Charte de ton</a></li>
+      <li><a href="#calendrier">Calendrier éditorial</a></li>
+      <li><a href="#production">Organisation de la production</a></li>
+      <li><a href="#kpi">KPI et mesure</a></li>
+      <li><a href="#risques">Risques et bad buzz</a></li>
+    </ol>
+  </nav>
+
+  <!-- Le compte -->
+  <section class="part wrap" id="compte">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>ID</b></div>
+      <span class="label">Le compte</span>
+      <h2>Immo Décodé, l'immo en 30 secondes</h2>
+    </div>
+    <div class="grid g2">
+      <div class="card profile">
+        <img src="img/monogramme-terracotta.svg" alt="Photo de profil : monogramme ID sous un toit">
+        <div>
+          <div class="handle">@immo.decode</div>
+          <p class="bio">Conseils immo, rénovation et investissement à Montpellier. Expliqués en 30 s, illustrés par de vraies visites. Un expert rénovation + un photographe immo.</p>
+          <div class="chips"><span class="chip o">Conseil immo</span><span class="chip t">Conseil réno</span><span class="chip n">Conseil invest</span></div>
+        </div>
+      </div>
+      <div class="card dark">
+        <span class="label">Pourquoi ce nom</span>
+        <h3 style="margin-top:10px">On décode, tu comprends.</h3>
+        <p class="muted" style="margin-top:10px">Le nom dit la promesse : rendre simple ce qui fait peur dans l'immobilier. Court, facile à retenir et à retrouver dans la recherche. Le compte est un média qui attire des propriétaires vendeurs et fait connaître, à terme, les services photo et rénovation de l'équipe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 Objectifs -->
+  <section class="part wrap" id="objectifs">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>01</b></div>
+      <span class="label">Objectifs</span>
+      <h2>3 000 abonnés et 10 demandes de propriétaires en 6 semaines</h2>
+    </div>
+    <p class="lead part-intro">Devenir le compte immobilier de référence à Montpellier et recevoir les premières demandes de propriétaires. Objectifs mesurables, datés au 13 décembre 2026.</p>
+    <div class="grid g4">
+      <div class="kpi hero"><b class="num">2 000</b><span>abonnés Instagram</span></div>
+      <div class="kpi"><b class="num">1 000</b><span>abonnés TikTok</span></div>
+      <div class="kpi"><b class="num">300 k</b><span>vues cumulées</span></div>
+      <div class="kpi"><b class="num">6 %</b><span>d'engagement moyen</span></div>
+      <div class="kpi"><b class="num">3 %</b><span>d'enregistrements sur les conseils</span></div>
+      <div class="kpi"><b class="num">50</b><span>estimations par visite #DevineLePrix</span></div>
+      <div class="kpi"><b class="num">10</b><span>messages de propriétaires ou d'agences</span></div>
+      <div class="kpi"><b class="num">6</b><span>biens visités et présentés</span></div>
+    </div>
+    <div class="steps-line"><span class="label">Paliers</span><span class="chip">22 nov. · 500 abonnés Instagram</span><span class="chip">6 déc. · 1 200 abonnés Instagram</span><span class="chip t">13 déc. · 3 000 abonnés au total</span></div>
+  </section>
+
+  <!-- 2 Cible -->
+  <section class="part wrap" id="cible">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>02</b></div>
+      <span class="label">Cible et personas</span>
+      <h2>Les 25-45 ans de Montpellier qui ont un projet dans les 2 ans</h2>
+    </div>
+    <p class="lead part-intro">Cible cœur : acheteurs et investisseurs. Cible secondaire : les propriétaires vendeurs, nos futurs clients.</p>
+    <div class="grid g2">
+      <article class="card persona">
+        <div class="who"><div class="av"><svg class="ic"><use href="#i-cle"/></svg></div><div><h3>Camille, 28 ans</h3><span class="muted">Primo-accédante, locataire à Port Marianne</span></div></div>
+        <dl><div><dt>Son projet</dt><dd>Acheter un T3 avec son conjoint.</dd></div><div><dt>Ce qui l'inquiète</dt><dd>Les frais cachés, le prêt, se faire avoir à la visite.</dd></div><div><dt>Ce qu'on lui donne</dt><dd>Frais de notaire, apport, pièges à la visite, en motion.</dd></div></dl>
+      </article>
+      <article class="card persona">
+        <div class="who"><div class="av"><svg class="ic"><use href="#i-maison"/></svg></div><div><h3>Philippe et Nathalie, 52 ans</h3><span class="muted">Vendeurs, maison familiale à Castelnau-le-Lez</span></div></div>
+        <dl><div><dt>Leur projet</dt><dd>Vendre au bon prix, et vite.</dd></div><div><dt>Ce qui les inquiète</dt><dd>Savoir quels travaux valent le coup avant de vendre.</dd></div><div><dt>Ce qu'on leur donne</dt><dd>L'avis de l'expert rénovation, les avant/après photo.</dd></div></dl>
+      </article>
+      <article class="card persona">
+        <div class="who"><div class="av"><svg class="ic"><use href="#i-calc"/></svg></div><div><h3>Yanis, 33 ans</h3><span class="muted">Cadre, futur investisseur</span></div></div>
+        <dl><div><dt>Son projet</dt><dd>Un studio à rénover, loué à des étudiants.</dd></div><div><dt>Ce qui l'inquiète</dt><dd>La rentabilité réelle et le coût des travaux.</dd></div><div><dt>Ce qu'on lui donne</dt><dd>Calculs de rentabilité en motion, biens à potentiel.</dd></div></dl>
+      </article>
+      <article class="card persona">
+        <div class="who"><div class="av"><svg class="ic"><use href="#i-photo"/></svg></div><div><h3>L'agence partenaire</h3><span class="muted">Cible pro, agent immobilier local</span></div></div>
+        <dl><div><dt>Son besoin</dt><dd>Des annonces qui se démarquent.</dd></div><div><dt>Ce qu'on lui donne</dt><dd>Visites vidéo et photos professionnelles de ses biens.</dd></div></dl>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 Positionnement -->
+  <section class="part wrap" id="positionnement">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>03</b></div>
+      <span class="label">Positionnement</span>
+      <h2>Pédagogique et local, là où personne ne l'est</h2>
+    </div>
+    <div class="grid g2" style="align-items:center">
+      <figure class="map" style="margin:0" aria-label="Carte de positionnement : axe pédagogique / commercial et axe local / national">
+        <svg viewBox="0 0 500 400" role="img">
+          <rect x="0" y="0" width="500" height="400" fill="#fbf6ef"/>
+          <line x1="250" y1="24" x2="250" y2="376" stroke="#1f2a44" stroke-opacity=".25" stroke-width="2"/>
+          <line x1="24" y1="200" x2="476" y2="200" stroke="#1f2a44" stroke-opacity=".25" stroke-width="2"/>
+          <g font-family="Inter, sans-serif" font-size="12" font-weight="800" fill="#4a5268" letter-spacing="1.5">
+            <text x="250" y="16" text-anchor="middle">PÉDAGOGIQUE</text>
+            <text x="250" y="394" text-anchor="middle">COMMERCIAL</text>
+            <text x="30" y="192">NATIONAL</text>
+            <text x="470" y="192" text-anchor="end">LOCAL</text>
+          </g>
+          <g font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1f2a44">
+            <circle cx="120" cy="90" r="9" fill="#1f2a44"/><text x="135" y="95">Influenceurs immo</text>
+            <circle cx="390" cy="320" r="9" fill="#1f2a44"/><text x="375" y="345" text-anchor="end">Agences locales</text>
+            <circle cx="110" cy="310" r="9" fill="#1f2a44"/><text x="125" y="315">Portails d'annonces</text>
+            <circle cx="160" cy="250" r="9" fill="#1f2a44"/><text x="175" y="255">House tours</text>
+          </g>
+          <g>
+            <circle cx="395" cy="80" r="40" fill="#c8553d" fill-opacity=".15"/>
+            <path d="M372 76 L395 58 L418 76" fill="none" stroke="#c8553d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="395" cy="86" r="10" fill="#c8553d"/>
+            <text x="395" y="140" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="20" font-weight="700" fill="#c8553d">Immo Décodé</text>
+          </g>
+        </svg>
+      </figure>
+      <div style="display:grid;gap:22px">
+        <p class="quote">« Pour ceux qui veulent acheter, vendre ou rénover à Montpellier, Immo Décodé est le compte qui explique l'immobilier simplement et montre ce que vaut vraiment un bien. »</p>
+        <p class="muted">Agences : beaucoup de biens mais un ton commercial. Influenceurs : pédagogues mais nationaux, souvent vendeurs de formations. House tours : spectaculaires mais loin de la réalité. Portails : exhaustifs mais sans conseil. Nous : local, honnête, avec deux experts à l'écran.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Plateformes -->
+  <section class="part wrap" id="plateformes">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>04</b></div>
+      <span class="label">Choix des plateformes</span>
+      <h2>Instagram en tête, TikTok pour la portée</h2>
+    </div>
+    <p class="lead part-intro">L'immobilier se regarde sur Instagram : Reels, carrousels, photos soignées. TikTok sert à toucher un public plus large avec le challenge.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Plateforme</th><th>Rôle</th><th>Formats</th><th>Rythme</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>Instagram</td><td>Communauté et image de marque</td><td>Reels, carrousels, stories (sondages, #DevineLePrix)</td><td class="num">5 Reels + 2 carrousels / semaine, stories chaque jour</td></tr>
+          <tr><td>TikTok</td><td>Portée et viralité</td><td>Conseils motion, visites #DevineLePrix</td><td class="num">5 vidéos / semaine</td></tr>
+          <tr><td>Facebook</td><td>Toucher les vendeurs de 45 ans et plus</td><td>Repost des conseils vendeurs, groupes immobiliers locaux</td><td class="num">3 posts / semaine</td></tr>
+          <tr><td>LinkedIn</td><td>Crédibilité pro, agences partenaires</td><td>Avant/après, coulisses, profils des experts</td><td class="num">1 post / semaine</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:14px">Non retenu : YouTube long format, trop de montage pour 6 semaines. Les Reels sont repostés en Shorts sans effort. Créneaux : 12 h 15 et 19 h en semaine, 10 h le dimanche.</p>
+  </section>
+
+  <!-- 5 Concept -->
+  <section class="part wrap" id="concept">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>05</b></div>
+      <span class="label">Thème et concept · format challenge</span>
+      <h2>#DevineLePrix : le public estime, on révèle</h2>
+    </div>
+    <p class="lead part-intro">Le challenge est l'accroche, les conseils sont le cœur. Le prix de l'immobilier fait réagir : il fait commenter, et le suspense entre deux vidéos pousse à s'abonner.</p>
+    <div class="flow">
+      <div class="card"><h3>La visite</h3><p class="muted">Vendredi, 30-45 s. Surface, quartier et DPE affichés en motion, mais pas le prix. « Combien ? Réponds en commentaire. »</p></div>
+      <div class="card"><h3>La révélation</h3><p class="muted">Samedi midi. Le prix tombe, l'expert rénovation dit si c'est une bonne affaire et chiffre les travaux.</p></div>
+      <div class="card"><h3>Le classement</h3><p class="muted">Dimanche en story. Le meilleur estimateur du mois gagne une séance photo de son logement.</p></div>
+    </div>
+    <div class="card dark" style="margin-top:20px;display:flex;gap:20px;align-items:center;flex-wrap:wrap">
+      <svg class="ic" style="width:56px;height:56px;color:#c8553d"><use href="#i-marteau"/></svg>
+      <div style="flex:1;min-width:240px"><h3>La variante #DefiReno</h3><p class="muted" style="margin-top:6px">« 15 000 € pour transformer ce studio, tu fais quoi ? » Les abonnés votent en story entre 3 options, l'expert réalise le projet gagnant en motion.</p></div>
+    </div>
+  </section>
+
+  <!-- 6 Éditorial -->
+  <section class="part wrap" id="editorial">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>06</b></div>
+      <span class="label">Stratégie éditoriale</span>
+      <h2>Trois phases de deux semaines</h2>
+    </div>
+    <div class="timeline" role="img" aria-label="Frise des trois phases du 2 novembre au 13 décembre 2026">
+      <svg viewBox="0 0 960 190">
+        <g font-family="Inter, sans-serif">
+          <rect x="0" y="40" width="316" height="64" rx="12" fill="#6b7f4e"/>
+          <rect x="322" y="40" width="316" height="64" rx="12" fill="#c8553d"/>
+          <rect x="644" y="40" width="316" height="64" rx="12" fill="#1f2a44"/>
+          <g fill="#fbf6ef" font-weight="800" font-size="13" letter-spacing="1.5">
+            <text x="20" y="66">PHASE 1</text><text x="342" y="66">PHASE 2</text><text x="664" y="66">PHASE 3</text>
+          </g>
+          <g fill="#fbf6ef" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="20">
+            <text x="20" y="92">Les bases</text><text x="342" y="92">Passer à l'action</text><text x="664" y="92">Vendre et investir malin</text>
+          </g>
+          <g fill="#4a5268" font-size="13" font-weight="700">
+            <text x="0" y="26">2 nov.</text><text x="322" y="26">16 nov.</text><text x="644" y="26">30 nov.</text><text x="960" y="26" text-anchor="end">13 déc.</text>
+          </g>
+          <g fill="#1f2a44" font-size="14">
+            <text x="0" y="132">500 premiers abonnés</text><text x="0" y="152">Frais, DPE, budget travaux,</text><text x="0" y="172">rentabilité, l'équipe</text>
+            <text x="322" y="132">Faire enregistrer et partager</text><text x="322" y="152">Négocier, banque, #DefiReno,</text><text x="322" y="172">visites en cas pratiques</text>
+            <text x="644" y="132">Premières demandes</text><text x="644" y="152">Travaux qui font vendre,</text><text x="644" y="172">« nos meilleurs conseils »</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="grid g2" style="margin-top:20px">
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Format</th><th>Durée</th><th>Production</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td>Conseil immo</td><td class="num">25-35 s</td><td>100 % motion</td></tr>
+            <tr><td>Conseil invest</td><td class="num">20-30 s</td><td>Motion, calculs animés</td></tr>
+            <tr><td>Conseil réno</td><td class="num">20-40 s</td><td>Expert + chiffres en motion</td></tr>
+            <tr><td>Carrousel</td><td class="num">6-8 images</td><td>Motion exporté en images</td></tr>
+            <tr><td>Visite #DevineLePrix</td><td class="num">30-45 s</td><td>Tournage + incrustations</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="checks" style="grid-template-columns:1fr">
+        <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Une vidéo, une idée.</b> L'accroche est lisible dès la première image.</div></li>
+        <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Chaque chiffre est daté et sourcé</b>, car il change vite.</div></li>
+        <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Chaque vidéo finit par une action</b> : commente, enregistre, partage.</div></li>
+        <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>On montre aussi les défauts</b> d'un bien : c'est ce qui rend crédible.</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7 Piliers -->
+  <section class="part wrap" id="piliers">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>07</b></div>
+      <span class="label">Piliers de contenu</span>
+      <h2>75 % de conseils, 25 % de terrain</h2>
+    </div>
+    <div class="stack" role="img" aria-label="Répartition : immobilier 25 %, rénovation 25 %, investissement 25 %, visites 15 %, photo 10 %">
+      <div style="width:25%;background:#6b7f4e">25 %</div><div style="width:25%;background:#c8553d">25 %</div><div style="width:25%;background:#1f2a44">25 %</div><div style="width:15%;background:#d98a6f">15 %</div><div style="width:10%;background:#8a93a8">10 %</div>
+    </div>
+    <div class="grid g3">
+      <div class="card"><span class="chip o">25 %</span><h3 style="margin-top:12px">Conseils immobilier</h3><p class="muted">Frais de notaire, lire un DPE, pièges à la visite, négocier le prix.</p></div>
+      <div class="card"><span class="chip t">25 %</span><h3 style="margin-top:12px">Conseils rénovation</h3><p class="muted">Budget cuisine ou salle de bain, travaux qui valorisent, isolation et DPE.</p></div>
+      <div class="card"><span class="chip n">25 %</span><h3 style="margin-top:12px">Conseils investissement</h3><p class="muted">Rentabilité, location nue ou meublée, dossier bancaire, sans promesse de richesse.</p></div>
+      <div class="card"><span class="chip" style="background:#d98a6f;color:#fbf6ef">15 %</span><h3 style="margin-top:12px">Visites cas pratiques</h3><p class="muted">Un vrai bien à Montpellier, analysé avec les trois types de conseils.</p></div>
+      <div class="card"><span class="chip" style="background:#8a93a8;color:#fbf6ef">10 %</span><h3 style="margin-top:12px">Photo et mise en valeur</h3><p class="muted">Avant/après, home staging à petit prix, photographier son salon.</p></div>
+    </div>
+  </section>
+
+  <!-- 8 Accessibilité -->
+  <section class="part wrap" id="accessibilite">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>08</b></div>
+      <span class="label">Accessibilité</span>
+      <h2>Compréhensible sans le son, lisible par tous</h2>
+    </div>
+    <ul class="checks">
+      <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Tout est écrit à l'écran.</b> Nos vidéos n'ont pas de voix : le message passe par le texte, les sons ne font qu'accompagner.</div></li>
+      <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Infos clés affichées pendant les visites</b> : surface, pièces, étage, ascenseur, classe DPE.</div></li>
+      <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Contraste fort</b> : bleu nuit sur sable, sable clair sur bleu nuit. Jamais de texte sur une photo chargée.</div></li>
+      <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Accessibilité du bien mentionnée</b> : marches, ascenseur, largeur des portes.</div></li>
+      <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Texte alternatif</b> sur chaque photo et carrousel Instagram.</div></li>
+      <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Hashtags en CamelCase</b> (#DevineLePrix) pour les lecteurs d'écran.</div></li>
+      <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Mots simples</b> : chaque terme technique (DPE, compromis, LMNP) est expliqué.</div></li>
+      <li><span class="tick"><svg><use href="#i-check"/></svg></span><div><b>Pas de flashs</b> : transitions rapides mais sans clignotement.</div></li>
+    </ul>
+  </section>
+
+  <!-- 9 Ton -->
+  <section class="part wrap" id="ton">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>09</b></div>
+      <span class="label">Charte de ton et charte visuelle</span>
+      <h2>Un ami qui s'y connaît : rassurant, honnête, concret</h2>
+    </div>
+    <div class="dodont">
+      <div class="card yes"><h3 style="color:var(--olive)">On fait</h3><ul><li>Tutoyer sur Instagram et TikTok, vouvoyer sur Facebook et LinkedIn</li><li>Donner des chiffres concrets et datés</li><li>Montrer les défauts d'un bien avec bienveillance</li><li>Expliquer le jargon en mots simples</li><li>Renvoyer vers un notaire, une banque ou un artisan pour les cas complexes</li></ul></div>
+      <div class="card no"><h3 style="color:var(--terra)">On ne fait pas</h3><ul><li>Promettre un enrichissement ou une rentabilité garantie</li><li>Se moquer d'un logement ou de ses occupants</li><li>Juger un vendeur sur son prix</li><li>Donner un conseil juridique ou financier personnalisé</li></ul></div>
+    </div>
+    <div class="grid g3" style="margin-top:20px">
+      <div class="card"><span class="label">Accroche conseil</span><p class="quote" style="font-size:21px;margin-top:10px">Tu vas acheter ? Ces 3 frais, personne ne t'en parle.</p></div>
+      <div class="card"><span class="label">Accroche visite</span><p class="quote" style="font-size:21px;margin-top:10px">68 m², balcon, à 5 minutes du tram. Combien ?</p></div>
+      <div class="card"><span class="label">L'expert</span><p class="quote" style="font-size:21px;margin-top:10px">Ici, je mettrais l'argent dans l'isolation, pas dans la cuisine.</p></div>
+    </div>
+    <h3 style="margin:40px 0 16px">La charte visuelle</h3>
+    <div class="grid g2" style="align-items:stretch">
+      <div class="card" style="display:grid;place-items:center"><img src="img/logo-principal-couleur.svg" alt="Logo principal Immo Décodé" style="width:min(300px,100%)"></div>
+      <div class="swatches">
+        <div class="sw" style="background:#f2e8dc"><b>Sable</b>#F2E8DC · fond</div>
+        <div class="sw" style="background:#1f2a44;color:#fbf6ef"><b>Bleu nuit</b>#1F2A44 · texte</div>
+        <div class="sw" style="background:#c8553d;color:#fbf6ef"><b>Terracotta</b>#C8553D · accent</div>
+        <div class="sw" style="background:#6b7f4e;color:#fbf6ef"><b>Vert olivier</b>#6B7F4E · bon plan</div>
+        <div class="sw" style="background:#fbf6ef"><b style="font-family:Inter,sans-serif;font-weight:800">Fraunces + Inter</b>Titres serif, texte linéale</div>
+        <div class="sw" style="background:#fbf6ef;color:#1f2a44;flex-direction:row;align-items:flex-end;gap:10px;justify-content:flex-start"><svg class="ic"><use href="#i-maison"/></svg><svg class="ic"><use href="#i-calc"/></svg><svg class="ic"><use href="#i-marteau"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 Calendrier -->
+  <section class="part wrap" id="calendrier">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>10</b></div>
+      <span class="label">Calendrier éditorial</span>
+      <h2>Une semaine type, six semaines de thèmes</h2>
+    </div>
+    <div class="week" aria-label="Semaine type">
+      <div class="day c-immo"><span class="d">Lundi</span><span class="h">19 h</span><span class="f">Conseil immobilier en motion</span></div>
+      <div class="day c-inv"><span class="d">Mardi</span><span class="h">19 h</span><span class="f">Conseil investissement en motion</span></div>
+      <div class="day c-immo"><span class="d">Mercredi</span><span class="h">12 h 15</span><span class="f">Carrousel : checklist, calcul, budget</span></div>
+      <div class="day c-reno"><span class="d">Jeudi</span><span class="h">19 h</span><span class="f">Conseil rénovation avec l'expert</span></div>
+      <div class="day c-vis"><span class="d">Vendredi</span><span class="h">19 h</span><span class="f">Visite #DevineLePrix, sans le prix</span></div>
+      <div class="day c-vis"><span class="d">Samedi</span><span class="h">12 h</span><span class="f">Révélation du prix + analyse</span></div>
+      <div class="day c-off"><span class="d">Dimanche</span><span class="h">10 h</span><span class="f">Conseil de la semaine + classement en story</span></div>
+    </div>
+    <div class="tbl" style="margin-top:20px">
+      <table>
+        <thead><tr><th>Semaine</th><th>Thème</th><th>Immobilier</th><th>Investissement</th><th>Rénovation</th><th>Visite</th></tr></thead>
+        <tbody>
+          <tr><td class="num">2 → 8 nov.</td><td>Les bases</td><td>Frais de notaire en 20 s</td><td>Rentabilité : le calcul simple</td><td>Coût d'une rénovation au m²</td><td>T2 étudiant, Beaux-Arts</td></tr>
+          <tr><td class="num">9 → 15 nov.</td><td>Bien acheter</td><td>Lire un DPE en 30 s</td><td>Location nue ou meublée ?</td><td>3 travaux qui valorisent</td><td>Maison avec jardin, Castelnau</td></tr>
+          <tr><td class="num">16 → 22 nov.</td><td>Négocier</td><td>4 arguments pour négocier</td><td>Ce que regarde la banque</td><td>Lancement #DefiReno</td><td>Studio à rénover, Écusson</td></tr>
+          <tr><td class="num">23 → 29 nov.</td><td>Investir à Montpellier</td><td>Acheter seul ou à deux</td><td>Quartiers à forte demande locative</td><td>Résultat #DefiReno</td><td>2 pièces près du tram</td></tr>
+          <tr><td class="num">30 nov. → 6 déc.</td><td>Vendre</td><td>Vendre en hiver ?</td><td>Revendre un investissement</td><td>Travaux avant de vendre</td><td>Bien d'un abonné</td></tr>
+          <tr class="hl"><td class="num">7 → 13 déc.</td><td>Bilan</td><td>5 conseils pour acheter</td><td>5 conseils pour investir</td><td>5 conseils pour rénover</td><td>Le bien préféré des abonnés</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 11 Production -->
+  <section class="part wrap" id="production">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>11</b></div>
+      <span class="label">Organisation de la production</span>
+      <h2>Des vidéos produites en série, avec la même signature</h2>
+    </div>
+    <p class="lead part-intro">Un générateur fabrique chaque vidéo conseil à partir d'un texte : accroche, 3 à 5 points, phrase à retenir. Animations, transitions et effets sonores sont identiques d'une vidéo à l'autre. Déjà 9 vidéos prêtes.</p>
+    <div class="phones" aria-label="Aperçus des premières vidéos">
+      <figure><img src="img/01-lire-un-dpe.jpg" alt="Vidéo : Lire un DPE en 30 secondes"><figcaption>Lire un DPE en 30 s</figcaption></figure>
+      <figure><img src="img/02-pieges-a-la-visite.jpg" alt="Vidéo : 5 pièges à repérer pendant une visite"><figcaption>5 pièges à la visite</figcaption></figure>
+      <figure><img src="img/03-negocier-le-prix.jpg" alt="Vidéo : 4 arguments pour négocier le prix"><figcaption>Négocier le prix</figcaption></figure>
+      <figure><img src="img/04-point.jpg" alt="Vidéo : point 1, ton taux d'endettement"><figcaption>Ce que regarde la banque</figcaption></figure>
+      <figure><img src="img/05-location-nue-ou-meublee.jpg" alt="Vidéo : location nue ou meublée"><figcaption>Nue ou meublée ?</figcaption></figure>
+      <figure><img src="img/06-travaux-qui-valorisent.jpg" alt="Vidéo : 3 travaux qui font gagner de la valeur"><figcaption>Travaux qui valorisent</figcaption></figure>
+      <figure><img src="img/v2-frais-notaire.jpg" alt="Vidéo : les frais de notaire"><figcaption>Frais de notaire</figcaption></figure>
+      <figure><img src="img/v2bis-rentabilite.jpg" alt="Vidéo : rentabilité locative"><figcaption>Rentabilité locative</figcaption></figure>
+    </div>
+    <div class="grid g2" style="margin-top:28px">
+      <div class="tbl">
+        <table style="min-width:0">
+          <thead><tr><th>Rôle</th><th>Missions</th><th>/ semaine</th></tr></thead>
+          <tbody>
+            <tr><td>Stratège</td><td>Planning, recherche des biens, autorisations, KPI</td><td class="num">4 h</td></tr>
+            <tr><td>Motion designer</td><td>Vidéos avec Claude et HyperFrames</td><td class="num">6 h</td></tr>
+            <tr><td>Expert réno</td><td>Avis, chiffrages, face caméra</td><td class="num">3 h</td></tr>
+            <tr><td>Photographe</td><td>Photos, tournage des visites</td><td class="num">5 h</td></tr>
+            <tr><td>Community manager</td><td>Publication, réponses, classement</td><td class="num">30 min / jour</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol class="process">
+        <li><div><b>Brief</b> le lundi : sujet, accroche, catégorie.</div></li>
+        <li><div><b>Texte du conseil</b> vérifié par l'expert, ajouté au générateur.</div></li>
+        <li><div><b>Génération</b> de la vidéo : motion, transitions, effets sonores.</div></li>
+        <li><div><b>Retouches</b> dans HyperFrames Studio si besoin, puis rendu MP4.</div></li>
+        <li><div><b>Programmation</b> dans TikTok Studio et Meta Business Suite.</div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 12 KPI -->
+  <section class="part wrap" id="kpi">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>12</b></div>
+      <span class="label">KPI et mesure de la performance</span>
+      <h2>Ce qu'on mesure chaque dimanche</h2>
+    </div>
+    <p class="lead part-intro">Deux chiffres comptent plus que les autres : les enregistrements, qui prouvent qu'un conseil est utile, et les messages de propriétaires, qui prouvent que le compte crée de la valeur.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>KPI</th><th>Formule ou source</th><th>Cible</th><th>Fréquence</th></tr></thead>
+        <tbody>
+          <tr><td>Vues par Reel</td><td>Statistiques Instagram</td><td class="num">3 000 en moyenne</td><td>Chaque vidéo</td></tr>
+          <tr><td>Taux d'engagement</td><td>(likes + commentaires + partages + enregistrements) / vues</td><td class="num">6 % ou plus</td><td>Chaque semaine</td></tr>
+          <tr class="hl"><td>Enregistrements</td><td>Sur les conseils et les carrousels</td><td class="num">3 % des vues</td><td>Chaque semaine</td></tr>
+          <tr><td>Commentaires #DevineLePrix</td><td>Estimations par visite</td><td class="num">50 en moyenne</td><td>Chaque visite</td></tr>
+          <tr><td>Vidéo vue en entier</td><td>TikTok Studio et Instagram</td><td class="num">35 % ou plus</td><td>Chaque vidéo</td></tr>
+          <tr><td>Nouveaux abonnés</td><td>Toutes plateformes</td><td class="num">+500 / semaine</td><td>Chaque semaine</td></tr>
+          <tr class="hl"><td>Messages entrants</td><td>Propriétaires, agences, acheteurs</td><td class="num">10 au total</td><td>Chaque semaine</td></tr>
+          <tr><td>Clics sur le lien en bio</td><td>Statistiques du profil</td><td class="num">100 / semaine</td><td>Chaque semaine</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 13 Risques -->
+  <section class="part wrap" id="risques">
+    <div class="part-head">
+      <div class="roofnum"><svg viewBox="0 0 84 34"><path d="M6 30 L42 6 L78 30"/></svg><b>13</b></div>
+      <span class="label">Anticipation des risques et gestion du bad buzz</span>
+      <h2>On présente des biens, on ne les vend pas</h2>
+    </div>
+    <p class="lead part-intro">En France, être payé pour mettre en relation acheteur et vendeur est réservé aux titulaires de la carte d'agent immobilier (loi Hoguet). Les acheteurs intéressés sont renvoyés vers le propriétaire ou son agence.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Risque</th><th>Probabilité</th><th>Prévention</th><th>Si ça arrive</th></tr></thead>
+        <tbody>
+          <tr><td>Intermédiaire sans carte (loi Hoguet)</td><td><span class="prob m">Moyenne</span></td><td>Aucune commission, seules la photo et la vidéo sont facturées</td><td>Arrêter, demander conseil à un juriste</td></tr>
+          <tr><td>Annonce incomplète (DPE, prix, honoraires)</td><td><span class="prob m">Moyenne</span></td><td>Classe énergie et prix affichés, comme une annonce</td><td>Corriger la légende ou republier</td></tr>
+          <tr><td>Vie privée du propriétaire</td><td><span class="prob m">Moyenne</span></td><td>Accord écrit, pas d'adresse exacte ni d'objets personnels</td><td>Retirer et s'excuser</td></tr>
+          <tr><td>Conseil faux ou daté</td><td><span class="prob m">Moyenne</span></td><td>Chiffres datés, vérifiés par l'expert</td><td>Commentaire épinglé + vidéo rectificative</td></tr>
+          <tr><td>Critiques sur un prix</td><td><span class="prob f">Forte</span></td><td>Règles du #DevineLePrix en story à la une</td><td>Répondre avec des faits, masquer les attaques</td></tr>
+          <tr><td>Conflit avec une agence</td><td><span class="prob l">Faible</span></td><td>Vérifier le mandat avant de filmer</td><td>Retirer, proposer un partenariat</td></tr>
+          <tr><td>Droits photo ou musique</td><td><span class="prob l">Faible</span></td><td>Nos photos, sons libres de droits</td><td>Retirer et remplacer</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid g2" style="margin-top:24px;align-items:start">
+      <div class="card">
+        <h3>En cas de bad buzz</h3>
+        <ol class="process" style="margin-top:14px">
+          <li><div><b>Détecter</b> : commentaires négatifs en hausse, messages, partages moqueurs.</div></li>
+          <li><div><b>Évaluer en 1 h</b> : débat sur un prix, erreur de notre part, ou personne exposée.</div></li>
+          <li><div><b>Répondre en 3 h</b>, un message clair signé « l'équipe Immo Décodé ».</div></li>
+          <li><div><b>Suspendre</b> les publications programmées.</div></li>
+          <li><div><b>Analyser</b> et ajouter une règle pour que ça ne se reproduise pas.</div></li>
+        </ol>
+      </div>
+      <div class="card dark">
+        <span class="label">Message type, niveau 3</span>
+        <p class="quote" style="color:var(--clair);font-size:22px;margin-top:14px">« Nous avons fait une erreur : [ce qui s'est passé]. La vidéo est retirée et nous avons contacté la personne concernée. Merci de nous l'avoir signalé. »</p>
+        <p class="muted" style="margin-top:14px">L'équipe Immo Décodé</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo-principal-negatif.svg" alt="Immo Décodé">
+    <p>Dossier stratégique · Les médias sociaux dans la stratégie digitale globale de la marque · Novembre 2026</p>
+  </div>
+</footer>
