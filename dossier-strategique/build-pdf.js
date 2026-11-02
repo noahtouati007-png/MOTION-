@@ -15,22 +15,25 @@ const section = (id) => {
   if (!m) throw new Error("section introuvable : " + id);
   return `<section class="part" id="${id}">${m[1]}</section>`;
 };
-const toc = src.match(/<nav class="toc wrap"[^>]*>([\s\S]*?)<\/nav>/)[1].replace(/<a href="#[^"]+">([^<]+)<\/a>/g, "<span>$1</span>");
 
 // Pages : chaque page regroupe une ou plusieurs parties, dans l'ordre de la consigne
-const PAGES = [
-  { label: "Sommaire · Le compte", body: `<nav class="toc">${toc}</nav>${section("compte")}` },
-  { label: "01 · 02", body: section("objectifs") + section("cible") },
-  { label: "03 · 04", body: section("positionnement") + section("plateformes") },
-  { label: "05", body: section("concept") },
-  { label: "06", body: section("editorial") },
-  { label: "07 · 08", body: section("piliers") + section("accessibilite") },
-  { label: "09", body: section("ton") },
-  { label: "10", body: section("calendrier") },
-  { label: "11", body: section("production") },
-  { label: "12", body: section("kpi") },
-  { label: "13", body: section("risques") },
+// Les 13 parties de la consigne : numéro, titre, id de la section
+const PARTS = [
+  ["01", "Objectifs", "objectifs"], ["02", "Cible et personas", "cible"], ["03", "Positionnement", "positionnement"],
+  ["04", "Choix des plateformes", "plateformes"], ["05", "Thème et concept", "concept"], ["06", "Stratégie éditoriale", "editorial"],
+  ["07", "Piliers de contenu", "piliers"], ["08", "Accessibilité", "accessibilite"], ["09", "Charte de ton", "ton"],
+  ["10", "Calendrier éditorial", "calendrier"], ["11", "Organisation de la production", "production"],
+  ["12", "KPI et mesure de la performance", "kpi"], ["13", "Risques et bad buzz", "risques"],
 ];
+// Pages : chaque page regroupe une ou plusieurs parties, dans l'ordre de la consigne (page 1 = couverture)
+const LAYOUT = [["compte"], ["objectifs", "cible"], ["positionnement", "plateformes"], ["concept"], ["editorial"], ["piliers", "accessibilite"], ["ton"], ["calendrier"], ["production"], ["kpi"], ["risques"]];
+const pageOf = {};
+LAYOUT.forEach((ids, i) => ids.forEach((id) => (pageOf[id] = i + 2)));
+const tocHtml = `<nav class="toc"><p class="label">Sommaire</p><ol class="toc-p">${PARTS.map(([n, t, id]) => `<li><a href="#${id}"><span class="tn">${n}</span><span class="tt">${t}</span><span class="lead-dots"></span><span class="tp">p. ${pageOf[id]}</span></a></li>`).join("")}</ol></nav>`;
+const PAGES = LAYOUT.map((ids) => ({
+  label: ids[0] === "compte" ? "Sommaire · Le compte" : ids.map((id) => { const [n, t] = PARTS.find((x) => x[2] === id); return `${n} ${t}`; }).join(" · "),
+  body: (ids[0] === "compte" ? tocHtml : "") + ids.map(section).join(""),
+}));
 const total = PAGES.length + 2;
 const roof = `<svg viewBox="0 0 84 34" class="mini-roof"><path d="M6 30 L42 6 L78 30"/></svg>`;
 
@@ -118,6 +121,13 @@ const printCss = `
   .process li > div { padding-top: 3px; }
   .prob { font-size: 7px; padding: 2px 6px; }
   .toc { padding: 0; }
+  .toc ol.toc-p { list-style: none; margin: 3mm 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 8mm; }
+  .toc-p li { border-bottom: 1px solid var(--trait); }
+  .toc-p li::before { content: none !important; }
+  .toc-p a { flex: 1; width: 100%; display: grid; grid-template-columns: 22px auto 1fr auto; gap: 8px; align-items: baseline; padding-block: 2.2mm; color: inherit; text-decoration: none; font-size: 11.5px; font-weight: 500; }
+  .toc-p .tn { font: 700 11px var(--serif); color: var(--terra); }
+  .toc-p .lead-dots { border-bottom: 1.5px dotted rgba(31,42,68,.35); height: 0; align-self: center; margin-top: 4px; }
+  .toc-p .tp { font: 700 10px var(--sans); color: var(--encre-douce); font-variant-numeric: tabular-nums; }
   .toc ol { grid-template-columns: repeat(3, 1fr); gap: 0 6mm; margin-top: 3mm; }
   .toc li { padding-block: 2.2mm; font-size: 11.5px; }
   .toc li::before { font-size: 11px; }
@@ -166,7 +176,7 @@ const back = `<div class="sheet cover-sheet"><div class="c back">
 const pages = PAGES.map((p, i) => `<div class="sheet">
   <div class="run"><b>${roof}Immo Décodé</b><span>Dossier stratégique · ${p.label}</span></div>
   <div class="inner"><div class="fit">${p.body}</div></div>
-  <div class="folio"><span>@immo.decode</span><span class="n">${String(i + 2).padStart(2, "0")} / ${String(total).padStart(2, "0")}</span></div>
+  <div class="folio"><span>@immo.decode</span><span class="n">Page ${i + 2} / ${total}</span></div>
 </div>`).join("\n");
 
 const html = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Dossier stratégique Immo Décodé</title><style>${fonts}${style}${printCss}</style></head><body>${sprite}${cover}${pages}${back}</body></html>`;
@@ -201,7 +211,7 @@ fs.writeFileSync(tmp, html);
   if (over.length) console.log("DÉBORDEMENT :", JSON.stringify(over));
   const free = await p.$$eval(".sheet .inner", (els) => els.map((e, i) => `${i + 2}:${Math.round(e.getBoundingClientRect().bottom - e.firstElementChild.getBoundingClientRect().bottom)}px`));
   console.log("Espace libre en bas de page :", free.join(" "));
-  await p.pdf({ path: path.join(here, "dossier-strategique-immo-decode.pdf"), preferCSSPageSize: true, printBackground: true });
+  await p.pdf({ path: path.join(here, "dossier-strategique-immo-decode.pdf"), preferCSSPageSize: true, printBackground: true, outline: true, tagged: true });
   await b.close();
   if (!process.argv.includes("--garder")) fs.unlinkSync(tmp);
 })();
