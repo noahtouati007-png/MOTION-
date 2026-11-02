@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "historyId": "cddc31b1-2765-4d07-9a99-326bd7de71c4",
+  "currentRevision": "1788148d-b57c-427c-b952-99158972be60",
+  "pendingChanges": false,
+  "files": {
+    "assets/fonts/fraunces-latin-600-italic.woff2": {
+      "hash": "23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/23/23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7"
+    },
+    "assets/fonts/fraunces-latin-600-normal.woff2": {
+      "hash": "3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/3a/3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82"
+    },
+    "assets/fonts/fraunces-latin-700-normal.woff2": {
+      "hash": "c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/c3/c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3"
+    },
+    "assets/fonts/inter-latin-500-normal.woff2": {
+      "hash": "f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/f3/f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f"
+    },
+    "assets/fonts/inter-latin-700-normal.woff2": {
+      "hash": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/6f/6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491"
+    },
+    "assets/fonts/inter-latin-800-normal.woff2": {
+      "hash": "a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/a7/a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "d12d54e2fb48fd781a3cf5b7b180dde8b7d3fb341c1289bb6bde9e6d3225fbcd",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/d1/d12d54e2fb48fd781a3cf5b7b180dde8b7d3fb341c1289bb6bde9e6d3225fbcd"
+    },
+    "meta.json": {
+      "hash": "bf6f237a97dfe3677def21a4df9f5af4917719162038b5db218bce1635356df9",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/bf/bf6f237a97dfe3677def21a4df9f5af4917719162038b5db218bce1635356df9"
+    },
+    "package.json": {
+      "hash": "8c4de9703445741def18af0649711b36fd5759781f11df1c7036e8c72f0560dc",
+      "content": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/8c/8c4de9703445741def18af0649711b36fd5759781f11df1c7036e8c72f0560dc"
+    }
+  },
+  "revisions": {
+    "4927d27c-50df-4b6d-99b5-967a236846c1": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793613272877,
+      "endedAt": 1793613272884,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/c6/c6b5cd28de73387dbb8a6cd3377841b6333f8fa8e33453577fba37a66c001cf3",
+          "after": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/d3/d3388c39b70a29e52018dd5f25ab85a5240dff8da5c611c0b37969ecec8b30b3"
+        }
+      }
+    },
+    "1788148d-b57c-427c-b952-99158972be60": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793613587281,
+      "endedAt": 1793613587285,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/d3/d3388c39b70a29e52018dd5f25ab85a5240dff8da5c611c0b37969ecec8b30b3",
+          "after": "/root/.cache/hyperframes/history/cddc31b1-2765-4d07-9a99-326bd7de71c4/blobs/d1/d12d54e2fb48fd781a3cf5b7b180dde8b7d3fb341c1289bb6bde9e6d3225fbcd"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "bd0a1f56-2c6c-4159-9635-e3fa42a90455"
+    },
+    "revisions": {
+      "4927d27c-50df-4b6d-99b5-967a236846c1": [
+        {
+          "id": "004f4fcb-c59a-4f88-91cd-e6aa6d0929b0",
+          "scope": "project",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793613277335,
+          "contentHash": "460ef8b1dce17a7d5c66bd20f55a920817d7fcdb9dc47e19fa3084fa961de1c3",
+          "revision": "4927d27c-50df-4b6d-99b5-967a236846c1",
+          "inputFingerprint": "805f4928633a6be8763790fae34f4910580f773fcd0966809ae908e33d34c73e",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "346ee2f3-567c-4dcc-9993-5914c031f995"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "bd0a1f56-2c6c-4159-9635-e3fa42a90455",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/immo-decode-serie/06-travaux-qui-valorisent/.hyperframes/artifacts/checks/bd0a1f56-2c6c-4159-9635-e3fa42a90455.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793613225733,
+        "contentHash": "82ad5915ad29e45425b25e292a503dd5e430fc8f80106e818f827047bc6ca8d1",
+        "revision": null,
+        "inputFingerprint": "aa586d042eb5b52b6afec3599d672b551df5801a12adbf7c422b07e64bced580",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "346ee2f3-567c-4dcc-9993-5914c031f995",
+      "completedAt": 1793613633773,
+      "output": "/home/user/MOTION-/videos/immo-decode-serie/06-travaux-qui-valorisent/renders/immo-decode-06-travaux-qui-valorisent.mp4",
+      "status": "completed",
+      "revision": "1788148d-b57c-427c-b952-99158972be60"
+    },
+    "retainedRevisions": [
+      "1788148d-b57c-427c-b952-99158972be60"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

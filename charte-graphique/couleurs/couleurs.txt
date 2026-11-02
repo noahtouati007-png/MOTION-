@@ -1,0 +1,8 @@
+Couleurs Immo Décodé
+
+Nom | HEX | RGB | CMJN (approximatif, à valider avec l'imprimeur)
+Bleu nuit | #1F2A44 | 31 42 68 | C54 M38 J0 N73
+Terracotta | #C8553D | 200 85 61 | C0 M58 J70 N22
+Sable | #F2E8DC | 242 232 220 | C0 M4 J9 N5
+Sable clair | #FBF6EF | 251 246 239 | C0 M2 J5 N2
+Vert olivier | #6B7F4E | 107 127 78 | C16 M0 J39 N50

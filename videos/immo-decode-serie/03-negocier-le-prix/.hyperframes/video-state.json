@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "historyId": "8c6d89aa-735f-4df7-85f9-989f9193455c",
+  "currentRevision": "ad56d551-c10a-4325-af5e-b8af2ac2abec",
+  "pendingChanges": false,
+  "files": {
+    "assets/fonts/fraunces-latin-600-italic.woff2": {
+      "hash": "23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/23/23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7"
+    },
+    "assets/fonts/fraunces-latin-600-normal.woff2": {
+      "hash": "3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/3a/3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82"
+    },
+    "assets/fonts/fraunces-latin-700-normal.woff2": {
+      "hash": "c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/c3/c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3"
+    },
+    "assets/fonts/inter-latin-500-normal.woff2": {
+      "hash": "f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/f3/f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f"
+    },
+    "assets/fonts/inter-latin-700-normal.woff2": {
+      "hash": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/6f/6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491"
+    },
+    "assets/fonts/inter-latin-800-normal.woff2": {
+      "hash": "a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/a7/a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "be70f4454d41fa87dae2f16fcfe7a4888e5ed49727ffc3c89f0a1ec12c6c7cbc",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/be/be70f4454d41fa87dae2f16fcfe7a4888e5ed49727ffc3c89f0a1ec12c6c7cbc"
+    },
+    "meta.json": {
+      "hash": "e0073854785d82461f28b6c7b586e4c250c9303720a4da445dd0b15c615755f7",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/e0/e0073854785d82461f28b6c7b586e4c250c9303720a4da445dd0b15c615755f7"
+    },
+    "package.json": {
+      "hash": "11afe3fac05c4fbe6b6382affd02986488722d9885f2a8e55f7159ed90d79e0a",
+      "content": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/11/11afe3fac05c4fbe6b6382affd02986488722d9885f2a8e55f7159ed90d79e0a"
+    }
+  },
+  "revisions": {
+    "2db92370-ebc2-4a84-bc08-77fc6de00f78": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793613252275,
+      "endedAt": 1793613252279,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/b4/b4dc8793955c4b25389d49b410e831d9ab77e67c2f6ad5963f98873aa912ca85",
+          "after": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/a8/a8a88618b2d819be2a6660804ed886d39528a3eafc297e768f4fc0027b720d8b"
+        }
+      }
+    },
+    "ad56d551-c10a-4325-af5e-b8af2ac2abec": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793613431456,
+      "endedAt": 1793613431472,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/a8/a8a88618b2d819be2a6660804ed886d39528a3eafc297e768f4fc0027b720d8b",
+          "after": "/root/.cache/hyperframes/history/8c6d89aa-735f-4df7-85f9-989f9193455c/blobs/be/be70f4454d41fa87dae2f16fcfe7a4888e5ed49727ffc3c89f0a1ec12c6c7cbc"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "40b2b339-2569-45c6-99c1-e82c2757b98c"
+    },
+    "revisions": {
+      "2db92370-ebc2-4a84-bc08-77fc6de00f78": [
+        {
+          "id": "e23c3db9-0e87-4ef4-bf77-630154ef6072",
+          "scope": "project",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793613257470,
+          "contentHash": "733e3066f8358158af3aeb0a3142418d0ae551c7bb1e7e91faf55362831b41ad",
+          "revision": "2db92370-ebc2-4a84-bc08-77fc6de00f78",
+          "inputFingerprint": "6207eea7e79dde0bd7095caa17fe8c54042107f3857dfa2b58c403fd0ae58f57",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "6919e6de-519c-4550-a74d-c28f7a3703f9"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "40b2b339-2569-45c6-99c1-e82c2757b98c",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/immo-decode-serie/03-negocier-le-prix/.hyperframes/artifacts/checks/40b2b339-2569-45c6-99c1-e82c2757b98c.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793613206239,
+        "contentHash": "5bf53f9180bf2e6580893ad6907cf2ee472af142064e6fc06c6e4b0a61238ffe",
+        "revision": null,
+        "inputFingerprint": "1aee53334ac513fc756527570bd38fb461831582332ee1458cb3a86fd0a05c31",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "6919e6de-519c-4550-a74d-c28f7a3703f9",
+      "completedAt": 1793613483204,
+      "output": "/home/user/MOTION-/videos/immo-decode-serie/03-negocier-le-prix/renders/immo-decode-03-negocier-le-prix.mp4",
+      "status": "completed",
+      "revision": "ad56d551-c10a-4325-af5e-b8af2ac2abec"
+    },
+    "retainedRevisions": [
+      "ad56d551-c10a-4325-af5e-b8af2ac2abec"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

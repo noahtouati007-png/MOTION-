@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+<title>epingle</title>
+<g id="epingle" fill="none" stroke="#C8553D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M60 108 C60 108 28 74 28 50 a32 32 0 0 1 64 0 c0 24 -32 58 -32 58 z"/>
+<circle cx="60" cy="50" r="11"/>
+</g>
+</svg>

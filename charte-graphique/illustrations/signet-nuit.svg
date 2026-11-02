@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+<title>signet</title>
+<g id="signet" fill="none" stroke="#1F2A44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M34 14 h52 a6 6 0 0 1 6 6 v88 l-32 -22 l-32 22 v-88 a6 6 0 0 1 6 -6 z"/>
+</g>
+</svg>

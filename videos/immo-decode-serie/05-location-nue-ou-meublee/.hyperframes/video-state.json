@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "historyId": "79019fef-dc7e-4bde-981f-39181b93bf94",
+  "currentRevision": "68697e07-6fc9-4a22-b710-15a8163946bb",
+  "pendingChanges": false,
+  "files": {
+    "assets/fonts/fraunces-latin-600-italic.woff2": {
+      "hash": "23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/23/23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7"
+    },
+    "assets/fonts/fraunces-latin-600-normal.woff2": {
+      "hash": "3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/3a/3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82"
+    },
+    "assets/fonts/fraunces-latin-700-normal.woff2": {
+      "hash": "c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c3/c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3"
+    },
+    "assets/fonts/inter-latin-500-normal.woff2": {
+      "hash": "f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/f3/f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f"
+    },
+    "assets/fonts/inter-latin-700-normal.woff2": {
+      "hash": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/6f/6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491"
+    },
+    "assets/fonts/inter-latin-800-normal.woff2": {
+      "hash": "a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/a7/a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "c6a8d07b66b94ebd346c774a9ba20ad44b8ecd8eb7288a2bf8d828732344de4e",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c6/c6a8d07b66b94ebd346c774a9ba20ad44b8ecd8eb7288a2bf8d828732344de4e"
+    },
+    "meta.json": {
+      "hash": "c7bd3b866affa919697064556f916367adf0bd404e20359192894205ba102c50",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c7/c7bd3b866affa919697064556f916367adf0bd404e20359192894205ba102c50"
+    },
+    "package.json": {
+      "hash": "e6aec35be6eac34ba1722ab02ceae5711340c5a5a0528dc1ff23d33c943da053",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/e6/e6aec35be6eac34ba1722ab02ceae5711340c5a5a0528dc1ff23d33c943da053"
+    }
+  },
+  "revisions": {
+    "86419394-f782-420e-96ab-6cb3aacdcca0": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793613266330,
+      "endedAt": 1793613266334,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/aa/aa34ca06d8f32abbdebe234bddb5d2383119fb4e832c2d5ded24441f3bdd5aec",
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/26/266f998f83ea8984365dc35ead8df951eb094acf4ceb87f928491432ca7228f2"
+        }
+      }
+    },
+    "68697e07-6fc9-4a22-b710-15a8163946bb": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793613537392,
+      "endedAt": 1793613537397,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/26/266f998f83ea8984365dc35ead8df951eb094acf4ceb87f928491432ca7228f2",
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c6/c6a8d07b66b94ebd346c774a9ba20ad44b8ecd8eb7288a2bf8d828732344de4e"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "5c6ba170-cac5-4cca-885f-7cc377fd9005"
+    },
+    "revisions": {
+      "86419394-f782-420e-96ab-6cb3aacdcca0": [
+        {
+          "id": "3ce74340-2630-4d90-8b66-df17b74ca678",
+          "scope": "project",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793613270834,
+          "contentHash": "1905280186c2d815e0ae47eaef33f879f8f354cffe229548f61bf6e627338e96",
+          "revision": "86419394-f782-420e-96ab-6cb3aacdcca0",
+          "inputFingerprint": "f47f8e1175d3145c02812fd7131f007da3690fbe388aaa408eb55f638da8f80a",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "bf21347b-a1d9-4be4-a9a9-faaf53c2f90e"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "5c6ba170-cac5-4cca-885f-7cc377fd9005",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/immo-decode-serie/05-location-nue-ou-meublee/.hyperframes/artifacts/checks/5c6ba170-cac5-4cca-885f-7cc377fd9005.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793613219644,
+        "contentHash": "de91d8c4b441b32c30070949815cfbe4c32fcc337f79686dd727419e7426d3e3",
+        "revision": null,
+        "inputFingerprint": "7517fc0db85699fbf5df2199f5a81867df62e558128a3133525721dd3c83f0b1",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "bf21347b-a1d9-4be4-a9a9-faaf53c2f90e",
+      "completedAt": 1793613585437,
+      "output": "/home/user/MOTION-/videos/immo-decode-serie/05-location-nue-ou-meublee/renders/immo-decode-05-location-nue-ou-meublee.mp4",
+      "status": "completed",
+      "revision": "68697e07-6fc9-4a22-b710-15a8163946bb"
+    },
+    "retainedRevisions": [
+      "68697e07-6fc9-4a22-b710-15a8163946bb"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

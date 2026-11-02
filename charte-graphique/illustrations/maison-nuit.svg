@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+<title>maison</title>
+<g id="maison" fill="none" stroke="#1F2A44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M18 58 L60 22 L102 58"/>
+<path d="M30 48 V100 H90 V48"/>
+<path d="M50 100 V72 H70 V100"/>
+</g>
+</svg>

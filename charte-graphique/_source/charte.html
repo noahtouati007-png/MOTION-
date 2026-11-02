@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Charte graphique Immo Décodé</title>
+    <style>
+      @font-face { font-family: "Fraunces"; src: url("woff2/fraunces-latin-700-normal.woff2"); font-weight: 700; }
+      @font-face { font-family: "Fraunces"; src: url("woff2/fraunces-latin-600-normal.woff2"); font-weight: 600; }
+      @font-face { font-family: "Fraunces"; src: url("woff2/fraunces-latin-600-italic.woff2"); font-weight: 600; font-style: italic; }
+      @font-face { font-family: "Inter"; src: url("woff2/inter-latin-400-normal.woff2"); font-weight: 400; }
+      @font-face { font-family: "Inter"; src: url("woff2/inter-latin-500-normal.woff2"); font-weight: 500; }
+      @font-face { font-family: "Inter"; src: url("woff2/inter-latin-700-normal.woff2"); font-weight: 700; }
+      @font-face { font-family: "Inter"; src: url("woff2/inter-latin-800-normal.woff2"); font-weight: 800; }
+      @page { size: 1600px 900px; margin: 0; }
+      :root { --nuit: #1f2a44; --terra: #c8553d; --sable: #f2e8dc; --clair: #fbf6ef; --olive: #6b7f4e; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: "Inter", sans-serif; color: var(--nuit); }
+      .page { width: 1600px; height: 900px; position: relative; overflow: hidden; background: var(--sable); padding: 90px 110px; page-break-after: always; }
+      .num { position: absolute; right: 110px; bottom: 50px; font-size: 18px; font-weight: 700; letter-spacing: 3px; opacity: 0.5; }
+      .foot { position: absolute; left: 110px; bottom: 50px; font-size: 18px; font-weight: 700; letter-spacing: 3px; opacity: 0.5; text-transform: uppercase; }
+      .k { font-weight: 800; font-size: 20px; letter-spacing: 5px; text-transform: uppercase; color: var(--terra); }
+      h1 { font-family: "Fraunces"; font-weight: 700; font-size: 64px; line-height: 1.05; margin: 14px 0 26px; }
+      h3 { font-family: "Fraunces"; font-weight: 700; font-size: 30px; margin-bottom: 10px; }
+      p { font-size: 22px; line-height: 1.5; max-width: 760px; }
+      .grid { display: grid; gap: 40px; }
+      .muted { opacity: 0.7; font-size: 18px; }
+      .cover { background: var(--nuit); color: var(--clair); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+      .cover img { height: 420px; }
+      .cover .sub { margin-top: 40px; font-size: 26px; font-weight: 700; letter-spacing: 8px; text-transform: uppercase; color: var(--terra); }
+      .tile { background: var(--clair); border-radius: 24px; padding: 36px; }
+      .sw { border-radius: 24px; height: 300px; padding: 26px; display: flex; flex-direction: column; justify-content: flex-end; font-size: 18px; line-height: 1.5; }
+      .sw b { font-family: "Fraunces"; font-size: 30px; display: block; margin-bottom: 6px; }
+      .no { position: relative; background: var(--clair); border-radius: 20px; height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+      .no::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - 4px), var(--terra) calc(50% - 4px), var(--terra) calc(50% + 4px), transparent calc(50% + 4px)); opacity: 0.85; }
+      .phone { width: 250px; height: 444px; border-radius: 26px; overflow: hidden; box-shadow: 0 20px 40px rgba(31, 42, 68, 0.2); }
+    </style>
+  </head>
+  <body>
+    <!-- 1. Couverture -->
+    <section class="page cover">
+      <img src="../logo/logo-principal-negatif.svg" alt="Logo Immo Décodé" />
+      <div class="sub">Charte graphique · 2026</div>
+    </section>
+
+    <!-- 2. Identité -->
+    <section class="page">
+      <div class="k">01 · L'identité</div>
+      <h1>On décode l'immobilier,<br />la rénovation et l'investissement.</h1>
+      <div class="grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 50px">
+        <div class="tile"><h3>Clair</h3><p>Une idée par vidéo, des mots simples, des chiffres expliqués. Le jargon est toujours traduit.</p></div>
+        <div class="tile"><h3>Honnête</h3><p>Des chiffres datés et sourcés, les défauts d'un bien montrés, aucune promesse d'enrichissement.</p></div>
+        <div class="tile"><h3>Local</h3><p>Montpellier et ses quartiers, la lumière du Sud : pierre claire, terracotta, vert olivier.</p></div>
+      </div>
+      <div class="foot">Immo Décodé</div><div class="num">02</div>
+    </section>
+
+    <!-- 3. Logo principal -->
+    <section class="page">
+      <div class="k">02 · Le logo</div>
+      <h1>Un toit, deux mots, un trait.</h1>
+      <div style="display: flex; gap: 70px; align-items: center">
+        <div class="tile" style="padding: 50px 70px; position: relative">
+          <div style="position: absolute; inset: 22px; border: 3px dashed rgba(200, 85, 61, 0.55); border-radius: 12px"></div>
+          <img src="../logo/logo-principal-couleur.svg" style="height: 400px; display: block" alt="" />
+        </div>
+        <div>
+          <p><b>Le toit</b> terracotta pose la maison : c'est le sujet du compte. <b>Fraunces</b>, une serif chaleureuse, dit l'expertise sans la froideur. <b>La barre</b> soulignée reprend l'effet « décodé » des vidéos.</p>
+          <p style="margin-top: 26px"><b>Zone de protection</b> (pointillés) : laisser autour du logo un espace au moins égal à la hauteur de la barre × 3.</p>
+          <p style="margin-top: 26px"><b>Taille minimale</b> : 120 px de large à l'écran, 25 mm à l'impression. En dessous, utiliser le monogramme.</p>
+        </div>
+      </div>
+      <div class="foot">Immo Décodé</div><div class="num">03</div>
+    </section>
+
+    <!-- 4. Déclinaisons -->
+    <section class="page">
+      <div class="k">03 · Les déclinaisons</div>
+      <h1>Une version pour chaque usage.</h1>
+      <div class="grid" style="grid-template-columns: 1.6fr 1fr 1fr; align-items: stretch">
+        <div class="grid" style="gap: 24px">
+          <div class="tile" style="padding: 20px"><img src="../logo/logo-horizontal-couleur.svg" style="width: 100%; display: block" alt="" /></div>
+          <div style="border-radius: 24px; overflow: hidden"><img src="../logo/logo-horizontal-negatif.svg" style="width: 100%; display: block" alt="" /></div>
+          <p class="muted">Horizontal : bannières, en-têtes, signature e-mail, LinkedIn.</p>
+        </div>
+        <div class="grid" style="gap: 24px; justify-items: center">
+          <img src="../logo/monogramme-terracotta.svg" style="width: 210px" alt="" />
+          <img src="../logo/monogramme-nuit.svg" style="width: 210px" alt="" />
+          <p class="muted">Monogramme : photo de profil, favicon, filigrane des vidéos.</p>
+        </div>
+        <div class="grid" style="gap: 24px; justify-items: center">
+          <div style="background: var(--nuit); border-radius: 24px; padding: 24px"><img src="../logo/logo-principal-mono-blanc.svg" style="width: 200px; display: block" alt="" /></div>
+          <div class="tile" style="padding: 24px"><img src="../logo/logo-principal-mono-nuit.svg" style="width: 200px; display: block" alt="" /></div>
+          <p class="muted">Monochromes : impression une couleur, tampons, gravure.</p>
+        </div>
+      </div>
+      <div class="foot">Immo Décodé</div><div class="num">04</div>
+    </section>
+
+    <!-- 5. À éviter -->
+    <section class="page">
+      <div class="k">04 · À éviter</div>
+      <h1>Ce qu'on ne fait pas au logo.</h1>
+      <div class="grid" style="grid-template-columns: repeat(4, 1fr)">
+        <div><div class="no"><img src="../logo/logo-principal-couleur.svg" style="height: 170px; transform: scaleX(1.5)" alt="" /></div><p class="muted" style="margin-top: 14px">Ne pas déformer ni étirer.</p></div>
+        <div><div class="no"><img src="../logo/logo-principal-couleur.svg" style="height: 170px; filter: hue-rotate(160deg)" alt="" /></div><p class="muted" style="margin-top: 14px">Ne pas changer les couleurs.</p></div>
+        <div><div class="no"><img src="../logo/logo-principal-couleur.svg" style="height: 170px; filter: drop-shadow(8px 10px 4px rgba(0,0,0,0.5))" alt="" /></div><p class="muted" style="margin-top: 14px">Pas d'ombre ni d'effet.</p></div>
+        <div><div class="no" style="background: repeating-linear-gradient(45deg, #6b7f4e 0 18px, #c8553d 18px 36px)"><img src="../logo/logo-principal-couleur.svg" style="height: 170px" alt="" /></div><p class="muted" style="margin-top: 14px">Pas sur un fond chargé : utiliser la version négative sur un aplat.</p></div>
+      </div>
+      <div class="foot">Immo Décodé</div><div class="num">05</div>
+    </section>
+
+    <!-- 6. Couleurs -->
+    <section class="page">
+      <div class="k">05 · Les couleurs</div>
+      <h1>La lumière du Sud.</h1>
+      <div class="grid" style="grid-template-columns: repeat(5, 1fr); gap: 22px">
+        <div class="sw" style="background: #f2e8dc; border: 2px solid rgba(31,42,68,0.15)"><b>Sable</b>#F2E8DC<br />RVB 242 232 220<br />CMJN 0 4 9 5<br /><span class="muted">Fond · 60 %</span></div>
+        <div class="sw" style="background: #1f2a44; color: #fbf6ef"><b>Bleu nuit</b>#1F2A44<br />RVB 31 42 68<br />CMJN 54 38 0 73<br /><span style="opacity: 0.7">Texte, titres · 25 %</span></div>
+        <div class="sw" style="background: #c8553d; color: #fbf6ef"><b>Terracotta</b>#C8553D<br />RVB 200 85 61<br />CMJN 0 58 70 22<br /><span style="opacity: 0.8">Accent, toit · 10 %</span></div>
+        <div class="sw" style="background: #6b7f4e; color: #fbf6ef"><b>Vert olivier</b>#6B7F4E<br />RVB 107 127 78<br />CMJN 16 0 39 50<br /><span style="opacity: 0.8">Bon plan, résultat · 5 %</span></div>
+        <div class="sw" style="background: #fbf6ef; border: 2px solid rgba(31,42,68,0.15)"><b>Sable clair</b>#FBF6EF<br />RVB 251 246 239<br />CMJN 0 2 5 2<br /><span class="muted">Cartes, texte sur foncé</span></div>
+      </div>
+      <p class="muted" style="margin-top: 30px; max-width: none">Nuancier Illustrator : <b>couleurs/immo-decode-nuancier.ase</b> (Fenêtre › Nuancier › Ouvrir une bibliothèque de nuances › Autre bibliothèque). Valeurs CMJN approximatives : à valider avec l'imprimeur.</p>
+      <div class="foot">Immo Décodé</div><div class="num">06</div>
+    </section>
+
+    <!-- 7. Typographies -->
+    <section class="page">
+      <div class="k">06 · Les typographies</div>
+      <h1>Une serif pour parler,<br />une linéale pour préciser.</h1>
+      <div class="grid" style="grid-template-columns: 1fr 1fr">
+        <div class="tile">
+          <div class="k" style="color: var(--olive)">Titres · Fraunces</div>
+          <div style="font-family: Fraunces; font-weight: 700; font-size: 84px; line-height: 1.1; margin: 12px 0; white-space: nowrap">Aa 215 000 €</div>
+          <div style="font-family: Fraunces; font-weight: 600; font-style: italic; font-size: 40px">Tu paies combien en vrai ?</div>
+          <p class="muted" style="margin-top: 18px">Bold pour les titres et les chiffres, SemiBold Italic pour les questions et les phrases d'accroche.</p>
+        </div>
+        <div class="tile">
+          <div class="k" style="color: var(--olive)">Texte · Inter</div>
+          <div style="font-weight: 800; font-size: 84px; line-height: 1.1; margin: 12px 0">Aa 5,5 %</div>
+          <div style="font-weight: 700; font-size: 26px; letter-spacing: 6px; text-transform: uppercase; color: var(--terra)">Conseil invest</div>
+          <p class="muted" style="margin-top: 18px">ExtraBold pour les étiquettes et les hashtags, Medium pour les mentions et le texte courant.</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top: 18px; max-width: none; font-size: 16px">Vidéo 1080 × 1920 : titre 76-120 px, chiffre clé 170-210 px, étiquette 28 px espacée de 4 px. Polices libres (licence OFL) dans <b>polices/</b> : à installer avant d'ouvrir les fichiers « TEXTE-EDITABLE ».</p>
+      <div class="foot">Immo Décodé</div><div class="num">07</div>
+    </section>
+
+    <!-- 8. Illustrations -->
+    <section class="page">
+      <div class="k">07 · Les illustrations</div>
+      <h1>Un trait, une grille, zéro remplissage.</h1>
+      <div style="display: flex; gap: 60px; align-items: flex-start">
+        <img src="../illustrations/planche-illustrations.svg" style="width: 820px; border-radius: 24px; background: var(--clair)" alt="" />
+        <div>
+          <p><b>Règles</b> : grille de 120 × 120, trait de 7 px, extrémités et angles arrondis, pas de remplissage.</p>
+          <p style="margin-top: 20px">Couleurs : bleu nuit par défaut, terracotta pour l'objet du conseil, vert olivier pour un résultat positif.</p>
+          <p style="margin-top: 20px">En vidéo, les pictos se <b>dessinent</b> (tracé progressif en 0,6-0,8 s).</p>
+          <p class="muted" style="margin-top: 20px">Fichiers séparés dans <b>illustrations/</b>, en version nuit et terracotta. Les traits restent des contours modifiables dans Illustrator.</p>
+        </div>
+      </div>
+      <div class="foot">Immo Décodé</div><div class="num">08</div>
+    </section>
+
+    <!-- 9. Motion -->
+    <section class="page">
+      <div class="k">08 · Le motion design</div>
+      <h1>Les signatures animées.</h1>
+      <div class="grid" style="grid-template-columns: repeat(3, 1fr)">
+        <div class="tile"><h3>Le décodage</h3><p>Le nom apparaît en lettres brouillées qui se remettent en place, en 0,7 s, au début de chaque vidéo.</p></div>
+        <div class="tile"><h3>Le trait</h3><p>La barre terracotta se trace de gauche à droite sous les titres, en 0,4 s, pour souligner le chiffre ou l'idée clé.</p></div>
+        <div class="tile"><h3>Le compteur</h3><p>Chaque chiffre clé monte de 0 à sa valeur (1,2-1,6 s, ralenti à la fin) : on voit le calcul se faire.</p></div>
+      </div>
+      <p style="margin-top: 36px; max-width: none">Format 9:16, 1080 × 1920. Zone sûre : rien d'important au-dessus de 150 px ni sous 1 500 px (interface TikTok et Instagram). Une idée par écran, chaque phrase lisible au moins 1,5 s, image 0 = la miniature : le titre doit y être déjà affiché.</p>
+      <div class="foot">Immo Décodé</div><div class="num">09</div>
+    </section>
+  </body>
+</html>
