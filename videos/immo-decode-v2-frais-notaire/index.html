@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-600-normal.woff2") format("woff2");
+        font-weight: 600;
+      }
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2");
+        font-weight: 500;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter-latin-800-normal.woff2") format("woff2");
+        font-weight: 800;
+      }
+
+      /* CHARTE IMMO DÉCODÉ */
+      :root {
+        --sable: #f2e8dc;
+        --sable-clair: #fbf6ef;
+        --terra: #c8553d;
+        --nuit: #1f2a44;
+        --olive: #6b7f4e;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--sable);
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: var(--nuit);
+        background: var(--sable);
+      }
+      #grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          repeating-linear-gradient(0deg, rgba(200, 85, 61, 0.07) 0 2px, transparent 2px 60px),
+          repeating-linear-gradient(90deg, rgba(200, 85, 61, 0.07) 0 2px, transparent 2px 60px);
+      }
+
+      /* En-tête de marque */
+      #brand {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 170px;
+        text-align: center;
+      }
+      #brand-name {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 64px;
+        letter-spacing: -1px;
+        white-space: nowrap;
+      }
+      #brand-bar {
+        width: 120px;
+        height: 7px;
+        border-radius: 4px;
+        background: var(--terra);
+        margin: 12px auto 0;
+        transform-origin: 0% 50%;
+      }
+      #tag {
+        display: inline-block;
+        margin-top: 22px;
+        padding: 10px 26px;
+        border-radius: 40px;
+        background: var(--olive);
+        color: var(--sable-clair);
+        font-weight: 700;
+        font-size: 28px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+      }
+      .decode .dl {
+        position: relative;
+        display: inline-block;
+      }
+      .decode .glyph {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        color: var(--terra);
+        opacity: 0;
+      }
+      .decode .real {
+        opacity: 0;
+      }
+
+      .scene {
+        position: absolute;
+        left: 70px;
+        right: 70px;
+        top: 620px;
+        text-align: center;
+      }
+      .serif {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+      }
+      .lead {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 76px;
+        line-height: 1.1;
+      }
+      .ital {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 66px;
+        line-height: 1.15;
+        color: var(--terra);
+      }
+      .huge {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 190px;
+        line-height: 1;
+        letter-spacing: -4px;
+        white-space: nowrap;
+      }
+
+      /* S2 */
+      #s2-pct {
+        color: var(--terra);
+        font-size: 170px;
+      }
+      #s2-total {
+        margin-top: 50px;
+        display: inline-block;
+        padding: 30px 50px;
+        border-radius: 30px;
+        background: var(--nuit);
+        color: var(--sable-clair);
+      }
+      #s2-total .k {
+        font-weight: 700;
+        font-size: 30px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+      #s2-count {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 120px;
+        line-height: 1.1;
+        white-space: nowrap;
+      }
+      #s2-plus {
+        margin-top: 26px;
+        font-weight: 800;
+        font-size: 50px;
+        color: var(--terra);
+      }
+
+      /* S3 — répartition */
+      #bar {
+        display: flex;
+        width: 940px;
+        height: 120px;
+        margin: 60px auto 0;
+        border-radius: 22px;
+        overflow: hidden;
+        background: rgba(31, 42, 68, 0.08);
+      }
+      .seg {
+        height: 100%;
+        transform-origin: 0% 50%;
+      }
+      #seg1 {
+        width: 80%;
+        background: var(--terra);
+      }
+      #seg2 {
+        width: 10%;
+        background: var(--olive);
+      }
+      #seg3 {
+        width: 10%;
+        background: var(--nuit);
+      }
+      .legend {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        margin: 34px 0 0 30px;
+        text-align: left;
+        font-size: 46px;
+        font-weight: 700;
+      }
+      .legend .sw {
+        flex: none;
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+      }
+      .legend .v {
+        margin-left: auto;
+        margin-right: 30px;
+        font-family: "Fraunces", serif;
+        font-size: 58px;
+      }
+      #s3-note {
+        margin-top: 48px;
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 52px;
+        line-height: 1.2;
+      }
+
+      /* S4 — ancien vs neuf */
+      #cols {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 110px;
+        height: 720px;
+        margin-top: 40px;
+      }
+      .col {
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .col .v {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 88px;
+        margin-bottom: 18px;
+        white-space: nowrap;
+      }
+      .col .b {
+        width: 220px;
+        border-radius: 22px 22px 0 0;
+        transform-origin: 50% 100%;
+      }
+      .col .l {
+        margin-top: 20px;
+        font-weight: 800;
+        font-size: 46px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+      #c1 .v {
+        color: var(--terra);
+      }
+      #c1 .b {
+        height: 500px;
+        background: var(--terra);
+      }
+      #c2 .v {
+        color: var(--olive);
+      }
+      #c2 .b {
+        height: 170px;
+        background: var(--olive);
+      }
+
+      /* S5 — fin */
+      #save {
+        width: 170px;
+        height: 210px;
+        margin: 0 auto 40px;
+      }
+      #save path {
+        fill: var(--terra);
+      }
+      #handle {
+        margin-top: 50px;
+        font-weight: 800;
+        font-size: 56px;
+      }
+
+      #legal {
+        position: absolute;
+        left: 70px;
+        right: 70px;
+        bottom: 300px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--nuit);
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="20"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="grid"></div>
+
+      <div id="brand">
+        <div id="brand-name" class="decode" data-text="IMMO DÉCODÉ"></div>
+        <div id="brand-bar"></div>
+        <div id="tag">Conseil immo</div>
+      </div>
+
+      <div class="scene clip" id="s1" data-start="0" data-duration="3.7" data-track-index="1">
+        <div class="lead" id="s1-a">Tu achètes à</div>
+        <div class="huge" id="s1-b">200 000 €</div>
+        <div class="ital" id="s1-c">Tu paies combien<br />en vrai ?</div>
+      </div>
+
+      <div class="scene clip" id="s2" data-start="3.7" data-duration="4.9" data-track-index="1">
+        <div class="lead" id="s2-a">Dans l'ancien, ajoute</div>
+        <div class="huge" id="s2-pct">≈ 7 à 8 %</div>
+        <div class="ital" id="s2-b">de frais de notaire</div>
+        <div id="s2-total">
+          <div class="k">Total à prévoir</div>
+          <div id="s2-count">200 000 €</div>
+        </div>
+        <div id="s2-plus">soit environ 15 000 € de plus</div>
+      </div>
+
+      <div class="scene clip" id="s3" data-start="8.6" data-duration="4.9" data-track-index="1">
+        <div class="lead" id="s3-a">Où va cet argent ?</div>
+        <div id="bar">
+          <div class="seg" id="seg1"></div>
+          <div class="seg" id="seg2"></div>
+          <div class="seg" id="seg3"></div>
+        </div>
+        <div class="legend" id="lg1"><div class="sw" style="background: #c8553d"></div>Impôts et taxes<span class="v">≈ 80 %</span></div>
+        <div class="legend" id="lg2"><div class="sw" style="background: #6b7f4e"></div>Frais et débours<span class="v">≈ 10 %</span></div>
+        <div class="legend" id="lg3"><div class="sw" style="background: #1f2a44"></div>Le notaire<span class="v">≈ 10 %</span></div>
+        <div id="s3-note">Le notaire n'en garde<br />qu'une petite part.</div>
+      </div>
+
+      <div class="scene clip" id="s4" data-start="13.5" data-duration="4.1" data-track-index="1">
+        <div class="lead" id="s4-a">Et dans le neuf ?</div>
+        <div id="cols">
+          <div class="col" id="c1">
+            <div class="v">7-8 %</div>
+            <div class="b"></div>
+            <div class="l">Ancien</div>
+          </div>
+          <div class="col" id="c2">
+            <div class="v">2-3 %</div>
+            <div class="b"></div>
+            <div class="l">Neuf</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene clip" id="s5" data-start="17.6" data-duration="2.4" data-track-index="1">
+        <svg id="save" viewBox="0 0 170 210"><path d="M20 0h130a20 20 0 0 1 20 20v190l-85-55-85 55V20A20 20 0 0 1 20 0z" /></svg>
+        <div class="lead">Enregistre pour<br />ton futur achat</div>
+        <div id="handle">@immo.decode</div>
+      </div>
+
+      <div id="legal">Ordres de grandeur indicatifs. Simule ton cas avec un notaire.</div>
+    </div>
+
+    <script>
+      // ── Effet « décodage » de la signature
+      const GLYPHS = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%€?";
+      function makeDecoder(el, seed) {
+        const text = el.dataset.text;
+        el.textContent = "";
+        const letters = Array.from(text).map((ch, i) => {
+          const s = document.createElement("span");
+          s.className = "dl";
+          const r = document.createElement("span");
+          r.className = "real";
+          r.textContent = ch === " " ? "\u00A0" : ch;
+          const g = document.createElement("span");
+          g.className = "glyph";
+          s.appendChild(r);
+          s.appendChild(g);
+          el.appendChild(s);
+          return { r, g, i, space: ch === " " };
+        });
+        const n = letters.length;
+        return function (p) {
+          letters.forEach((L) => {
+            const a = (L.i / n) * 0.3;
+            const d = 0.4 + (L.i / n) * 0.55;
+            if (p <= a) {
+              L.r.style.opacity = 0;
+              L.g.style.opacity = 0;
+            } else if (p < d && !L.space) {
+              const step = Math.floor(p * 40);
+              const h = (((L.i + 1) * 2654435761) ^ ((step + 7) * 40503) ^ seed) >>> 0;
+              L.g.textContent = GLYPHS[h % GLYPHS.length];
+              L.g.style.opacity = 1;
+              L.r.style.opacity = 0;
+            } else {
+              L.g.style.opacity = 0;
+              L.r.style.opacity = 1;
+            }
+          });
+        };
+      }
+      const dec = makeDecoder(document.getElementById("brand-name"), 2024);
+      dec(0);
+
+      const fmt = (n) => String(Math.round(n / 100) * 100).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €";
+      const countEl = document.getElementById("s2-count");
+      const P = { d: 0, c: 200000 };
+
+      const tl = gsap.timeline({ paused: true });
+
+      // En-tête
+      tl.fromTo(P, { d: 0 }, { d: 1, duration: 0.7, ease: "none", onUpdate: () => dec(P.d) }, 0);
+      tl.fromTo("#brand-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 0.55);
+      tl.fromTo("#tag", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.65);
+
+      // ── S1 · La question (0.3 → 3.7s)
+      // Image 0 = miniature : la question est déjà à l'écran
+      tl.fromTo("#s1-b", { scale: 1 }, { scale: 1.06, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.5);
+      tl.fromTo("#s1-c", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.8);
+      tl.to("#s1 > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.05, ease: "power2.in" }, 3.35);
+
+      // ── S2 · Le pourcentage + le compteur (3.7 → 8.6s)
+      tl.fromTo("#s2-a", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 3.75);
+      tl.fromTo("#s2-pct", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.55, ease: "back.out(1.8)" }, 4.0);
+      tl.fromTo("#s2-b", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 4.35);
+      tl.fromTo("#s2-total", { autoAlpha: 0, y: 60 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" }, 4.8);
+      tl.fromTo(P, { c: 200000 }, { c: 215000, duration: 1.6, ease: "power2.out", onUpdate: () => (countEl.textContent = fmt(P.c)) }, 5.2);
+      tl.fromTo("#s2-plus", { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 6.6);
+      tl.fromTo("#legal", { opacity: 0 }, { opacity: 0.75, duration: 0.5 }, 4.8);
+      tl.to("#s2 > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.04, ease: "power2.in" }, 8.2);
+
+      // ── S3 · Où va l'argent (8.6 → 13.5s)
+      tl.fromTo("#s3-a", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 8.65);
+      tl.fromTo("#bar", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, 8.9);
+      tl.fromTo("#seg1", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power3.out" }, 9.0);
+      tl.fromTo("#lg1", { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 9.3);
+      tl.fromTo("#seg2", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 9.7);
+      tl.fromTo("#lg2", { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 9.8);
+      tl.fromTo("#seg3", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 10.1);
+      tl.fromTo("#lg3", { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 10.2);
+      tl.to("#lg3", { scale: 1.06, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0% 50%" }, 10.7);
+      tl.fromTo("#s3-note", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 10.6);
+      tl.to("#s3 > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.03, ease: "power2.in" }, 13.1);
+
+      // ── S4 · Ancien vs neuf (13.5 → 17.6s)
+      tl.fromTo("#s4-a", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 13.55);
+      tl.fromTo(".col .l", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 13.8);
+      tl.fromTo("#c1 .b", { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: "power3.out" }, 13.9);
+      tl.fromTo("#c1 .v", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 14.4);
+      tl.fromTo("#c2 .b", { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: "power3.out" }, 14.5);
+      tl.fromTo("#c2 .v", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 14.9);
+      tl.to("#s4 > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.05, ease: "power2.in" }, 17.25);
+
+      // ── S5 · Fin (17.6 → 20s)
+      tl.to("#legal", { opacity: 0, duration: 0.3 }, 17.3);
+      tl.fromTo("#save", { autoAlpha: 0, y: -80 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "bounce.out" }, 17.6);
+      tl.fromTo("#s5 .lead", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 17.7);
+      tl.fromTo("#handle", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 17.85);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

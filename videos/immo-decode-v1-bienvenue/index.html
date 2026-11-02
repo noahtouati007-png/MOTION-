@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-600-normal.woff2") format("woff2");
+        font-weight: 600;
+      }
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2");
+        font-weight: 500;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter-latin-800-normal.woff2") format("woff2");
+        font-weight: 800;
+      }
+
+      /* CHARTE IMMO DÉCODÉ */
+      :root {
+        --sable: #f2e8dc;
+        --sable-clair: #fbf6ef;
+        --terra: #c8553d;
+        --nuit: #1f2a44;
+        --olive: #6b7f4e;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--sable);
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: var(--nuit);
+        background: var(--sable);
+      }
+      #grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          repeating-linear-gradient(0deg, rgba(200, 85, 61, 0.07) 0 2px, transparent 2px 60px),
+          repeating-linear-gradient(90deg, rgba(200, 85, 61, 0.07) 0 2px, transparent 2px 60px);
+      }
+      #plan {
+        position: absolute;
+        inset: 0;
+        width: 1080px;
+        height: 1920px;
+      }
+      #plan path {
+        fill: none;
+        stroke: var(--nuit);
+        stroke-opacity: 0.09;
+        stroke-width: 10;
+        stroke-linecap: square;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+      }
+
+      /* Decode effect */
+      .decode .dl {
+        position: relative;
+        display: inline-block;
+      }
+      .decode .glyph {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        color: var(--terra);
+        opacity: 0;
+      }
+      .decode .real {
+        opacity: 0;
+      }
+
+      #brand {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 600px;
+        text-align: center;
+        transform-origin: 50% 0%;
+      }
+      .brand-line {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 205px;
+        line-height: 0.98;
+        letter-spacing: -2px;
+        color: var(--nuit);
+        white-space: nowrap;
+      }
+      #brand-bar {
+        width: 420px;
+        height: 14px;
+        border-radius: 7px;
+        background: var(--terra);
+        margin: 34px auto 0;
+        transform-origin: 0% 50%;
+      }
+      #brand-sub {
+        margin-top: 30px;
+        font-weight: 700;
+        font-size: 34px;
+        letter-spacing: 8px;
+        text-transform: uppercase;
+        color: var(--terra);
+      }
+
+      .scene {
+        position: absolute;
+        left: 70px;
+        right: 70px;
+        top: 560px;
+        text-align: center;
+      }
+
+      /* Scene B — les 3 thèmes */
+      .word-mask {
+        overflow: hidden;
+        padding: 6px 0 14px;
+      }
+      .word {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 118px;
+        line-height: 1.05;
+      }
+      #w1 {
+        color: var(--nuit);
+      }
+      #w2 {
+        color: var(--terra);
+      }
+      #w3 {
+        color: var(--olive);
+        font-size: 104px;
+      }
+      #ville {
+        margin-top: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 68px;
+      }
+      #ville svg {
+        width: 52px;
+        height: 64px;
+      }
+
+      /* Scene C — l'équipe */
+      .card {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        background: var(--sable-clair);
+        border-radius: 28px;
+        border-left: 16px solid var(--terra);
+        padding: 44px 48px;
+        margin-bottom: 44px;
+        text-align: left;
+        box-shadow: 0 18px 40px rgba(31, 42, 68, 0.1);
+      }
+      #card2 {
+        border-left-color: var(--olive);
+      }
+      .card svg {
+        flex: none;
+        width: 150px;
+        height: 150px;
+      }
+      .card svg path,
+      .card svg circle {
+        fill: none;
+        stroke-width: 7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+      }
+      #card1 svg * {
+        stroke: var(--terra);
+      }
+      #card2 svg * {
+        stroke: var(--olive);
+      }
+      .card-k {
+        font-weight: 700;
+        font-size: 30px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--terra);
+      }
+      #card2 .card-k {
+        color: var(--olive);
+      }
+      .card-t {
+        margin-top: 8px;
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 66px;
+        line-height: 1.05;
+      }
+
+      /* Scene D — #DevineLePrix */
+      #d-l1,
+      #d-l2 {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 84px;
+        white-space: nowrap;
+        line-height: 1.08;
+      }
+      #d-l2 {
+        color: var(--terra);
+      }
+      #qmark {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 430px;
+        line-height: 1;
+        color: var(--terra);
+        margin-top: 10px;
+      }
+      #hashtag {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 18px 40px;
+        border-radius: 60px;
+        background: var(--olive);
+        color: var(--sable-clair);
+        font-weight: 800;
+        font-size: 58px;
+      }
+
+      /* Scene E — fin */
+      #end {
+        top: 1130px;
+      }
+      #handle {
+        font-weight: 800;
+        font-size: 58px;
+        color: var(--nuit);
+      }
+      #cta {
+        display: inline-block;
+        margin-top: 36px;
+        padding: 24px 48px;
+        border-radius: 70px;
+        background: var(--terra);
+        color: var(--sable-clair);
+        font-weight: 700;
+        font-size: 46px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="grid"></div>
+      <svg id="plan" viewBox="0 0 1080 1920">
+        <path pathLength="1" d="M60 140 H1020 V1780 H60 Z" />
+        <path pathLength="1" d="M60 760 H460 M600 760 H1020" />
+        <path pathLength="1" d="M520 140 V560 M520 700 V760" />
+        <path pathLength="1" d="M60 1300 H380 M520 1300 H1020" />
+        <path pathLength="1" d="M700 1300 V1780" />
+      </svg>
+
+      <div id="brand">
+        <div class="brand-line decode" id="b1" data-text="IMMO"></div>
+        <div class="brand-line decode" id="b2" data-text="DÉCODÉ"></div>
+        <div id="brand-bar"></div>
+        <div id="brand-sub">L'immo en 30 secondes</div>
+      </div>
+
+      <div class="scene clip" id="sB" data-start="3.2" data-duration="3.2" data-track-index="1">
+        <div class="word-mask"><div class="word" id="w1">Immobilier.</div></div>
+        <div class="word-mask"><div class="word" id="w2">Rénovation.</div></div>
+        <div class="word-mask"><div class="word" id="w3">Investissement.</div></div>
+        <div id="ville">
+          <svg viewBox="0 0 48 60">
+            <path d="M24 2C12 2 4 11 4 22c0 15 20 36 20 36s20-21 20-36C44 11 36 2 24 2z" fill="#C8553D" />
+            <circle cx="24" cy="22" r="7" fill="#FBF6EF" />
+          </svg>
+          à Montpellier
+        </div>
+      </div>
+
+      <div class="scene clip" id="sC" data-start="6.4" data-duration="3.1" data-track-index="1">
+        <div class="card" id="card1">
+          <svg viewBox="0 0 150 150">
+            <path pathLength="1" d="M30 38 h70 a10 10 0 0 1 10 10 v14 a10 10 0 0 1 -10 10 h-70 z" />
+            <path pathLength="1" d="M110 48 h18" />
+            <path pathLength="1" d="M62 72 v62" />
+          </svg>
+          <div>
+            <div class="card-k">L'expert</div>
+            <div class="card-t">Rénovation</div>
+          </div>
+        </div>
+        <div class="card" id="card2">
+          <svg viewBox="0 0 150 150">
+            <path pathLength="1" d="M22 50 h106 a10 10 0 0 1 10 10 v58 a10 10 0 0 1 -10 10 h-106 a10 10 0 0 1 -10 -10 v-58 a10 10 0 0 1 10 -10 z" />
+            <path pathLength="1" d="M50 50 l10 -18 h30 l10 18" />
+            <circle pathLength="1" cx="75" cy="88" r="24" />
+          </svg>
+          <div>
+            <div class="card-k">Le photographe</div>
+            <div class="card-t">Immobilier</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene clip" id="sD" data-start="9.5" data-duration="3.3" data-track-index="1">
+        <div id="d-l1">Et toi,</div>
+        <div id="d-l2">tu devines le prix.</div>
+        <div id="qmark">?</div>
+        <div id="hashtag">#DevineLePrix</div>
+      </div>
+
+      <div class="scene clip" id="end" data-start="12.8" data-duration="2.2" data-track-index="1">
+        <div id="handle">@immo.decode</div>
+        <div id="cta">Abonne-toi · 1er conseil lundi</div>
+      </div>
+    </div>
+
+    <script>
+      // ── Effet « décodage » : lettres brouillées → vraies lettres (déterministe)
+      const GLYPHS = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%€?";
+      function makeDecoder(el, seed) {
+        const text = el.dataset.text;
+        el.textContent = "";
+        const letters = Array.from(text).map((ch, i) => {
+          const s = document.createElement("span");
+          s.className = "dl";
+          const r = document.createElement("span");
+          r.className = "real";
+          r.textContent = ch;
+          const g = document.createElement("span");
+          g.className = "glyph";
+          s.appendChild(r);
+          s.appendChild(g);
+          el.appendChild(s);
+          return { r, g, i };
+        });
+        const n = letters.length;
+        return function (p) {
+          letters.forEach((L) => {
+            const a = (L.i / n) * 0.3;
+            const d = 0.4 + (L.i / n) * 0.55;
+            if (p <= a) {
+              L.r.style.opacity = 0;
+              L.g.style.opacity = 0;
+            } else if (p < d) {
+              const step = Math.floor(p * 40);
+              const h = (((L.i + 1) * 2654435761) ^ ((step + 7) * 40503) ^ seed) >>> 0;
+              L.g.textContent = GLYPHS[h % GLYPHS.length];
+              L.g.style.opacity = 1;
+              L.r.style.opacity = 0;
+            } else {
+              L.g.style.opacity = 0;
+              L.r.style.opacity = 1;
+            }
+          });
+        };
+      }
+      const dec1 = makeDecoder(document.getElementById("b1"), 1337);
+      const dec2 = makeDecoder(document.getElementById("b2"), 4242);
+      const D = { p1: 0, p2: 0 };
+      dec1(0);
+      dec2(0);
+
+      const tl = gsap.timeline({ paused: true });
+
+      // Fond : le plan se dessine pendant toute la vidéo
+      tl.fromTo("#plan path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 3.2, stagger: 2.2, ease: "power1.inOut" }, 0);
+
+      // ── A · Décodage du nom (0 → 3.2s)
+      tl.fromTo(D, { p1: 0 }, { p1: 1, duration: 1.2, ease: "none", onUpdate: () => dec1(D.p1) }, 0.1);
+      tl.fromTo(D, { p2: 0 }, { p2: 1, duration: 1.3, ease: "none", onUpdate: () => dec2(D.p2) }, 0.3);
+      tl.fromTo("#brand-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 1.4);
+      tl.fromTo("#brand-sub", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 1.45);
+      // Le nom monte en haut, en petit
+      tl.to("#brand-sub", { autoAlpha: 0, duration: 0.25 }, 2.95);
+      tl.to("#brand", { y: -440, scale: 0.4, duration: 0.65, ease: "power3.inOut" }, 2.95);
+
+      // ── B · Les 3 thèmes (3.3 → 6.4s)
+      tl.fromTo("#w1", { yPercent: 110 }, { yPercent: 0, duration: 0.55, ease: "power4.out" }, 3.35);
+      tl.fromTo("#w2", { yPercent: 110 }, { yPercent: 0, duration: 0.55, ease: "power4.out" }, 3.7);
+      tl.fromTo("#w3", { yPercent: 110 }, { yPercent: 0, duration: 0.55, ease: "power4.out" }, 4.05);
+      tl.fromTo("#ville", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "back.out(1.6)" }, 4.45);
+      tl.fromTo("#ville svg", { y: -40 }, { y: 0, duration: 0.5, ease: "bounce.out" }, 4.45);
+      tl.to("#sB > *", { opacity: 0, y: -60, duration: 0.35, ease: "power2.in" }, 6.0);
+
+      // ── C · L'équipe (6.4 → 9.5s)
+      tl.fromTo("#card1", { autoAlpha: 0, x: -140 }, { autoAlpha: 1, x: 0, duration: 0.55, ease: "power3.out" }, 6.45);
+      tl.fromTo("#card1 svg *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.7, stagger: 0.15, ease: "power2.out" }, 6.7);
+      tl.fromTo("#card2", { autoAlpha: 0, x: 140 }, { autoAlpha: 1, x: 0, duration: 0.55, ease: "power3.out" }, 6.95);
+      tl.fromTo("#card2 svg *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.7, stagger: 0.15, ease: "power2.out" }, 7.2);
+      tl.to("#sC > *", { opacity: 0, y: -60, duration: 0.35, ease: "power2.in" }, 9.1);
+
+      // ── D · #DevineLePrix (9.5 → 12.8s)
+      tl.fromTo("#d-l1", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 9.5);
+      tl.fromTo("#d-l2", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 9.65);
+      tl.fromTo("#qmark", { autoAlpha: 0, scale: 0.3, rotation: -20 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.6, ease: "back.out(2)" }, 9.8);
+      tl.fromTo("#hashtag", { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 9.95);
+      tl.to("#qmark", { y: -40, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 3 }, 10.6);
+      tl.to("#sD > *", { opacity: 0, duration: 0.3, ease: "power2.in" }, 12.45);
+
+      // ── E · Fin : le nom revient au centre (12.8 → 15s)
+      tl.to("#brand", { y: -170, scale: 0.88, duration: 0.55, ease: "power3.inOut" }, 12.55);
+      tl.fromTo("#handle", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 12.8);
+      tl.fromTo("#cta", { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 12.85);
+      tl.to("#cta", { scale: 1.05, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 13.6);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

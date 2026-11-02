@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-600-normal.woff2") format("woff2");
+        font-weight: 600;
+      }
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2");
+        font-weight: 600;
+        font-style: italic;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2");
+        font-weight: 500;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: "Inter";
+        src: url("assets/fonts/inter-latin-800-normal.woff2") format("woff2");
+        font-weight: 800;
+      }
+
+      /* CHARTE IMMO DÉCODÉ */
+      :root {
+        --sable: #f2e8dc;
+        --sable-clair: #fbf6ef;
+        --terra: #c8553d;
+        --nuit: #1f2a44;
+        --olive: #6b7f4e;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--sable);
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+        color: var(--nuit);
+        background: var(--sable);
+      }
+      #grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          repeating-linear-gradient(0deg, rgba(200, 85, 61, 0.07) 0 2px, transparent 2px 60px),
+          repeating-linear-gradient(90deg, rgba(200, 85, 61, 0.07) 0 2px, transparent 2px 60px);
+      }
+
+      /* En-tête de marque */
+      #brand {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 170px;
+        text-align: center;
+      }
+      #brand-name {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 64px;
+        letter-spacing: -1px;
+        white-space: nowrap;
+      }
+      #brand-bar {
+        width: 120px;
+        height: 7px;
+        border-radius: 4px;
+        background: var(--terra);
+        margin: 12px auto 0;
+        transform-origin: 0% 50%;
+      }
+      #tag {
+        display: inline-block;
+        margin-top: 22px;
+        padding: 10px 26px;
+        border-radius: 40px;
+        background: var(--olive);
+        color: var(--sable-clair);
+        font-weight: 700;
+        font-size: 28px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+      }
+      .decode .dl {
+        position: relative;
+        display: inline-block;
+      }
+      .decode .glyph {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        color: var(--terra);
+        opacity: 0;
+      }
+      .decode .real {
+        opacity: 0;
+      }
+
+      .scene {
+        position: absolute;
+        left: 70px;
+        right: 70px;
+        top: 620px;
+        text-align: center;
+      }
+      .serif {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+      }
+      .lead {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 76px;
+        line-height: 1.1;
+      }
+      .ital {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 66px;
+        line-height: 1.15;
+        color: var(--terra);
+      }
+      .huge {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 190px;
+        line-height: 1;
+        letter-spacing: -4px;
+        white-space: nowrap;
+      }
+
+      /* Calculatrice */
+      #calc {
+        width: 220px;
+        height: 280px;
+        margin: 0 auto 40px;
+      }
+      #calc rect,
+      #calc path {
+        fill: none;
+        stroke: var(--terra);
+        stroke-width: 8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      /* Le studio */
+      #house {
+        width: 300px;
+        height: 260px;
+        margin: 10px auto 30px;
+      }
+      #house path {
+        fill: none;
+        stroke: var(--nuit);
+        stroke-width: 9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+      }
+      .chip {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--sable-clair);
+        border-radius: 26px;
+        border-left: 14px solid var(--terra);
+        padding: 30px 40px;
+        margin-top: 30px;
+        text-align: left;
+        box-shadow: 0 14px 32px rgba(31, 42, 68, 0.1);
+      }
+      #chip2 {
+        border-left-color: var(--olive);
+      }
+      .chip .k {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 1.2;
+      }
+      .chip .k small {
+        display: block;
+        font-weight: 500;
+        font-size: 28px;
+        opacity: 0.75;
+      }
+      .chip .v {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 74px;
+        white-space: nowrap;
+      }
+      /* Calculs */
+      .eq {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 120px;
+        line-height: 1.15;
+        white-space: nowrap;
+      }
+      .eq-res {
+        color: var(--olive);
+      }
+      .unit {
+        font-weight: 700;
+        font-size: 44px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-top: 6px;
+      }
+      #gauge {
+        width: 760px;
+        height: 420px;
+        margin: 10px auto 0;
+        display: block;
+      }
+      #gauge .track {
+        fill: none;
+        stroke: rgba(31, 42, 68, 0.1);
+        stroke-width: 56;
+        stroke-linecap: round;
+      }
+      #gauge .fill {
+        fill: none;
+        stroke: var(--olive);
+        stroke-width: 56;
+        stroke-linecap: round;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+      }
+      #g-val {
+        margin-top: -190px;
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 170px;
+        color: var(--olive);
+        white-space: nowrap;
+      }
+      /* Dépenses */
+      .minus {
+        display: inline-block;
+        margin-top: 26px;
+        padding: 22px 40px;
+        border-radius: 60px;
+        background: var(--terra);
+        color: var(--sable-clair);
+        font-weight: 800;
+        font-size: 50px;
+      }
+      #net {
+        margin-top: 60px;
+        display: inline-flex;
+        align-items: center;
+        gap: 30px;
+      }
+      #net-old {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 110px;
+        color: var(--olive);
+        position: relative;
+      }
+      #net-strike {
+        position: absolute;
+        left: -8px;
+        right: -8px;
+        top: 52%;
+        height: 12px;
+        border-radius: 6px;
+        background: var(--terra);
+        transform-origin: 0% 50%;
+      }
+      #net-arrow {
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 110px;
+        color: var(--terra);
+      }
+      #net-new {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 56px;
+        text-align: left;
+        line-height: 1.15;
+      }
+      /* Fin */
+      #save {
+        width: 170px;
+        height: 210px;
+        margin: 0 auto 40px;
+      }
+      #save path {
+        fill: var(--terra);
+      }
+      #handle {
+        margin-top: 50px;
+        font-weight: 800;
+        font-size: 56px;
+      }
+      #legal {
+        position: absolute;
+        left: 70px;
+        right: 70px;
+        bottom: 300px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--nuit);
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="25"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="grid"></div>
+
+      <div id="brand">
+        <div id="brand-name" class="decode" data-text="IMMO DÉCODÉ"></div>
+        <div id="brand-bar"></div>
+        <div id="tag">Conseil invest</div>
+      </div>
+
+      <div class="scene clip" id="s1" data-start="0" data-duration="3.4" data-track-index="1">
+        <svg id="calc" viewBox="0 0 220 280">
+          <rect pathLength="1" x="10" y="10" width="200" height="260" rx="26" />
+          <rect pathLength="1" x="40" y="40" width="140" height="56" rx="10" />
+          <path pathLength="1" d="M60 140h20M140 140h20M60 190h20M140 190h20M60 240h20M140 240h20M110 130v20M100 190h20M100 240h20" />
+        </svg>
+        <div class="lead" id="s1-a">Tu veux investir ?</div>
+        <div class="ital" id="s1-b">Fais ce calcul avant tout.</div>
+      </div>
+
+      <div class="scene clip" id="s2" data-start="3.4" data-duration="4.8" data-track-index="1">
+        <svg id="house" viewBox="0 0 300 260">
+          <path pathLength="1" d="M30 120 L150 20 L270 120" />
+          <path pathLength="1" d="M60 100 V240 H240 V100" />
+          <path pathLength="1" d="M125 240 V170 H175 V240" />
+        </svg>
+        <div class="lead" id="s2-a">Exemple : un studio</div>
+        <div class="chip" id="chip1">
+          <div class="k">Prix d'achat<small>frais compris</small></div>
+          <div class="v">120 000 €</div>
+        </div>
+        <div class="chip" id="chip2">
+          <div class="k">Loyer<small>par mois</small></div>
+          <div class="v">550 €</div>
+        </div>
+      </div>
+
+      <div class="scene clip" id="s3" data-start="8.2" data-duration="4.6" data-track-index="1">
+        <div class="lead" id="s3-a">Étape 1 : loyer annuel</div>
+        <div class="eq" id="s3-eq" style="margin-top: 60px">550 € × 12</div>
+        <div class="eq eq-res" id="s3-res">= <span id="s3-count">0</span> €</div>
+        <div class="unit" id="s3-unit">de loyers par an</div>
+      </div>
+
+      <div class="scene clip" id="s4" data-start="12.8" data-duration="4.8" data-track-index="1">
+        <div class="lead" id="s4-a">Étape 2 : divise par le prix</div>
+        <div class="eq" id="s4-eq" style="font-size: 96px; margin-top: 30px">6 600 ÷ 120 000</div>
+        <svg id="gauge" viewBox="0 0 760 420">
+          <path class="track" d="M80 380 A300 300 0 0 1 680 380" />
+          <path class="fill" pathLength="1" d="M80 380 A300 300 0 0 1 680 380" />
+        </svg>
+        <div id="g-val"><span id="g-count">0,0</span> %</div>
+        <div class="unit" id="s4-unit">de rentabilité brute</div>
+      </div>
+
+      <div class="scene clip" id="s5" data-start="17.6" data-duration="4.7" data-track-index="1">
+        <div class="lead" id="s5-a">Attention : c'est avant<br />les dépenses</div>
+        <div><div class="minus" id="m1">− Taxe foncière</div></div>
+        <div><div class="minus" id="m2">− Charges</div></div>
+        <div><div class="minus" id="m3">− Mois sans locataire</div></div>
+        <div id="net">
+          <div id="net-old">5,5 %<div id="net-strike"></div></div>
+          <div id="net-arrow">→</div>
+          <div id="net-new">Rentabilité nette :<br />plus basse</div>
+        </div>
+      </div>
+
+      <div class="scene clip" id="s6" data-start="22.3" data-duration="2.7" data-track-index="1">
+        <svg id="save" viewBox="0 0 170 210"><path d="M20 0h130a20 20 0 0 1 20 20v190l-85-55-85 55V20A20 20 0 0 1 20 0z" /></svg>
+        <div class="lead">Enregistre et refais<br />le calcul sur ton<br />prochain bien</div>
+        <div id="handle">@immo.decode</div>
+      </div>
+
+      <div id="legal">Exemple fictif, à adapter à ton projet.</div>
+    </div>
+    <script>
+      // ── Effet « décodage » de la signature
+      const GLYPHS = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%€?";
+      function makeDecoder(el, seed) {
+        const text = el.dataset.text;
+        el.textContent = "";
+        const letters = Array.from(text).map((ch, i) => {
+          const s = document.createElement("span");
+          s.className = "dl";
+          const r = document.createElement("span");
+          r.className = "real";
+          r.textContent = ch === " " ? "\u00A0" : ch;
+          const g = document.createElement("span");
+          g.className = "glyph";
+          s.appendChild(r);
+          s.appendChild(g);
+          el.appendChild(s);
+          return { r, g, i, space: ch === " " };
+        });
+        const n = letters.length;
+        return function (p) {
+          letters.forEach((L) => {
+            const a = (L.i / n) * 0.3;
+            const d = 0.4 + (L.i / n) * 0.55;
+            if (p <= a) {
+              L.r.style.opacity = 0;
+              L.g.style.opacity = 0;
+            } else if (p < d && !L.space) {
+              const step = Math.floor(p * 40);
+              const h = (((L.i + 1) * 2654435761) ^ ((step + 7) * 40503) ^ seed) >>> 0;
+              L.g.textContent = GLYPHS[h % GLYPHS.length];
+              L.g.style.opacity = 1;
+              L.r.style.opacity = 0;
+            } else {
+              L.g.style.opacity = 0;
+              L.r.style.opacity = 1;
+            }
+          });
+        };
+      }
+      const dec = makeDecoder(document.getElementById("brand-name"), 7777);
+      dec(0);
+
+      const sep = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      const c3 = document.getElementById("s3-count");
+      const gc = document.getElementById("g-count");
+      const P = { d: 0, y: 0, g: 0 };
+      c3.textContent = "0";
+      gc.textContent = "0,0";
+
+      const tl = gsap.timeline({ paused: true });
+
+      // En-tête
+      tl.fromTo(P, { d: 0 }, { d: 1, duration: 0.7, ease: "none", onUpdate: () => dec(P.d) }, 0);
+      tl.fromTo("#brand-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 0.55);
+      tl.fromTo("#tag", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.65);
+
+      // ── S1 · Accroche (0 → 3.4s) — déjà à l'écran à 0 s (miniature)
+      tl.fromTo("#calc", { rotation: 0 }, { rotation: -6, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.4);
+      tl.fromTo("#s1-b", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.7);
+      tl.to("#s1 > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.05, ease: "power2.in" }, 3.05);
+
+      // ── S2 · Le studio (3.4 → 8.2s)
+      tl.fromTo("#house path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.7, stagger: 0.18, ease: "power2.out" }, 3.45);
+      tl.fromTo("#s2-a", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 3.6);
+      tl.fromTo("#chip1", { autoAlpha: 0, x: -120 }, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power3.out" }, 4.2);
+      tl.fromTo("#chip2", { autoAlpha: 0, x: 120 }, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power3.out" }, 4.8);
+      tl.fromTo("#legal", { opacity: 0 }, { opacity: 0.75, duration: 0.5 }, 4.2);
+      tl.to("#s2 > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.04, ease: "power2.in" }, 7.85);
+
+      // ── S3 · Loyer annuel (8.2 → 12.8s)
+      tl.fromTo("#s3-a", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 8.25);
+      tl.fromTo("#s3-eq", { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, 8.6);
+      tl.fromTo("#s3-res", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 9.2);
+      tl.fromTo(P, { y: 0 }, { y: 6600, duration: 1.2, ease: "power2.out", onUpdate: () => (c3.textContent = sep(Math.round(P.y / 50) * 50)) }, 9.3);
+      tl.fromTo("#s3-unit", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 }, 10.4);
+      tl.to("#s3 > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.04, ease: "power2.in" }, 12.45);
+
+      // ── S4 · Rentabilité brute (12.8 → 17.6s)
+      tl.fromTo("#s4-a", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 12.85);
+      tl.fromTo("#s4-eq", { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, 13.2);
+      tl.fromTo("#gauge", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 13.7);
+      tl.fromTo("#gauge .fill", { strokeDashoffset: 1 }, { strokeDashoffset: 0.45, duration: 1.3, ease: "power2.out" }, 13.9);
+      tl.fromTo("#g-val", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 13.9);
+      tl.fromTo(P, { g: 0 }, { g: 5.5, duration: 1.3, ease: "power2.out", onUpdate: () => (gc.textContent = P.g.toFixed(1).replace(".", ",")) }, 13.9);
+      tl.fromTo("#s4-unit", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 }, 15.1);
+      tl.to("#g-val", { scale: 1.08, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 15.3);
+      tl.to("#s4 > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.04, ease: "power2.in" }, 17.25);
+
+      // ── S5 · Les dépenses (17.6 → 22.3s)
+      tl.fromTo("#s5-a", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 17.65);
+      tl.fromTo("#m1", { autoAlpha: 0, y: -60 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "bounce.out" }, 18.1);
+      tl.fromTo("#m2", { autoAlpha: 0, y: -60 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "bounce.out" }, 18.45);
+      tl.fromTo("#m3", { autoAlpha: 0, y: -60 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "bounce.out" }, 18.8);
+      tl.fromTo("#net", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35 }, 19.3);
+      tl.fromTo("#net-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 19.7);
+      tl.fromTo("#net-new", { autoAlpha: 0, x: 30 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 19.95);
+      tl.to("#s5 > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.04, ease: "power2.in" }, 21.95);
+
+      // ── S6 · Fin (22.3 → 25s)
+      tl.to("#legal", { opacity: 0, duration: 0.3 }, 21.95);
+      tl.fromTo("#save", { autoAlpha: 0, y: -80 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "bounce.out" }, 22.3);
+      tl.fromTo("#s6 .lead", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 22.4);
+      tl.fromTo("#handle", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 22.55);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "historyId": "db1be4b2-7139-4a39-8f97-4a21a2468139",
+  "currentRevision": "6231de06-2324-4757-af8f-5ac1290c7d86",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "assets/fonts/fraunces-latin-600-italic.woff2": {
+      "hash": "23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/23/23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7"
+    },
+    "assets/fonts/fraunces-latin-600-normal.woff2": {
+      "hash": "3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/3a/3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82"
+    },
+    "assets/fonts/fraunces-latin-700-normal.woff2": {
+      "hash": "c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/c3/c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3"
+    },
+    "assets/fonts/inter-latin-500-normal.woff2": {
+      "hash": "f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/f3/f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f"
+    },
+    "assets/fonts/inter-latin-700-normal.woff2": {
+      "hash": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/6f/6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491"
+    },
+    "assets/fonts/inter-latin-800-normal.woff2": {
+      "hash": "a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/a7/a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "dc942628e72894d99149007fcf719012e4cb7d42f7685edd5de7d7ade25ac9b5",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/dc/dc942628e72894d99149007fcf719012e4cb7d42f7685edd5de7d7ade25ac9b5"
+    },
+    "meta.json": {
+      "hash": "0ae38c38715e425b1093328274deb5e4b5e86d3d60b05f5d6f74732129508e3e",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/0a/0ae38c38715e425b1093328274deb5e4b5e86d3d60b05f5d6f74732129508e3e"
+    },
+    "package.json": {
+      "hash": "511be4c71fe01b41fa3cb0d450dbb1409bb17ebc8a1ab6924c6726a0bf6dd9e7",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/51/511be4c71fe01b41fa3cb0d450dbb1409bb17ebc8a1ab6924c6726a0bf6dd9e7"
+    }
+  },
+  "revisions": {
+    "7104def6-1247-4b1c-b002-bc0197404fda": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793612341320,
+      "endedAt": 1793612341321,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/96/96c78b4b6a767a7f6c5945e59f406da570428fa1ac46b46d5c4549f7d50b413c",
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/a2/a27ebb5e9fb119d8c8a6fe5acf5034980eac8a880c051e79c6500dd5f90635e7"
+        }
+      }
+    },
+    "6231de06-2324-4757-af8f-5ac1290c7d86": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793612420722,
+      "endedAt": 1793612420723,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/a2/a27ebb5e9fb119d8c8a6fe5acf5034980eac8a880c051e79c6500dd5f90635e7",
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/dc/dc942628e72894d99149007fcf719012e4cb7d42f7685edd5de7d7ade25ac9b5"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "6231de06-2324-4757-af8f-5ac1290c7d86",
+      "id": "7827d3f6-fdea-4ce2-8893-be95369a5f41"
+    },
+    "revisions": {
+      "7104def6-1247-4b1c-b002-bc0197404fda": [
+        {
+          "id": "bcb94c9e-43a2-4d27-aa80-a46ec003ef6a",
+          "scope": "project",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793612345475,
+          "contentHash": "6d7e61d84d0dd6fa846b0ac5f4d9c30cf8fad20f0ad592131467a0648e84d4a7",
+          "revision": "7104def6-1247-4b1c-b002-bc0197404fda",
+          "inputFingerprint": "92de291d8b441d4afe322990221c9de3761a953b96d744d4b7ad0e1f5b2baef7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e152c885-fcdd-41da-9056-b289165be2d3"
+        }
+      ],
+      "6231de06-2324-4757-af8f-5ac1290c7d86": [
+        {
+          "id": "7827d3f6-fdea-4ce2-8893-be95369a5f41",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/checks/7827d3f6-fdea-4ce2-8893-be95369a5f41.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793612424948,
+          "contentHash": "bc98281554b471d8bb31fccb25cb9502c1fadfedaa8346ba6779650dbb7716ff",
+          "revision": "6231de06-2324-4757-af8f-5ac1290c7d86",
+          "inputFingerprint": "f6df32b37e9f15393e264de4a8b9346c8825a5be5ca0e402b202d901a1e04b05",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "f4ae2cfb-d830-4c13-b2b9-c8f49850899b",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/checks/f4ae2cfb-d830-4c13-b2b9-c8f49850899b.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793612330944,
+        "contentHash": "27c542dc78a29fce65f6fc243ddeb1dcb4d7402c2008f41c32b5d4c45ef81c57",
+        "revision": null,
+        "inputFingerprint": "240a81b6dccd666a96b6c1788e35c9119b0719e91debeca074a8ae2ad3a6fbbf",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "6231de06-2324-4757-af8f-5ac1290c7d86",
+      "id": "e76a2583-9a2c-400e-b331-caae0e09ece1-2"
+    },
+    "revisions": {
+      "7104def6-1247-4b1c-b002-bc0197404fda": [
+        {
+          "scope": "full",
+          "id": "62f8fb45-7d17-41fb-bb8a-f5e4663ef0c3-0",
+          "time": 0,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612349582,
+          "contentHash": "ca02ed2614c2419f4d45270114e346d9352739ac4729d5edc5e57b629e3a7326",
+          "revision": "7104def6-1247-4b1c-b002-bc0197404fda",
+          "inputFingerprint": "92de291d8b441d4afe322990221c9de3761a953b96d744d4b7ad0e1f5b2baef7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e152c885-fcdd-41da-9056-b289165be2d3"
+        },
+        {
+          "scope": "full",
+          "id": "62f8fb45-7d17-41fb-bb8a-f5e4663ef0c3-1",
+          "time": 2.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612349582,
+          "contentHash": "fb080f2a27701f9719b9763b5a6be80c7c9591cf3a19b12586ffdcff923051ba",
+          "revision": "7104def6-1247-4b1c-b002-bc0197404fda",
+          "inputFingerprint": "92de291d8b441d4afe322990221c9de3761a953b96d744d4b7ad0e1f5b2baef7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e152c885-fcdd-41da-9056-b289165be2d3"
+        },
+        {
+          "scope": "full",
+          "id": "62f8fb45-7d17-41fb-bb8a-f5e4663ef0c3-2",
+          "time": 7.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612349582,
+          "contentHash": "ad54ca7c60403813c28d20120953c41c3e559aace12a78411624819eab0696f1",
+          "revision": "7104def6-1247-4b1c-b002-bc0197404fda",
+          "inputFingerprint": "92de291d8b441d4afe322990221c9de3761a953b96d744d4b7ad0e1f5b2baef7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e152c885-fcdd-41da-9056-b289165be2d3"
+        },
+        {
+          "scope": "full",
+          "id": "62f8fb45-7d17-41fb-bb8a-f5e4663ef0c3-3",
+          "time": 11.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612349582,
+          "contentHash": "df332bb2f25adb62c2debcf0934e26de5fd603aad37b624104ddcb09c60d3833",
+          "revision": "7104def6-1247-4b1c-b002-bc0197404fda",
+          "inputFingerprint": "92de291d8b441d4afe322990221c9de3761a953b96d744d4b7ad0e1f5b2baef7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e152c885-fcdd-41da-9056-b289165be2d3"
+        },
+        {
+          "scope": "full",
+          "id": "62f8fb45-7d17-41fb-bb8a-f5e4663ef0c3-4",
+          "time": 16,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612349582,
+          "contentHash": "226bbaa89b4c6ac0d874e15143ebe3d4a43f0da4503feba7b4e9fbbf15c3b8b0",
+          "revision": "7104def6-1247-4b1c-b002-bc0197404fda",
+          "inputFingerprint": "92de291d8b441d4afe322990221c9de3761a953b96d744d4b7ad0e1f5b2baef7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e152c885-fcdd-41da-9056-b289165be2d3"
+        },
+        {
+          "scope": "full",
+          "id": "62f8fb45-7d17-41fb-bb8a-f5e4663ef0c3-5",
+          "time": 19.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612349582,
+          "contentHash": "fb32bb8140313cafc3bf38fd7923c82fc311c5a8d70a08c4b8bf467e805ff9b2",
+          "revision": "7104def6-1247-4b1c-b002-bc0197404fda",
+          "inputFingerprint": "92de291d8b441d4afe322990221c9de3761a953b96d744d4b7ad0e1f5b2baef7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e152c885-fcdd-41da-9056-b289165be2d3"
+        },
+        {
+          "scope": "full",
+          "id": "62f8fb45-7d17-41fb-bb8a-f5e4663ef0c3-6",
+          "time": 19.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612349582,
+          "contentHash": "fb32bb8140313cafc3bf38fd7923c82fc311c5a8d70a08c4b8bf467e805ff9b2",
+          "revision": "7104def6-1247-4b1c-b002-bc0197404fda",
+          "inputFingerprint": "92de291d8b441d4afe322990221c9de3761a953b96d744d4b7ad0e1f5b2baef7",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "e152c885-fcdd-41da-9056-b289165be2d3"
+        }
+      ],
+      "6231de06-2324-4757-af8f-5ac1290c7d86": [
+        {
+          "scope": "full",
+          "id": "e76a2583-9a2c-400e-b331-caae0e09ece1-0",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/snapshots/9b602f53-8179-494f-b0d6-d06006b48458/frame-00-at-2.5s.png",
+          "time": 2.5,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612428362,
+          "contentHash": "b8fc6376ac293a74a61aa6a7e0cf43cbe3d255a6a0a3e09373e209bc090806d7",
+          "revision": "6231de06-2324-4757-af8f-5ac1290c7d86",
+          "inputFingerprint": "f6df32b37e9f15393e264de4a8b9346c8825a5be5ca0e402b202d901a1e04b05",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e76a2583-9a2c-400e-b331-caae0e09ece1-1",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/snapshots/9b602f53-8179-494f-b0d6-d06006b48458/frame-01-at-7.4s.png",
+          "time": 7.4,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612428363,
+          "contentHash": "974010b2dd02a90ae568735e28172fb40a02788036efdf623dce437ac0eeba4e",
+          "revision": "6231de06-2324-4757-af8f-5ac1290c7d86",
+          "inputFingerprint": "f6df32b37e9f15393e264de4a8b9346c8825a5be5ca0e402b202d901a1e04b05",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "e76a2583-9a2c-400e-b331-caae0e09ece1-2",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/snapshots/9b602f53-8179-494f-b0d6-d06006b48458/frame-02-at-19.75s.png",
+          "time": 19.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612428363,
+          "contentHash": "a30aa4c922532d9ec0dade35ef6c8f296117d28e10c0d15d7439ff90735a8352",
+          "revision": "6231de06-2324-4757-af8f-5ac1290c7d86",
+          "inputFingerprint": "f6df32b37e9f15393e264de4a8b9346c8825a5be5ca0e402b202d901a1e04b05",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "e152c885-fcdd-41da-9056-b289165be2d3",
+      "completedAt": 1793612524646,
+      "output": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/renders/immo-decode-v2-frais-notaire.mp4",
+      "status": "completed",
+      "revision": "6231de06-2324-4757-af8f-5ac1290c7d86"
+    },
+    "retainedRevisions": [
+      "6231de06-2324-4757-af8f-5ac1290c7d86"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}

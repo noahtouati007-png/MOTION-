@@ -1,0 +1,368 @@
+{
+  "version": 1,
+  "historyId": "36d08c84-33b0-4851-ba43-8059f158b5d2",
+  "currentRevision": "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "assets/fonts/fraunces-latin-600-italic.woff2": {
+      "hash": "23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/23/23712db611d0799df860504f0e6626ade20588fab2b8f4882d0e711a330da1b7"
+    },
+    "assets/fonts/fraunces-latin-600-normal.woff2": {
+      "hash": "3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/3a/3a1de7711d147bad4422825045f87597fd77cca72e7c96d3b0a81735d00dda82"
+    },
+    "assets/fonts/fraunces-latin-700-normal.woff2": {
+      "hash": "c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/c3/c38570d224b830056e69484bb9e768e1d3fa7ba4755c8891a3c6d366194d2ff3"
+    },
+    "assets/fonts/inter-latin-500-normal.woff2": {
+      "hash": "f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/f3/f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f"
+    },
+    "assets/fonts/inter-latin-700-normal.woff2": {
+      "hash": "6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/6f/6f56409fd3d64bb85f7d070bce20749db2d66b6d63cec586cc22d1c761be2491"
+    },
+    "assets/fonts/inter-latin-800-normal.woff2": {
+      "hash": "a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/a7/a7d0a50f15d389cad679238466bdb5fc9787aa0715719064ce25abaff042820d"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "2d1ad986d6374bbe4965a4febf2ee7cca05bbf143f9ab79035f5cb13313c27b9",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/2d/2d1ad986d6374bbe4965a4febf2ee7cca05bbf143f9ab79035f5cb13313c27b9"
+    },
+    "meta.json": {
+      "hash": "9fd61b46880f6ea70b39e2b6ea13a867ecae7417602c586c92e49f2fb3e93902",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/9f/9fd61b46880f6ea70b39e2b6ea13a867ecae7417602c586c92e49f2fb3e93902"
+    },
+    "package.json": {
+      "hash": "b4bc1af5658c31656d575d9aaf86556f0f132ac6e967e05409473011f60f57aa",
+      "content": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/b4/b4bc1af5658c31656d575d9aaf86556f0f132ac6e967e05409473011f60f57aa"
+    }
+  },
+  "revisions": {
+    "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793612443028,
+      "endedAt": 1793612443029,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/67/67e0715359ff42a3c7b7db789117e1919f9c99e7d835f16e6608370de56b5cd5",
+          "after": "/root/.cache/hyperframes/history/36d08c84-33b0-4851-ba43-8059f158b5d2/blobs/2d/2d1ad986d6374bbe4965a4febf2ee7cca05bbf143f9ab79035f5cb13313c27b9"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b",
+      "id": "a04573ab-5223-4474-aee1-5ad35777efef"
+    },
+    "revisions": {
+      "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b": [
+        {
+          "id": "a04573ab-5223-4474-aee1-5ad35777efef",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/checks/a04573ab-5223-4474-aee1-5ad35777efef.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793612448119,
+          "contentHash": "249f2ac206bccf41a9db39ece163cba2d935deaf396ac157550b4a487a2e0f58",
+          "revision": "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b",
+          "inputFingerprint": "ecdc0915b6e13dd99e535917631115f3b513e7cc00e6ab415073f2f3eb78e1db",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "b1765fd1-fe35-4d77-9270-5bb63b9a0f07",
+        "scope": "project",
+        "report": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/checks/b1765fd1-fe35-4d77-9270-5bb63b9a0f07.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 10000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793612412190,
+        "contentHash": "249f2ac206bccf41a9db39ece163cba2d935deaf396ac157550b4a487a2e0f58",
+        "revision": null,
+        "inputFingerprint": "8efe4c65a788b111e7450fca52c73bf34f950eb56a1adff88a74a0984bc9e0f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b",
+      "id": "583dc16b-2351-4f4a-afb4-d07b84a7bb51-2"
+    },
+    "revisions": {
+      "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b": [
+        {
+          "scope": "full",
+          "id": "583dc16b-2351-4f4a-afb4-d07b84a7bb51-0",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/27dc5897-766c-44f8-81c3-4f2479e9ccba/frame-00-at-0s.png",
+          "time": 0,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612451471,
+          "contentHash": "5c84d0d5866b2d645ac25f707dd98e71f6ee581167bf9d227adb6be820c42a0a",
+          "revision": "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b",
+          "inputFingerprint": "ecdc0915b6e13dd99e535917631115f3b513e7cc00e6ab415073f2f3eb78e1db",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "583dc16b-2351-4f4a-afb4-d07b84a7bb51-1",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/27dc5897-766c-44f8-81c3-4f2479e9ccba/frame-01-at-11s.png",
+          "time": 11,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612451471,
+          "contentHash": "75f7bcfa440357e78da470708e3b865984c151a3972e3bb41d786ac574a571f6",
+          "revision": "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b",
+          "inputFingerprint": "ecdc0915b6e13dd99e535917631115f3b513e7cc00e6ab415073f2f3eb78e1db",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "583dc16b-2351-4f4a-afb4-d07b84a7bb51-2",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/27dc5897-766c-44f8-81c3-4f2479e9ccba/frame-02-at-24.75s.png",
+          "time": 24.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793612451471,
+          "contentHash": "6452141dc61b58a971cfdc7e65cde2d78fa42a0059d9fb0e693418fd01993b38",
+          "revision": "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b",
+          "inputFingerprint": "ecdc0915b6e13dd99e535917631115f3b513e7cc00e6ab415073f2f3eb78e1db",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "5591c058-26e0-4ccc-9467-2183f7d0d302-0",
+        "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/caccdec3-3997-477f-b8f6-8384a179fbaf/frame-00-at-0s.png",
+        "time": 0,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793612418755,
+        "contentHash": "e52d82eae598a4f79dbebb06e772c386f67dbeff63734ff6a657040a3ac74297",
+        "revision": null,
+        "inputFingerprint": "8efe4c65a788b111e7450fca52c73bf34f950eb56a1adff88a74a0984bc9e0f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5591c058-26e0-4ccc-9467-2183f7d0d302-1",
+        "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/caccdec3-3997-477f-b8f6-8384a179fbaf/frame-01-at-6s.png",
+        "time": 6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793612418755,
+        "contentHash": "bac10aeaae8c83176adb08a6a424d7497fade300bc338ae97e59736aa4012998",
+        "revision": null,
+        "inputFingerprint": "8efe4c65a788b111e7450fca52c73bf34f950eb56a1adff88a74a0984bc9e0f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5591c058-26e0-4ccc-9467-2183f7d0d302-2",
+        "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/caccdec3-3997-477f-b8f6-8384a179fbaf/frame-02-at-11s.png",
+        "time": 11,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793612418755,
+        "contentHash": "9698aba356b0f62f06bc32da0b0cc3dce980b583e2b470e1bac768988838b7aa",
+        "revision": null,
+        "inputFingerprint": "8efe4c65a788b111e7450fca52c73bf34f950eb56a1adff88a74a0984bc9e0f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5591c058-26e0-4ccc-9467-2183f7d0d302-3",
+        "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/caccdec3-3997-477f-b8f6-8384a179fbaf/frame-03-at-16s.png",
+        "time": 16,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793612418755,
+        "contentHash": "1de3a5bc55a267cff4b9c51919b85446ed33a72c7bf5c183ff104154c3696d50",
+        "revision": null,
+        "inputFingerprint": "8efe4c65a788b111e7450fca52c73bf34f950eb56a1adff88a74a0984bc9e0f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5591c058-26e0-4ccc-9467-2183f7d0d302-4",
+        "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/caccdec3-3997-477f-b8f6-8384a179fbaf/frame-04-at-20.8s.png",
+        "time": 20.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793612418755,
+        "contentHash": "7c813ebb16afd5e03c5ae41a5abedf7d1be7cc1f7087c7979f7c4776a74d3a44",
+        "revision": null,
+        "inputFingerprint": "8efe4c65a788b111e7450fca52c73bf34f950eb56a1adff88a74a0984bc9e0f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5591c058-26e0-4ccc-9467-2183f7d0d302-5",
+        "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/caccdec3-3997-477f-b8f6-8384a179fbaf/frame-05-at-24.5s.png",
+        "time": 24.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793612418755,
+        "contentHash": "6452141dc61b58a971cfdc7e65cde2d78fa42a0059d9fb0e693418fd01993b38",
+        "revision": null,
+        "inputFingerprint": "8efe4c65a788b111e7450fca52c73bf34f950eb56a1adff88a74a0984bc9e0f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "5591c058-26e0-4ccc-9467-2183f7d0d302-6",
+        "image": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/.hyperframes/artifacts/snapshots/caccdec3-3997-477f-b8f6-8384a179fbaf/frame-06-at-24.75s.png",
+        "time": 24.75,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793612418755,
+        "contentHash": "6452141dc61b58a971cfdc7e65cde2d78fa42a0059d9fb0e693418fd01993b38",
+        "revision": null,
+        "inputFingerprint": "8efe4c65a788b111e7450fca52c73bf34f950eb56a1adff88a74a0984bc9e0f5",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "21c6d781-330d-4cb6-bdca-a6f7f118917b",
+      "completedAt": 1793612567340,
+      "output": "/home/user/MOTION-/videos/immo-decode-v2bis-rentabilite/renders/immo-decode-v2bis-rentabilite.mp4",
+      "status": "completed",
+      "revision": "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b"
+    },
+    "retainedRevisions": [
+      "e5e26c4f-6c6b-4e66-89e2-e1adfd932c8b"
+    ]
+  },
+  "pendingArtifactCleanup": []
+}
