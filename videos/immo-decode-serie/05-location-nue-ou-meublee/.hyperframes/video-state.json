@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "79019fef-dc7e-4bde-981f-39181b93bf94",
-  "currentRevision": "68697e07-6fc9-4a22-b710-15a8163946bb",
+  "currentRevision": "7ea64e2e-7a08-4ab1-8800-e446a8e66ebf",
   "pendingChanges": false,
   "files": {
     "assets/fonts/fraunces-latin-600-italic.woff2": {
@@ -37,8 +37,8 @@
       "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
     },
     "index.html": {
-      "hash": "c6a8d07b66b94ebd346c774a9ba20ad44b8ecd8eb7288a2bf8d828732344de4e",
-      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c6/c6a8d07b66b94ebd346c774a9ba20ad44b8ecd8eb7288a2bf8d828732344de4e"
+      "hash": "63784052251f22830c2241527c1d5886799b3060bed3947423c4a7da6dbf2c51",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/63/63784052251f22830c2241527c1d5886799b3060bed3947423c4a7da6dbf2c51"
     },
     "meta.json": {
       "hash": "c7bd3b866affa919697064556f916367adf0bd404e20359192894205ba102c50",
@@ -47,6 +47,62 @@
     "package.json": {
       "hash": "e6aec35be6eac34ba1722ab02ceae5711340c5a5a0528dc1ff23d33c943da053",
       "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/e6/e6aec35be6eac34ba1722ab02ceae5711340c5a5a0528dc1ff23d33c943da053"
+    },
+    "assets/sfx/CREDITS.md": {
+      "hash": "168c243e5e7bd522a9338acc4f700b12f6e8594d7150ebca9cc996cc57e5dd72",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/16/168c243e5e7bd522a9338acc4f700b12f6e8594d7150ebca9cc996cc57e5dd72"
+    },
+    "assets/sfx/chime.mp3": {
+      "hash": "74823b1b27703c56e0652db838f503c150ce9c2442d47d27430af3d5121d6d12",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/74/74823b1b27703c56e0652db838f503c150ce9c2442d47d27430af3d5121d6d12"
+    },
+    "assets/sfx/click-soft.mp3": {
+      "hash": "075e17bdac5c13662a1c9530050e0046f81d4138e00eb3bf30427a7b4404103d",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/07/075e17bdac5c13662a1c9530050e0046f81d4138e00eb3bf30427a7b4404103d"
+    },
+    "assets/sfx/click.mp3": {
+      "hash": "075e17bdac5c13662a1c9530050e0046f81d4138e00eb3bf30427a7b4404103d",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/07/075e17bdac5c13662a1c9530050e0046f81d4138e00eb3bf30427a7b4404103d"
+    },
+    "assets/sfx/impact-bass-1.mp3": {
+      "hash": "634d5eda5eb7b501aca98393a64f3815eccf24157cd1d95df55aaec1b5000bd7",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/63/634d5eda5eb7b501aca98393a64f3815eccf24157cd1d95df55aaec1b5000bd7"
+    },
+    "assets/sfx/impact-bass-2.mp3": {
+      "hash": "fb832995477784f44ba8533359d20caf706195b52117ecc2a33b3e63e3c1307b",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/fb/fb832995477784f44ba8533359d20caf706195b52117ecc2a33b3e63e3c1307b"
+    },
+    "assets/sfx/key-press.mp3": {
+      "hash": "bcc892df0898bf466162f14233c3e92a8c1ea351f6affd8a3a7e56c9a760bb72",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/bc/bcc892df0898bf466162f14233c3e92a8c1ea351f6affd8a3a7e56c9a760bb72"
+    },
+    "assets/sfx/ping.mp3": {
+      "hash": "c54d088fa2709e6b3c9ce87594a9187d0d5338d3a8c683271f9c4353a8ee8c91",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c5/c54d088fa2709e6b3c9ce87594a9187d0d5338d3a8c683271f9c4353a8ee8c91"
+    },
+    "assets/sfx/pop.mp3": {
+      "hash": "19ab7193f626ff57fdeef60b45543bac416fcbcec803cfb417abe4b271c1b352",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/19/19ab7193f626ff57fdeef60b45543bac416fcbcec803cfb417abe4b271c1b352"
+    },
+    "assets/sfx/riser.mp3": {
+      "hash": "d2f29d49f27dee7d3b25af22ffe5bebc39390cc5d5fb3b3e1c433499c77f3d1d",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/d2/d2f29d49f27dee7d3b25af22ffe5bebc39390cc5d5fb3b3e1c433499c77f3d1d"
+    },
+    "assets/sfx/sparkle.mp3": {
+      "hash": "a66b2829a307bcb5b1f6551d7cdc72fe45bbe9a91abfb994d28db8d5e4e42ea8",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/a6/a66b2829a307bcb5b1f6551d7cdc72fe45bbe9a91abfb994d28db8d5e4e42ea8"
+    },
+    "assets/sfx/typing.mp3": {
+      "hash": "944160652faeb7b32acc9341ede4d735a5c9a4ce3fe8509ef7eab91efb430487",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/94/944160652faeb7b32acc9341ede4d735a5c9a4ce3fe8509ef7eab91efb430487"
+    },
+    "assets/sfx/whoosh-short.mp3": {
+      "hash": "c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c2/c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30"
+    },
+    "assets/sfx/whoosh.mp3": {
+      "hash": "c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30",
+      "content": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c2/c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30"
     }
   },
   "revisions": {
@@ -77,6 +133,77 @@
         "index.html": {
           "before": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/26/266f998f83ea8984365dc35ead8df951eb094acf4ceb87f928491432ca7228f2",
           "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c6/c6a8d07b66b94ebd346c774a9ba20ad44b8ecd8eb7288a2bf8d828732344de4e"
+        }
+      }
+    },
+    "7ea64e2e-7a08-4ab1-8800-e446a8e66ebf": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793614818661,
+      "endedAt": 1793614818695,
+      "files": {
+        "assets/sfx/chime.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/74/74823b1b27703c56e0652db838f503c150ce9c2442d47d27430af3d5121d6d12"
+        },
+        "assets/sfx/click-soft.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/07/075e17bdac5c13662a1c9530050e0046f81d4138e00eb3bf30427a7b4404103d"
+        },
+        "assets/sfx/click.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/07/075e17bdac5c13662a1c9530050e0046f81d4138e00eb3bf30427a7b4404103d"
+        },
+        "assets/sfx/CREDITS.md": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/16/168c243e5e7bd522a9338acc4f700b12f6e8594d7150ebca9cc996cc57e5dd72"
+        },
+        "assets/sfx/impact-bass-1.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/63/634d5eda5eb7b501aca98393a64f3815eccf24157cd1d95df55aaec1b5000bd7"
+        },
+        "assets/sfx/impact-bass-2.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/fb/fb832995477784f44ba8533359d20caf706195b52117ecc2a33b3e63e3c1307b"
+        },
+        "assets/sfx/key-press.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/bc/bcc892df0898bf466162f14233c3e92a8c1ea351f6affd8a3a7e56c9a760bb72"
+        },
+        "assets/sfx/ping.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c5/c54d088fa2709e6b3c9ce87594a9187d0d5338d3a8c683271f9c4353a8ee8c91"
+        },
+        "assets/sfx/pop.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/19/19ab7193f626ff57fdeef60b45543bac416fcbcec803cfb417abe4b271c1b352"
+        },
+        "assets/sfx/riser.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/d2/d2f29d49f27dee7d3b25af22ffe5bebc39390cc5d5fb3b3e1c433499c77f3d1d"
+        },
+        "assets/sfx/sparkle.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/a6/a66b2829a307bcb5b1f6551d7cdc72fe45bbe9a91abfb994d28db8d5e4e42ea8"
+        },
+        "assets/sfx/typing.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/94/944160652faeb7b32acc9341ede4d735a5c9a4ce3fe8509ef7eab91efb430487"
+        },
+        "assets/sfx/whoosh-short.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c2/c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30"
+        },
+        "assets/sfx/whoosh.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c2/c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/c6/c6a8d07b66b94ebd346c774a9ba20ad44b8ecd8eb7288a2bf8d828732344de4e",
+          "after": "/root/.cache/hyperframes/history/79019fef-dc7e-4bde-981f-39181b93bf94/blobs/63/63784052251f22830c2241527c1d5886799b3060bed3947423c4a7da6dbf2c51"
         }
       }
     }
@@ -155,13 +282,14 @@
   },
   "renders": {
     "latest": {
-      "id": "bf21347b-a1d9-4be4-a9a9-faaf53c2f90e",
-      "completedAt": 1793613585437,
+      "id": "c4e2b373-54b4-44c8-a455-f5e6c3c2ae20",
+      "completedAt": 1793614893204,
       "output": "/home/user/MOTION-/videos/immo-decode-serie/05-location-nue-ou-meublee/renders/immo-decode-05-location-nue-ou-meublee.mp4",
       "status": "completed",
-      "revision": "68697e07-6fc9-4a22-b710-15a8163946bb"
+      "revision": "7ea64e2e-7a08-4ab1-8800-e446a8e66ebf"
     },
     "retainedRevisions": [
+      "7ea64e2e-7a08-4ab1-8800-e446a8e66ebf",
       "68697e07-6fc9-4a22-b710-15a8163946bb"
     ]
   },

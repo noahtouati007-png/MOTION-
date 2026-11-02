@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "db1be4b2-7139-4a39-8f97-4a21a2468139",
-  "currentRevision": "6231de06-2324-4757-af8f-5ac1290c7d86",
+  "currentRevision": "88ee5cc0-b857-4bcb-b883-c5d6a999416f",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -45,8 +45,8 @@
       "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
     },
     "index.html": {
-      "hash": "dc942628e72894d99149007fcf719012e4cb7d42f7685edd5de7d7ade25ac9b5",
-      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/dc/dc942628e72894d99149007fcf719012e4cb7d42f7685edd5de7d7ade25ac9b5"
+      "hash": "b8f2061123cca3bfc61f7bda4e545424806a5af1357d70bcc4db097bc8b37c59",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/b8/b8f2061123cca3bfc61f7bda4e545424806a5af1357d70bcc4db097bc8b37c59"
     },
     "meta.json": {
       "hash": "0ae38c38715e425b1093328274deb5e4b5e86d3d60b05f5d6f74732129508e3e",
@@ -55,6 +55,42 @@
     "package.json": {
       "hash": "511be4c71fe01b41fa3cb0d450dbb1409bb17ebc8a1ab6924c6726a0bf6dd9e7",
       "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/51/511be4c71fe01b41fa3cb0d450dbb1409bb17ebc8a1ab6924c6726a0bf6dd9e7"
+    },
+    "assets/sfx/click-soft.mp3": {
+      "hash": "075e17bdac5c13662a1c9530050e0046f81d4138e00eb3bf30427a7b4404103d",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/07/075e17bdac5c13662a1c9530050e0046f81d4138e00eb3bf30427a7b4404103d"
+    },
+    "assets/sfx/CREDITS.md": {
+      "hash": "168c243e5e7bd522a9338acc4f700b12f6e8594d7150ebca9cc996cc57e5dd72",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/16/168c243e5e7bd522a9338acc4f700b12f6e8594d7150ebca9cc996cc57e5dd72"
+    },
+    "assets/sfx/impact-bass-1.mp3": {
+      "hash": "634d5eda5eb7b501aca98393a64f3815eccf24157cd1d95df55aaec1b5000bd7",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/63/634d5eda5eb7b501aca98393a64f3815eccf24157cd1d95df55aaec1b5000bd7"
+    },
+    "assets/sfx/impact-bass-2.mp3": {
+      "hash": "fb832995477784f44ba8533359d20caf706195b52117ecc2a33b3e63e3c1307b",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/fb/fb832995477784f44ba8533359d20caf706195b52117ecc2a33b3e63e3c1307b"
+    },
+    "assets/sfx/ping.mp3": {
+      "hash": "c54d088fa2709e6b3c9ce87594a9187d0d5338d3a8c683271f9c4353a8ee8c91",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/c5/c54d088fa2709e6b3c9ce87594a9187d0d5338d3a8c683271f9c4353a8ee8c91"
+    },
+    "assets/sfx/pop.mp3": {
+      "hash": "19ab7193f626ff57fdeef60b45543bac416fcbcec803cfb417abe4b271c1b352",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/19/19ab7193f626ff57fdeef60b45543bac416fcbcec803cfb417abe4b271c1b352"
+    },
+    "assets/sfx/sparkle.mp3": {
+      "hash": "a66b2829a307bcb5b1f6551d7cdc72fe45bbe9a91abfb994d28db8d5e4e42ea8",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/a6/a66b2829a307bcb5b1f6551d7cdc72fe45bbe9a91abfb994d28db8d5e4e42ea8"
+    },
+    "assets/sfx/typing.mp3": {
+      "hash": "944160652faeb7b32acc9341ede4d735a5c9a4ce3fe8509ef7eab91efb430487",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/94/944160652faeb7b32acc9341ede4d735a5c9a4ce3fe8509ef7eab91efb430487"
+    },
+    "assets/sfx/whoosh-short.mp3": {
+      "hash": "c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30",
+      "content": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/c2/c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30"
     }
   },
   "revisions": {
@@ -87,12 +123,63 @@
           "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/dc/dc942628e72894d99149007fcf719012e4cb7d42f7685edd5de7d7ade25ac9b5"
         }
       }
+    },
+    "88ee5cc0-b857-4bcb-b883-c5d6a999416f": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793614482640,
+      "endedAt": 1793614482764,
+      "files": {
+        "assets/sfx/click-soft.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/07/075e17bdac5c13662a1c9530050e0046f81d4138e00eb3bf30427a7b4404103d"
+        },
+        "assets/sfx/CREDITS.md": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/16/168c243e5e7bd522a9338acc4f700b12f6e8594d7150ebca9cc996cc57e5dd72"
+        },
+        "assets/sfx/impact-bass-1.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/63/634d5eda5eb7b501aca98393a64f3815eccf24157cd1d95df55aaec1b5000bd7"
+        },
+        "assets/sfx/impact-bass-2.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/fb/fb832995477784f44ba8533359d20caf706195b52117ecc2a33b3e63e3c1307b"
+        },
+        "assets/sfx/ping.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/c5/c54d088fa2709e6b3c9ce87594a9187d0d5338d3a8c683271f9c4353a8ee8c91"
+        },
+        "assets/sfx/pop.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/19/19ab7193f626ff57fdeef60b45543bac416fcbcec803cfb417abe4b271c1b352"
+        },
+        "assets/sfx/sparkle.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/a6/a66b2829a307bcb5b1f6551d7cdc72fe45bbe9a91abfb994d28db8d5e4e42ea8"
+        },
+        "assets/sfx/typing.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/94/944160652faeb7b32acc9341ede4d735a5c9a4ce3fe8509ef7eab91efb430487"
+        },
+        "assets/sfx/whoosh-short.mp3": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/c2/c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/dc/dc942628e72894d99149007fcf719012e4cb7d42f7685edd5de7d7ade25ac9b5",
+          "after": "/root/.cache/hyperframes/history/db1be4b2-7139-4a39-8f97-4a21a2468139/blobs/b8/b8f2061123cca3bfc61f7bda4e545424806a5af1357d70bcc4db097bc8b37c59"
+        }
+      }
     }
   },
   "checks": {
     "latest": {
-      "revision": "6231de06-2324-4757-af8f-5ac1290c7d86",
-      "id": "7827d3f6-fdea-4ce2-8893-be95369a5f41"
+      "revision": "88ee5cc0-b857-4bcb-b883-c5d6a999416f",
+      "id": "8925c230-5a5b-4471-aae7-ee78fc9e3298"
     },
     "revisions": {
       "7104def6-1247-4b1c-b002-bc0197404fda": [
@@ -153,6 +240,35 @@
           "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
+      ],
+      "88ee5cc0-b857-4bcb-b883-c5d6a999416f": [
+        {
+          "id": "8925c230-5a5b-4471-aae7-ee78fc9e3298",
+          "scope": "project",
+          "report": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/checks/8925c230-5a5b-4471-aae7-ee78fc9e3298.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 10000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1793614490679,
+          "contentHash": "9749d95bd50e062423ddfe53d375d0fe4b2a2e7ffd72e6895e0f6c8bc2f3189f",
+          "revision": "88ee5cc0-b857-4bcb-b883-c5d6a999416f",
+          "inputFingerprint": "58537426ffd299eb11a00775d127e5c2e6f22e200245042e082e8047ea98f0f4",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
       ]
     },
     "unversioned": [
@@ -187,8 +303,8 @@
   },
   "snapshots": {
     "latest": {
-      "revision": "6231de06-2324-4757-af8f-5ac1290c7d86",
-      "id": "e76a2583-9a2c-400e-b331-caae0e09ece1-2"
+      "revision": "88ee5cc0-b857-4bcb-b883-c5d6a999416f",
+      "id": "a70a0723-5c3c-49b3-b56b-f5da86ff38f0-3"
     },
     "revisions": {
       "7104def6-1247-4b1c-b002-bc0197404fda": [
@@ -401,19 +517,102 @@
           "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
+      ],
+      "88ee5cc0-b857-4bcb-b883-c5d6a999416f": [
+        {
+          "scope": "full",
+          "id": "a70a0723-5c3c-49b3-b56b-f5da86ff38f0-0",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/snapshots/59fbe365-68b2-4c7c-82b8-f81f59e9f1c5/frame-00-at-3.55s.png",
+          "time": 3.55,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793614534299,
+          "contentHash": "a2450de0044ff9f0cfc9c9d6bc81634b3eca960427538c104d7c5f779c2022fb",
+          "revision": "88ee5cc0-b857-4bcb-b883-c5d6a999416f",
+          "inputFingerprint": "58537426ffd299eb11a00775d127e5c2e6f22e200245042e082e8047ea98f0f4",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a70a0723-5c3c-49b3-b56b-f5da86ff38f0-1",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/snapshots/59fbe365-68b2-4c7c-82b8-f81f59e9f1c5/frame-01-at-8.45s.png",
+          "time": 8.45,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793614534299,
+          "contentHash": "06c4f2a363478ddf66c3ac3ef43f434c95fe1c12c3ad77298881c1a1e394afad",
+          "revision": "88ee5cc0-b857-4bcb-b883-c5d6a999416f",
+          "inputFingerprint": "58537426ffd299eb11a00775d127e5c2e6f22e200245042e082e8047ea98f0f4",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a70a0723-5c3c-49b3-b56b-f5da86ff38f0-2",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/snapshots/59fbe365-68b2-4c7c-82b8-f81f59e9f1c5/frame-02-at-12s.png",
+          "time": 12,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793614534299,
+          "contentHash": "e823a333ac9f0506b49a8c8e3b0a7b6336a6ae1dcfc70f3137bcc0fa9c547e54",
+          "revision": "88ee5cc0-b857-4bcb-b883-c5d6a999416f",
+          "inputFingerprint": "58537426ffd299eb11a00775d127e5c2e6f22e200245042e082e8047ea98f0f4",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "a70a0723-5c3c-49b3-b56b-f5da86ff38f0-3",
+          "image": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/.hyperframes/artifacts/snapshots/59fbe365-68b2-4c7c-82b8-f81f59e9f1c5/frame-03-at-19.75s.png",
+          "time": 19.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1793614534299,
+          "contentHash": "776eeb859b27a7aa0f952f98829bb7a634de31f1d01ee0c6995a87d27af6ea65",
+          "revision": "88ee5cc0-b857-4bcb-b883-c5d6a999416f",
+          "inputFingerprint": "58537426ffd299eb11a00775d127e5c2e6f22e200245042e082e8047ea98f0f4",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
       ]
     },
     "unversioned": []
   },
   "renders": {
     "latest": {
-      "id": "e152c885-fcdd-41da-9056-b289165be2d3",
-      "completedAt": 1793612524646,
+      "id": "a5ac9493-090f-4d13-aac3-1895baec74a4",
+      "completedAt": 1793615051277,
       "output": "/home/user/MOTION-/videos/immo-decode-v2-frais-notaire/renders/immo-decode-v2-frais-notaire.mp4",
       "status": "completed",
-      "revision": "6231de06-2324-4757-af8f-5ac1290c7d86"
+      "revision": "88ee5cc0-b857-4bcb-b883-c5d6a999416f"
     },
     "retainedRevisions": [
+      "88ee5cc0-b857-4bcb-b883-c5d6a999416f",
       "6231de06-2324-4757-af8f-5ac1290c7d86"
     ]
   },
