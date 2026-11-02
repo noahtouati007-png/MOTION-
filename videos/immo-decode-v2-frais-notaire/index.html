@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
+      /* sfx-auto */ #grid { inset: -120px !important; } #prog-auto { position: absolute; left: 0; top: 0; width: 1080px; height: 12px; background: #c8553d; transform-origin: 0% 50%; z-index: 30; } .wipe-auto { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 40; } #wipeA-auto { background: #c8553d; } #wipeB-auto { background: #1f2a44; }
       @font-face {
         font-family: "Fraunces";
         src: url("assets/fonts/fraunces-latin-700-normal.woff2") format("woff2");
@@ -399,6 +400,34 @@
       </div>
 
       <div id="legal">Ordres de grandeur indicatifs. Simule ton cas avec un notaire.</div>
+    <!-- sfx-auto:debut -->
+      <div id="prog-auto"></div>
+      <div class="wipe-auto" id="wipeA-auto"></div>
+      <div class="wipe-auto" id="wipeB-auto"></div>
+      <audio id="sfx-1" src="assets/sfx/typing.mp3" data-start="0.0" data-duration="0.7" data-volume="0.18" data-track-index="3"></audio>
+      <audio id="sfx-2" src="assets/sfx/impact-bass-1.mp3" data-start="0.05" data-duration="2.12" data-volume="0.4" data-track-index="4"></audio>
+      <audio id="sfx-3" src="assets/sfx/pop.mp3" data-start="0.65" data-duration="0.72" data-volume="0.35" data-track-index="5"></audio>
+      <audio id="sfx-4" src="assets/sfx/whoosh-short.mp3" data-start="0.75" data-duration="0.57" data-volume="0.3" data-track-index="3"></audio>
+      <audio id="sfx-5" src="assets/sfx/whoosh-short.mp3" data-start="3.35" data-duration="0.57" data-volume="0.5" data-track-index="3"></audio>
+      <audio id="sfx-6" src="assets/sfx/impact-bass-2.mp3" data-start="4.0" data-duration="2.59" data-volume="0.4" data-track-index="3"></audio>
+      <audio id="sfx-7" src="assets/sfx/pop.mp3" data-start="4.8" data-duration="0.72" data-volume="0.4" data-track-index="4"></audio>
+      <audio id="sfx-8" src="assets/sfx/typing.mp3" data-start="5.2" data-duration="1.5" data-volume="0.22" data-track-index="5"></audio>
+      <audio id="sfx-9" src="assets/sfx/ping.mp3" data-start="6.6" data-duration="1.32" data-volume="0.35" data-track-index="3"></audio>
+      <audio id="sfx-10" src="assets/sfx/whoosh-short.mp3" data-start="8.25" data-duration="0.57" data-volume="0.5" data-track-index="3"></audio>
+      <audio id="sfx-11" src="assets/sfx/pop.mp3" data-start="9.0" data-duration="0.72" data-volume="0.4" data-track-index="3"></audio>
+      <audio id="sfx-12" src="assets/sfx/click-soft.mp3" data-start="9.3" data-duration="0.37" data-volume="0.35" data-track-index="4"></audio>
+      <audio id="sfx-13" src="assets/sfx/pop.mp3" data-start="9.7" data-duration="0.72" data-volume="0.4" data-track-index="4"></audio>
+      <audio id="sfx-14" src="assets/sfx/click-soft.mp3" data-start="9.8" data-duration="0.37" data-volume="0.35" data-track-index="3"></audio>
+      <audio id="sfx-15" src="assets/sfx/pop.mp3" data-start="10.1" data-duration="0.72" data-volume="0.4" data-track-index="5"></audio>
+      <audio id="sfx-16" src="assets/sfx/click-soft.mp3" data-start="10.2" data-duration="0.37" data-volume="0.35" data-track-index="3"></audio>
+      <audio id="sfx-17" src="assets/sfx/ping.mp3" data-start="10.6" data-duration="1.32" data-volume="0.3" data-track-index="3"></audio>
+      <audio id="sfx-18" src="assets/sfx/whoosh-short.mp3" data-start="13.15" data-duration="0.57" data-volume="0.5" data-track-index="3"></audio>
+      <audio id="sfx-19" src="assets/sfx/pop.mp3" data-start="13.9" data-duration="0.72" data-volume="0.45" data-track-index="3"></audio>
+      <audio id="sfx-20" src="assets/sfx/pop.mp3" data-start="14.5" data-duration="0.72" data-volume="0.45" data-track-index="4"></audio>
+      <audio id="sfx-21" src="assets/sfx/whoosh-short.mp3" data-start="17.25" data-duration="0.57" data-volume="0.5" data-track-index="3"></audio>
+      <audio id="sfx-22" src="assets/sfx/sparkle.mp3" data-start="17.6" data-duration="1.8" data-volume="0.35" data-track-index="4"></audio>
+      <audio id="sfx-23" src="assets/sfx/pop.mp3" data-start="17.85" data-duration="0.72" data-volume="0.4" data-track-index="3"></audio>
+      <!-- sfx-auto:fin -->
     </div>
 
     <script>
@@ -499,6 +528,27 @@
       tl.fromTo("#s5 .lead", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 17.7);
       tl.fromTo("#handle", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 17.85);
 
+      // sfx-auto:debut
+      gsap.set(".wipe-auto", { yPercent: 100 });
+      tl.fromTo("#prog-auto", { scaleX: 0 }, { scaleX: 1, duration: 20, ease: "none" }, 0);
+      tl.fromTo("#grid", { x: 0, y: 0 }, { x: 60, y: -120, duration: 20, ease: "none" }, 0);
+      tl.fromTo("#wipeA-auto", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 3.4);
+      tl.fromTo("#wipeA-auto", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 3.7);
+      tl.fromTo("#wipeB-auto", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 3.46);
+      tl.fromTo("#wipeB-auto", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 3.74);
+      tl.fromTo("#wipeA-auto", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 8.3);
+      tl.fromTo("#wipeA-auto", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 8.6);
+      tl.fromTo("#wipeB-auto", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 8.36);
+      tl.fromTo("#wipeB-auto", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 8.64);
+      tl.fromTo("#wipeA-auto", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 13.2);
+      tl.fromTo("#wipeA-auto", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 13.5);
+      tl.fromTo("#wipeB-auto", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 13.26);
+      tl.fromTo("#wipeB-auto", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 13.54);
+      tl.fromTo("#wipeA-auto", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 17.3);
+      tl.fromTo("#wipeA-auto", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 17.6);
+      tl.fromTo("#wipeB-auto", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 17.36);
+      tl.fromTo("#wipeB-auto", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 17.64);
+      // sfx-auto:fin
       window.__timelines = window.__timelines || {};
       window.__timelines["main"] = tl;
       tl.seek(0);

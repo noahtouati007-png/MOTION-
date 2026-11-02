@@ -16,9 +16,13 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--sable); }
       #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Inter", sans-serif; color: var(--nuit); background: var(--sable); }
-      #grid { position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, rgba(200, 85, 61, 0.07) 0 2px, transparent 2px 60px), repeating-linear-gradient(90deg, rgba(200, 85, 61, 0.07) 0 2px, transparent 2px 60px); }
+      #grid { position: absolute; inset: -120px; background-image: repeating-linear-gradient(0deg, rgba(200, 85, 61, 0.08) 0 2px, transparent 2px 60px), repeating-linear-gradient(90deg, rgba(200, 85, 61, 0.08) 0 2px, transparent 2px 60px); }
+      .deco { position: absolute; width: 360px; height: 120px; }
+      .deco path { fill: none; stroke: var(--terra); stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; opacity: 0.12; }
+      #d1 { left: -80px; top: 380px; } #d2 { right: -100px; top: 1180px; width: 480px; height: 160px; } #d3 { left: 120px; top: 1560px; width: 260px; height: 86px; }
+      #prog { position: absolute; left: 0; top: 0; width: 1080px; height: 12px; background: var(--terra); transform-origin: 0% 50%; z-index: 30; }
 
-      #brand { position: absolute; left: 0; right: 0; top: 150px; text-align: center; }
+      #brand { position: absolute; left: 0; right: 0; top: 150px; text-align: center; z-index: 10; }
       #brand-roof { width: 150px; height: 46px; display: block; margin: 0 auto 6px; }
       #brand-roof path { fill: none; stroke: var(--terra); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
       #brand-name { font-family: "Fraunces", serif; font-weight: 700; font-size: 60px; letter-spacing: -1px; white-space: nowrap; }
@@ -27,16 +31,21 @@
       .decode .glyph { position: absolute; left: 50%; top: 0; transform: translateX(-50%); font-family: "Inter", sans-serif; font-weight: 800; color: var(--terra); opacity: 0; }
       .decode .real { opacity: 0; }
 
-      .scene { position: absolute; left: 80px; right: 80px; top: 600px; text-align: center; }
-      .picon * { stroke-dasharray: 1; }
+      .scene { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+      .inner { position: absolute; left: 80px; right: 80px; top: 600px; text-align: center; transform-origin: 50% 30%; }
+      .w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 2px 10px; margin-bottom: -10px; }
+      .wi { display: inline-block; transform-origin: 0% 100%; }
 
       .hook-icon { width: 220px; height: 220px; display: block; margin: 0 auto 40px; }
       .hook-title { font-family: "Fraunces", serif; font-weight: 700; font-size: 104px; line-height: 1.05; letter-spacing: -1px; }
-      .hook-sub { margin-top: 34px; font-family: "Fraunces", serif; font-style: italic; font-weight: 600; font-size: 54px; line-height: 1.2; color: var(--terra); }
+      .hook-bar { width: 220px; height: 14px; border-radius: 7px; background: var(--terra); margin: 34px auto 0; transform-origin: 0% 50%; }
+      .hook-sub { margin-top: 30px; font-family: "Fraunces", serif; font-style: italic; font-weight: 600; font-size: 54px; line-height: 1.2; color: var(--terra); }
 
-      .pnum { vertical-align: middle; display: inline-flex; align-items: baseline; justify-content: center; width: 150px; height: 150px; padding-top: 22px; border-radius: 50%; background: var(--terra); color: var(--clair); font-family: "Fraunces", serif; font-weight: 700; font-size: 92px; line-height: 1; }
+      .prow { display: flex; justify-content: center; align-items: center; gap: 46px; }
+      .pnum { display: inline-flex; align-items: baseline; justify-content: center; width: 150px; height: 150px; padding-top: 22px; border-radius: 50%; background: var(--terra); color: var(--clair); font-family: "Fraunces", serif; font-weight: 700; font-size: 92px; line-height: 1; }
       .pnum small { font-family: "Inter", sans-serif; font-weight: 700; font-size: 32px; opacity: 0.85; }
-      .picon { display: inline-block; vertical-align: middle; margin-left: 46px; width: 150px; height: 150px; }
+      .picon { width: 150px; height: 150px; }
+      .picon * { stroke-dasharray: 1; }
       .ptitle { margin-top: 50px; font-family: "Fraunces", serif; font-weight: 700; font-size: 92px; line-height: 1.05; letter-spacing: -1px; }
       .pbar { width: 160px; height: 12px; border-radius: 6px; background: var(--terra); margin: 34px auto 0; transform-origin: 0% 50%; }
       .pdetail { margin-top: 34px; font-weight: 500; font-size: 50px; line-height: 1.32; }
@@ -44,73 +53,76 @@
       .dot { width: 22px; height: 22px; border-radius: 50%; background: rgba(31, 42, 68, 0.18); }
       .dot.on { background: var(--terra); }
 
-      #retenir .k { font-weight: 800; font-size: 34px; letter-spacing: 8px; text-transform: uppercase; color: var(--terra); }
-      .card { margin-top: 30px; background: var(--nuit); color: var(--clair); border-radius: 36px; padding: 70px 60px; border-left: 20px solid var(--terra); text-align: left; }
+      #retenir .k { display: inline-block; font-weight: 800; font-size: 34px; letter-spacing: 8px; text-transform: uppercase; color: var(--terra); }
+      .card { margin-top: 30px; background: var(--nuit); color: var(--clair); border-radius: 36px; padding: 70px 60px; border-left: 20px solid var(--terra); text-align: left; box-shadow: 0 30px 60px rgba(31, 42, 68, 0.25); }
       .card-txt { font-family: "Fraunces", serif; font-weight: 700; font-size: 72px; line-height: 1.15; }
 
-      #fin { top: 470px; }
-      #logo-fin { width: 620px; height: auto; display: block; margin: 0 auto; }
+      #fin .inner { top: 470px; }
+      #logo-fin { width: 620px; height: auto; display: block; margin: 0 auto; overflow: visible; }
       .fin-cta { display: inline-flex; align-items: center; gap: 20px; margin-top: 70px; padding: 26px 50px; border-radius: 70px; background: var(--terra); color: var(--clair); font-weight: 800; font-size: 48px; }
       .fin-icon { width: 54px; height: 54px; }
       .fin-handle { margin-top: 36px; font-weight: 800; font-size: 54px; }
 
-      #legal { position: absolute; left: 80px; right: 80px; bottom: 300px; text-align: center; font-size: 28px; font-weight: 500; opacity: 0.75; }
+      #legal { position: absolute; left: 80px; right: 80px; bottom: 300px; text-align: center; font-size: 28px; font-weight: 500; opacity: 0.75; z-index: 10; }
+      .wipe { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 40; }
+      #wipeA { background: var(--terra); }
+      #wipeB { background: var(--nuit); }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="31.8" data-fps="30" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="32" data-fps="30" data-width="1080" data-height="1920">
       <div id="grid"></div>
+      <svg class="deco" id="d1" viewBox="0 0 360 120"><path d="M20 110 L180 14 L340 110" /></svg>
+      <svg class="deco" id="d2" viewBox="0 0 360 120"><path d="M20 110 L180 14 L340 110" /></svg>
+      <svg class="deco" id="d3" viewBox="0 0 360 120"><path d="M20 110 L180 14 L340 110" /></svg>
       <div id="brand">
         <svg id="brand-roof" viewBox="0 0 150 46"><path pathLength="1" d="M8 40 L75 6 L142 40" /></svg>
         <div id="brand-name" class="decode" data-text="IMMO DÉCODÉ"></div>
         <div id="tag">Conseil immo</div>
       </div>
 
-      <div class="scene clip" id="hook" data-start="0" data-duration="3.6" data-track-index="1">
+      <div class="scene clip" id="hook" data-start="0" data-duration="3.4" data-track-index="1"><div class="inner">
         <svg class="hook-icon" viewBox="0 0 120 120" fill="none" stroke="#c8553d" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M30 12 h42 l20 20 v76 h-62 z"/><path pathLength="1" d="M72 12 v20 h20"/><path pathLength="1" d="M44 58 h32 M44 74 h32 M44 90 h20"/></svg>
         <div class="hook-title">Lire un DPE en 30 secondes</div>
+        <div class="hook-bar"></div>
         <div class="hook-sub">Le diagnostic que tout le monde survole</div>
-      </div>
-      <div class="scene clip" id="p1" data-start="3.6" data-duration="5.2" data-track-index="1">
-        <div class="pnum">1<small>/4</small></div>
-        <svg class="picon" viewBox="0 0 120 120" fill="none" stroke="#1f2a44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M16 104 H106"/><path pathLength="1" d="M30 90 V70 M54 90 V54 M78 90 V40 M102 90 V24"/><path pathLength="1" d="M24 50 L48 36 L70 42 L100 16"/></svg>
-        <div class="ptitle">7 lettres, de A à G</div>
+      </div></div>
+      <div class="scene clip" id="p1" data-start="3.4" data-duration="5.2" data-track-index="1"><div class="inner">
+        <div class="prow"><div class="pnum">1<small>/4</small></div><svg class="picon" viewBox="0 0 120 120" fill="none" stroke="#1f2a44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M16 104 H106"/><path pathLength="1" d="M30 90 V70 M54 90 V54 M78 90 V40 M102 90 V24"/><path pathLength="1" d="M24 50 L48 36 L70 42 L100 16"/></svg></div>
+        <div class="ptitle"><span class="w"><span class="wi">7</span></span> <span class="w"><span class="wi">lettres,</span></span> <span class="w"><span class="wi">de</span></span> <span class="w"><span class="wi">A</span></span> <span class="w"><span class="wi">à</span></span> <span class="w"><span class="wi">G</span></span></div>
         <div class="pbar"></div>
         <div class="pdetail">A : très économe. G : passoire énergétique.</div>
         <div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-      </div>
-      <div class="scene clip" id="p2" data-start="8.8" data-duration="5" data-track-index="1">
-        <div class="pnum">2<small>/4</small></div>
-        <svg class="picon" viewBox="0 0 120 120" fill="none" stroke="#1f2a44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M30 12 h42 l20 20 v76 h-62 z"/><path pathLength="1" d="M72 12 v20 h20"/><path pathLength="1" d="M44 58 h32 M44 74 h32 M44 90 h20"/></svg>
-        <div class="ptitle">Deux étiquettes</div>
+      </div></div>
+      <div class="scene clip" id="p2" data-start="8.6" data-duration="5" data-track-index="1"><div class="inner">
+        <div class="prow"><div class="pnum">2<small>/4</small></div><svg class="picon" viewBox="0 0 120 120" fill="none" stroke="#1f2a44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M30 12 h42 l20 20 v76 h-62 z"/><path pathLength="1" d="M72 12 v20 h20"/><path pathLength="1" d="M44 58 h32 M44 74 h32 M44 90 h20"/></svg></div>
+        <div class="ptitle"><span class="w"><span class="wi">Deux</span></span> <span class="w"><span class="wi">étiquettes</span></span></div>
         <div class="pbar"></div>
         <div class="pdetail">L'énergie consommée et les émissions de gaz à effet de serre.</div>
         <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
-      </div>
-      <div class="scene clip" id="p3" data-start="13.8" data-duration="5.2" data-track-index="1">
-        <div class="pnum">3<small>/4</small></div>
-        <svg class="picon" viewBox="0 0 120 120" fill="none" stroke="#1f2a44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><circle pathLength="1" cx="52" cy="52" r="30"/><path pathLength="1" d="M74 74 L104 104"/></svg>
-        <div class="ptitle">La pire lettre compte</div>
+      </div></div>
+      <div class="scene clip" id="p3" data-start="13.6" data-duration="5.2" data-track-index="1"><div class="inner">
+        <div class="prow"><div class="pnum">3<small>/4</small></div><svg class="picon" viewBox="0 0 120 120" fill="none" stroke="#1f2a44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><circle pathLength="1" cx="52" cy="52" r="30"/><path pathLength="1" d="M74 74 L104 104"/></svg></div>
+        <div class="ptitle"><span class="w"><span class="wi">La</span></span> <span class="w"><span class="wi">pire</span></span> <span class="w"><span class="wi">lettre</span></span> <span class="w"><span class="wi">compte</span></span></div>
         <div class="pbar"></div>
         <div class="pdetail">La note finale est la moins bonne des deux étiquettes.</div>
         <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
-      </div>
-      <div class="scene clip" id="p4" data-start="19" data-duration="5.6" data-track-index="1">
-        <div class="pnum">4<small>/4</small></div>
-        <svg class="picon" viewBox="0 0 120 120" fill="none" stroke="#1f2a44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><circle pathLength="1" cx="38" cy="60" r="20"/><path pathLength="1" d="M58 60 H104 M90 60 V76 M104 60 V72"/></svg>
-        <div class="ptitle">Attention à la location</div>
+      </div></div>
+      <div class="scene clip" id="p4" data-start="18.8" data-duration="5.6" data-track-index="1"><div class="inner">
+        <div class="prow"><div class="pnum">4<small>/4</small></div><svg class="picon" viewBox="0 0 120 120" fill="none" stroke="#1f2a44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><circle pathLength="1" cx="38" cy="60" r="20"/><path pathLength="1" d="M58 60 H104 M90 60 V76 M104 60 V72"/></svg></div>
+        <div class="ptitle"><span class="w"><span class="wi">Attention</span></span> <span class="w"><span class="wi">à</span></span> <span class="w"><span class="wi">la</span></span> <span class="w"><span class="wi">location</span></span></div>
         <div class="pbar"></div>
         <div class="pdetail">Depuis 2025, un logement classé G ne peut plus être loué avec un nouveau bail.</div>
         <div class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
-      </div>
-      <div class="scene clip" id="retenir" data-start="24.6" data-duration="4.2" data-track-index="1">
+      </div></div>
+      <div class="scene clip" id="retenir" data-start="24.4" data-duration="4.4" data-track-index="1"><div class="inner">
         <div class="k">À retenir</div>
-        <div class="card"><div class="card-txt">Un mauvais DPE, ce sont des travaux à prévoir. Et un argument pour négocier.</div></div>
-      </div>
-      <div class="scene clip" id="fin" data-start="28.8" data-duration="3" data-track-index="1">
+        <div class="card"><div class="card-txt"><span class="w"><span class="wi">Un</span></span> <span class="w"><span class="wi">mauvais</span></span> <span class="w"><span class="wi">DPE,</span></span> <span class="w"><span class="wi">ce</span></span> <span class="w"><span class="wi">sont</span></span> <span class="w"><span class="wi">des</span></span> <span class="w"><span class="wi">travaux</span></span> <span class="w"><span class="wi">à</span></span> <span class="w"><span class="wi">prévoir.</span></span> <span class="w"><span class="wi">Et</span></span> <span class="w"><span class="wi">un</span></span> <span class="w"><span class="wi">argument</span></span> <span class="w"><span class="wi">pour</span></span> <span class="w"><span class="wi">négocier.</span></span></div></div>
+      </div></div>
+      <div class="scene clip" id="fin" data-start="28.8" data-duration="3.2" data-track-index="1"><div class="inner">
         <svg xmlns="http://www.w3.org/2000/svg" id="logo-fin" viewBox="0 0 1109 795">
 
-<path id="toit" d="M174.1 210.0 L554.6 60.0 L935.0 210.0" fill="none" stroke="#C8553D" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="toit" pathLength="1" stroke-dasharray="1" d="M174.1 210.0 L554.6 60.0 L935.0 210.0" fill="none" stroke="#C8553D" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
 <path id="immo" fill="#1F2A44" d="M277.68999999999994 392.88Q277.68999999999994 395.41 279.11999999999995 397.005Q280.54999999999995 398.6 283.18999999999994 399.59L288.46999999999997 401.02Q293.64 402.89 293.64 407.84Q293.64 410.59 291.715 412.29499999999996Q289.78999999999996 414.0 285.60999999999996 414.0H227.19999999999996Q223.12999999999997 414.0 221.20499999999998 412.29499999999996Q219.27999999999997 410.59 219.27999999999997 407.84Q219.27999999999997 402.89 224.33999999999997 401.02L229.61999999999998 399.59Q232.47999999999996 398.6 233.85499999999996 397.005Q235.22999999999996 395.41 235.22999999999996 392.88V281.12Q235.22999999999996 278.59000000000003 233.85499999999996 276.995Q232.47999999999996 275.4 229.61999999999998 274.40999999999997L224.33999999999997 272.98Q219.27999999999997 271.11 219.27999999999997 266.15999999999997Q219.27999999999997 263.3 221.20499999999998 261.65Q223.12999999999997 260.0 227.19999999999996 260.0H285.60999999999996Q289.78999999999996 260.0 291.715 261.65Q293.64 263.3 293.64 266.15999999999997Q293.64 271.11 288.46999999999997 272.98L283.18999999999994 274.40999999999997Q280.54999999999995 275.4 279.11999999999995 276.995Q277.68999999999994 278.59000000000003 277.68999999999994 281.12ZM416.95 366.48 403.41999999999996 369.56 440.49 272.32Q443.13 265.28 446.595 262.64Q450.06 260.0 456.22 260.0H493.51Q497.58 260.0 499.55999999999995 261.65Q501.53999999999996 263.3 501.53999999999996 266.15999999999997Q501.53999999999996 268.69 500.21999999999997 270.395Q498.9 272.1 496.48 272.98L491.53 274.52Q487.9 275.62 486.69 277.49Q485.48 279.36 485.7 283.53999999999996L493.4 391.45Q493.62 395.41 494.885 397.005Q496.15 398.6 499.12 399.59L503.96 401.02Q506.38 401.79 507.59 403.44Q508.79999999999995 405.09 508.79999999999995 407.51Q508.79999999999995 410.26 506.82 412.13Q504.84000000000003 414.0 500.77 414.0H443.46Q439.28 414.0 437.35499999999996 412.29499999999996Q435.42999999999995 410.59 435.42999999999995 407.84Q435.42999999999995 405.42 436.53 403.71500000000003Q437.63 402.01 440.6 401.02L445.54999999999995 399.59Q449.07 398.38 450.33500000000004 396.675Q451.6 394.97 451.38 391.45L442.69 279.03L454.9 278.03999999999996L409.36 398.49Q406.83 405.2 404.18999999999994 407.125Q401.54999999999995 409.05 397.91999999999996 409.05Q395.28 409.05 393.08 408.39Q390.88 407.73 389.01 405.365Q387.14 403.0 385.04999999999995 397.83L338.63 281.78L350.28999999999996 278.81L341.27 387.82Q340.94 392.77 343.47 395.40999999999997Q346.0 398.05 350.18 400.03L354.46999999999997 401.79Q356.23 402.67 357.22 404.045Q358.21 405.42 358.21 407.51Q358.21 410.48 356.28499999999997 412.24Q354.36 414.0 350.28999999999996 414.0H316.52Q312.45 414.0 310.525 412.29499999999996Q308.59999999999997 410.59 308.59999999999997 407.84Q308.59999999999997 404.98 310.14 403.495Q311.68 402.01 314.21 400.8L317.62 399.48Q321.25 398.05 323.615 395.355Q325.98 392.66 326.41999999999996 387.71L334.78 287.17Q335.21999999999997 281.23 333.9 278.425Q332.58 275.62 328.95 274.52L324.11 272.98Q321.46999999999997 272.1 320.15 270.45000000000005Q318.83 268.8 318.83 266.27Q318.83 260.0 326.86 260.0H363.82Q369.53999999999996 260.0 373.005 262.365Q376.46999999999997 264.73 379.21999999999997 271.88ZM627.05 366.48 613.52 369.56 650.5899999999999 272.32Q653.23 265.28 656.6949999999999 262.64Q660.16 260.0 666.3199999999999 260.0H703.6099999999999Q707.68 260.0 709.66 261.65Q711.64 263.3 711.64 266.15999999999997Q711.64 268.69 710.3199999999999 270.395Q709.0 272.1 706.5799999999999 272.98L701.63 274.52Q698.0 275.62 696.79 277.49Q695.5799999999999 279.36 695.8 283.53999999999996L703.5 391.45Q703.7199999999999 395.41 704.9849999999999 397.005Q706.25 398.6 709.2199999999999 399.59L714.06 401.02Q716.48 401.79 717.69 403.44Q718.9 405.09 718.9 407.51Q718.9 410.26 716.92 412.13Q714.9399999999999 414.0 710.8699999999999 414.0H653.56Q649.38 414.0 647.4549999999999 412.29499999999996Q645.53 410.59 645.53 407.84Q645.53 405.42 646.63 403.71500000000003Q647.73 402.01 650.6999999999999 401.02L655.65 399.59Q659.17 398.38 660.435 396.675Q661.6999999999999 394.97 661.48 391.45L652.79 279.03L665.0 278.03999999999996L619.4599999999999 398.49Q616.93 405.2 614.29 407.125Q611.65 409.05 608.02 409.05Q605.38 409.05 603.1800000000001 408.39Q600.98 407.73 599.11 405.365Q597.24 403.0 595.15 397.83L548.7299999999999 281.78L560.39 278.81L551.37 387.82Q551.04 392.77 553.5699999999999 395.40999999999997Q556.0999999999999 398.05 560.28 400.03L564.5699999999999 401.79Q566.3299999999999 402.67 567.3199999999999 404.045Q568.31 405.42 568.31 407.51Q568.31 410.48 566.385 412.24Q564.4599999999999 414.0 560.39 414.0H526.62Q522.55 414.0 520.625 412.29499999999996Q518.6999999999999 410.59 518.6999999999999 407.84Q518.6999999999999 404.98 520.24 403.495Q521.78 402.01 524.31 400.8L527.7199999999999 399.48Q531.3499999999999 398.05 533.7149999999999 395.355Q536.0799999999999 392.66 536.52 387.71L544.88 287.17Q545.3199999999999 281.23 544.0 278.425Q542.68 275.62 539.05 274.52L534.2099999999999 272.98Q531.5699999999999 272.1 530.25 270.45000000000005Q528.93 268.8 528.93 266.27Q528.93 260.0 536.9599999999999 260.0H573.92Q579.64 260.0 583.105 262.365Q586.5699999999999 264.73 589.3199999999999 271.88ZM811.85 255.93Q830.4399999999999 255.93 845.345 261.815Q860.25 267.7 870.81 278.645Q881.37 289.59000000000003 886.98 304.605Q892.5899999999999 319.62 892.5899999999999 337.99Q892.5899999999999 355.04 887.035 369.67Q881.48 384.3 871.03 395.19Q860.5799999999999 406.08 845.8399999999999 412.13Q831.1 418.18 812.73 418.18Q794.25 418.18 779.4 412.295Q764.55 406.41 753.99 395.46500000000003Q743.43 384.52 737.765 369.505Q732.1 354.49 732.1 336.12Q732.1 319.07 737.71 304.44Q743.3199999999999 289.81 753.7149999999999 278.91999999999996Q764.11 268.03 778.8499999999999 261.98Q793.5899999999999 255.93 811.85 255.93ZM848.92 362.96Q848.92 348.22 846.39 334.415Q843.86 320.61 839.405 308.78499999999997Q834.9499999999999 296.96 829.1199999999999 288.105Q823.29 279.25 816.635 274.245Q809.98 269.24 803.05 269.24Q794.6899999999999 269.24 788.6399999999999 274.135Q782.5899999999999 279.03 779.4 288.325Q776.21 297.62 776.21 311.15Q776.21 325.89 778.74 339.695Q781.27 353.5 785.67 365.325Q790.0699999999999 377.15 795.9 386.06Q801.73 394.97 808.385 399.975Q815.04 404.98 821.97 404.98Q830.55 404.98 836.545 400.08500000000004Q842.54 395.19 845.73 385.84000000000003Q848.92 376.49 848.92 362.96Z"/>
 <path id="decode" fill="#1F2A44" d="M70.55999999999995 656.84Q70.55999999999995 651.89 75.72999999999995 650.02L81.00999999999995 648.59Q83.75999999999995 647.6 85.13499999999995 646.005Q86.50999999999995 644.41 86.50999999999995 641.88V530.12Q86.50999999999995 527.59 85.13499999999995 525.995Q83.75999999999995 524.4 81.00999999999995 523.41L75.72999999999995 521.98Q70.55999999999995 520.11 70.55999999999995 515.16Q70.55999999999995 512.3 72.53999999999994 510.65Q74.51999999999994 509.0 78.47999999999995 509.0H141.83999999999995Q162.18999999999994 509.0 178.79999999999995 514.995Q195.40999999999994 520.99 207.39999999999995 531.99Q219.38999999999996 542.99 225.82499999999993 558.06Q232.25999999999993 573.13 232.25999999999993 591.28Q232.25999999999993 612.07 222.52499999999992 628.24Q212.78999999999994 644.41 194.85999999999996 653.7049999999999Q176.92999999999995 663.0 152.17999999999995 663.0H78.47999999999995Q74.51999999999994 663.0 72.53999999999994 661.2950000000001Q70.55999999999995 659.59 70.55999999999995 656.84ZM147.33999999999995 649.8Q159.43999999999994 649.8 168.67999999999995 643.53Q177.91999999999996 637.26 183.19999999999993 624.1700000000001Q188.47999999999993 611.08 188.47999999999993 590.62Q188.47999999999993 574.67 184.95999999999992 561.9649999999999Q181.43999999999994 549.26 174.72999999999993 540.405Q168.01999999999992 531.55 158.50499999999994 526.875Q148.98999999999995 522.2 137.10999999999996 522.2H128.96999999999994V638.8Q128.96999999999994 644.52 132.10499999999996 647.16Q135.23999999999995 649.8 141.17999999999995 649.8ZM292.75999999999993 578.74H324.54999999999995Q331.36999999999995 578.74 334.28499999999997 575.99Q337.19999999999993 573.24 339.06999999999994 565.54Q339.94999999999993 562.35 341.655 560.9200000000001Q343.35999999999996 559.49 345.66999999999996 559.38Q350.7299999999999 559.27 352.04999999999995 564.88L360.62999999999994 598.65Q361.3999999999999 602.17 360.5199999999999 604.15Q359.63999999999993 606.13 356.99999999999994 607.01Q354.35999999999996 607.89 352.1049999999999 607.23Q349.8499999999999 606.57 348.19999999999993 604.15Q344.8999999999999 598.98 342.1499999999999 596.2850000000001Q339.3999999999999 593.59 335.9899999999999 592.6Q332.5799999999999 591.61 327.29999999999995 591.61H292.75999999999993ZM250.18999999999994 515.16Q250.18999999999994 512.3 252.16999999999996 510.65Q254.14999999999995 509.0 258.2199999999999 509.0H341.7099999999999Q346.2199999999999 509.0 349.13499999999993 507.955Q352.04999999999995 506.90999999999997 354.63499999999993 505.865Q357.2199999999999 504.82 360.5199999999999 504.82Q364.5899999999999 504.82 366.67999999999995 507.13Q368.77 509.44 370.30999999999995 514.61L379.43999999999994 545.85Q380.42999999999995 549.15 379.38499999999993 551.3499999999999Q378.3399999999999 553.55 375.4799999999999 554.54Q372.17999999999995 555.64 369.53999999999996 554.4300000000001Q366.8999999999999 553.22 365.24999999999994 550.03Q360.73999999999995 541.34 356.78 535.895Q352.81999999999994 530.45 348.8599999999999 527.48Q344.8999999999999 524.51 340.44499999999994 523.355Q335.98999999999995 522.2 330.2699999999999 522.2H308.5999999999999V637.81Q308.5999999999999 643.75 311.7899999999999 646.775Q314.9799999999999 649.8 321.24999999999994 649.8H333.56999999999994Q341.37999999999994 649.8 347.26499999999993 647.27Q353.1499999999999 644.74 358.5949999999999 637.59Q364.03999999999996 630.44 370.30999999999995 616.8Q371.73999999999995 613.83 374.04999999999995 612.73Q376.3599999999999 611.63 379.2199999999999 612.18Q382.52 612.73 383.94999999999993 615.095Q385.37999999999994 617.46 384.38999999999993 621.09L374.5999999999999 657.17Q373.05999999999995 662.12 370.91499999999996 664.54Q368.77 666.96 364.25999999999993 666.96Q361.3999999999999 666.96 358.8699999999999 665.97Q356.3399999999999 664.98 353.3699999999999 663.99Q350.3999999999999 663.0 345.99999999999994 663.0H258.2199999999999Q254.14999999999995 663.0 252.16999999999996 661.2950000000001Q250.18999999999994 659.59 250.18999999999994 656.84Q250.18999999999994 651.89 255.35999999999993 650.02L260.63999999999993 648.59Q263.38999999999993 647.6 264.76499999999993 646.005Q266.13999999999993 644.41 266.13999999999993 641.88V530.12Q266.13999999999993 527.59 264.76499999999993 525.995Q263.38999999999993 524.4 260.63999999999993 523.41L255.35999999999993 521.98Q250.18999999999994 520.11 250.18999999999994 515.16ZM319.7099999999999 473.46999999999997Q323.99999999999994 466.42999999999995 329.00499999999994 462.68999999999994Q334.00999999999993 458.94999999999993 340.7199999999999 460.27Q346.7699999999999 461.47999999999996 349.68499999999995 466.265Q352.59999999999997 471.04999999999995 351.49999999999994 475.89Q350.3999999999999 481.8299999999999 346.16499999999996 485.3499999999999Q341.92999999999995 488.86999999999995 334.66999999999996 491.61999999999995L314.09999999999997 500.19999999999993Q312.11999999999995 500.85999999999996 310.0849999999999 500.69499999999994Q308.04999999999995 500.53 306.8399999999999 499.21Q305.62999999999994 497.78 306.06999999999994 496.07499999999993Q306.50999999999993 494.36999999999995 307.60999999999996 492.71999999999997ZM538.06 620.54Q538.06 628.79 533.66 637.04Q529.26 645.29 520.9549999999999 652.165Q512.65 659.04 500.93499999999995 663.165Q489.21999999999997 667.29 474.47999999999996 667.29Q450.28 667.29 432.625 657.005Q414.96999999999997 646.72 405.4 628.5699999999999Q395.8299999999999 610.42 395.8299999999999 586.88Q395.8299999999999 569.17 401.54999999999995 554.21Q407.27 539.25 417.55499999999995 528.1949999999999Q427.84 517.14 441.5899999999999 511.03499999999997Q455.3399999999999 504.93 471.50999999999993 504.93Q482.06999999999994 504.93 488.7249999999999 506.855Q495.37999999999994 508.78 499.28499999999997 510.815Q503.18999999999994 512.85 505.60999999999996 512.85Q508.5799999999999 512.85 510.3399999999999 511.035Q512.0999999999999 509.22 513.9699999999999 507.46000000000004Q515.8399999999999 505.7 518.81 505.7Q521.23 505.7 522.77 507.18499999999995Q524.31 508.66999999999996 525.3 512.19L536.74 550.8Q537.6199999999999 553.66 536.0799999999999 555.97Q534.54 558.28 531.5699999999999 559.05Q528.49 559.71 525.96 558.5Q523.43 557.29 522.0 554.1Q516.17 540.9 509.18499999999995 533.31Q502.19999999999993 525.72 494.38999999999993 522.53Q486.5799999999999 519.34 477.89 519.34Q468.97999999999996 519.34 461.7199999999999 523.52Q454.4599999999999 527.7 449.28999999999996 535.455Q444.11999999999995 543.21 441.36999999999995 554.155Q438.61999999999995 565.1 438.61999999999995 578.74Q438.61999999999995 600.41 444.8349999999999 615.095Q451.04999999999995 629.78 461.99499999999995 637.26Q472.93999999999994 644.74 487.12999999999994 644.74Q500.21999999999997 644.74 510.395 638.25Q520.5699999999999 631.76 526.73 619.66Q528.27 616.58 530.085 615.645Q531.9 614.71 534.0999999999999 615.15Q536.1899999999999 615.48 537.125 616.855Q538.06 618.23 538.06 620.54ZM632.33 504.93Q650.92 504.93 665.825 510.81500000000005Q680.73 516.7 691.29 527.645Q701.85 538.59 707.46 553.605Q713.0699999999999 568.62 713.0699999999999 586.99Q713.0699999999999 604.04 707.515 618.67Q701.96 633.3 691.51 644.19Q681.06 655.08 666.3199999999999 661.13Q651.58 667.18 633.21 667.18Q614.73 667.18 599.88 661.295Q585.03 655.41 574.47 644.4649999999999Q563.91 633.52 558.245 618.505Q552.58 603.49 552.58 585.12Q552.58 568.0699999999999 558.19 553.4399999999999Q563.8 538.81 574.1949999999999 527.92Q584.59 517.03 599.3299999999999 510.98Q614.0699999999999 504.93 632.33 504.93ZM669.4 611.96Q669.4 597.22 666.87 583.415Q664.34 569.61 659.885 557.7850000000001Q655.43 545.96 649.5999999999999 537.105Q643.77 528.25 637.115 523.245Q630.46 518.24 623.53 518.24Q615.17 518.24 609.1199999999999 523.135Q603.0699999999999 528.03 599.88 537.325Q596.69 546.62 596.69 560.15Q596.69 574.89 599.22 588.6949999999999Q601.75 602.5 606.15 614.325Q610.55 626.15 616.38 635.06Q622.21 643.97 628.865 648.975Q635.52 653.98 642.45 653.98Q651.03 653.98 657.025 649.085Q663.02 644.19 666.21 634.84Q669.4 625.49 669.4 611.96ZM731.4399999999999 656.84Q731.4399999999999 651.89 736.61 650.02L741.89 648.59Q744.64 647.6 746.015 646.005Q747.39 644.41 747.39 641.88V530.12Q747.39 527.59 746.015 525.995Q744.64 524.4 741.89 523.41L736.61 521.98Q731.4399999999999 520.11 731.4399999999999 515.16Q731.4399999999999 512.3 733.42 510.65Q735.4 509.0 739.36 509.0H802.72Q823.0699999999999 509.0 839.68 514.995Q856.29 520.99 868.28 531.99Q880.27 542.99 886.7049999999999 558.06Q893.14 573.13 893.14 591.28Q893.14 612.07 883.405 628.24Q873.67 644.41 855.74 653.7049999999999Q837.81 663.0 813.06 663.0H739.36Q735.4 663.0 733.42 661.2950000000001Q731.4399999999999 659.59 731.4399999999999 656.84ZM808.22 649.8Q820.3199999999999 649.8 829.56 643.53Q838.8 637.26 844.0799999999999 624.1700000000001Q849.36 611.08 849.36 590.62Q849.36 574.67 845.8399999999999 561.9649999999999Q842.3199999999999 549.26 835.6099999999999 540.405Q828.9 531.55 819.385 526.875Q809.87 522.2 797.99 522.2H789.85V638.8Q789.85 644.52 792.985 647.16Q796.12 649.8 802.06 649.8ZM953.64 578.74H985.43Q992.25 578.74 995.165 575.99Q998.08 573.24 999.95 565.54Q1000.83 562.35 1002.5350000000001 560.9200000000001Q1004.24 559.49 1006.55 559.38Q1011.61 559.27 1012.93 564.88L1021.51 598.65Q1022.28 602.17 1021.4 604.15Q1020.52 606.13 1017.88 607.01Q1015.24 607.89 1012.985 607.23Q1010.73 606.57 1009.08 604.15Q1005.78 598.98 1003.03 596.2850000000001Q1000.28 593.59 996.87 592.6Q993.46 591.61 988.18 591.61H953.64ZM911.0699999999999 515.16Q911.0699999999999 512.3 913.05 510.65Q915.03 509.0 919.1 509.0H1002.59Q1007.1 509.0 1010.015 507.955Q1012.93 506.90999999999997 1015.515 505.865Q1018.1 504.82 1021.4 504.82Q1025.47 504.82 1027.56 507.13Q1029.65 509.44 1031.19 514.61L1040.32 545.85Q1041.31 549.15 1040.2649999999999 551.3499999999999Q1039.22 553.55 1036.36 554.54Q1033.06 555.64 1030.42 554.4300000000001Q1027.78 553.22 1026.13 550.03Q1021.62 541.34 1017.6600000000001 535.895Q1013.7 530.45 1009.74 527.48Q1005.78 524.51 1001.325 523.355Q996.87 522.2 991.15 522.2H969.48V637.81Q969.48 643.75 972.6700000000001 646.775Q975.86 649.8 982.13 649.8H994.45Q1002.26 649.8 1008.145 647.27Q1014.03 644.74 1019.475 637.59Q1024.92 630.44 1031.19 616.8Q1032.62 613.83 1034.9299999999998 612.73Q1037.24 611.63 1040.1 612.18Q1043.4 612.73 1044.83 615.095Q1046.26 617.46 1045.27 621.09L1035.48 657.17Q1033.94 662.12 1031.795 664.54Q1029.65 666.96 1025.1399999999999 666.96Q1022.28 666.96 1019.75 665.97Q1017.22 664.98 1014.25 663.99Q1011.28 663.0 1006.88 663.0H919.1Q915.03 663.0 913.05 661.2950000000001Q911.0699999999999 659.59 911.0699999999999 656.84Q911.0699999999999 651.89 916.24 650.02L921.52 648.59Q924.27 647.6 925.645 646.005Q927.02 644.41 927.02 641.88V530.12Q927.02 527.59 925.645 525.995Q924.27 524.4 921.52 523.41L916.24 521.98Q911.0699999999999 520.11 911.0699999999999 515.16ZM980.5899999999999 473.46999999999997Q984.8799999999999 466.42999999999995 989.885 462.68999999999994Q994.89 458.94999999999993 1001.5999999999999 460.27Q1007.65 461.47999999999996 1010.5649999999999 466.265Q1013.4799999999999 471.04999999999995 1012.3799999999999 475.89Q1011.28 481.8299999999999 1007.045 485.3499999999999Q1002.81 488.86999999999995 995.55 491.61999999999995L974.9799999999999 500.19999999999993Q972.9999999999999 500.85999999999996 970.9649999999999 500.69499999999994Q968.93 500.53 967.7199999999999 499.21Q966.51 497.78 966.95 496.07499999999993Q967.39 494.36999999999995 968.4899999999999 492.71999999999997Z"/>
 <rect id="barre" x="366.6" y="715.0" width="375.9" height="20" rx="10" fill="#C8553D"/>
@@ -118,8 +130,44 @@
 
         <div class="fin-cta"><svg class="fin-icon" viewBox="0 0 120 120" fill="none" stroke="#fbf6ef" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M34 14 h52 a6 6 0 0 1 6 6 v88 l-32 -22 l-32 22 v-88 a6 6 0 0 1 6 -6 z"/></svg>Enregistre ce conseil</div>
         <div class="fin-handle">@immo.decode</div>
-      </div>
+      </div></div>
       <div id="legal">Règles en vigueur fin 2026 : vérifie sur service-public.fr.</div>
+      <div id="prog"></div>
+      <div class="wipe" id="wipeA"></div>
+      <div class="wipe" id="wipeB"></div>
+      <audio id="sfx-1" src="assets/sfx/impact-bass-1.mp3" data-start="0.08" data-duration="2.12" data-volume="0.45"  data-track-index="3"></audio>
+      <audio id="sfx-2" src="assets/sfx/typing.mp3" data-start="0.1"  data-volume="0.16" data-duration="0.85" data-fade-out="0.2" data-track-index="4"></audio>
+      <audio id="sfx-3" src="assets/sfx/whoosh-short.mp3" data-start="0.72" data-duration="0.57" data-volume="0.35"  data-track-index="5"></audio>
+      <audio id="sfx-4" src="assets/sfx/whoosh-short.mp3" data-start="3.05" data-duration="0.57" data-volume="0.5"  data-track-index="3"></audio>
+      <audio id="sfx-5" src="assets/sfx/pop.mp3" data-start="3.45" data-duration="0.72" data-volume="0.5"  data-track-index="4"></audio>
+      <audio id="sfx-6" src="assets/sfx/click-soft.mp3" data-start="3.65" data-duration="0.37" data-volume="0.3"  data-track-index="3"></audio>
+      <audio id="sfx-7" src="assets/sfx/click-soft.mp3" data-start="4.12" data-duration="0.37" data-volume="0.35"  data-track-index="3"></audio>
+      <audio id="sfx-8" src="assets/sfx/pop.mp3" data-start="6.52" data-duration="0.72" data-volume="0.25"  data-track-index="3"></audio>
+      <audio id="sfx-9" src="assets/sfx/whoosh-short.mp3" data-start="8.25" data-duration="0.57" data-volume="0.5"  data-track-index="3"></audio>
+      <audio id="sfx-10" src="assets/sfx/pop.mp3" data-start="8.65" data-duration="0.72" data-volume="0.5"  data-track-index="4"></audio>
+      <audio id="sfx-11" src="assets/sfx/click-soft.mp3" data-start="8.85" data-duration="0.37" data-volume="0.3"  data-track-index="3"></audio>
+      <audio id="sfx-12" src="assets/sfx/click-soft.mp3" data-start="9.32" data-duration="0.37" data-volume="0.35"  data-track-index="3"></audio>
+      <audio id="sfx-13" src="assets/sfx/pop.mp3" data-start="11.6" data-duration="0.72" data-volume="0.25"  data-track-index="3"></audio>
+      <audio id="sfx-14" src="assets/sfx/whoosh-short.mp3" data-start="13.25" data-duration="0.57" data-volume="0.5"  data-track-index="3"></audio>
+      <audio id="sfx-15" src="assets/sfx/pop.mp3" data-start="13.65" data-duration="0.72" data-volume="0.5"  data-track-index="4"></audio>
+      <audio id="sfx-16" src="assets/sfx/click-soft.mp3" data-start="13.85" data-duration="0.37" data-volume="0.3"  data-track-index="3"></audio>
+      <audio id="sfx-17" src="assets/sfx/click-soft.mp3" data-start="14.32" data-duration="0.37" data-volume="0.35"  data-track-index="3"></audio>
+      <audio id="sfx-18" src="assets/sfx/riser.mp3" data-start="14.99" data-duration="10.03" data-volume="0.16" data-fade-in="3" data-track-index="3"></audio>
+      <audio id="sfx-19" src="assets/sfx/pop.mp3" data-start="16.72" data-duration="0.72" data-volume="0.25"  data-track-index="4"></audio>
+      <audio id="sfx-20" src="assets/sfx/whoosh-short.mp3" data-start="18.45" data-duration="0.57" data-volume="0.5"  data-track-index="4"></audio>
+      <audio id="sfx-21" src="assets/sfx/pop.mp3" data-start="18.85" data-duration="0.72" data-volume="0.5"  data-track-index="5"></audio>
+      <audio id="sfx-22" src="assets/sfx/click-soft.mp3" data-start="19.05" data-duration="0.37" data-volume="0.3"  data-track-index="4"></audio>
+      <audio id="sfx-23" src="assets/sfx/click-soft.mp3" data-start="19.52" data-duration="0.37" data-volume="0.35"  data-track-index="4"></audio>
+      <audio id="sfx-24" src="assets/sfx/pop.mp3" data-start="22.16" data-duration="0.72" data-volume="0.25"  data-track-index="4"></audio>
+      <audio id="sfx-25" src="assets/sfx/whoosh-short.mp3" data-start="24.05" data-duration="0.57" data-volume="0.5"  data-track-index="4"></audio>
+      <audio id="sfx-26" src="assets/sfx/impact-bass-2.mp3" data-start="24.5" data-duration="2.59" data-volume="0.4"  data-track-index="5"></audio>
+      <audio id="sfx-27" src="assets/sfx/ping.mp3" data-start="25.4" data-duration="1.32" data-volume="0.25"  data-track-index="3"></audio>
+      <audio id="sfx-28" src="assets/sfx/whoosh-short.mp3" data-start="28.45" data-duration="0.57" data-volume="0.5"  data-track-index="3"></audio>
+      <audio id="sfx-29" src="assets/sfx/sparkle.mp3" data-start="28.9" data-duration="1.8" data-volume="0.35"  data-track-index="4"></audio>
+      <audio id="sfx-30" src="assets/sfx/pop.mp3" data-start="29.08" data-duration="0.72" data-volume="0.35"  data-track-index="3"></audio>
+      <audio id="sfx-31" src="assets/sfx/pop.mp3" data-start="29.21" data-duration="0.72" data-volume="0.35"  data-track-index="5"></audio>
+      <audio id="sfx-32" src="assets/sfx/pop.mp3" data-start="29.58" data-duration="0.72" data-volume="0.5"  data-track-index="6"></audio>
+      <audio id="sfx-33" src="assets/sfx/click.mp3" data-start="30.4" data-duration="0.37" data-volume="0.3"  data-track-index="3"></audio>
     </div>
     <script>
       const GLYPHS = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%€?";
@@ -148,60 +196,105 @@
       const dec = makeDecoder(document.getElementById("brand-name"), 1);
       dec(0);
       const P = { d: 0 };
+      gsap.set(".wipe", { yPercent: 100 });
       const tl = gsap.timeline({ paused: true });
+      // Mouvement de fond continu
+      tl.fromTo("#grid", { x: 0, y: 0 }, { x: 60, y: -120, duration: 32, ease: "none" }, 0);
+      tl.fromTo("#d1", { x: 0, rotation: -8 }, { x: 140, rotation: 6, duration: 32, ease: "none" }, 0);
+      tl.fromTo("#d2", { x: 0, rotation: 10 }, { x: -160, rotation: -4, duration: 32, ease: "none" }, 0);
+      tl.fromTo("#d3", { y: 0, rotation: 0 }, { y: -120, rotation: 12, duration: 32, ease: "none" }, 0);
+      tl.fromTo("#prog", { scaleX: 0 }, { scaleX: 1, duration: 32, ease: "none" }, 0);
+      // Signature
       tl.fromTo("#brand-roof path", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 0);
       tl.fromTo(P, { d: 0 }, { d: 1, duration: 0.7, ease: "none", onUpdate: () => dec(P.d) }, 0.1);
-      tl.fromTo("#tag", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.6);
-      tl.fromTo("#legal", { opacity: 0 }, { opacity: 0.75, duration: 0.5 }, 3.6);
+      tl.fromTo("#tag", { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2.4)" }, 0.6);
+      tl.fromTo("#legal", { opacity: 0 }, { opacity: 0.75, duration: 0.5 }, 3.4);
 
-      tl.fromTo("#hook .hook-icon", { rotation: 0, y: 0 }, { rotation: -6, y: -10, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, 0.3);
-      tl.fromTo("#hook .hook-sub", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 0.7);
-      tl.to("#hook > *", { opacity: 0, y: -50, duration: 0.3, stagger: 0.04, ease: "power2.in" }, 3.25);
-      tl.fromTo("#p1 .pnum", { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 3.65);
-      tl.fromTo("#p1 .picon *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.7, stagger: 0.12, ease: "power2.out" }, 3.7);
-      tl.fromTo("#p1 .ptitle", { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 3.8000000000000003);
-      tl.fromTo("#p1 .pbar", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 4.1);
-      tl.fromTo("#p1 .pdetail", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 4.15);
-      tl.fromTo("#p1 .dots", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 3.8000000000000003);
-      tl.fromTo("#p1 .picon", { y: 0, rotation: 0 }, { y: -14, rotation: -5, duration: 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.45);
-      tl.fromTo("#p1 .dot.on:last-child, #p1 .dot.on", { scale: 1 }, { scale: 1.25, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 6.5);
-      tl.to("#p1 > *", { opacity: 0, y: -40, duration: 0.3, stagger: 0.03, ease: "power2.in" }, 8.45);
-      tl.fromTo("#p2 .pnum", { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 8.850000000000001);
-      tl.fromTo("#p2 .picon *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.7, stagger: 0.12, ease: "power2.out" }, 8.9);
-      tl.fromTo("#p2 .ptitle", { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 9);
-      tl.fromTo("#p2 .pbar", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 9.3);
-      tl.fromTo("#p2 .pdetail", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 9.350000000000001);
-      tl.fromTo("#p2 .dots", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 9);
-      tl.fromTo("#p2 .picon", { y: 0, rotation: 0 }, { y: -14, rotation: -5, duration: 1.9, ease: "sine.inOut", yoyo: true, repeat: 1 }, 9.65);
-      tl.fromTo("#p2 .dot.on:last-child, #p2 .dot.on", { scale: 1 }, { scale: 1.25, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 11.6);
-      tl.to("#p2 > *", { opacity: 0, y: -40, duration: 0.3, stagger: 0.03, ease: "power2.in" }, 13.45);
-      tl.fromTo("#p3 .pnum", { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 13.850000000000001);
-      tl.fromTo("#p3 .picon *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.7, stagger: 0.12, ease: "power2.out" }, 13.9);
-      tl.fromTo("#p3 .ptitle", { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 14);
-      tl.fromTo("#p3 .pbar", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 14.3);
-      tl.fromTo("#p3 .pdetail", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 14.350000000000001);
-      tl.fromTo("#p3 .dots", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 14);
-      tl.fromTo("#p3 .picon", { y: 0, rotation: 0 }, { y: -14, rotation: -5, duration: 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 14.65);
-      tl.fromTo("#p3 .dot.on:last-child, #p3 .dot.on", { scale: 1 }, { scale: 1.25, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 16.7);
-      tl.to("#p3 > *", { opacity: 0, y: -40, duration: 0.3, stagger: 0.03, ease: "power2.in" }, 18.65);
-      tl.fromTo("#p4 .pnum", { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 19.05);
-      tl.fromTo("#p4 .picon *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.7, stagger: 0.12, ease: "power2.out" }, 19.1);
-      tl.fromTo("#p4 .ptitle", { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 19.2);
-      tl.fromTo("#p4 .pbar", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 19.5);
-      tl.fromTo("#p4 .pdetail", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, 19.55);
-      tl.fromTo("#p4 .dots", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 19.2);
-      tl.fromTo("#p4 .picon", { y: 0, rotation: 0 }, { y: -14, rotation: -5, duration: 2.2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 19.85);
-      tl.fromTo("#p4 .dot.on:last-child, #p4 .dot.on", { scale: 1 }, { scale: 1.25, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 22.1);
-      tl.to("#p4 > *", { opacity: 0, y: -40, duration: 0.3, stagger: 0.03, ease: "power2.in" }, 24.25);
-      tl.fromTo("#retenir .k", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 24.650000000000002);
-      tl.fromTo("#retenir .card", { autoAlpha: 0, scale: 0.9 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 24.8);
-      tl.fromTo("#retenir .card", { rotation: 0 }, { rotation: -1.2, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, 25.400000000000002);
-      tl.to("#retenir > *", { opacity: 0, y: -40, duration: 0.3, stagger: 0.05, ease: "power2.in" }, 28.45);
-      tl.to(["#brand", "#legal"], { opacity: 0, duration: 0.3 }, 28.5);
-      tl.fromTo("#logo-fin", { autoAlpha: 0, scale: 0.85 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 28.8);
-      tl.fromTo(".fin-cta", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 28.95);
-      tl.fromTo(".fin-handle", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 29.05);
-      tl.to(".fin-cta", { scale: 1.05, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, 30);
+      tl.fromTo("#hook .hook-title", { scale: 1.08 }, { scale: 1, duration: 0.7, ease: "elastic.out(1, 0.45)" }, 0.1);
+      tl.fromTo("#hook .hook-icon", { y: -40, rotation: -12 }, { y: 0, rotation: 0, duration: 0.8, ease: "bounce.out" }, 0.1);
+      tl.fromTo("#hook .hook-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 0.55);
+      tl.fromTo("#hook .hook-sub", { autoAlpha: 0, x: -60 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: "back.out(1.6)" }, 0.75);
+      tl.fromTo("#hook .hook-icon", { rotation: 0 }, { rotation: 8, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, 1.6);
+      tl.fromTo("#hook .inner", { scale: 1 }, { scale: 1.05, duration: 3.4, ease: "none" }, 0);
+      tl.fromTo("#p1 .pnum", { scale: 0, rotation: -200 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.8)" }, 3.42);
+      tl.fromTo("#p1 .picon *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" }, 3.55);
+      tl.fromTo("#p1 .wi", { yPercent: 115, rotation: 8 }, { yPercent: 0, rotation: 0, duration: 0.5, stagger: 0.07, ease: "back.out(1.5)" }, 3.6);
+      tl.fromTo("#p1 .pbar", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 4);
+      tl.fromTo("#p1 .pdetail", { clipPath: "inset(0 100% 0 0)", x: -30 }, { clipPath: "inset(0 0% 0 0)", x: 0, duration: 0.6, ease: "power2.out" }, 4.1);
+      tl.fromTo("#p1 .dot", { scale: 0 }, { scale: 1, duration: 0.3, stagger: 0.05, ease: "back.out(3)" }, 3.7);
+      tl.fromTo("#p1 .picon", { y: 0, rotation: 0 }, { y: -16, rotation: -6, duration: 2.1, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.2);
+      tl.fromTo("#p1 .ptitle", { scale: 1 }, { scale: 1.06, duration: 0.22, ease: "power2.out", yoyo: true, repeat: 1 }, 6.52);
+      tl.fromTo("#p1 .pnum", { scale: 1 }, { scale: 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 6.62);
+      tl.fromTo("#p1 .inner", { scale: 1, rotation: 0.6 }, { scale: 1.05, rotation: 0, duration: 5.2, ease: "none" }, 3.4);
+      tl.fromTo("#p2 .pnum", { scale: 0, rotation: -200 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.8)" }, 8.62);
+      tl.fromTo("#p2 .picon *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" }, 8.75);
+      tl.fromTo("#p2 .wi", { yPercent: 115, rotation: 8 }, { yPercent: 0, rotation: 0, duration: 0.5, stagger: 0.07, ease: "back.out(1.5)" }, 8.8);
+      tl.fromTo("#p2 .pbar", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 9.2);
+      tl.fromTo("#p2 .pdetail", { clipPath: "inset(0 100% 0 0)", x: -30 }, { clipPath: "inset(0 0% 0 0)", x: 0, duration: 0.6, ease: "power2.out" }, 9.3);
+      tl.fromTo("#p2 .dot", { scale: 0 }, { scale: 1, duration: 0.3, stagger: 0.05, ease: "back.out(3)" }, 8.9);
+      tl.fromTo("#p2 .picon", { y: 0, rotation: 0 }, { y: -16, rotation: -6, duration: 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, 9.4);
+      tl.fromTo("#p2 .ptitle", { scale: 1 }, { scale: 1.06, duration: 0.22, ease: "power2.out", yoyo: true, repeat: 1 }, 11.6);
+      tl.fromTo("#p2 .pnum", { scale: 1 }, { scale: 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 11.7);
+      tl.fromTo("#p2 .inner", { scale: 1, rotation: -0.6 }, { scale: 1.05, rotation: 0, duration: 5, ease: "none" }, 8.6);
+      tl.fromTo("#p3 .pnum", { scale: 0, rotation: -200 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.8)" }, 13.62);
+      tl.fromTo("#p3 .picon *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" }, 13.75);
+      tl.fromTo("#p3 .wi", { yPercent: 115, rotation: 8 }, { yPercent: 0, rotation: 0, duration: 0.5, stagger: 0.07, ease: "back.out(1.5)" }, 13.8);
+      tl.fromTo("#p3 .pbar", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 14.2);
+      tl.fromTo("#p3 .pdetail", { clipPath: "inset(0 100% 0 0)", x: -30 }, { clipPath: "inset(0 0% 0 0)", x: 0, duration: 0.6, ease: "power2.out" }, 14.3);
+      tl.fromTo("#p3 .dot", { scale: 0 }, { scale: 1, duration: 0.3, stagger: 0.05, ease: "back.out(3)" }, 13.9);
+      tl.fromTo("#p3 .picon", { y: 0, rotation: 0 }, { y: -16, rotation: -6, duration: 2.1, ease: "sine.inOut", yoyo: true, repeat: 1 }, 14.4);
+      tl.fromTo("#p3 .ptitle", { scale: 1 }, { scale: 1.06, duration: 0.22, ease: "power2.out", yoyo: true, repeat: 1 }, 16.72);
+      tl.fromTo("#p3 .pnum", { scale: 1 }, { scale: 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 16.82);
+      tl.fromTo("#p3 .inner", { scale: 1, rotation: 0.6 }, { scale: 1.05, rotation: 0, duration: 5.2, ease: "none" }, 13.6);
+      tl.fromTo("#p4 .pnum", { scale: 0, rotation: -200 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.8)" }, 18.82);
+      tl.fromTo("#p4 .picon *", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" }, 18.95);
+      tl.fromTo("#p4 .wi", { yPercent: 115, rotation: 8 }, { yPercent: 0, rotation: 0, duration: 0.5, stagger: 0.07, ease: "back.out(1.5)" }, 19);
+      tl.fromTo("#p4 .pbar", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 19.4);
+      tl.fromTo("#p4 .pdetail", { clipPath: "inset(0 100% 0 0)", x: -30 }, { clipPath: "inset(0 0% 0 0)", x: 0, duration: 0.6, ease: "power2.out" }, 19.5);
+      tl.fromTo("#p4 .dot", { scale: 0 }, { scale: 1, duration: 0.3, stagger: 0.05, ease: "back.out(3)" }, 19.1);
+      tl.fromTo("#p4 .picon", { y: 0, rotation: 0 }, { y: -16, rotation: -6, duration: 2.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, 19.6);
+      tl.fromTo("#p4 .ptitle", { scale: 1 }, { scale: 1.06, duration: 0.22, ease: "power2.out", yoyo: true, repeat: 1 }, 22.16);
+      tl.fromTo("#p4 .pnum", { scale: 1 }, { scale: 1.15, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 22.26);
+      tl.fromTo("#p4 .inner", { scale: 1, rotation: -0.6 }, { scale: 1.05, rotation: 0, duration: 5.6, ease: "none" }, 18.8);
+      tl.fromTo("#retenir .k", { scaleX: 2.2, autoAlpha: 0 }, { scaleX: 1, autoAlpha: 1, duration: 0.5, ease: "power3.out" }, 24.42);
+      tl.fromTo("#retenir .card", { scale: 1.6, rotation: -12, autoAlpha: 0 }, { scale: 1, rotation: -1.5, autoAlpha: 1, duration: 0.5, ease: "back.out(1.6)" }, 24.55);
+      tl.fromTo("#retenir .inner", { x: 0 }, { x: 14, duration: 0.05, ease: "none", yoyo: true, repeat: 5 }, 25);
+      tl.fromTo("#retenir .wi", { yPercent: 115 }, { yPercent: 0, duration: 0.4, stagger: 0.05, ease: "back.out(1.5)" }, 24.95);
+      tl.fromTo("#retenir .card", { rotation: -1.5 }, { rotation: 1, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 25.6);
+      tl.fromTo("#retenir .inner", { scale: 1 }, { scale: 1.05, duration: 4.4, ease: "none" }, 24.4);
+      tl.to(["#brand", "#legal"], { opacity: 0, duration: 0.2 }, 28.6);
+      tl.fromTo("#logo-fin #toit", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 28.85);
+      tl.fromTo("#logo-fin #immo", { autoAlpha: 0, y: 60 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "back.out(1.8)" }, 29.05);
+      tl.fromTo("#logo-fin #decode", { autoAlpha: 0, y: 60 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "back.out(1.8)" }, 29.18);
+      tl.fromTo("#logo-fin #barre", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out", transformOrigin: "50% 50%" }, 29.4);
+      tl.fromTo(".fin-cta", { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(2.2)" }, 29.55);
+      tl.fromTo(".fin-handle", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, 29.75);
+      tl.fromTo(".fin-cta", { scale: 1 }, { scale: 1.08, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3, immediateRender: false }, 30.4);
+      tl.fromTo("#fin .inner", { scale: 1 }, { scale: 1.04, duration: 3.2, ease: "none" }, 28.8);
+      tl.fromTo("#wipeA", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 3.1);
+      tl.fromTo("#wipeA", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 3.4);
+      tl.fromTo("#wipeB", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 3.16);
+      tl.fromTo("#wipeB", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 3.44);
+      tl.fromTo("#wipeA", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 8.3);
+      tl.fromTo("#wipeA", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 8.6);
+      tl.fromTo("#wipeB", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 8.36);
+      tl.fromTo("#wipeB", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 8.64);
+      tl.fromTo("#wipeA", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 13.3);
+      tl.fromTo("#wipeA", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 13.6);
+      tl.fromTo("#wipeB", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 13.36);
+      tl.fromTo("#wipeB", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 13.64);
+      tl.fromTo("#wipeA", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 18.5);
+      tl.fromTo("#wipeA", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 18.8);
+      tl.fromTo("#wipeB", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 18.56);
+      tl.fromTo("#wipeB", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 18.84);
+      tl.fromTo("#wipeA", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 24.1);
+      tl.fromTo("#wipeA", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 24.4);
+      tl.fromTo("#wipeB", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 24.16);
+      tl.fromTo("#wipeB", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 24.44);
+      tl.fromTo("#wipeA", { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.in", immediateRender: false }, 28.5);
+      tl.fromTo("#wipeA", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 28.8);
+      tl.fromTo("#wipeB", { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power3.in", immediateRender: false }, 28.56);
+      tl.fromTo("#wipeB", { yPercent: 0 }, { yPercent: -100, duration: 0.3, ease: "power3.out", immediateRender: false }, 28.84);
       window.__timelines = window.__timelines || {};
       window.__timelines["main"] = tl;
       tl.seek(0);

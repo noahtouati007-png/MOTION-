@@ -21,6 +21,16 @@ Chaque vidéo est générée à partir d'une entrée de `conseils.json` :
 - `icone` : maison, cle, calculatrice, marteau, appareil-photo, epingle, signet, plan, graphique, euro, document, loupe.
 - 3 à 5 points. Titre : 2 à 4 mots. Détail : 15 mots maximum. La durée s'adapte toute seule à la longueur du texte.
 
+## Ce que contient chaque vidéo
+
+- Accroche lisible dès la première image (miniature), avec un « punch » et un impact sonore.
+- Transitions en volet terracotta et bleu nuit, avec un whoosh, entre chaque écran.
+- Titres qui arrivent mot par mot, numéro qui tourne, picto qui se dessine, barre de progression en haut.
+- Effets sonores sur chaque action (pop, clic, impact, ping, scintillement), sans voix. Ils viennent de `_sfx/`
+  (licence Pixabay, usage libre). Un son tendance peut s'ajouter par-dessus dans TikTok ou Instagram.
+
+`ajouter_sfx_v1_v2.py` applique les mêmes effets sonores et transitions aux 3 premières vidéos faites à la main.
+
 ## Générer
 
 ```bash
