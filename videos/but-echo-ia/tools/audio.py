@@ -107,7 +107,9 @@ import json
 T = json.load(open(os.path.join(A, "voix-el", "timing.json")))
 vox = np.zeros(N)
 for nm, st in zip(T["order"], T["start"]):
-    x, sr = sf.read(os.path.join(A, "voix-el", nm + ".wav"))
+    fp = os.path.join(A, "voix-el", nm + ".wav")
+    if not os.path.exists(fp): print("MISSING", nm); continue
+    x, sr = sf.read(fp)
     if x.ndim > 1: x = x.mean(1)
     add(vox, np.interp(np.arange(int(len(x) * SR / sr)) * sr / SR, np.arange(len(x)), x), st)
 vox *= 0.9 / (np.abs(vox).max() + 1e-9)
