@@ -1,0 +1,4 @@
+a1|Concrètement, tout passe par une application : BUT Talents. On y postule sans CV, on réserve son Live Test, on se forme, et on construit son parcours.
+a2|Et cette appli est d'abord pensée contre les discriminations.
+a3|En France, à CV égal, un candidat au nom d'origine maghrébine a près d'un tiers de chances en moins d'être rappelé.
+a4|Dans BUT Talents, le recruteur ne voit ni le nom, ni la photo, ni l'âge, ni l'adresse. Seulement les compétences. Et chaque refus est expliqué au candidat.

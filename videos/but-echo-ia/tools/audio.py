@@ -1,6 +1,6 @@
 # Synthesised music bed + SFX + voice-over mix for the BUT / ÉCHO film. Deterministic (seeded).
 import numpy as np, soundfile as sf, os
-SR = 48000; D = 95.5; N = int(SR * D)
+SR = 48000; D = 125.2; N = int(SR * D)
 rng = np.random.default_rng(7)
 here = os.path.dirname(os.path.abspath(__file__)); A = os.path.join(here, "..", "audio")
 t_all = np.arange(N) / SR
@@ -31,8 +31,8 @@ mus = np.zeros(N); pad = np.zeros(N); arp = np.zeros(N); bass = np.zeros(N); drm
 def sect(t):  # energy level per section
     if t < 10.7: return 1
     if t < 12.7: return 3
-    if t < 87.8: return 2 if t < 26.6 else 3
-    if t < 92.2: return 0
+    if t < 117.5: return 2 if t < 56.3 else 3
+    if t < 121.9: return 0
     return -1
 nb = int(D / BEAT)
 for b in range(nb):
@@ -60,8 +60,8 @@ for b in range(nb):
             add(arp, x, t + k * BEAT / 4, 0.07)
 # breakdown pad for outro already via pad; final chord + hit
 n = int(3.3 * SR); x = sum(saw(note(m), n, d) for m in [57, 60, 64, 69] for d in (-0.004, 0.004))
-x = lp(x, 0.06) * env(n, 0.01, 1.4); add(pad, x, 92.2, 0.09)
-add(drm, kick, 92.2, 1.0)
+x = lp(x, 0.06) * env(n, 0.01, 1.4); add(pad, x, 121.9, 0.09)
+add(drm, kick, 121.9, 1.0)
 mus = pad + arp + bass + drm
 # riser into title slam (10.7) and outro hit
 def riser(dur):
@@ -69,7 +69,7 @@ def riser(dur):
     y = np.empty(n); acc = 0.0
     for i in range(n): acc += a[i] * (w[i] - acc); y[i] = acc
     return y * np.linspace(0, 1, n) ** 2
-add(mus, riser(1.6), 10.7 - 1.6, 0.5); add(mus, riser(1.4), 92.2 - 1.4, 0.4)
+add(mus, riser(1.6), 10.7 - 1.6, 0.5); add(mus, riser(1.4), 121.9 - 1.4, 0.4)
 
 # ---- SFX
 def whoosh(dur=0.55, up=True):
@@ -90,31 +90,36 @@ def ding(f=1320):
     n = int(0.9 * SR); tt = np.arange(n) / SR
     return (np.sin(2 * np.pi * f * tt) + 0.4 * np.sin(2 * np.pi * f * 2.01 * tt)) * np.exp(-tt * 5)
 sfx = np.zeros(N)
-cuts = [6.6, 10.7, 12.7, 16.3, 22.7, 26.6, 29.8, 40.5, 48.9, 57.8, 65.9, 72.5, 81.1, 87.8]
+cuts = [6.6, 10.7, 12.7, 16.3, 22.7, 26.6, 36.4, 40.0, 47.0, 56.3, 59.5, 70.2, 78.6, 87.5, 95.6, 102.2, 110.8, 117.5]
 for c in cuts: add(sfx, whoosh(), c - 0.32, 0.55)
-for t in [10.85, 11.3, 11.75, 26.7, 64.1, 92.2]: add(sfx, boom(), t, 0.7)
+for t in [10.85, 11.3, 11.75, 37.9, 41.6, 56.4, 93.8, 121.9]: add(sfx, boom(), t, 0.7)
 add(sfx, boom(), 0.05, 0.8)
-for t in [2.0, 4.3, 5.25, 7.5, 13.4, 15.0, 16.6, 18.3, 20.1, 29.1, 31.6, 32.6, 34.0, 36.2, 38.3, 42.2, 43.0, 45.9, 46.3, 46.6, 46.9,
-          51.3, 52.15, 53.0, 53.85, 60.55, 61.35, 62.2, 63.05, 67.65, 69.45, 70.75, 73.55, 75.9, 77.95, 82.4, 84.4, 85.2, 85.5, 92.5]:
+for t in [2.0, 4.3, 5.25, 7.5, 13.4, 15.0, 16.6, 18.3, 20.1, 27.3, 30.0, 31.65, 33.3, 34.4, 49.2, 49.8, 50.4, 50.95, 51.95, 52.2, 52.45, 52.7, 53.55, 58.8, 61.3, 62.3, 63.7, 65.9, 68, 71.9, 72.7, 75.6, 76, 76.3, 76.6,
+          81, 81.85, 82.7, 83.55, 90.25, 91.05, 91.9, 92.75, 97.35, 99.15, 100.45, 103.25, 105.6, 107.65, 112.1, 114.1, 114.9, 115.2, 122.2]:
     add(sfx, pop(700 + (int(t * 10) % 5) * 120), t, 0.35)
 for i in range(14): add(sfx, tick(), 0.15 + i / 14 * 1.2, 0.25)
-for k in range(20): add(sfx, tick(), 84.5 + k / 20 * 1.1, 0.18)
-for t in [1.35, 38.6, 64.3, 93.1]: add(sfx, ding(1320 if t < 90 else 990), t, 0.18)
+for v in range(31): add(sfx, tick(), 41.65 + v / 31 * 1.0, 0.2)
+for k in range(20): add(sfx, tick(), 114.2 + k / 20 * 1.1, 0.18)
+for t in [1.35, 68.3, 94, 122.8]: add(sfx, ding(1320 if t < 90 else 990), t, 0.18)
 
 # ---- voice
-starts = [0.6, 6.7, 12.8, 16.4, 23.0, 26.9, 29.9, 40.8, 49.2, 58.1, 66.1, 72.7, 81.3, 88.0]
+starts = [0.6, 6.7, 12.8, 16.4, 23.0, 56.6, 59.6, 70.5, 78.9, 87.8, 95.8, 102.4, 111, 117.7]
 vox = np.zeros(N)
 for i, st in enumerate(starts):
     x, sr = sf.read(os.path.join(A, "voix", f"l{i+1:02d}.wav"))
     if x.ndim > 1: x = x.mean(1)
     xi = np.interp(np.arange(int(len(x) * SR / sr)) * sr / SR, np.arange(len(x)), x)  # resample 24k→48k
     add(vox, xi, st)
+for nm, st in [('a1', 26.9), ('a2', 36.6), ('a3', 40.0), ('a4', 47.3)]:
+    x, sr = sf.read(os.path.join(A, 'voix', nm + '.wav'))
+    if x.ndim > 1: x = x.mean(1)
+    add(vox, np.interp(np.arange(int(len(x) * SR / sr)) * sr / SR, np.arange(len(x)), x), st)
 vox *= 0.9 / (np.abs(vox).max() + 1e-9)
 # sidechain duck from voice envelope
 e = np.abs(vox); w = int(0.25 * SR); e = np.convolve(e, np.ones(w) / w, mode="same"); e = np.minimum(1, e / 0.05)
 duck = 1 - 0.55 * e
 mus_n = mus / (np.abs(mus).max() + 1e-9)
-fade = np.ones(N); fi = int(94.0 * SR); fade[fi:] = np.linspace(1, 0, N - fi)
+fade = np.ones(N); fi = int(123.7 * SR); fade[fi:] = np.linspace(1, 0, N - fi)
 music = mus_n * 0.55 * duck * fade; music_nv = mus_n * 0.7 * fade
 sfx_n = sfx / (np.abs(sfx).max() + 1e-9) * 0.5
 def norm(x, pk=0.95): return x * (pk / (np.abs(x).max() + 1e-9))
