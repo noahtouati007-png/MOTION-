@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Montserrat"; font-weight: 500; src: url(assets/fonts/montserrat-latin-500-normal.woff2); }
+      @font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/montserrat-latin-700-normal.woff2); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/montserrat-latin-800-normal.woff2); }
+      @font-face { font-family: "Montserrat"; font-weight: 900; src: url(assets/fonts/montserrat-latin-900-normal.woff2); }
+      @font-face { font-family: "Anton"; src: url(assets/fonts/anton-latin-400-normal.woff2); }
+
+      :root {
+        --red: #ed1c24;
+        --red-d: #b8121a;
+        --ink: #141414;
+        --ink2: #262626;
+        --white: #ffffff;
+        --grey: #f1f1f1;
+        --grey2: #8a8a8a;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--ink); }
+      #root {
+        position: relative; width: 1920px; height: 1080px; overflow: hidden;
+        font-family: "Montserrat", sans-serif; color: var(--ink); background: var(--ink);
+      }
+      .abs { position: absolute; }
+      .scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; opacity: 0; }
+      .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+      .h { visibility: hidden; opacity: 0; }
+      .bg-white { background: var(--white); }
+      .bg-red { background: var(--red); color: var(--white); }
+      .bg-ink { background: var(--ink); color: var(--white); }
+      .bg-grey { background: var(--grey); }
+      .up { text-transform: uppercase; }
+      .b9 { font-weight: 900; }
+      .red { color: var(--red); }
+      .kick { /* small section label */
+        font-weight: 800; font-size: 30px; letter-spacing: 8px; text-transform: uppercase;
+      }
+      .tag {
+        display: inline-block; background: var(--red); color: #fff; font-weight: 900;
+        padding: 6px 18px; font-size: 30px; letter-spacing: 2px;
+      }
+      .mask { overflow: hidden; display: block; }
+      .mask > span { display: inline-block; }
+
+      /* persistent chrome */
+      #chrome { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+      #mini { left: 60px; top: 40px; width: 72px; height: 72px; }
+      #foot { left: 60px; bottom: 40px; font-size: 20px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; }
+      #chap { right: 60px; top: 66px; font-size: 28px; font-weight: 800; letter-spacing: 5px; text-transform: uppercase; }
+      #prog { left: 0; bottom: 0; height: 8px; width: 1920px; background: var(--red); transform-origin: 0 50%; }
+
+      /* wipe */
+      .wipe { position: absolute; top: -200px; height: 1480px; width: 1500px; transform: skewX(-14deg); z-index: 50; }
+      #wipeA { background: var(--red); }
+      #wipeB { background: var(--ink); width: 120px; }
+
+      /* S1 */
+      #s1 .yr { left: 0; width: 1920px; top: 250px; text-align: center; font-weight: 900; font-size: 380px; line-height: 1; letter-spacing: -10px; color: #fff; }
+      #s1 .rows { left: 560px; top: 560px; width: 1260px; }
+      #s1 .row { display: flex; align-items: center; gap: 30px; margin-bottom: 26px; }
+      #s1 .row .tag { font-size: 34px; padding: 6px 20px; }
+      #s1 .row .t { font-weight: 900; font-size: 64px; text-transform: uppercase; letter-spacing: -1px; color: #fff; }
+      #s1 .row .t i { font-style: normal; color: var(--red); }
+
+      /* S2 */
+      #s2 .logo { left: 820px; top: 140px; width: 280px; height: 280px; }
+      #s2 .q { left: 0; width: 1920px; top: 470px; text-align: center; font-weight: 900; font-size: 92px; line-height: 1.1; text-transform: uppercase; letter-spacing: -2px; }
+      #s2 .q .hl { position: relative; isolation: isolate; display: inline-block; color: #fff; padding: 0 22px; }
+      #s2 .q .hl b { position: absolute; inset: 4px 0; background: var(--red); z-index: -1; transform-origin: 0 50%; }
+      #s2 .q .hl span { position: relative; }
+
+      /* S3 */
+      #s3 .w { left: 0; width: 1920px; text-align: center; font-weight: 900; font-size: 190px; line-height: 1; letter-spacing: -6px; text-transform: uppercase; color: #fff; }
+      #s3 .sub { left: 0; width: 1920px; top: 900px; text-align: center; font-weight: 700; font-size: 38px; color: #fff; }
+      #s3 .sub b { background: #fff; color: var(--red); padding: 2px 14px; font-weight: 900; }
+
+      /* S4 */
+      #s4 .txt { left: 140px; top: 330px; width: 860px; font-weight: 900; font-size: 84px; line-height: 1.05; text-transform: uppercase; letter-spacing: -2px; }
+      #s4 .txt .red { color: var(--red); }
+      #s4 .cv { left: 1140px; top: 160px; width: 560px; height: 760px; background: #fff; box-shadow: 0 40px 80px rgba(0,0,0,.18); border-top: 18px solid var(--ink); }
+      #s4 .cv .ph { left: 50px; top: 60px; width: 150px; height: 150px; border-radius: 50%; background: #dcdcdc; overflow: hidden; }
+      #s4 .cv .ln { left: 50px; height: 18px; background: #d9d9d9; border-radius: 9px; transform-origin: 0 50%; }
+      #s4 .cv .ln.d { background: var(--ink); height: 26px; }
+      #s4 .ai { left: 1580px; top: 120px; width: 190px; height: 190px; border-radius: 50%; background: var(--red); color: #fff; font-weight: 900; font-size: 74px; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 30px rgba(237,28,36,.4); }
+      #s4 .qm { left: 1270px; top: 260px; width: 300px; height: 400px; font-weight: 900; font-size: 420px; line-height: 400px; text-align: center; color: var(--red); }
+
+      /* S5 */
+      #s5 .hd { left: 140px; top: 170px; color: var(--red); }
+      #s5 .card { top: 290px; width: 500px; height: 560px; background: var(--ink2); padding: 50px 44px; border-top: 12px solid var(--red); }
+      #s5 .card .ic { width: 120px; height: 120px; margin-bottom: 50px; }
+      #s5 .card .t { font-weight: 900; font-size: 62px; line-height: 1.02; text-transform: uppercase; color: #fff; letter-spacing: -1px; }
+      #s5 .card .s { margin-top: 26px; font-weight: 500; font-size: 30px; line-height: 1.3; color: #bdbdbd; }
+
+      /* S6 */
+      #s6 .half { top: 0; width: 960px; height: 1080px; display: flex; flex-direction: column; justify-content: center; padding-left: 130px; }
+      #s6 .L { left: 0; background: var(--ink); color: #fff; }
+      #s6 .R { left: 960px; background: var(--red); color: #fff; }
+      #s6 .half .k { font-weight: 800; font-size: 40px; letter-spacing: 6px; text-transform: uppercase; opacity: .75; margin-bottom: 18px; }
+      #s6 .half .big { font-weight: 900; font-size: 150px; line-height: .95; text-transform: uppercase; letter-spacing: -5px; }
+      #s6 .half .s { margin-top: 30px; font-weight: 700; font-size: 52px; }
+      #s6 .half .s b { font-weight: 900; border-bottom: 8px solid currentColor; }
+      #s6 .pill { left: 760px; top: 90px; width: 400px; height: 64px; background: #fff; color: var(--ink); font-weight: 900; font-size: 26px; letter-spacing: 5px; text-transform: uppercase; display: flex; align-items: center; justify-content: center; z-index: 3; }
+
+      /* section cards S7 */
+      #s7 .num { left: 120px; top: 120px; font-family: "Anton"; font-size: 560px; line-height: 1; color: rgba(255,255,255,.18); }
+      #s7 .t { left: 140px; top: 360px; font-weight: 900; font-size: 210px; line-height: 1; letter-spacing: -7px; text-transform: uppercase; color: #fff; }
+      #s7 .s { left: 150px; top: 640px; font-weight: 900; font-size: 84px; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 36px; letter-spacing: -1px; }
+      #s7 .s .cvw { position: relative; }
+      #s7 .s .strike { position: absolute; left: -10px; right: -10px; top: 46%; height: 12px; background: var(--ink); transform-origin: 0 50%; }
+      #s7 .s .geste { background: #fff; color: var(--red); padding: 4px 26px; }
+
+      /* S8 Live test */
+      #s8 .badge { left: 140px; top: 150px; }
+      #s8 .badge .tag { font-size: 46px; padding: 12px 28px; }
+      #s8 .lead { left: 140px; top: 250px; width: 900px; font-weight: 800; font-size: 34px; color: var(--ink); }
+      #s8 .stage { left: 100px; top: 340px; width: 960px; height: 620px; }
+      #s8 .tile { left: 1160px; width: 640px; height: 210px; background: var(--grey); border-left: 14px solid var(--red); display: flex; align-items: center; padding: 0 40px; gap: 34px; }
+      #s8 .tile .n { white-space: nowrap; font-weight: 900; font-size: 92px; line-height: 1; color: var(--red); letter-spacing: -3px; min-width: 250px; }
+      #s8 .tile .l { font-weight: 800; font-size: 31px; line-height: 1.2; text-transform: uppercase; }
+      #s8 .tile.dark { background: var(--ink); color: #fff; }
+      .bub { position: absolute; background: #fff; border: 5px solid var(--ink); border-radius: 30px; padding: 18px 26px; font-weight: 700; font-size: 30px; line-height: 1.25; }
+
+      /* S9 Former */
+      #s9 .hd { left: 140px; top: 140px; display: flex; align-items: baseline; gap: 30px; }
+      #s9 .hd .n { font-family: "Anton"; font-size: 150px; color: var(--red); line-height: 1; }
+      #s9 .hd .t { font-weight: 900; font-size: 130px; letter-spacing: -4px; color: #fff; }
+      #s9 .phone { left: 150px; top: 330px; width: 500px; height: 720px; border-radius: 54px; background: #000; border: 10px solid #3a3a3a; padding: 40px 26px; }
+      #s9 .phone .scr { position: absolute; inset: 14px; border-radius: 40px; background: #fff; overflow: hidden; }
+      #s9 .msg { position: absolute; left: 22px; width: 400px; border-radius: 22px; padding: 16px 20px; font-weight: 700; font-size: 29px; line-height: 1.25; }
+      #s9 .msg.ai { background: var(--grey); color: var(--ink); }
+      #s9 .msg.me { left: auto; right: 22px; width: 240px; background: var(--red); color: #fff; }
+      #s9 .stat { left: 760px; font-weight: 900; color: #fff; text-transform: uppercase; }
+      #s9 .badges { left: 760px; top: 770px; display: flex; gap: 40px; }
+      #s9 .bdg { width: 240px; text-align: center; color: #fff; font-weight: 800; font-size: 30px; text-transform: uppercase; }
+      #s9 .bdg svg { display: block; margin: 0 auto 14px; }
+
+      /* S10 Fidéliser */
+      #s10 .hd { left: 140px; top: 120px; display: flex; align-items: baseline; gap: 30px; }
+      #s10 .hd .n { font-family: "Anton"; font-size: 150px; color: var(--red); line-height: 1; }
+      #s10 .hd .t { font-weight: 900; font-size: 130px; letter-spacing: -4px; }
+      #s10 .lead { left: 150px; top: 330px; font-weight: 800; font-size: 40px; text-transform: uppercase; letter-spacing: 3px; color: var(--grey2); }
+      #s10 .line { left: 260px; top: 556px; width: 1400px; height: 14px; background: var(--red); transform-origin: 0 50%; }
+      #s10 .st { top: 515px; width: 96px; height: 96px; margin-left: -48px; border-radius: 50%; background: #fff; border: 14px solid var(--red); }
+      #s10 .stl { top: 640px; width: 360px; margin-left: -180px; text-align: center; font-weight: 900; font-size: 40px; text-transform: uppercase; letter-spacing: -0.5px; }
+      #s10 .dot { left: 260px; top: 535px; width: 56px; height: 56px; margin-left: -28px; border-radius: 50%; background: var(--ink); }
+      #s10 .band { left: 0; top: 800px; width: 1920px; height: 180px; background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; gap: 50px; font-weight: 900; font-size: 52px; text-transform: uppercase; }
+      #s10 .band .r { color: var(--red); }
+
+      /* S11 human skills */
+      #s11 .hd { left: 0; width: 1920px; top: 120px; text-align: center; }
+      #s11 .w { left: 0; width: 1920px; height: 140px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 124px; letter-spacing: -4px; text-transform: uppercase; color: #fff; }
+      #s11 .stamp { left: 410px; top: 840px; width: 1100px; height: 130px; background: #fff; color: var(--red); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 52px; text-transform: uppercase; letter-spacing: 1px; }
+
+      /* S12 ethics */
+      #s12 .hd { left: 140px; top: 150px; font-weight: 900; font-size: 110px; letter-spacing: -3px; text-transform: uppercase; line-height: 1; }
+      #s12 .hd .red { color: var(--red); }
+      #s12 .it { left: 140px; width: 1640px; height: 170px; display: flex; align-items: center; gap: 46px; border-bottom: 3px solid #333; }
+      #s12 .it .ck { width: 110px; height: 110px; flex: none; }
+      #s12 .it .t { font-weight: 900; font-size: 64px; text-transform: uppercase; letter-spacing: -1px; color: #fff; }
+      #s12 .it .s { margin-left: auto; font-weight: 700; font-size: 28px; color: #9a9a9a; text-align: right; width: 420px; }
+
+      /* S13 plan */
+      #s13 .hd { left: 140px; top: 140px; font-weight: 900; font-size: 130px; letter-spacing: -4px; text-transform: uppercase; }
+      #s13 .rail { left: 140px; top: 560px; width: 1640px; height: 10px; background: #e2e2e2; }
+      #s13 .railf { left: 140px; top: 560px; width: 1640px; height: 10px; background: var(--red); transform-origin: 0 50%; }
+      #s13 .ms { top: 380px; width: 480px; }
+      #s13 .ms .y { font-family: "Anton"; font-size: 150px; line-height: 1; color: var(--red); }
+      #s13 .ms .pt { position: absolute; left: 0; top: 168px; width: 44px; height: 44px; border-radius: 50%; background: var(--red); border: 8px solid #fff; box-shadow: 0 0 0 4px var(--red); }
+      #s13 .ms .t { margin-top: 90px; font-weight: 900; font-size: 46px; line-height: 1.1; text-transform: uppercase; }
+
+      /* S14 KPIs */
+      #s14 .hd { left: 140px; top: 150px; color: #fff; font-weight: 900; font-size: 120px; letter-spacing: -4px; text-transform: uppercase; }
+      #s14 .k { width: 800px; height: 300px; background: #fff; color: var(--ink); padding: 34px 46px; }
+      #s14 .k .n { font-weight: 900; font-size: 150px; line-height: 1; color: var(--red); letter-spacing: -5px; }
+      #s14 .k .l { margin-top: 18px; font-weight: 800; font-size: 36px; text-transform: uppercase; }
+      #s14 .k.dk { background: var(--ink); color: #fff; }
+
+      /* S15 outro */
+      #s15 .l1 { left: 0; width: 1920px; top: 300px; text-align: center; font-weight: 800; font-size: 64px; letter-spacing: -1px; }
+      #s15 .l2 { left: 0; width: 1920px; top: 520px; text-align: center; font-weight: 900; font-size: 128px; letter-spacing: -4px; text-transform: uppercase; color: var(--red); line-height: 1; }
+      #s15 .l2s { left: 0; width: 1920px; top: 440px; text-align: center; font-weight: 800; font-size: 48px; text-transform: uppercase; letter-spacing: 6px; }
+      #s15 .house { left: 660px; top: 110px; width: 600px; height: 480px; }
+      #s15 .logo { left: 855px; top: 345px; width: 210px; height: 210px; }
+      #s15 .tg { left: 0; width: 1920px; top: 640px; text-align: center; font-weight: 900; font-size: 60px; text-transform: uppercase; letter-spacing: -1px; }
+      #s15 .tg2 { left: 0; width: 1920px; top: 735px; text-align: center; font-weight: 700; font-size: 32px; color: var(--grey2); letter-spacing: 3px; text-transform: uppercase; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="95.5" data-width="1920" data-height="1080">
+
+      <!-- ═══ S1 · 2040 -->
+      <section id="s1" class="scene bg-ink"><div class="cam">
+        <div class="abs yr" id="yr">2026</div>
+        <div class="abs rows">
+          <div class="row h" id="r1"><span class="tag">IA</span><span class="t">écrit les <i>CV</i></span></div>
+          <div class="row h" id="r2"><span class="tag">IA</span><span class="t">trie les <i>candidatures</i></span></div>
+          <div class="row h" id="r3"><span class="tag">IA</span><span class="t">répond aux <i>clients</i></span></div>
+        </div>
+      </div></section>
+
+      <!-- ═══ S2 · question -->
+      <section id="s2" class="scene bg-white"><div class="cam">
+        <img class="abs logo h" id="s2logo" src="assets/img/but-logo.png" alt="" />
+        <div class="abs q">
+          <span class="mask"><span class="h" id="q1">Qu'est-ce qui fait encore</span></span>
+          <span class="mask"><span class="h" id="q2"><span class="hl"><b id="qbar"></b><span>la valeur</span></span> d'un talent ?</span></span>
+        </div>
+      </div></section>
+
+      <!-- ═══ S3 · title slam -->
+      <section id="s3" class="scene bg-red"><div class="cam">
+        <div class="abs w h" id="w1" style="top: 170px">Recruter.</div>
+        <div class="abs w h" id="w2" style="top: 400px">Former.</div>
+        <div class="abs w h" id="w3" style="top: 630px">Fidéliser.</div>
+        <div class="abs sub h" id="s3sub">à l'ère de <b>l'IA</b></div>
+      </div></section>
+
+      <!-- ═══ S4 · CV IA -->
+      <section id="s4" class="scene bg-grey"><div class="cam">
+                <div class="abs txt">
+          <span class="mask"><span class="h" id="s4t1">Un CV écrit</span></span>
+          <span class="mask"><span class="h" id="s4t2">par <span class="red">l'IA</span> ne dit</span></span>
+          <span class="mask"><span class="h" id="s4t3">plus <span class="red">qui</span> est</span></span>
+          <span class="mask"><span class="h" id="s4t4">le candidat.</span></span>
+        </div>
+        <div class="abs cv h" id="cv">
+          <div class="abs ph" id="cvph">
+            <svg width="150" height="150" viewBox="0 0 150 150"><circle cx="75" cy="58" r="30" fill="#b9b9b9" /><ellipse cx="75" cy="150" rx="56" ry="48" fill="#b9b9b9" /></svg>
+          </div>
+          <div class="abs ln d" style="top: 90px; left: 230px; width: 250px"></div>
+          <div class="abs ln" style="top: 140px; left: 230px; width: 180px"></div>
+          <div class="abs ln d" style="top: 270px; width: 220px"></div>
+          <div class="abs ln" style="top: 320px; width: 460px"></div>
+          <div class="abs ln" style="top: 356px; width: 420px"></div>
+          <div class="abs ln" style="top: 392px; width: 440px"></div>
+          <div class="abs ln d" style="top: 470px; width: 260px"></div>
+          <div class="abs ln" style="top: 520px; width: 450px"></div>
+          <div class="abs ln" style="top: 556px; width: 380px"></div>
+          <div class="abs ln" style="top: 592px; width: 430px"></div>
+          <div class="abs ln" style="top: 628px; width: 300px"></div>
+        </div>
+        <div class="abs ai h" id="ai">IA</div>
+        <div class="abs qm h" id="qm">?</div>
+      </div></section>
+
+      <!-- ═══ S5 · constat -->
+      <section id="s5" class="scene bg-ink"><div class="cam">
+        <div class="abs kick hd h" id="s5k">Les défis pour BUT</div>
+        <div class="abs card h" id="c1" style="left: 140px">
+          <svg class="ic" viewBox="0 0 120 120"><path d="M20 96 L56 60 L74 78 L104 40" fill="none" stroke="#ed1c24" stroke-width="12" stroke-linecap="square" /><path d="M78 36 H108 V66" fill="none" stroke="#ed1c24" stroke-width="12" /></svg>
+          <div class="t">Évoluer vite</div>
+          <div class="s">Les générations Z et Alpha veulent progresser… maintenant.</div>
+        </div>
+        <div class="abs card h" id="c2" style="left: 710px">
+          <svg class="ic" viewBox="0 0 120 120"><rect x="18" y="22" width="84" height="84" fill="none" stroke="#ed1c24" stroke-width="12" /><path d="M14 112 L106 16" stroke="#fff" stroke-width="12" /></svg>
+          <div class="t">Le CDI n'est plus un but</div>
+          <div class="s">Fidéliser autrement que par le contrat.</div>
+        </div>
+        <div class="abs card h" id="c3" style="left: 1280px">
+          <svg class="ic" viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" fill="none" stroke="#ed1c24" stroke-width="12" stroke-dasharray="190 60" /><path d="M86 18 L102 34 L80 40 Z" fill="#ed1c24" /></svg>
+          <div class="t">Des métiers en mutation</div>
+          <div class="s">Ils changent plus vite que les formations.</div>
+        </div>
+      </div></section>
+
+      <!-- ═══ S6 · IA / humain -->
+      <section id="s6" class="scene bg-ink"><div class="cam">
+        <div class="abs half L" id="s6L">
+          <div class="k h" id="s6Lk">L'IA</div>
+          <div class="big h" id="s6Lb">pour aller<br />plus vite</div>
+        </div>
+        <div class="abs half R" id="s6R">
+          <div class="k h" id="s6Rk">L'humain</div>
+          <div class="big h" id="s6Rb">pour<br />décider</div>
+        </div>
+        <div class="abs pill h" id="s6p">Notre réponse</div>
+      </div></section>
+
+      <!-- ═══ S7 · 01 recruter -->
+      <section id="s7" class="scene bg-red"><div class="cam">
+        <div class="abs num h" id="s7n">01</div>
+        <div class="abs t h" id="s7t">Recruter</div>
+        <div class="abs s">
+          <span class="cvw h" id="s7cv">le CV<span class="strike" id="s7x"></span></span>
+          <svg class="h" id="s7a" width="110" height="70" viewBox="0 0 110 70"><path d="M0 35 H90 M62 8 L96 35 L62 62" fill="none" stroke="#fff" stroke-width="12" /></svg>
+          <span class="geste h" id="s7g">le geste</span>
+        </div>
+      </div></section>
+
+      <!-- ═══ S8 · Live test -->
+      <section id="s8" class="scene bg-white"><div class="cam">
+        <div class="abs badge h" id="s8b"><span class="tag">BUT LIVE TEST</span></div>
+        <div class="abs lead h" id="s8l">Le candidat conseille un vrai client, en magasin.</div>
+        <svg class="abs stage h" id="stage" viewBox="0 0 960 620">
+          <!-- floor -->
+          <rect x="0" y="560" width="960" height="12" fill="#141414" />
+          <!-- sofa -->
+          <g id="sofa">
+            <rect x="330" y="400" width="300" height="110" rx="24" fill="#ed1c24" />
+            <rect x="350" y="330" width="260" height="100" rx="24" fill="#ff4a50" />
+            <rect x="300" y="380" width="60" height="140" rx="22" fill="#b8121a" />
+            <rect x="600" y="380" width="60" height="140" rx="22" fill="#b8121a" />
+            <rect x="330" y="510" width="20" height="50" fill="#141414" /><rect x="610" y="510" width="20" height="50" fill="#141414" />
+          </g>
+          <!-- candidate (left) -->
+          <g id="cand">
+            <circle cx="150" cy="250" r="56" fill="#141414" />
+            <path d="M70 560 V390 Q70 330 150 330 Q230 330 230 390 V560 Z" fill="#141414" />
+            <rect x="130" y="350" width="40" height="70" fill="#ed1c24" />
+          </g>
+          <!-- client (right) -->
+          <g id="cli">
+            <circle cx="820" cy="250" r="56" fill="#8a8a8a" />
+            <path d="M740 560 V390 Q740 330 820 330 Q900 330 900 390 V560 Z" fill="#8a8a8a" />
+          </g>
+          <!-- stopwatch -->
+          <g id="watch" transform="translate(480 150)">
+            <circle r="92" fill="#fff" stroke="#141414" stroke-width="12" />
+            <rect x="-16" y="-122" width="32" height="24" fill="#141414" />
+            <circle id="warc" r="66" fill="none" stroke="#ed1c24" stroke-width="30" stroke-dasharray="414.7" stroke-dashoffset="414.7" transform="rotate(-90)" />
+            <text y="16" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="40" fill="#141414">20'</text>
+          </g>
+        </svg>
+        <div class="bub h" id="bub1" style="left: 250px; top: 300px; width: 340px">Pour un studio,<br />je vous conseille…</div>
+        <div class="bub h" id="bub2" style="left: 700px; top: 300px; width: 280px">Il se transforme en lit ?</div>
+        <div class="abs tile h" id="t1" style="top: 190px"><div class="n">20 min</div><div class="l">de mise en situation réelle</div></div>
+        <div class="abs tile h" id="t2" style="top: 430px"><div class="n">48 h</div><div class="l">pour une réponse, organisée par l'IA</div></div>
+        <div class="abs tile dark h" id="t3" style="top: 670px"><div class="n">0</div><div class="l">refus sans un regard humain</div></div>
+      </div></section>
+
+      <!-- ═══ S9 · former -->
+      <section id="s9" class="scene bg-ink"><div class="cam">
+        <div class="abs hd h" id="s9h"><span class="n">02</span><span class="t up">Former</span></div>
+        <div class="abs phone h" id="phone">
+          <div class="scr">
+            <div style="position: absolute; left: 0; right: 0; top: 0; height: 90px; background: var(--red); color: #fff; font-weight: 900; font-size: 32px; display: flex; align-items: center; padding-left: 26px; letter-spacing: 1px">COACH IA · BUT</div>
+            <div class="msg ai h" id="m1" style="top: 120px">Leçon du jour : vendre un lave-linge en 3 questions 🎯</div>
+            <div class="msg me h" id="m2" style="top: 300px">C'est parti !</div>
+            <div class="msg ai h" id="m3" style="top: 395px">Quiz : 4/4 ✔<br />Badge « Conseil » débloqué</div>
+            <div style="position: absolute; left: 22px; right: 22px; top: 545px; height: 18px; border-radius: 9px; background: #e5e5e5"></div>
+            <div id="pbar" style="position: absolute; left: 22px; width: 404px; top: 545px; height: 18px; border-radius: 9px; background: var(--red); transform-origin: 0 50%"></div>
+            <div style="position: absolute; left: 22px; top: 580px; font-weight: 800; font-size: 28px; color: #6a6a6a">5 min · aujourd'hui</div>
+          </div>
+        </div>
+        <div class="abs stat h" id="s9a" style="top: 380px"><div style="font-size: 190px; line-height: .9; letter-spacing: -6px"><span class="red">5</span> min</div><div style="font-size: 44px; margin-top: 14px; letter-spacing: 2px">par jour, dans la poche</div></div>
+        <div class="abs stat h" id="s9b" style="top: 640px; font-size: 52px; letter-spacing: 1px">+ <span class="red">1 parrain</span> en magasin</div>
+        <div class="abs badges">
+          <div class="bdg h" id="bd1"><svg width="130" height="146" viewBox="0 0 130 146"><path d="M65 4 L124 38 V108 L65 142 L6 108 V38 Z" fill="#ed1c24" /><path d="M40 74 L58 92 L92 54" fill="none" stroke="#fff" stroke-width="12" /></svg>Conseil</div>
+          <div class="bdg h" id="bd2"><svg width="130" height="146" viewBox="0 0 130 146"><path d="M65 4 L124 38 V108 L65 142 L6 108 V38 Z" fill="#fff" /><path d="M42 98 L80 60 M74 46 a18 18 0 1 0 22 22" fill="none" stroke="#ed1c24" stroke-width="12" /></svg>Installation</div>
+          <div class="bdg h" id="bd3"><svg width="130" height="146" viewBox="0 0 130 146"><path d="M65 4 L124 38 V108 L65 142 L6 108 V38 Z" fill="#ed1c24" /><rect x="40" y="46" width="50" height="54" rx="6" fill="none" stroke="#fff" stroke-width="10" /></svg>Digital</div>
+        </div>
+      </div></section>
+
+      <!-- ═══ S10 · fidéliser -->
+      <section id="s10" class="scene bg-white"><div class="cam">
+        <div class="abs hd h" id="s10h"><span class="n">03</span><span class="t up">Fidéliser</span></div>
+        <div class="abs lead h" id="s10l">Un parcours à la carte</div>
+        <div class="abs line" id="s10line"></div>
+        <div class="abs st h" id="st1" style="left: 260px"></div>
+        <div class="abs st h" id="st2" style="left: 726px"></div>
+        <div class="abs st h" id="st3" style="left: 1193px"></div>
+        <div class="abs st h" id="st4" style="left: 1660px"></div>
+        <div class="abs stl h" id="sl1" style="left: 260px">Vendeur</div>
+        <div class="abs stl h" id="sl2" style="left: 726px">Technicien</div>
+        <div class="abs stl h" id="sl3" style="left: 1193px">Chef de rayon</div>
+        <div class="abs stl h" id="sl4" style="left: 1660px">E-commerce</div>
+        <div class="abs dot h" id="s10dot"></div>
+        <div class="abs band h" id="s10band"><span>Temps gagné par l'IA</span><svg width="120" height="60" viewBox="0 0 120 60"><path d="M0 30 H100 M72 6 L104 30 L72 54" fill="none" stroke="#ed1c24" stroke-width="12" /></svg><span class="r">réinvesti dans le client</span></div>
+      </div></section>
+
+      <!-- ═══ S11 · compétences humaines -->
+      <section id="s11" class="scene bg-red"><div class="cam">
+        <div class="abs kick hd h" id="s11h" style="color: #fff">Ce qui gardera de la valeur en 2040</div>
+        <div class="abs w h" id="hw1" style="top: 190px">L'écoute</div>
+        <div class="abs w h" id="hw2" style="top: 340px">Le conseil</div>
+        <div class="abs w h" id="hw3" style="top: 490px">La confiance</div>
+        <div class="abs w h" id="hw4" style="top: 640px">Le savoir-faire</div>
+        <div class="abs stamp h" id="s11s">Ce que l'IA ne remplace pas</div>
+      </div></section>
+
+      <!-- ═══ S12 · éthique -->
+      <section id="s12" class="scene bg-ink"><div class="cam">
+        <div class="abs hd h" id="s12h" style="color: #fff">Une IA <span class="red">sous contrôle</span></div>
+        <div class="abs it h" id="e1" style="top: 400px">
+          <svg class="ck" viewBox="0 0 110 110"><rect width="110" height="110" fill="#ed1c24" /><path d="M28 56 L48 76 L84 36" fill="none" stroke="#fff" stroke-width="12" /></svg>
+          <span class="t">Audit des biais</span><span class="s">chaque trimestre</span>
+        </div>
+        <div class="abs it h" id="e2" style="top: 590px">
+          <svg class="ck" viewBox="0 0 110 110"><rect width="110" height="110" fill="#ed1c24" /><path d="M28 56 L48 76 L84 36" fill="none" stroke="#fff" stroke-width="12" /></svg>
+          <span class="t">Candidatures anonymisées</span><span class="s">nom, âge, photo masqués</span>
+        </div>
+        <div class="abs it h" id="e3" style="top: 780px">
+          <svg class="ck" viewBox="0 0 110 110"><rect width="110" height="110" fill="#ed1c24" /><path d="M28 56 L48 76 L84 36" fill="none" stroke="#fff" stroke-width="12" /></svg>
+          <span class="t">Accessible à tous</span><span class="s">handicap, parcours atypiques</span>
+        </div>
+      </div></section>
+
+      <!-- ═══ S13 · plan -->
+      <section id="s13" class="scene bg-white"><div class="cam">
+        <div class="abs hd h" id="s13h">Le <span class="red">plan</span></div>
+        <div class="abs rail"></div>
+        <div class="abs railf" id="railf"></div>
+        <div class="abs ms h" id="ms1" style="left: 140px"><div class="y">2027</div><span class="pt"></span><div class="t">10 magasins<br />pilotes</div></div>
+        <div class="abs ms h" id="ms2" style="left: 740px"><div class="y">2028</div><span class="pt"></span><div class="t">Déploiement<br />dans toute la France</div></div>
+        <div class="abs ms h" id="ms3" style="left: 1340px"><div class="y">2030</div><span class="pt"></span><div class="t">1 parcours pour<br />chaque collaborateur</div></div>
+      </div></section>
+
+      <!-- ═══ S14 · KPIs -->
+      <section id="s14" class="scene bg-red"><div class="cam">
+        <div class="abs hd h" id="s14h">Nos objectifs</div>
+        <div class="abs k h" id="k1" style="left: 140px; top: 350px"><div class="n">÷2</div><div class="l">Délai de recrutement</div></div>
+        <div class="abs k h" id="k2" style="left: 980px; top: 350px"><div class="n">+<span id="k2n">0</span> %</div><div class="l">Rétention à 1 an</div></div>
+        <div class="abs k dk h" id="k3" style="left: 140px; top: 690px"><div class="n">100 %</div><div class="l">Refus validés par un humain</div></div>
+        <div class="abs k dk h" id="k4" style="left: 980px; top: 690px"><div class="n">5 min</div><div class="l">De formation par jour</div></div>
+      </div></section>
+
+      <!-- ═══ S15 · outro -->
+      <section id="s15" class="scene bg-white"><div class="cam">
+        <div class="abs l1 h" id="o1">BUT, c'est un peu <span class="red b9">la maison des Français.</span></div>
+        <div class="abs l2s h" id="o2s">Demain, ce sera aussi</div>
+        <div class="abs l2 h" id="o2">la maison des talents.</div>
+        <svg class="abs house" id="house" viewBox="0 0 800 640">
+          <path id="hpath" d="M80 620 V300 L400 40 L720 300 V620 Z" fill="none" stroke="#ed1c24" stroke-width="18" stroke-linejoin="miter" />
+        </svg>
+        <img class="abs logo h" id="o3logo" src="assets/img/but-logo.png" alt="" />
+        <div class="abs tg h" id="o3t">La maison des <span class="red">talents</span></div>
+        <div class="abs tg2 h" id="o3t2">Recruter · Former · Fidéliser — Projet ÉCHO</div>
+      </div></section>
+
+      <!-- chrome -->
+      <div id="chrome">
+        <img class="abs h" id="mini" src="assets/img/but-logo.png" alt="" />
+        <div class="abs h" id="chap"></div>
+        <div class="abs" id="prog"></div>
+      </div>
+      <div class="wipe" id="wipeA" style="left: -1800px"></div>
+      <div class="wipe" id="wipeB" style="left: -1800px"></div>
+    </div>
+
+    <script>
+      const D = 95.5;
+      const tl = gsap.timeline({ paused: true });
+      const IR = { immediateRender: false };
+      gsap.set(["#railf", "#s10line", "#prog", "#pbar"], { scaleX: 0 });
+
+      // scene windows
+      const S = [
+        ["#s1", 0, 6.6], ["#s2", 6.6, 10.7], ["#s3", 10.7, 12.7], ["#s4", 12.7, 16.3],
+        ["#s5", 16.3, 22.7], ["#s6", 22.7, 26.6], ["#s7", 26.6, 29.8], ["#s8", 29.8, 40.5],
+        ["#s9", 40.5, 48.9], ["#s10", 48.9, 57.8], ["#s11", 57.8, 65.9], ["#s12", 65.9, 72.5],
+        ["#s13", 72.5, 81.1], ["#s14", 81.1, 87.8], ["#s15", 87.8, D],
+      ];
+      S.forEach(([sel, a, b], i) => {
+        tl.set(sel, { autoAlpha: 1 }, a);
+        if (b < D) tl.set(sel, { autoAlpha: 0 }, b);
+        // slow camera push for constant motion
+        tl.fromTo(sel + " > .cam", { scale: 1 }, { scale: 1.045, duration: b - a, ease: "none", ...IR }, a);
+        // transition wipe centred on scene start
+        if (i > 0) {
+          tl.fromTo("#wipeA", { x: 0 }, { x: 5000, duration: 0.62, ease: "power2.inOut", ...IR }, a - 0.31);
+          tl.fromTo("#wipeB", { x: 0 }, { x: 5000, duration: 0.62, ease: "power2.inOut", ...IR }, a - 0.38);
+        }
+      });
+      tl.set("#s1", { autoAlpha: 1 }, 0);
+
+      // helpers
+      const IN = (sel, t, from = { y: 60 }, dur = 0.5, ease = "power3.out") =>
+        tl.fromTo(sel, { autoAlpha: 0, ...from }, { autoAlpha: 1, x: 0, y: 0, scale: 1, rotation: 0, yPercent: 0, xPercent: 0, duration: dur, ease, ...IR }, t);
+      const POP = (sel, t, dur = 0.5) => IN(sel, t, { scale: 0.3 }, dur, "back.out(2.2)");
+      const MASKUP = (sel, t) => IN(sel, t, { yPercent: 110 }, 0.55, "power4.out");
+
+      // chrome: mini logo + chapter + progress
+      tl.fromTo("#mini", { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)", ...IR }, 12.8);
+      tl.to("#mini", { autoAlpha: 0, duration: 0.2 }, 87.6);
+      tl.fromTo("#prog", { scaleX: 0 }, { scaleX: 1, duration: D, ease: "none", ...IR }, 0);
+      const chapters = [
+        [12.7, "Le constat", "#141414"], [22.7, "", "#ffffff"], [26.6, "01 · Recruter", "#ffffff"],
+        [29.8, "01 · Recruter", "#141414"], [40.5, "02 · Former", "#ffffff"], [48.9, "03 · Fidéliser", "#141414"],
+        [57.8, "", "#ffffff"], [65.9, "Éthique", "#ffffff"], [72.5, "Plan d'action", "#141414"],
+        [81.1, "Indicateurs", "#ffffff"],
+      ];
+      chapters.forEach(([t, txt, col]) => {
+        tl.set("#chap", { color: col }, t);
+        tl.fromTo("#chap", { x: 40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.4, ease: "power3.out", ...IR }, t + 0.15);
+      });
+      tl.set("#chap", { autoAlpha: 0 }, 87.8);
+      // discrete text changes via tl.set (seek-safe, reverts on rewind)
+      chapters.forEach(([t, txt]) => tl.set("#chap", { innerText: txt }, t));
+      for (let y = 2027; y <= 2040; y++) tl.set("#yr", { innerText: String(y) }, 0.15 + ((y - 2026) / 14) * 1.2);
+      for (let k = 1; k <= 20; k++) tl.set("#k2n", { innerText: String(k) }, 84.5 + (k / 20) * 1.1);
+      // mini logo colour context: on red scenes add white outline
+      [[10.7, 12.7], [26.6, 29.8], [57.8, 65.9], [81.1, 87.8]].forEach(([a, b]) => {
+        tl.set("#mini", { boxShadow: "0 0 0 5px #fff" }, a);
+        tl.set("#mini", { boxShadow: "0 0 0 0 #fff" }, b);
+      });
+
+      // ═════ S1 (0 → 6.6)
+      tl.fromTo("#yr", { scale: 1.6, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.6, ease: "expo.out", ...IR }, 0.05);
+      tl.to("#yr", { color: "#ed1c24", duration: 0.1 }, 1.35);
+      tl.to("#yr", { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, 1.35);
+      tl.to("#yr", { y: -150, scale: 0.6, duration: 0.6, ease: "power3.inOut" }, 1.75);
+      IN("#r1", 2.0, { x: -120 });
+      IN("#r2", 4.3, { x: -120 });
+      IN("#r3", 5.25, { x: -120 });
+      tl.to(["#r1", "#r2", "#r3"], { x: 60, duration: 4, ease: "none" }, 2.4);
+
+      // ═════ S2 (6.6 → 10.7)
+      POP("#s2logo", 7.5, 0.6);
+      tl.to("#s2logo", { y: -40, duration: 0.5, ease: "power2.out" }, 8.4);
+      MASKUP("#q1", 8.45);
+      MASKUP("#q2", 8.75);
+      tl.fromTo("#qbar", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.inOut", ...IR }, 9.3);
+      tl.to("#q2 .hl", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 9.75);
+
+      // ═════ S3 (10.7 → 12.7)
+      IN("#w1", 10.85, { scale: 2.4, y: 0 }, 0.28, "power4.out");
+      IN("#w2", 11.3, { scale: 2.4, y: 0 }, 0.28, "power4.out");
+      IN("#w3", 11.75, { scale: 2.4, y: 0 }, 0.28, "power4.out");
+      tl.to("#s3 .cam", { x: 12, duration: 0.05, yoyo: true, repeat: 3 }, 11.75);
+      IN("#s3sub", 11.05, { y: 30 }, 0.4);
+
+      // ═════ S4 (12.7 → 16.3)
+      MASKUP("#s4t1", 13.0); MASKUP("#s4t2", 13.25); MASKUP("#s4t3", 14.4); MASKUP("#s4t4", 14.65);
+      IN("#cv", 12.9, { y: 200, rotation: 6 }, 0.7);
+      tl.fromTo("#cv .ln", { scaleX: 0 }, { scaleX: 1, duration: 0.25, stagger: 0.07, ease: "power2.out", ...IR }, 13.3);
+      POP("#ai", 13.4);
+      tl.to("#ai", { rotation: 360, duration: 1.2, ease: "power2.inOut" }, 13.6);
+      tl.to("#cvph", { filter: "blur(10px)", duration: 0.5 }, 14.6);
+      POP("#qm", 15.0, 0.55);
+
+      // ═════ S5 (16.3 → 22.7)
+      IN("#s5k", 16.45, { x: -40 });
+      IN("#c1", 16.6, { y: 260 }, 0.6, "power4.out");
+      IN("#c2", 18.3, { y: 260 }, 0.6, "power4.out");
+      IN("#c3", 20.1, { y: 260 }, 0.6, "power4.out");
+      tl.to("#c1", { backgroundColor: "#ed1c24", duration: 0.3 }, 17.0);
+      tl.to("#c1", { backgroundColor: "#262626", duration: 0.3 }, 18.3);
+      tl.to("#c2", { backgroundColor: "#ed1c24", duration: 0.3 }, 18.7);
+      tl.to("#c2", { backgroundColor: "#262626", duration: 0.3 }, 20.1);
+      tl.to("#c3", { backgroundColor: "#ed1c24", duration: 0.3 }, 20.5);
+      tl.to(["#c1", "#c2", "#c3"], { y: -20, duration: 1.5, ease: "sine.inOut" }, 21.0);
+
+      // ═════ S6 (22.7 → 26.6)
+      tl.fromTo("#s6L", { yPercent: -100 }, { yPercent: 0, duration: 0.5, ease: "power4.out", ...IR }, 22.75);
+      tl.fromTo("#s6R", { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: "power4.out", ...IR }, 22.75);
+      POP("#s6p", 22.95, 0.45);
+      IN("#s6Lk", 23.1, { x: -60 }); IN("#s6Lb", 23.3, { x: -100 }, 0.55, "power4.out");
+      tl.to("#s6Lb", { x: 40, duration: 0.35, ease: "power2.in" }, 24.2);
+      tl.to("#s6Lb", { x: 0, duration: 0.3, ease: "power2.out" }, 24.55);
+      IN("#s6Rk", 24.9, { x: -60 }); IN("#s6Rb", 25.1, { scale: 1.5 }, 0.45, "power4.out");
+
+      // ═════ S7 (26.6 → 29.8)
+      IN("#s7n", 26.7, { x: -300 }, 0.6, "power4.out");
+      IN("#s7t", 26.95, { x: 200 }, 0.5, "power4.out");
+      IN("#s7cv", 28.15, { y: 50 }, 0.35);
+      tl.fromTo("#s7x", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out", ...IR }, 28.7);
+      tl.to("#s7cv", { autoAlpha: 0.5, duration: 0.2 }, 28.9);
+      IN("#s7a", 28.9, { x: -40 }, 0.3);
+      POP("#s7g", 29.1, 0.45);
+
+      // ═════ S8 (29.8 → 40.5)
+      IN("#s8b", 30.0, { x: -80 }, 0.45, "back.out(2)");
+      IN("#s8l", 30.3, { y: 30 });
+      IN("#stage", 30.3, { y: 80 }, 0.6);
+      tl.fromTo("#cand", { x: -300 }, { x: 0, duration: 0.7, ease: "power3.out", ...IR }, 30.4);
+      tl.fromTo("#cli", { x: 300 }, { x: 0, duration: 0.7, ease: "power3.out", ...IR }, 30.5);
+      tl.fromTo("#sofa", { y: -500 }, { y: 0, duration: 0.6, ease: "bounce.out", ...IR }, 30.7);
+      POP("#bub2", 31.6, 0.4);
+      POP("#bub1", 32.6, 0.4);
+      tl.fromTo("#watch", { scale: 0 }, { scale: 1, duration: 0.5, ease: "back.out(2)", ...IR }, 33.2);
+      tl.fromTo("#warc", { attr: { "stroke-dashoffset": 414.7 } }, { attr: { "stroke-dashoffset": 0 }, duration: 2.0, ease: "power1.inOut", ...IR }, 33.4);
+      IN("#t1", 34.0, { x: 200 }, 0.5, "power4.out");
+      IN("#t2", 36.2, { x: 200 }, 0.5, "power4.out");
+      IN("#t3", 38.3, { x: 200 }, 0.5, "power4.out");
+      tl.to("#t3", { scale: 1.05, duration: 0.18, yoyo: true, repeat: 1 }, 39.2);
+      tl.to(["#cand", "#cli"], { y: -10, duration: 0.4, yoyo: true, repeat: 7, ease: "sine.inOut" }, 31.4);
+
+      // ═════ S9 (40.5 → 48.9)
+      IN("#s9h", 40.7, { x: -200 }, 0.5, "power4.out");
+      IN("#phone", 41.6, { y: 400, rotation: -8 }, 0.7, "power4.out");
+      POP("#m1", 42.2, 0.4);
+      POP("#m2", 43.0, 0.35);
+      tl.fromTo("#pbar", { scaleX: 0 }, { scaleX: 1, duration: 2.6, ease: "power1.inOut", ...IR }, 43.0);
+      POP("#m3", 45.9, 0.4);
+      IN("#s9a", 43.4, { x: 150 }, 0.5, "power4.out");
+      IN("#s9b", 44.9, { x: 150 }, 0.5, "power4.out");
+      POP("#bd1", 46.3); POP("#bd2", 46.6); POP("#bd3", 46.9);
+      tl.to(["#bd1", "#bd2", "#bd3"], { y: -14, duration: 0.5, stagger: 0.15, yoyo: true, repeat: 2, ease: "sine.inOut" }, 47.3);
+
+      // ═════ S10 (48.9 → 57.8)
+      IN("#s10h", 49.1, { x: -200 }, 0.5, "power4.out");
+      IN("#s10l", 50.9, { y: 30 });
+      tl.fromTo("#s10line", { scaleX: 0 }, { scaleX: 1, duration: 2.7, ease: "power1.inOut", ...IR }, 51.2);
+      [51.3, 52.15, 53.0, 53.85].forEach((t, i) => { POP("#st" + (i + 1), t, 0.4); IN("#sl" + (i + 1), t + 0.08, { y: 40 }, 0.4); });
+      tl.fromTo("#s10dot", { autoAlpha: 0, x: 0 }, { autoAlpha: 1, duration: 0.2, ...IR }, 51.3);
+      tl.to("#s10dot", { x: 1400, duration: 2.7, ease: "power1.inOut" }, 51.2);
+      tl.to("#s10dot", { scale: 1.6, backgroundColor: "#ed1c24", duration: 0.3, yoyo: true, repeat: 1 }, 53.9);
+      tl.fromTo("#s10band", { autoAlpha: 0, yPercent: 100 }, { autoAlpha: 1, yPercent: 0, duration: 0.5, ease: "power4.out", ...IR }, 54.85);
+      tl.fromTo("#s10band svg", { x: -30 }, { x: 30, duration: 0.4, yoyo: true, repeat: 4, ease: "sine.inOut", ...IR }, 55.5);
+
+      // ═════ S11 (57.8 → 65.9)
+      IN("#s11h", 58.0, { y: -40 });
+      IN("#hw1", 60.55, { scale: 1.8, y: 0 }, 0.35, "power4.out");
+      IN("#hw2", 61.35, { scale: 1.8, y: 0 }, 0.35, "power4.out");
+      IN("#hw3", 62.2, { scale: 1.8, y: 0 }, 0.35, "power4.out");
+      IN("#hw4", 63.05, { scale: 1.8, y: 0 }, 0.35, "power4.out");
+      IN("#s11s", 64.1, { scale: 2.2, rotation: -6 }, 0.35, "power4.out");
+      tl.to("#s11s", { rotation: -2, duration: 0.3 }, 64.45);
+
+      // ═════ S12 (65.9 → 72.5)
+      MASKUP("#s12h", 66.05);
+      IN("#e1", 67.65, { x: -160 }, 0.5, "power4.out");
+      IN("#e2", 69.45, { x: -160 }, 0.5, "power4.out");
+      IN("#e3", 70.75, { x: -160 }, 0.5, "power4.out");
+      ["#e1", "#e2", "#e3"].forEach((s, i) => tl.fromTo(s + " .ck", { rotation: -90, scale: 0 }, { rotation: 0, scale: 1, duration: 0.45, ease: "back.out(2.2)", ...IR }, [67.75, 69.55, 70.85][i]));
+
+      // ═════ S13 (72.5 → 81.1)
+      IN("#s13h", 72.65, { x: -160 }, 0.5, "power4.out");
+      tl.fromTo("#railf", { scaleX: 0 }, { scaleX: 0.12, duration: 0.6, ease: "power2.out", ...IR }, 73.4);
+      IN("#ms1", 73.55, { y: 80 }, 0.5, "back.out(1.8)");
+      tl.to("#railf", { scaleX: 0.48, duration: 0.8, ease: "power2.inOut" }, 75.4);
+      IN("#ms2", 75.9, { y: 80 }, 0.5, "back.out(1.8)");
+      tl.to("#railf", { scaleX: 1, duration: 0.9, ease: "power2.inOut" }, 77.4);
+      IN("#ms3", 77.95, { y: 80 }, 0.5, "back.out(1.8)");
+      tl.to("#ms3 .y", { scale: 1.12, duration: 0.2, yoyo: true, repeat: 1, transformOrigin: "0 100%" }, 79.0);
+
+      // ═════ S14 (81.1 → 86.8)
+      IN("#s14h", 81.25, { x: -160 }, 0.5, "power4.out");
+      IN("#k1", 82.4, { y: 120 }, 0.5, "power4.out");
+      tl.fromTo("#k1 .n", { scale: 2 }, { scale: 1, duration: 0.4, ease: "back.out(2)", ...IR }, 82.6);
+      IN("#k2", 84.4, { y: 120 }, 0.5, "power4.out");
+      IN("#k3", 85.2, { y: 120 }, 0.45, "power4.out");
+      IN("#k4", 85.5, { y: 120 }, 0.45, "power4.out");
+
+      // ═════ S15 (87.8 → 95.5)
+      MASKUP("#o1", 88.0);
+      tl.to("#o1", { y: -120, duration: 0.6, ease: "power3.inOut" }, 89.6);
+      IN("#o2s", 89.85, { y: 30 }, 0.4);
+      IN("#o2", 90.4, { scale: 0.6 }, 0.5, "back.out(1.8)");
+      tl.to(["#o1", "#o2s", "#o2"], { autoAlpha: 0, y: "-=40", duration: 0.35, ease: "power2.in" }, 92.0);
+      const hl = 2400;
+      tl.set("#hpath", { attr: { "stroke-dasharray": hl, "stroke-dashoffset": hl } }, 0);
+      tl.fromTo("#hpath", { attr: { "stroke-dashoffset": hl } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.1, ease: "power2.inOut", ...IR }, 92.2);
+      POP("#o3logo", 92.5, 0.6);
+      IN("#o3t", 93.1, { y: 40 });
+      IN("#o3t2", 93.45, { y: 20 });
+      tl.to("#house", { scale: 1.04, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: "50% 100%" }, 93.3);
+      tl.to("#prog", { autoAlpha: 0, duration: 0.3 }, 94.8);
+
+      tl.set({}, {}, D);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
