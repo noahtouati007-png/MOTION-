@@ -125,8 +125,8 @@
       #sa .cvn { margin-top: 16px; font-weight: 800; font-size: 28px; display: flex; justify-content: space-between; }
       #saok { color: #1f9d55; }
       #sa .sk { position: absolute; left: 24px; top: 600px; font-weight: 800; font-size: 28px; color: var(--grey2); }
-      #sa .chs { position: absolute; left: 20px; right: 14px; top: 645px; display: flex; flex-wrap: wrap; gap: 8px; }
-      #sa .cc { background: var(--red); color: #fff; font-weight: 900; font-size: 22px; padding: 8px 11px; }
+      #sa .chs { position: absolute; left: 20px; right: 20px; top: 640px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      #sa .cc { background: var(--red); color: #fff; font-weight: 900; font-size: 22px; padding: 12px 8px; text-align: center; }
       #sa .tap { width: 90px; height: 90px; border-radius: 50%; background: rgba(237,28,36,.35); border: 6px solid var(--red); }
       #sa .ft { left: 900px; width: 940px; display: flex; align-items: center; line-height: 1.05; gap: 28px; font-weight: 900; font-size: 50px; text-transform: uppercase; letter-spacing: -1px; }
       #sa .ft .n { width: 78px; height: 78px; background: var(--red); color: #fff; font-family: "Anton"; font-size: 46px; display: flex; align-items: center; justify-content: center; flex: none; }
@@ -244,7 +244,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="125.2" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="152.2" data-width="1920" data-height="1080">
 
       <!-- ═══ S1 · 2040 -->
       <section id="s1" class="scene bg-ink"><div class="cam">
@@ -556,17 +556,17 @@
     </div>
 
     <script>
-      const D = 125.2;
+      const D = 152.2;
       const tl = gsap.timeline({ paused: true });
       const IR = { immediateRender: false };
       gsap.set(["#railf", "#s10line", "#prog", "#pbar"], { scaleX: 0 });
 
       // scene windows
       const S = [
-        ["#s1", 0, 6.6], ["#s2", 6.6, 10.7], ["#s3", 10.7, 12.7], ["#s4", 12.7, 16.3],
-        ["#s5", 16.3, 22.7], ["#s6", 22.7, 26.6], ["#sa", 26.6, 36.4], ["#sb1", 36.4, 40.0], ["#sb2", 40.0, 47.0], ["#sb3", 47.0, 56.3], ["#s7", 56.3, 59.5], ["#s8", 59.5, 70.2],
-        ["#s9", 70.2, 78.6], ["#s10", 78.6, 87.5], ["#s11", 87.5, 95.6], ["#s12", 95.6, 102.2],
-        ["#s13", 102.2, 110.8], ["#s14", 110.8, 117.5], ["#s15", 117.5, D],
+        ["#s1", 0, 7.6], ["#s2", 7.6, 13.43], ["#s3", 13.43, 15.11], ["#s4", 15.11, 20.26],
+        ["#s5", 20.26, 27.6], ["#s6", 27.6, 32.93], ["#sa", 32.93, 43.2], ["#sb1", 43.2, 48.19], ["#sb2", 48.19, 55.45], ["#sb3", 55.45, 68.64], ["#s7", 68.64, 73.97], ["#s8", 73.97, 86.35],
+        ["#s9", 86.35, 95.52], ["#s10", 95.52, 106.24], ["#s11", 106.24, 115.42], ["#s12", 115.42, 122.89],
+        ["#s13", 122.89, 132.69], ["#s14", 132.69, 140.43], ["#s15", 140.43, D],
       ];
       S.forEach(([sel, a, b], i) => {
         tl.set(sel, { autoAlpha: 1 }, a);
@@ -588,223 +588,223 @@
       const MASKUP = (sel, t) => IN(sel, t, { yPercent: 110 }, 0.55, "power4.out");
 
       // chrome: mini logo + chapter + progress
-      tl.fromTo("#mini", { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)", ...IR }, 12.8);
-      tl.to("#mini", { autoAlpha: 0, duration: 0.2 }, 117.3);
+      tl.fromTo("#mini", { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)", ...IR }, 15.19);
+      tl.to("#mini", { autoAlpha: 0, duration: 0.2 }, 140.28);
       tl.fromTo("#prog", { scaleX: 0 }, { scaleX: 1, duration: D, ease: "none", ...IR }, 0);
       const chapters = [
-        [12.7, "Le constat", "#141414"], [22.7, "", "#ffffff"], [26.6, "L'appli", "#141414"], [36.4, "Anti-discrimination", "#ffffff"], [47.0, "Anti-discrimination", "#141414"], [56.3, "01 · Recruter", "#ffffff"],
-        [59.5, "01 · Recruter", "#141414"], [70.2, "02 · Former", "#ffffff"], [78.6, "03 · Fidéliser", "#141414"],
-        [87.5, "", "#ffffff"], [95.6, "Éthique", "#ffffff"], [102.2, "Plan d'action", "#141414"],
-        [110.8, "Indicateurs", "#ffffff"],
+        [15.11, "Le constat", "#141414"], [27.6, "", "#ffffff"], [32.93, "L'appli", "#141414"], [43.2, "Anti-discrimination", "#ffffff"], [55.45, "Anti-discrimination", "#141414"], [68.64, "01 · Recruter", "#ffffff"],
+        [73.97, "01 · Recruter", "#141414"], [86.35, "02 · Former", "#ffffff"], [95.52, "03 · Fidéliser", "#141414"],
+        [106.24, "", "#ffffff"], [115.42, "Éthique", "#ffffff"], [122.89, "Plan d'action", "#141414"],
+        [132.69, "Indicateurs", "#ffffff"],
       ];
       chapters.forEach(([t, txt, col]) => {
         tl.set("#chap", { color: col }, t);
         tl.fromTo("#chap", { x: 40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.4, ease: "power3.out", ...IR }, t + 0.15);
       });
-      tl.set("#chap", { autoAlpha: 0 }, 117.5);
+      tl.set("#chap", { autoAlpha: 0 }, 140.43);
       // discrete text changes via tl.set (seek-safe, reverts on rewind)
       chapters.forEach(([t, txt]) => tl.set("#chap", { innerText: txt }, t));
       for (let y = 2027; y <= 2040; y++) tl.set("#yr", { innerText: String(y) }, 0.15 + ((y - 2026) / 14) * 1.2);
-      for (let v = 1; v <= 31; v++) tl.set("#sb2v", { innerText: v === 31 ? "31,5" : String(v) }, 41.65 + (v / 31) * 1.0);
-      for (let k = 1; k <= 20; k++) tl.set("#k2n", { innerText: String(k) }, 114.2 + (k / 20) * 1.1);
+      for (let v = 1; v <= 31; v++) tl.set("#sb2v", { innerText: v === 31 ? "31,5" : String(v) }, 49.93 + (v / 31) * 1.0);
+      for (let k = 1; k <= 20; k++) tl.set("#k2n", { innerText: String(k) }, 136.89 + (k / 20) * 1.1);
       // mini logo colour context: on red scenes add white outline
-      [[10.7, 12.7], [40.0, 47.0], [56.3, 59.5], [87.5, 95.6], [110.8, 117.5]].forEach(([a, b]) => {
+      [[13.43, 15.11], [48.19, 55.45], [68.64, 73.97], [106.24, 115.42], [132.69, 140.43]].forEach(([a, b]) => {
         tl.set("#mini", { boxShadow: "0 0 0 5px #fff" }, a);
         tl.set("#mini", { boxShadow: "0 0 0 0 #fff" }, b);
       });
 
-      // ═════ S1 (0 → 6.6)
+      // ═════ S1 (0 → 7.6)
       tl.fromTo("#yr", { scale: 1.6, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, duration: 0.6, ease: "expo.out", ...IR }, 0.05);
-      tl.to("#yr", { color: "#ed1c24", duration: 0.1 }, 1.35);
-      tl.to("#yr", { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, 1.35);
-      tl.to("#yr", { y: -150, scale: 0.6, duration: 0.6, ease: "power3.inOut" }, 1.75);
-      IN("#r1", 2.0, { x: -120 });
-      IN("#r2", 4.3, { x: -120 });
-      IN("#r3", 5.25, { x: -120 });
-      tl.to(["#r1", "#r2", "#r3"], { x: 60, duration: 4, ease: "none" }, 2.4);
+      tl.to("#yr", { color: "#ed1c24", duration: 0.1 }, 1.51);
+      tl.to("#yr", { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, 1.51);
+      tl.to("#yr", { y: -150, scale: 0.6, duration: 0.6, ease: "power3.inOut" }, 2);
+      IN("#r1", 2.3, { x: -120 });
+      IN("#r2", 5.09, { x: -120 });
+      IN("#r3", 6.24, { x: -120 });
+      tl.to(["#r1", "#r2", "#r3"], { x: 60, duration: 4, ease: "none" }, 2.78);
 
-      // ═════ S2 (6.6 → 10.7)
-      POP("#s2logo", 7.5, 0.6);
-      tl.to("#s2logo", { y: -40, duration: 0.5, ease: "power2.out" }, 8.4);
-      MASKUP("#q1", 8.45);
-      MASKUP("#q2", 8.75);
-      tl.fromTo("#qbar", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.inOut", ...IR }, 9.3);
-      tl.to("#q2 .hl", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 9.75);
+      // ═════ S2 (7.6 → 13.43)
+      POP("#s2logo", 8.8, 0.6);
+      tl.to("#s2logo", { y: -40, duration: 0.5, ease: "power2.out" }, 10.11);
+      MASKUP("#q1", 10.18);
+      MASKUP("#q2", 10.62);
+      tl.fromTo("#qbar", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.inOut", ...IR }, 11.42);
+      tl.to("#q2 .hl", { scale: 1.08, duration: 0.15, yoyo: true, repeat: 1 }, 12.08);
 
-      // ═════ S3 (10.7 → 12.7)
-      IN("#w1", 10.85, { scale: 2.4, y: 0 }, 0.28, "power4.out");
-      IN("#w2", 11.3, { scale: 2.4, y: 0 }, 0.28, "power4.out");
-      IN("#w3", 11.75, { scale: 2.4, y: 0 }, 0.28, "power4.out");
-      tl.to("#s3 .cam", { x: 12, duration: 0.05, yoyo: true, repeat: 3 }, 11.75);
-      IN("#s3sub", 11.05, { y: 30 }, 0.4);
+      // ═════ S3 (13.43 → 15.11)
+      IN("#w1", 13.56, { scale: 2.4, y: 0 }, 0.28, "power4.out");
+      IN("#w2", 13.93, { scale: 2.4, y: 0 }, 0.28, "power4.out");
+      IN("#w3", 14.31, { scale: 2.4, y: 0 }, 0.28, "power4.out");
+      tl.to("#s3 .cam", { x: 12, duration: 0.05, yoyo: true, repeat: 3 }, 14.31);
+      IN("#s3sub", 13.72, { y: 30 }, 0.4);
 
-      // ═════ S4 (12.7 → 16.3)
-      MASKUP("#s4t1", 13.0); MASKUP("#s4t2", 13.25); MASKUP("#s4t3", 14.4); MASKUP("#s4t4", 14.65);
-      IN("#cv", 12.9, { y: 200, rotation: 6 }, 0.7);
-      tl.fromTo("#cv .ln", { scaleX: 0 }, { scaleX: 1, duration: 0.25, stagger: 0.07, ease: "power2.out", ...IR }, 13.3);
-      POP("#ai", 13.4);
-      tl.to("#ai", { rotation: 360, duration: 1.2, ease: "power2.inOut" }, 13.6);
-      tl.to("#cvph", { filter: "blur(10px)", duration: 0.5 }, 14.6);
-      POP("#qm", 15.0, 0.55);
+      // ═════ S4 (15.11 → 20.26)
+      MASKUP("#s4t1", 15.49); MASKUP("#s4t2", 15.87); MASKUP("#s4t3", 17.62); MASKUP("#s4t4", 18);
+      IN("#cv", 15.34, { y: 200, rotation: 6 }, 0.7);
+      tl.fromTo("#cv .ln", { scaleX: 0 }, { scaleX: 1, duration: 0.25, stagger: 0.07, ease: "power2.out", ...IR }, 15.95);
+      POP("#ai", 16.1);
+      tl.to("#ai", { rotation: 360, duration: 1.2, ease: "power2.inOut" }, 16.41);
+      tl.to("#cvph", { filter: "blur(10px)", duration: 0.5 }, 17.93);
+      POP("#qm", 18.54, 0.55);
 
-      // ═════ S5 (16.3 → 22.7)
-      IN("#s5k", 16.45, { x: -40 });
-      IN("#c1", 16.6, { y: 260 }, 0.6, "power4.out");
-      IN("#c2", 18.3, { y: 260 }, 0.6, "power4.out");
-      IN("#c3", 20.1, { y: 260 }, 0.6, "power4.out");
-      tl.to("#c1", { backgroundColor: "#ed1c24", duration: 0.3 }, 17.0);
-      tl.to("#c1", { backgroundColor: "#262626", duration: 0.3 }, 18.3);
-      tl.to("#c2", { backgroundColor: "#ed1c24", duration: 0.3 }, 18.7);
-      tl.to("#c2", { backgroundColor: "#262626", duration: 0.3 }, 20.1);
-      tl.to("#c3", { backgroundColor: "#ed1c24", duration: 0.3 }, 20.5);
-      tl.to(["#c1", "#c2", "#c3"], { y: -20, duration: 1.5, ease: "sine.inOut" }, 21.0);
+      // ═════ S5 (20.26 → 27.6)
+      IN("#s5k", 20.36, { x: -40 });
+      IN("#c1", 20.54, { y: 260 }, 0.6, "power4.out");
+      IN("#c2", 22.56, { y: 260 }, 0.6, "power4.out");
+      IN("#c3", 24.71, { y: 260 }, 0.6, "power4.out");
+      tl.to("#c1", { backgroundColor: "#ed1c24", duration: 0.3 }, 21.02);
+      tl.to("#c1", { backgroundColor: "#262626", duration: 0.3 }, 22.56);
+      tl.to("#c2", { backgroundColor: "#ed1c24", duration: 0.3 }, 23.04);
+      tl.to("#c2", { backgroundColor: "#262626", duration: 0.3 }, 24.71);
+      tl.to("#c3", { backgroundColor: "#ed1c24", duration: 0.3 }, 25.19);
+      tl.to(["#c1", "#c2", "#c3"], { y: -20, duration: 1.5, ease: "sine.inOut" }, 25.78);
 
-      // ═════ S6 (22.7 → 56.3)
-      tl.fromTo("#s6L", { yPercent: -100 }, { yPercent: 0, duration: 0.5, ease: "power4.out", ...IR }, 22.75);
-      tl.fromTo("#s6R", { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: "power4.out", ...IR }, 22.75);
-      POP("#s6p", 22.95, 0.45);
-      IN("#s6Lk", 23.1, { x: -60 }); IN("#s6Lb", 23.3, { x: -100 }, 0.55, "power4.out");
-      tl.to("#s6Lb", { x: 40, duration: 0.35, ease: "power2.in" }, 24.2);
-      tl.to("#s6Lb", { x: 0, duration: 0.3, ease: "power2.out" }, 24.55);
-      IN("#s6Rk", 24.9, { x: -60 }); IN("#s6Rb", 25.1, { scale: 1.5 }, 0.45, "power4.out");
+      // ═════ S6 (27.6 → 68.64)
+      tl.fromTo("#s6L", { yPercent: -100 }, { yPercent: 0, duration: 0.5, ease: "power4.out", ...IR }, 27.62);
+      tl.fromTo("#s6R", { yPercent: 100 }, { yPercent: 0, duration: 0.5, ease: "power4.out", ...IR }, 27.62);
+      POP("#s6p", 27.69, 0.45);
+      IN("#s6Lk", 27.87, { x: -60 }); IN("#s6Lb", 28.18, { x: -100 }, 0.55, "power4.out");
+      tl.to("#s6Lb", { x: 40, duration: 0.35, ease: "power2.in" }, 29.59);
+      tl.to("#s6Lb", { x: 0, duration: 0.3, ease: "power2.out" }, 30.14);
+      IN("#s6Rk", 30.68, { x: -60 }); IN("#s6Rb", 31, { scale: 1.5 }, 0.45, "power4.out");
 
 
-      // ═════ SA (26.6 → 36.4) l'appli : dépôt du CV, tri par compétences
-      IN("#saph", 26.75, { y: 500, rotation: -6 }, 0.7, "power4.out");
-      IN("#sak", 27.1, { x: 80 }); IN("#sat", 27.3, { x: 120 }, 0.55, "power4.out");
-      IN("#saup", 30.2, { y: 120 }, 0.5, "back.out(1.6)");
-      IN("#saf1", 30.2, { x: 120 }, 0.45, "power4.out");
-      tl.fromTo("#saok", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ...IR }, 31.2);
-      tl.fromTo("#sascan", { y: 0, autoAlpha: 0 }, { y: 280, autoAlpha: 1, duration: 1.2, ease: "sine.inOut", ...IR }, 32.0);
-      tl.to("#sascan", { y: 0, duration: 1.0, ease: "sine.inOut" }, 33.2);
-      tl.to("#sascan", { autoAlpha: 0, duration: 0.2 }, 34.2);
-      IN("#saf2", 32.4, { x: 120 }, 0.5, "power4.out");
-      IN("#sask", 33.4, { y: 20 }, 0.35);
-      POP("#sac1", 33.8, 0.35); POP("#sac2", 34.1, 0.35); POP("#sac3", 34.4, 0.35); POP("#sac4", 34.7, 0.35);
-      tl.to("#saf2 .red", { scale: 1.15, duration: 0.2, yoyo: true, repeat: 1, display: "inline-block" }, 34.9);
+      // ═════ SA (32.93 → 43.2) l'appli : dépôt du CV, tri par compétences
+      IN("#saph", 33.01, { y: 500, rotation: -6 }, 0.7, "power4.out");
+      IN("#sak", 33.3, { x: 80 }); IN("#sat", 33.52, { x: 120 }, 0.55, "power4.out");
+      IN("#saup", 36.71, { y: 120 }, 0.5, "back.out(1.6)");
+      IN("#saf1", 36.71, { x: 120 }, 0.45, "power4.out");
+      tl.fromTo("#saok", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ...IR }, 37.81);
+      tl.fromTo("#sascan", { y: 0, autoAlpha: 0 }, { y: 280, autoAlpha: 1, duration: 1.2, ease: "sine.inOut", ...IR }, 38.69);
+      tl.to("#sascan", { y: 0, duration: 1.0, ease: "sine.inOut" }, 40.01);
+      tl.to("#sascan", { autoAlpha: 0, duration: 0.2 }, 41.11);
+      IN("#saf2", 39.13, { x: 120 }, 0.5, "power4.out");
+      IN("#sask", 40.23, { y: 20 }, 0.35);
+      POP("#sac1", 40.67, 0.35); POP("#sac2", 41, 0.35); POP("#sac3", 41.33, 0.35); POP("#sac4", 41.66, 0.35);
+      tl.to("#saf2 .red", { scale: 1.15, duration: 0.2, yoyo: true, repeat: 1, display: "inline-block" }, 41.88);
 
-      // ═════ SB1 (36.4 → 40.0) contre les discriminations
-      IN("#sb1k", 36.55, { y: -30 });
-      MASKUP("#sb1a", 37.3); MASKUP("#sb1b", 37.55);
-      IN("#sb1c", 37.9, { scale: 1.6 }, 0.4, "power4.out");
-      tl.fromTo("#sb1bar", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.inOut", ...IR }, 38.15);
-      tl.to("#sb1 .cam", { x: 10, duration: 0.05, yoyo: true, repeat: 3 }, 38.2);
+      // ═════ SB1 (43.2 → 48.19) contre les discriminations
+      IN("#sb1k", 43.29, { y: -30 });
+      MASKUP("#sb1a", 44.43); MASKUP("#sb1b", 44.82);
+      IN("#sb1c", 45.37, { scale: 1.6 }, 0.4, "power4.out");
+      tl.fromTo("#sb1bar", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.inOut", ...IR }, 45.77);
+      tl.to("#sb1 .cam", { x: 10, duration: 0.05, yoyo: true, repeat: 3 }, 45.85);
 
-      // ═════ SB2 (40.0 → 47.0) le chiffre
-      IN("#sb2k", 40.1, { x: -60 });
-      IN("#sb2n", 41.6, { scale: 1.6 }, 0.45, "power4.out");
-      IN("#sb2l", 42.6, { y: 40 }, 0.5);
-      IN("#sb2s", 43.8, { y: 20 }, 0.4);
-      tl.to("#sb2n", { scale: 1.05, duration: 0.2, yoyo: true, repeat: 1, transformOrigin: "0 50%" }, 43.3);
+      // ═════ SB2 (48.19 → 55.45) le chiffre
+      IN("#sb2k", 48.3, { x: -60 });
+      IN("#sb2n", 49.88, { scale: 1.6 }, 0.45, "power4.out");
+      IN("#sb2l", 50.94, { y: 40 }, 0.5);
+      IN("#sb2s", 52.21, { y: 20 }, 0.4);
+      tl.to("#sb2n", { scale: 1.05, duration: 0.2, yoyo: true, repeat: 1, transformOrigin: "0 50%" }, 51.68);
 
-      // ═════ SB3 (47.0 → 56.3) profil anonymisé
-      IN("#sbcard", 47.1, { x: -200 }, 0.6, "power4.out");
-      IN("#sbs", 47.5, { x: 120 }, 0.5, "power4.out");
+      // ═════ SB3 (55.45 → 68.64) profil anonymisé
+      IN("#sbcard", 55.48, { x: -200 }, 0.6, "power4.out");
+      IN("#sbs", 55.84, { x: 120 }, 0.5, "power4.out");
       gsap.set(["#rnom", "#rpho", "#rage", "#radr"], { scaleX: 0 });
-      [[49.2, "#rnom", "#sbn1"], [49.8, "#rpho", "#sbn2"], [50.4, "#rage", "#sbn3"], [50.95, "#radr", "#sbn4"]].forEach(([t, r, n]) => {
+      [[58.42, "#rnom", "#sbn1"], [59.33, "#rpho", "#sbn2"], [60.25, "#rage", "#sbn3"], [61.08, "#radr", "#sbn4"]].forEach(([t, r, n]) => {
         tl.fromTo(r, { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.inOut", ...IR }, t);
         IN(n, t, { x: 80 }, 0.35, "power4.out");
       });
-      POP("#ch1", 51.95, 0.4); POP("#ch2", 52.2, 0.4); POP("#ch3", 52.45, 0.4); POP("#ch4", 52.7, 0.4);
-      IN("#sbnot", 53.55, { y: 120 }, 0.5, "power4.out");
-      tl.to("#sbnot", { scale: 1.03, duration: 0.2, yoyo: true, repeat: 1 }, 54.6);
+      POP("#ch1", 62.6, 0.4); POP("#ch2", 62.98, 0.4); POP("#ch3", 63.36, 0.4); POP("#ch4", 63.74, 0.4);
+      IN("#sbnot", 65.03, { y: 120 }, 0.5, "power4.out");
+      tl.to("#sbnot", { scale: 1.03, duration: 0.2, yoyo: true, repeat: 1 }, 66.62);
 
-      // ═════ S7 (56.3 → 59.5)
-      IN("#s7n", 56.4, { x: -300 }, 0.6, "power4.out");
-      IN("#s7t", 56.65, { x: 200 }, 0.5, "power4.out");
-      IN("#s7cv", 57.85, { y: 50 }, 0.35);
-      tl.fromTo("#s7x", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out", ...IR }, 58.4);
-      IN("#s7a", 58.6, { x: -40 }, 0.3);
-      POP("#s7g", 58.8, 0.45);
+      // ═════ S7 (68.64 → 73.97)
+      IN("#s7n", 68.71, { x: -300 }, 0.6, "power4.out");
+      IN("#s7t", 68.92, { x: 200 }, 0.5, "power4.out");
+      IN("#s7cv", 71.17, { y: 50 }, 0.35);
+      tl.fromTo("#s7x", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out", ...IR }, 72.2);
+      IN("#s7a", 72.58, { x: -40 }, 0.3);
+      POP("#s7g", 72.95, 0.45);
 
-      // ═════ S8 (59.5 → 70.2)
-      IN("#s8b", 59.7, { x: -80 }, 0.45, "back.out(2)");
+      // ═════ S8 (73.97 → 86.35)
+      IN("#s8b", 74.14, { x: -80 }, 0.45, "back.out(2)");
       IN("#s8l", 60, { y: 30 });
       IN("#stage", 60, { y: 80 }, 0.6);
-      tl.fromTo("#cand", { x: -300 }, { x: 0, duration: 0.7, ease: "power3.out", ...IR }, 60.1);
-      tl.fromTo("#cli", { x: 300 }, { x: 0, duration: 0.7, ease: "power3.out", ...IR }, 60.2);
-      tl.fromTo("#sofa", { y: -500 }, { y: 0, duration: 0.6, ease: "bounce.out", ...IR }, 60.4);
-      POP("#bub2", 61.3, 0.4);
-      POP("#bub1", 62.3, 0.4);
-      tl.fromTo("#watch", { scale: 0 }, { scale: 1, duration: 0.5, ease: "back.out(2)", ...IR }, 62.9);
-      tl.fromTo("#warc", { attr: { "stroke-dashoffset": 414.7 } }, { attr: { "stroke-dashoffset": 0 }, duration: 2.0, ease: "power1.inOut", ...IR }, 63.1);
-      IN("#t1", 63.7, { x: 200 }, 0.5, "power4.out");
-      IN("#t2", 65.9, { x: 200 }, 0.5, "power4.out");
+      tl.fromTo("#cand", { x: -300 }, { x: 0, duration: 0.7, ease: "power3.out", ...IR }, 74.61);
+      tl.fromTo("#cli", { x: 300 }, { x: 0, duration: 0.7, ease: "power3.out", ...IR }, 74.73);
+      tl.fromTo("#sofa", { y: -500 }, { y: 0, duration: 0.6, ease: "bounce.out", ...IR }, 74.97);
+      POP("#bub2", 76.04, 0.4);
+      POP("#bub1", 77.23, 0.4);
+      tl.fromTo("#watch", { scale: 0 }, { scale: 1, duration: 0.5, ease: "back.out(2)", ...IR }, 77.94);
+      tl.fromTo("#warc", { attr: { "stroke-dashoffset": 414.7 } }, { attr: { "stroke-dashoffset": 0 }, duration: 2.0, ease: "power1.inOut", ...IR }, 78.18);
+      IN("#t1", 78.89, { x: 200 }, 0.5, "power4.out");
+      IN("#t2", 81.5, { x: 200 }, 0.5, "power4.out");
       IN("#t3", 68, { x: 200 }, 0.5, "power4.out");
-      tl.to("#t3", { scale: 1.05, duration: 0.18, yoyo: true, repeat: 1 }, 68.9);
-      tl.to(["#cand", "#cli"], { y: -10, duration: 0.4, yoyo: true, repeat: 7, ease: "sine.inOut" }, 61.1);
+      tl.to("#t3", { scale: 1.05, duration: 0.18, yoyo: true, repeat: 1 }, 85.06);
+      tl.to(["#cand", "#cli"], { y: -10, duration: 0.4, yoyo: true, repeat: 7, ease: "sine.inOut" }, 75.8);
 
-      // ═════ S9 (70.2 → 78.6)
-      IN("#s9h", 70.4, { x: -200 }, 0.5, "power4.out");
-      IN("#phone", 71.3, { y: 400, rotation: -8 }, 0.7, "power4.out");
-      POP("#m1", 71.9, 0.4);
-      POP("#m2", 72.7, 0.35);
-      tl.fromTo("#pbar", { scaleX: 0 }, { scaleX: 1, duration: 2.6, ease: "power1.inOut", ...IR }, 72.7);
-      POP("#m3", 75.6, 0.4);
-      IN("#s9a", 73.1, { x: 150 }, 0.5, "power4.out");
-      IN("#s9b", 74.6, { x: 150 }, 0.5, "power4.out");
-      POP("#bd1", 76); POP("#bd2", 76.3); POP("#bd3", 76.6);
+      // ═════ S9 (86.35 → 95.52)
+      IN("#s9h", 86.44, { x: -200 }, 0.5, "power4.out");
+      IN("#phone", 87.4, { y: 400, rotation: -8 }, 0.7, "power4.out");
+      POP("#m1", 88.09, 0.4);
+      POP("#m2", 89, 0.35);
+      tl.fromTo("#pbar", { scaleX: 0 }, { scaleX: 1, duration: 2.6, ease: "power1.inOut", ...IR }, 89);
+      POP("#m3", 92.32, 0.4);
+      IN("#s9a", 89.46, { x: 150 }, 0.5, "power4.out");
+      IN("#s9b", 91.18, { x: 150 }, 0.5, "power4.out");
+      POP("#bd1", 76); POP("#bd2", 93.12); POP("#bd3", 93.46);
       tl.to(["#bd1", "#bd2", "#bd3"], { y: -14, duration: 0.5, stagger: 0.15, yoyo: true, repeat: 2, ease: "sine.inOut" }, 77);
 
-      // ═════ S10 (78.6 → 87.5)
-      IN("#s10h", 78.8, { x: -200 }, 0.5, "power4.out");
-      IN("#s10l", 80.6, { y: 30 });
-      tl.fromTo("#s10line", { scaleX: 0 }, { scaleX: 1, duration: 2.7, ease: "power1.inOut", ...IR }, 80.9);
-      [81, 81.85, 82.7, 83.55].forEach((t, i) => { POP("#st" + (i + 1), t, 0.4); IN("#sl" + (i + 1), t + 0.08, { y: 40 }, 0.4); });
+      // ═════ S10 (95.52 → 106.24)
+      IN("#s10h", 95.61, { x: -200 }, 0.5, "power4.out");
+      IN("#s10l", 97.79, { y: 30 });
+      tl.fromTo("#s10line", { scaleX: 0 }, { scaleX: 1, duration: 2.7, ease: "power1.inOut", ...IR }, 98.17);
+      [81, 99.37, 100.44, 101.51].forEach((t, i) => { POP("#st" + (i + 1), t, 0.4); IN("#sl" + (i + 1), t + 0.08, { y: 40 }, 0.4); });
       tl.fromTo("#s10dot", { autoAlpha: 0, x: 0 }, { autoAlpha: 1, duration: 0.2, ...IR }, 81);
-      tl.to("#s10dot", { x: 1400, duration: 2.7, ease: "power1.inOut" }, 80.9);
-      tl.to("#s10dot", { scale: 1.6, backgroundColor: "#ed1c24", duration: 0.3, yoyo: true, repeat: 1 }, 83.6);
-      tl.fromTo("#s10band", { autoAlpha: 0, yPercent: 100 }, { autoAlpha: 1, yPercent: 0, duration: 0.5, ease: "power4.out", ...IR }, 84.55);
-      tl.fromTo("#s10band svg", { x: -30 }, { x: 30, duration: 0.4, yoyo: true, repeat: 4, ease: "sine.inOut", ...IR }, 85.2);
+      tl.to("#s10dot", { x: 1400, duration: 2.7, ease: "power1.inOut" }, 98.17);
+      tl.to("#s10dot", { scale: 1.6, backgroundColor: "#ed1c24", duration: 0.3, yoyo: true, repeat: 1 }, 101.57);
+      tl.fromTo("#s10band", { autoAlpha: 0, yPercent: 100 }, { autoAlpha: 1, yPercent: 0, duration: 0.5, ease: "power4.out", ...IR }, 102.77);
+      tl.fromTo("#s10band svg", { x: -30 }, { x: 30, duration: 0.4, yoyo: true, repeat: 4, ease: "sine.inOut", ...IR }, 103.59);
 
-      // ═════ S11 (87.5 → 95.6)
-      IN("#s11h", 87.7, { y: -40 });
-      IN("#hw1", 90.25, { scale: 1.8, y: 0 }, 0.35, "power4.out");
-      IN("#hw2", 91.05, { scale: 1.8, y: 0 }, 0.35, "power4.out");
-      IN("#hw3", 91.9, { scale: 1.8, y: 0 }, 0.35, "power4.out");
-      IN("#hw4", 92.75, { scale: 1.8, y: 0 }, 0.35, "power4.out");
-      IN("#s11s", 93.8, { scale: 2.2, rotation: -6 }, 0.35, "power4.out");
-      tl.to("#s11s", { rotation: -2, duration: 0.3 }, 94.15);
+      // ═════ S11 (106.24 → 115.42)
+      IN("#s11h", 106.32, { y: -40 });
+      IN("#hw1", 109.29, { scale: 1.8, y: 0 }, 0.35, "power4.out");
+      IN("#hw2", 110.25, { scale: 1.8, y: 0 }, 0.35, "power4.out");
+      IN("#hw3", 111.26, { scale: 1.8, y: 0 }, 0.35, "power4.out");
+      IN("#hw4", 112.28, { scale: 1.8, y: 0 }, 0.35, "power4.out");
+      IN("#s11s", 113.54, { scale: 2.2, rotation: -6 }, 0.35, "power4.out");
+      tl.to("#s11s", { rotation: -2, duration: 0.3 }, 113.96);
 
-      // ═════ S12 (95.6 → 102.2)
-      MASKUP("#s12h", 95.75);
-      IN("#e1", 97.35, { x: -160 }, 0.5, "power4.out");
-      IN("#e2", 99.15, { x: -160 }, 0.5, "power4.out");
-      IN("#e3", 100.45, { x: -160 }, 0.5, "power4.out");
-      ["#e1", "#e2", "#e3"].forEach((s, i) => tl.fromTo(s + " .ck", { rotation: -90, scale: 0 }, { rotation: 0, scale: 1, duration: 0.45, ease: "back.out(2.2)", ...IR }, [97.45, 99.25, 100.55][i]));
+      // ═════ S12 (115.42 → 122.89)
+      MASKUP("#s12h", 115.46);
+      IN("#e1", 117.35, { x: -160 }, 0.5, "power4.out");
+      IN("#e2", 119.52, { x: -160 }, 0.5, "power4.out");
+      IN("#e3", 121.08, { x: -160 }, 0.5, "power4.out");
+      ["#e1", "#e2", "#e3"].forEach((s, i) => tl.fromTo(s + " .ck", { rotation: -90, scale: 0 }, { rotation: 0, scale: 1, duration: 0.45, ease: "back.out(2.2)", ...IR }, [117.47, 119.64, 121.21][i]));
 
-      // ═════ S13 (102.2 → 110.8)
-      IN("#s13h", 102.35, { x: -160 }, 0.5, "power4.out");
-      tl.fromTo("#railf", { scaleX: 0 }, { scaleX: 0.12, duration: 0.6, ease: "power2.out", ...IR }, 103.1);
-      IN("#ms1", 103.25, { y: 80 }, 0.5, "back.out(1.8)");
-      tl.to("#railf", { scaleX: 0.48, duration: 0.8, ease: "power2.inOut" }, 105.1);
-      IN("#ms2", 105.6, { y: 80 }, 0.5, "back.out(1.8)");
-      tl.to("#railf", { scaleX: 1, duration: 0.9, ease: "power2.inOut" }, 107.1);
-      IN("#ms3", 107.65, { y: 80 }, 0.5, "back.out(1.8)");
-      tl.to("#ms3 .y", { scale: 1.12, duration: 0.2, yoyo: true, repeat: 1, transformOrigin: "0 100%" }, 108.7);
+      // ═════ S13 (122.89 → 132.69)
+      IN("#s13h", 122.95, { x: -160 }, 0.5, "power4.out");
+      tl.fromTo("#railf", { scaleX: 0 }, { scaleX: 0.12, duration: 0.6, ease: "power2.out", ...IR }, 123.8);
+      IN("#ms1", 123.98, { y: 80 }, 0.5, "back.out(1.8)");
+      tl.to("#railf", { scaleX: 0.48, duration: 0.8, ease: "power2.inOut" }, 126.19);
+      IN("#ms2", 126.78, { y: 80 }, 0.5, "back.out(1.8)");
+      tl.to("#railf", { scaleX: 1, duration: 0.9, ease: "power2.inOut" }, 128.57);
+      IN("#ms3", 129.22, { y: 80 }, 0.5, "back.out(1.8)");
+      tl.to("#ms3 .y", { scale: 1.12, duration: 0.2, yoyo: true, repeat: 1, transformOrigin: "0 100%" }, 130.47);
 
-      // ═════ S14 (110.8 → 116.5)
-      IN("#s14h", 110.95, { x: -160 }, 0.5, "power4.out");
-      IN("#k1", 112.1, { y: 120 }, 0.5, "power4.out");
-      tl.fromTo("#k1 .n", { scale: 2 }, { scale: 1, duration: 0.4, ease: "back.out(2)", ...IR }, 112.3);
-      IN("#k2", 114.1, { y: 120 }, 0.5, "power4.out");
-      IN("#k3", 114.9, { y: 120 }, 0.45, "power4.out");
-      IN("#k4", 115.2, { y: 120 }, 0.45, "power4.out");
+      // ═════ S14 (132.69 → 139.65)
+      IN("#s14h", 132.74, { x: -160 }, 0.5, "power4.out");
+      IN("#k1", 134.18, { y: 120 }, 0.5, "power4.out");
+      tl.fromTo("#k1 .n", { scale: 2 }, { scale: 1, duration: 0.4, ease: "back.out(2)", ...IR }, 134.44);
+      IN("#k2", 136.76, { y: 120 }, 0.5, "power4.out");
+      IN("#k3", 137.8, { y: 120 }, 0.45, "power4.out");
+      IN("#k4", 138.18, { y: 120 }, 0.45, "power4.out");
 
-      // ═════ S15 (117.5 → 125.2)
-      MASKUP("#o1", 117.7);
-      tl.to("#o1", { y: -120, duration: 0.6, ease: "power3.inOut" }, 119.3);
-      IN("#o2s", 119.55, { y: 30 }, 0.4);
-      IN("#o2", 120.1, { scale: 0.6 }, 0.5, "back.out(1.8)");
-      tl.to(["#o1", "#o2s", "#o2"], { autoAlpha: 0, y: "-=40", duration: 0.35, ease: "power2.in" }, 121.7);
+      // ═════ S15 (140.43 → 150.65)
+      MASKUP("#o1", 140.59);
+      tl.to("#o1", { y: -120, duration: 0.6, ease: "power3.inOut" }, 143.33);
+      IN("#o2s", 143.76, { y: 30 }, 0.4);
+      IN("#o2", 144.7, { scale: 0.6 }, 0.5, "back.out(1.8)");
+      tl.to(["#o1", "#o2s", "#o2"], { autoAlpha: 0, y: "-=40", duration: 0.35, ease: "power2.in" }, 147.44);
       const hl = 2400;
       tl.set("#hpath", { attr: { "stroke-dasharray": hl, "stroke-dashoffset": hl } }, 0);
-      tl.fromTo("#hpath", { attr: { "stroke-dashoffset": hl } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.1, ease: "power2.inOut", ...IR }, 121.9);
-      POP("#o3logo", 122.2, 0.6);
-      IN("#o3t", 122.8, { y: 40 });
-      IN("#o3t2", 122.9, { y: 20 });
+      tl.fromTo("#hpath", { attr: { "stroke-dashoffset": hl } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.1, ease: "power2.inOut", ...IR }, 147.75);
+      POP("#o3logo", 148.01, 0.6);
+      IN("#o3t", 148.54, { y: 40 });
+      IN("#o3t2", 148.63, { y: 20 });
       tl.to("#house", { scale: 1.04, duration: 0.25, yoyo: true, repeat: 1, transformOrigin: "50% 100%" }, 123);
-      tl.to("#prog", { autoAlpha: 0, duration: 0.3 }, 124.5);
+      tl.to("#prog", { autoAlpha: 0, duration: 0.3 }, 150.03);
 
       tl.set({}, {}, D);
       window.__timelines = window.__timelines || {};
