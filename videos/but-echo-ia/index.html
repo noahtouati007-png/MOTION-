@@ -117,8 +117,18 @@
       #sa .apphd .b { font-weight: 700; font-size: 28px; opacity: .85; margin-top: 4px; }
       #sa .tl { position: absolute; left: 24px; right: 24px; height: 128px; background: #fff; border-radius: 22px; display: flex; align-items: center; gap: 22px; padding: 0 22px; font-weight: 900; font-size: 30px; text-transform: uppercase; box-shadow: 0 6px 14px rgba(0,0,0,.08); }
       #sa .tl .ico { width: 76px; height: 76px; border-radius: 18px; background: var(--ink); color: #fff; font-family: "Anton"; font-size: 44px; display: flex; align-items: center; justify-content: center; flex: none; }
+      #sa .up { position: absolute; left: 24px; right: 24px; top: 220px; }
+      #sa .doc { position: relative; height: 290px; background: #fff; border-radius: 18px; padding: 30px 26px; box-shadow: 0 6px 14px rgba(0,0,0,.08); overflow: hidden; }
+      #sa .dl { height: 14px; border-radius: 7px; background: #dcdcdc; margin-bottom: 22px; }
+      #sa .dl.d { background: var(--ink); width: 45%; height: 20px; }
+      #sascan { position: absolute; left: 0; right: 0; top: 0; height: 10px; background: var(--red); box-shadow: 0 0 22px 6px rgba(237,28,36,.55); }
+      #sa .cvn { margin-top: 16px; font-weight: 800; font-size: 28px; display: flex; justify-content: space-between; }
+      #saok { color: #1f9d55; }
+      #sa .sk { position: absolute; left: 24px; top: 600px; font-weight: 800; font-size: 28px; color: var(--grey2); }
+      #sa .chs { position: absolute; left: 20px; right: 14px; top: 645px; display: flex; flex-wrap: wrap; gap: 8px; }
+      #sa .cc { background: var(--red); color: #fff; font-weight: 900; font-size: 22px; padding: 8px 11px; }
       #sa .tap { width: 90px; height: 90px; border-radius: 50%; background: rgba(237,28,36,.35); border: 6px solid var(--red); }
-      #sa .ft { left: 900px; width: 900px; display: flex; align-items: center; gap: 28px; font-weight: 900; font-size: 50px; text-transform: uppercase; letter-spacing: -1px; }
+      #sa .ft { left: 900px; width: 940px; display: flex; align-items: center; line-height: 1.05; gap: 28px; font-weight: 900; font-size: 50px; text-transform: uppercase; letter-spacing: -1px; }
       #sa .ft .n { width: 78px; height: 78px; background: var(--red); color: #fff; font-family: "Anton"; font-size: 46px; display: flex; align-items: center; justify-content: center; flex: none; }
       /* SB1 */
       #sb1 .k { left: 0; width: 1920px; top: 260px; text-align: center; color: #bdbdbd; }
@@ -152,7 +162,7 @@
       /* section cards S7 */
       #s7 .num { left: 120px; top: 120px; font-family: "Anton"; font-size: 560px; line-height: 1; color: rgba(255,255,255,.18); }
       #s7 .t { left: 140px; top: 360px; font-weight: 900; font-size: 210px; line-height: 1; letter-spacing: -7px; text-transform: uppercase; color: #fff; }
-      #s7 .s { left: 150px; top: 640px; font-weight: 900; font-size: 84px; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 36px; letter-spacing: -1px; }
+      #s7 .s { left: 150px; top: 640px; font-weight: 900; font-size: 72px; text-transform: uppercase; color: #fff; display: flex; align-items: center; gap: 36px; letter-spacing: -1px; }
       #s7 .s .cvw { position: relative; }
       #s7 .s .strike { position: absolute; left: -10px; right: -10px; top: 46%; height: 12px; background: var(--ink); transform-origin: 0 50%; }
       #s7 .s .geste { background: #fff; color: var(--red); padding: 4px 26px; }
@@ -328,24 +338,23 @@
       <!-- ═══ SA · l'appli BUT Talents -->
       <section id="sa" class="scene bg-white"><div class="cam">
         <div class="abs phone h" id="saph"><div class="scr">
-          <div class="apphd"><div class="a">BUT Talents</div><div class="b">Bonjour Inès 👋</div></div>
-          <div class="tl h" id="sat1" style="top: 220px"><span class="ico">1</span>Postuler sans CV</div>
-          <div class="tl h" id="sat2" style="top: 368px"><span class="ico">2</span>Mon Live Test</div>
-          <div class="tl h" id="sat3" style="top: 516px"><span class="ico">3</span>Me former</div>
-          <div class="tl h" id="sat4" style="top: 664px"><span class="ico">4</span>Mon parcours</div>
+          <div class="apphd"><div class="a">BUT Talents</div><div class="b">Candidature</div></div>
+          <div class="up h" id="saup">
+            <div class="doc"><div class="dl d"></div><div class="dl"></div><div class="dl"></div><div class="dl d" style="width: 60%"></div><div class="dl"></div><div class="dl" style="width: 70%"></div><div id="sascan"></div></div>
+            <div class="cvn">mon-cv.pdf <span id="saok">✓ envoyé</span></div>
+          </div>
+          <div class="sk h" id="sask">Compétences détectées</div>
+          <div class="chs" data-layout-ignore><span class="cc h" id="sac1">Conseil client</span><span class="cc h" id="sac2">Électroménager</span><span class="cc h" id="sac3">Montage meuble</span><span class="cc h" id="sac4">Encaissement</span></div>
         </div></div>
-        <div class="abs tap h" id="satap" style="left: 600px; top: 380px"></div>
         <div class="abs kick kick2 h" id="sak">L'appli</div>
         <div class="abs ttl h" id="sat">BUT<br />Talents</div>
-        <div class="abs ft h" id="saf1" style="top: 560px"><span class="n">1</span>Postuler sans CV</div>
-        <div class="abs ft h" id="saf2" style="top: 660px"><span class="n">2</span>Réserver son Live Test</div>
-        <div class="abs ft h" id="saf3" style="top: 760px"><span class="n">3</span>Se former</div>
-        <div class="abs ft h" id="saf4" style="top: 860px"><span class="n">4</span>Construire son parcours</div>
+        <div class="abs ft h" id="saf1" style="top: 590px"><span class="n">1</span>Je dépose mon CV</div>
+        <div class="abs ft h" id="saf2" style="top: 700px"><span class="n">2</span><span>L'IA trie <span class="red">uniquement</span><br />sur les compétences</span></div>
       </div></section>
 
       <!-- ═══ SB1 · contre les discriminations -->
       <section id="sb1" class="scene bg-ink"><div class="cam">
-        <div class="abs kick k h" id="sb1k">Pourquoi cette appli ?</div>
+        <div class="abs kick k h" id="sb1k">Rien d'autre. Pourquoi ?</div>
         <div class="abs big">
           <span class="mask"><span class="h" id="sb1a">D'abord</span></span>
           <span class="mask"><span class="h" id="sb1b">contre les</span></span>
@@ -364,7 +373,7 @@
       <!-- ═══ SB3 · profil anonymisé -->
       <section id="sb3" class="scene bg-grey"><div class="cam">
         <div class="abs card h" id="sbcard">
-          <div class="lbl">Ce que voit le recruteur</div>
+          <div class="lbl">Ce que lit l'IA</div>
           <div class="pho"><svg width="170" height="170" viewBox="0 0 170 170"><circle cx="85" cy="66" r="34" fill="#a9a9a9" /><ellipse cx="85" cy="170" rx="64" ry="54" fill="#a9a9a9" /></svg><div class="r" id="rpho"></div></div>
           <div class="fld" style="top: 100px">Karim Benali<div class="r" id="rnom" style="width: 440px"></div></div>
           <div class="fld" style="top: 180px">42 ans<div class="r" id="rage" style="width: 230px"></div></div>
@@ -377,12 +386,12 @@
             <span class="chip o h" id="ch4">Dispo le samedi</span>
           </div>
         </div>
-        <div class="abs side h" id="sbs" style="top: 180px"><div class="t">Le recruteur<br />ne voit <span class="red">pas</span> :</div></div>
+        <div class="abs side h" id="sbs" style="top: 180px"><div class="t">L'IA <span class="red">masque</span> :</div></div>
         <div class="abs no h" id="sbn1" style="top: 380px"><i>✕</i>le nom</div>
         <div class="abs no h" id="sbn2" style="top: 455px"><i>✕</i>la photo</div>
         <div class="abs no h" id="sbn3" style="top: 530px"><i>✕</i>l'âge</div>
         <div class="abs no h" id="sbn4" style="top: 605px"><i>✕</i>l'adresse</div>
-        <div class="abs notif h" id="sbnot"><div class="a">Chaque refus est expliqué</div><div class="b">+ une formation proposée pour réessayer</div></div>
+        <div class="abs notif h" id="sbnot"><div class="a">Chaque refus validé par un humain</div><div class="b">… puis expliqué au candidat</div></div>
       </div></section>
 
       <!-- ═══ S7 · 01 recruter -->
@@ -390,7 +399,7 @@
         <div class="abs num h" id="s7n">01</div>
         <div class="abs t h" id="s7t">Recruter</div>
         <div class="abs s">
-          <span class="cvw h" id="s7cv">le CV<span class="strike" id="s7x"></span></span>
+          <span class="cvw h" id="s7cv">Tri compétences ✓<span class="strike" id="s7x" style="display: none"></span></span>
           <svg class="h" id="s7a" width="110" height="70" viewBox="0 0 110 70"><path d="M0 35 H90 M62 8 L96 35 L62 62" fill="none" stroke="#fff" stroke-width="12" /></svg>
           <span class="geste h" id="s7g">le geste</span>
         </div>
@@ -660,17 +669,19 @@
       IN("#s6Rk", 24.9, { x: -60 }); IN("#s6Rb", 25.1, { scale: 1.5 }, 0.45, "power4.out");
 
 
-      // ═════ SA (26.6 → 36.4) l'appli
+      // ═════ SA (26.6 → 36.4) l'appli : dépôt du CV, tri par compétences
       IN("#saph", 26.75, { y: 500, rotation: -6 }, 0.7, "power4.out");
       IN("#sak", 27.1, { x: 80 }); IN("#sat", 27.3, { x: 120 }, 0.55, "power4.out");
-      [[30.0, 1], [31.65, 2], [33.3, 3], [34.4, 4]].forEach(([t, i]) => {
-        POP("#sat" + i, t - 0.1, 0.4);
-        IN("#saf" + i, t, { x: 120 }, 0.45, "power4.out");
-        tl.fromTo("#satap", { autoAlpha: 0, scale: 1.6, y: (i - 1) * 148 - 20 }, { autoAlpha: 1, scale: 0.7, y: (i - 1) * 148 - 20, duration: 0.25, ease: "power2.out", ...IR }, t + 0.25);
-        tl.to("#satap", { autoAlpha: 0, duration: 0.2 }, t + 0.55);
-        tl.to("#sat" + i, { backgroundColor: "#ffe3e4", duration: 0.15, yoyo: true, repeat: 1 }, t + 0.3);
-      });
-      tl.to("#saph", { y: -16, duration: 1.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 34.9);
+      IN("#saup", 30.2, { y: 120 }, 0.5, "back.out(1.6)");
+      IN("#saf1", 30.2, { x: 120 }, 0.45, "power4.out");
+      tl.fromTo("#saok", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ...IR }, 31.2);
+      tl.fromTo("#sascan", { y: 0, autoAlpha: 0 }, { y: 280, autoAlpha: 1, duration: 1.2, ease: "sine.inOut", ...IR }, 32.0);
+      tl.to("#sascan", { y: 0, duration: 1.0, ease: "sine.inOut" }, 33.2);
+      tl.to("#sascan", { autoAlpha: 0, duration: 0.2 }, 34.2);
+      IN("#saf2", 32.4, { x: 120 }, 0.5, "power4.out");
+      IN("#sask", 33.4, { y: 20 }, 0.35);
+      POP("#sac1", 33.8, 0.35); POP("#sac2", 34.1, 0.35); POP("#sac3", 34.4, 0.35); POP("#sac4", 34.7, 0.35);
+      tl.to("#saf2 .red", { scale: 1.15, duration: 0.2, yoyo: true, repeat: 1, display: "inline-block" }, 34.9);
 
       // ═════ SB1 (36.4 → 40.0) contre les discriminations
       IN("#sb1k", 36.55, { y: -30 });
@@ -703,7 +714,6 @@
       IN("#s7t", 56.65, { x: 200 }, 0.5, "power4.out");
       IN("#s7cv", 57.85, { y: 50 }, 0.35);
       tl.fromTo("#s7x", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out", ...IR }, 58.4);
-      tl.to("#s7cv", { autoAlpha: 0.5, duration: 0.2 }, 58.6);
       IN("#s7a", 58.6, { x: -40 }, 0.3);
       POP("#s7g", 58.8, 0.45);
 
