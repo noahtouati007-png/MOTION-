@@ -13,11 +13,11 @@
 | 14,5 – 19,5 | 7. Badge 5 %, cagnotte : 12,00 € → +0,60 · 8,40 € → +0,42 · 20,00 € → +1,00 → total 2,02 € | 5 % de chaque achat crédités sur votre carte · À utiliser lors de vos prochains passages | « Résultat : 5 % de chaque achat crédités sur votre carte, à utiliser lors de vos prochains passages. » | whoosh 14,38 · **ding 16,33 / 17,43 / 18,53** |
 | 19,5 – 23,0 | 8. End card : logo, CTA, galzin.fr, carte | Demandez votre carte en boutique · galzin.fr | « Alors la prochaine fois en boutique… demandez-la. » | whoosh 19,38 · carillon 19,5 · fondu musique 21,4–23 |
 
-Voix off générée (voix française « Siwis », Kokoro, en local) — départ de chaque phrase :
-0,20 · 2,55 · 5,05 · 8,10 · 10,15 · 12,75 · 14,60 · 18,25 · 20,30 s. La musique baisse automatiquement sous la voix.
+Voix off : ElevenLabs, voix « Chloé – Warm, Friendly & UGC Ready » (lue d'une traite, puis découpée sur les pauses).
+Départ de chaque phrase : 0,15 « Demandez votre carte en caisse… » · 2,55 « le vendeur vous la bipe » · 5,05 « Une fois chez vous… galzin point FR » · 8,05 « cliquez sur Activer ma carte » · 10,20 « remplissez vos infos… » · 12,75 « et c'est fait ! » · 14,00 « Résultat : 5 %… prochains passages » · 19,75 « Alors, la prochaine fois en boutique… demandez-la ! ». La musique baisse sous la voix.
 
 Fichiers :
 - `renders/galzin-fidelite-tiktok-voix-off.mp4` : vidéo avec voix off + musique + effets
 - `renders/galzin-fidelite-tiktok.mp4` : vidéo avec musique et effets, sans voix
 - `renders/galzin-fidelite-tiktok-sans-audio.mp4` : même vidéo sans aucun son
-- `audio/voix.wav`, `audio/musique.wav`, `audio/sfx.wav`, `audio/mix.wav`, `audio/mix-sans-voix.wav` : pistes séparées (48 kHz) pour le remix
+- `audio/voix-elevenlabs.wav` (+ prise complète `audio/elevenlabs/voix-chloe.mp3`, ancienne voix `audio/voix-kokoro.wav`), `audio/musique.wav`, `audio/sfx.wav`, `audio/mix.wav`, `audio/mix-sans-voix.wav` : pistes séparées (48 kHz) pour le remix
