@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Bannière LinkedIn — Noah Touati</title>
+<link rel="stylesheet" href="https://use.typekit.net/wvh5mzg.css">
+<style>
+  @font-face{font-family:'Impact';src:url(assets/Impact.ttf) format('truetype')}
+  :root{ --base:#17110d; --cream:#EFE6D8; --amber:#E9A23B; --dim:rgba(239,230,216,.55); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1584px;height:396px;background:var(--base)}
+  body{font-family:"eroika-slab",serif;color:var(--cream);-webkit-font-smoothing:antialiased}
+  .b{position:relative;width:1584px;height:396px;overflow:hidden;
+     background:radial-gradient(120% 140% at 70% 50%,#2a1f17 0%,var(--base) 60%,#0d0907 100%)}
+  /* grain */
+  .b::after{content:"";position:absolute;inset:0;opacity:.22;mix-blend-mode:overlay;
+     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* sprockets */
+  .holes{position:absolute;left:0;right:0;height:16px;display:flex;gap:22px;padding-left:14px}
+  .holes i{flex:none;width:20px;height:14px;border-radius:3px;background:rgba(239,230,216,.13)}
+  .holes.t{top:12px}.holes.btm{bottom:12px}
+  .edge{position:absolute;left:0;right:0;font-family:Impact,sans-serif;font-size:12px;letter-spacing:.32em;color:var(--amber);opacity:.75;white-space:nowrap;display:flex;gap:120px;padding-left:480px}
+  .edge.t{top:36px}.edge.btm{bottom:36px}
+
+  /* frames */
+  .frame{position:absolute;top:70px;bottom:70px;border:1px solid rgba(239,230,216,.12)}
+  .f1{left:400px;width:520px}
+  .f2{left:944px;width:520px}
+
+  .txt{position:absolute;top:50%;transform:translateY(-50%)}
+  .t1{left:440px}
+  .t2{left:984px}
+  .lab{font-family:Impact,sans-serif;font-size:15px;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .lab .dot{width:8px;height:8px;border-radius:50%;background:#e2453a;box-shadow:0 0 10px rgba(226,69,58,.8)}
+  .big{font-weight:300;font-size:44px;line-height:1.05;letter-spacing:-.01em}
+  .big em{font-style:italic;font-weight:400;color:var(--amber)}
+  .small{margin-top:14px;font-weight:300;font-size:16px;color:var(--dim);letter-spacing:.02em}
+  .small b{font-weight:500;color:var(--cream)}
+
+  /* viewfinder brackets on frame 2 */
+  .br{position:absolute;width:22px;height:22px;border:2px solid var(--cream);opacity:.85}
+  .br.a{left:-1px;top:-1px;border-right:0;border-bottom:0}
+  .br.b2{right:-1px;top:-1px;border-left:0;border-bottom:0}
+  .br.c{left:-1px;bottom:-1px;border-right:0;border-top:0}
+  .br.d{right:-1px;bottom:-1px;border-left:0;border-top:0}
+  .num{position:absolute;bottom:-26px;right:0;font-family:Impact;font-size:12px;letter-spacing:.3em;color:var(--amber);opacity:.75}
+</style>
+</head>
+<body>
+<div class="b">
+  <div class="holes t"><script>document.currentScript.parentElement.innerHTML='<i></i>'.repeat(40)</script></div>
+  <div class="holes btm"><script>document.currentScript.parentElement.innerHTML='<i></i>'.repeat(40)</script></div>
+  <div class="edge t"><span>PICTURESMATTERS 400</span><span>▸ 14</span><span>PICTURESMATTERS 400</span><span>▸ 15</span></div>
+  <div class="edge btm"><span>NOAH TOUATI</span><span>MONTPELLIER</span><span>▸ 14A</span><span>▸ 15A</span></div>
+
+  <div class="frame f1"></div>
+  <div class="frame f2"><span class="br a"></span><span class="br b2"></span><span class="br c"></span><span class="br d"></span></div>
+
+  <div class="txt t1">
+    <div class="lab">Alternant</div>
+    <div class="big">Marketing &amp;<br><em>communication</em></div>
+    <div class="small">chez <b>Galzin Gourmet</b></div>
+  </div>
+
+  <div class="txt t2">
+    <div class="lab"><span class="dot"></span>Open to work</div>
+    <div class="big">Photographe<br><em>indépendant</em></div>
+    <div class="small"><b>PicturesMatters</b> · auto-entrepreneur</div>
+  </div>
+</div>
+</body>
+</html>
