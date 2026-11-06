@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Bannière LinkedIn — Noah Touati (bulle)</title>
+<link rel="stylesheet" href="https://use.typekit.net/wvh5mzg.css">
+<style>
+  @font-face{font-family:'Impact';src:url(assets/Impact.ttf) format('truetype')}
+  :root{ --paper:#F5F2ED; --ink:#141414; --cream:#F5F2ED; --amber:#E9A23B; --muted:#6f6a64; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1584px;height:396px;background:var(--paper)}
+  body{font-family:"eroika-slab",serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .b{position:relative;width:1584px;height:396px;overflow:hidden;background:var(--paper)}
+  svg.bubble{position:absolute;inset:0}
+  .q{position:absolute;right:110px;top:62px;text-align:right;color:var(--cream);font-weight:300;font-size:40px;line-height:1.22;letter-spacing:-.005em}
+  .q em{font-style:italic;font-weight:400;color:var(--amber)}
+  .marks{position:absolute;left:500px;top:10px;font-family:Impact,sans-serif;font-size:210px;line-height:1;color:#2a2a2a}
+  .info{position:absolute;right:110px;bottom:34px;display:flex;align-items:center;gap:22px;font-size:16px;font-weight:400;color:var(--ink)}
+  .info .lab{font-family:Impact,sans-serif;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-right:8px}
+  .info b{font-weight:700}
+  .sep{width:1px;height:22px;background:#cfc8bf}
+  .otw{display:flex;align-items:center;gap:8px}
+  .dot{width:9px;height:9px;border-radius:50%;background:#2fa84f;box-shadow:0 0 0 4px rgba(47,168,79,.18)}
+</style>
+</head>
+<body>
+<div class="b">
+  <svg class="bubble" viewBox="0 0 1584 396" width="1584" height="396">
+    <path fill="#141414" d="
+      M 430 0 L 1584 0 L 1584 236
+      C 1470 268, 1360 300, 1210 262
+      C 1060 224, 960 222, 830 260
+      C 700 298, 560 286, 470 220
+      C 440 198, 420 176, 408 150
+      L 318 214
+      C 360 160, 388 108, 398 62
+      C 404 36, 414 14, 430 0 Z"/>
+  </svg>
+  <div class="marks">“</div>
+  <div class="q">Le marketing raconte l'histoire,<br>la photo la rend <em>inoubliable.</em></div>
+
+  <div class="info">
+    <span><span class="lab">Alternant</span>Marketing &amp; communication · <b>Galzin Gourmet</b></span>
+    <span class="sep"></span>
+    <span class="otw"><span class="dot"></span><span><span class="lab">Open to work</span>Photographe · <b>PicturesMatters</b></span></span>
+  </div>
+</div>
+</body>
+</html>
