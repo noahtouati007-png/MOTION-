@@ -69,7 +69,12 @@ def menu():
     # photo du menu d'origine (redressée), en colonne à gauche
     L.append('<defs><clipPath id="ClipPhoto"><rect x="48" y="300" width="290" height="1100" rx="14"/></clipPath></defs>'
              '<g id="PHOTO" clip-path="url(#ClipPhoto)">'
-             + image(HERE / "images/photo-cafe.jpg", 48, 300, 290, 1100, 1400, id="photo-cafe") + '</g>')
+             + image(HERE / "images/photo-cafe.jpg", 48, 300, 290, 1100, 1400, id="photo-cafe").replace("meet", "slice")
+             # fondu chocolat qui masque les reflets du haut de la photo
+             + '<linearGradient id="FonduChoco" x1="0" y1="0" x2="0" y2="1">'
+               f'<stop offset="0" stop-color="{CH}"/><stop offset="0.34" stop-color="{CH}" stop-opacity="0.95"/>'
+               f'<stop offset="0.53" stop-color="{CH}" stop-opacity="0"/></linearGradient>'
+             + '<rect id="fondu" x="48" y="300" width="290" height="1100" fill="url(#FonduChoco)"/></g>')
     L.append(
         '<g id="ENTETE">'
         + image(HERE / "images/galzin-logo.png", 412, 50, 230, 230, 900, id="galzin-logo")
