@@ -66,18 +66,10 @@ def carte():
 
 def menu():
     L = [f'<rect width="1024" height="{GH}" fill="#FFFFFF"/>', cadre()]
-    # colonne visuelle : panneau chocolat, vague caramel, tasses détourées
-    ph = HERE / "images"
-    L.append('<defs><clipPath id="ClipPanneau"><rect x="48" y="300" width="290" height="1100" rx="18"/></clipPath></defs>'
-             '<g id="VISUEL">'
-             f'<rect x="48" y="300" width="290" height="1100" rx="18" fill="{CH}"/>'
-             '<g clip-path="url(#ClipPanneau)">'
-             f'<path d="M48 860C120 820 220 900 338 840V1400H48Z" fill="{C["caramel"]}"/>'
-             f'<path d="M48 830C120 790 220 870 338 810" fill="none" stroke="{C["cuivre_clair"]}" stroke-width="4"/>'
-             '</g>'
-             + image(ph / "cappuccino.png", 30, 420, 330, 300, 800)
-             + image(ph / "cafe-creme.png", 40, 760, 310, 260, 800)
-             + image(ph / "chocolat-chaud.png", 70, 1040, 250, 320, 800)
+    # photo café (fournie), en colonne à gauche
+    L.append('<defs><clipPath id="ClipPhoto"><rect x="40" y="300" width="330" height="1100" rx="18"/></clipPath></defs>'
+             '<g id="PHOTO" clip-path="url(#ClipPhoto)">'
+             + image(HERE / "images/photo-cafe.jpg", 40, 300, 330, 1100, 1400, id="photo-cafe").replace("meet", "slice")
              + '</g>')
     L.append(
         '<g id="ENTETE">'
