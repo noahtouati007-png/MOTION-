@@ -1,0 +1,876 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/MOTION-/videos/galzin-commande/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 9,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 8.944,
+        "selector": "#pC",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -382,
+          "top": -314,
+          "right": 930,
+          "bottom": 1182,
+          "width": 1312,
+          "height": 1496
+        },
+        "containerSelector": "#vp",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 98,
+          "top": 710,
+          "right": 942,
+          "bottom": 1230,
+          "width": 844,
+          "height": 520
+        },
+        "overflow": {
+          "left": 480,
+          "top": 1024
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -382,
+          "y": -314,
+          "width": 1312,
+          "height": 1496
+        },
+        "firstSeen": 8.944,
+        "lastSeen": 11.5,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          8.944,
+          11.5
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 3.833,
+        "selector": "#pA",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 167.5,
+          "top": 822.24,
+          "right": 872.49,
+          "bottom": 1366.59,
+          "width": 704.99,
+          "height": 544.34
+        },
+        "containerSelector": "#vp",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 167.5,
+          "top": 822.24,
+          "right": 872.5,
+          "bottom": 1256.6,
+          "width": 704.99,
+          "height": 434.36
+        },
+        "overflow": {
+          "bottom": 109.99
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 167.5,
+          "y": 822.24,
+          "width": 704.99,
+          "height": 544.34
+        },
+        "firstSeen": 3.833,
+        "lastSeen": 6.389,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          3.833,
+          6.389
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 6.389,
+        "selector": "#pA",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 98,
+          "top": 710,
+          "right": 1867,
+          "bottom": 2075.9,
+          "width": 1769,
+          "height": 1365.9
+        },
+        "containerSelector": "#vp",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 98,
+          "top": 710,
+          "right": 942,
+          "bottom": 1230,
+          "width": 844,
+          "height": 520
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 98,
+          "y": 710,
+          "width": 1769,
+          "height": 1365.9
+        },
+        "firstSeen": 6.389,
+        "lastSeen": 6.389,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.389
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 8.944,
+        "selector": "#pC",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -382,
+          "top": -314,
+          "right": 930,
+          "bottom": 1182,
+          "width": 1312,
+          "height": 1496
+        },
+        "containerSelector": "#vp",
+        "text": "6 Personnes 6 Personnes Joyeux anniversaire Léa !",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 98,
+          "top": 710,
+          "right": 942,
+          "bottom": 1230,
+          "width": 844,
+          "height": 520
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -382,
+          "y": -314,
+          "width": 1312,
+          "height": 1496
+        },
+        "firstSeen": 8.944,
+        "lastSeen": 11.5,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          8.944,
+          11.5
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 17.989,
+        "selector": "#ccC > div:nth-of-type(3) > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 553.89,
+          "top": 1048.05,
+          "right": 622.34,
+          "bottom": 1066.88,
+          "width": 68.45,
+          "height": 18.83
+        },
+        "containerSelector": "div.t1",
+        "text": "MM / AA 12 / 28",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 553.89,
+          "y": 1048.05,
+          "width": 68.45,
+          "height": 18.83
+        },
+        "firstSeen": 17.989,
+        "lastSeen": 17.989,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17.989
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 17.989,
+        "selector": "#vC2",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 553.89,
+          "top": 1048.05,
+          "right": 602.73,
+          "bottom": 1066.88,
+          "width": 48.84,
+          "height": 18.83
+        },
+        "containerSelector": "div.t1",
+        "text": "12 / 28",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 553.89,
+          "y": 1048.05,
+          "width": 48.84,
+          "height": 18.83
+        },
+        "firstSeen": 17.989,
+        "lastSeen": 17.989,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17.989
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 17.989,
+        "selector": "#ccC > div:nth-of-type(3) > div:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 728.03,
+          "top": 1048.05,
+          "right": 761.78,
+          "bottom": 1066.88,
+          "width": 33.75,
+          "height": 18.83
+        },
+        "containerSelector": "div.t1",
+        "text": "CVC •••",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 728.03,
+          "y": 1048.05,
+          "width": 33.75,
+          "height": 18.83
+        },
+        "firstSeen": 17.989,
+        "lastSeen": 17.989,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17.989
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 17.989,
+        "selector": "#vC3",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 728.03,
+          "top": 1048.05,
+          "right": 743.1,
+          "bottom": 1066.88,
+          "width": 15.07,
+          "height": 18.83
+        },
+        "containerSelector": "div.t1",
+        "text": "•••",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 728.03,
+          "y": 1048.05,
+          "width": 15.07,
+          "height": 18.83
+        },
+        "firstSeen": 17.989,
+        "lastSeen": 17.989,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17.989
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 17.989,
+        "selector": "#cmd",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 452.45,
+          "top": 1206.66,
+          "right": 587.55,
+          "bottom": 1232.08,
+          "width": 135.1,
+          "height": 25.42
+        },
+        "containerSelector": "div.t2",
+        "text": "Commander Commande validée !",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 452.45,
+          "y": 1206.66,
+          "width": 135.1,
+          "height": 25.42
+        },
+        "firstSeen": 17.989,
+        "lastSeen": 17.989,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17.989
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 17.989,
+        "selector": "#cmdok",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 429,
+          "top": 1206.66,
+          "right": 650.53,
+          "bottom": 1232.08,
+          "width": 221.53,
+          "height": 25.42
+        },
+        "containerSelector": "div.t2",
+        "text": "Commande validée !",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply. Decoration nobody needs to read can take data-layout-ignore.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 429,
+          "y": 1206.66,
+          "width": 221.53,
+          "height": 25.42
+        },
+        "firstSeen": 17.989,
+        "lastSeen": 17.989,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17.989
+        ]
+      }
+    ],
+    "duration": 23,
+    "samples": [
+      1.278,
+      3.833,
+      6.389,
+      8.944,
+      11.5,
+      14.056,
+      16.611,
+      19.167,
+      21.722
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 10,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.278,
+      6.389,
+      11.5,
+      16.611,
+      21.722
+    ],
+    "checked": 46,
+    "passed": 46
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 23 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 42 text elements stay under it for 0.5 s or more, the smallest \"Carte bancaire\" at 15 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "Carte bancaire",
+        "selector": "#ccC > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 549.72,
+          "y": 914,
+          "width": 130.39,
+          "height": 20
+        },
+        "time": 13.25,
+        "times": [
+          3.875,
+          7.25,
+          8.75,
+          10,
+          10.25,
+          10.25,
+          10.25,
+          10.25,
+          10.375,
+          10.375,
+          10.375,
+          10.5,
+          10.5,
+          10.5,
+          10.5,
+          10.625,
+          10.625,
+          10.625,
+          10.75,
+          10.75,
+          10.75,
+          10.75,
+          10.875,
+          10.875,
+          11,
+          12.625,
+          13.25,
+          13.25,
+          13.25,
+          13.25,
+          13.25,
+          13.25,
+          13.25,
+          13.375,
+          13.375,
+          13.5,
+          13.5,
+          14.375,
+          15.625,
+          16.75,
+          16.875,
+          17.5
+        ],
+        "fontPx": 15.23,
+        "floorPx": 28,
+        "seconds": 4.875,
+        "elements": [
+          {
+            "selector": "#ccC > div:nth-of-type(1)",
+            "text": "Carte bancaire",
+            "fontPx": 15.23,
+            "time": 13.25,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#ccC > div:nth-of-type(2)",
+            "text": "1234 1234 1234 1234",
+            "fontPx": 15.23,
+            "time": 13.25,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#ccC > div:nth-of-type(3) > div:nth-of-type(1)",
+            "text": "MM / AA",
+            "fontPx": 15.23,
+            "time": 13.25,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#ccC > div:nth-of-type(3) > div:nth-of-type(2)",
+            "text": "CVC",
+            "fontPx": 15.23,
+            "time": 13.25,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#ccA > div:nth-of-type(1)",
+            "text": "Sélectionnez une Boulangerie",
+            "fontPx": 15.23,
+            "time": 13.375,
+            "seconds": 4.75
+          },
+          {
+            "selector": "#ccA > div:nth-of-type(3)",
+            "text": "Sélectionnez votre relais Galzin",
+            "fontPx": 15.23,
+            "time": 13.375,
+            "seconds": 4.75
+          },
+          {
+            "selector": "#ccB > div:nth-of-type(1)",
+            "text": "Date de retrait",
+            "fontPx": 15.23,
+            "time": 13.5,
+            "seconds": 4.625
+          },
+          {
+            "selector": "#ccB > div:nth-of-type(2)",
+            "text": "Entrez la date de retrait souhaitée",
+            "fontPx": 15.23,
+            "time": 13.5,
+            "seconds": 4.625
+          },
+          {
+            "selector": "#vA",
+            "text": "Boulangerie Victoire – Rodez",
+            "fontPx": 15.23,
+            "time": 14.375,
+            "seconds": 3.75
+          },
+          {
+            "selector": "#vB",
+            "text": "Demain",
+            "fontPx": 15.23,
+            "time": 15.625,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#vC1",
+            "text": "4970 •••• •••• 2026",
+            "fontPx": 15.23,
+            "time": 16.75,
+            "seconds": 1.375
+          },
+          {
+            "selector": "#vC2",
+            "text": "12 / 28",
+            "fontPx": 15.23,
+            "time": 16.875,
+            "seconds": 1.25
+          },
+          {
+            "selector": "#sel6",
+            "text": "6 Personnes",
+            "fontPx": 19.2,
+            "time": 10,
+            "seconds": 2.625
+          },
+          {
+            "selector": "#msg > span:nth-of-type(1)",
+            "text": "J",
+            "fontPx": 19.2,
+            "time": 10.25,
+            "seconds": 2.375
+          },
+          {
+            "selector": "#msg > span:nth-of-type(2)",
+            "text": "o",
+            "fontPx": 19.2,
+            "time": 10.25,
+            "seconds": 2.375
+          },
+          {
+            "selector": "#msg > span:nth-of-type(3)",
+            "text": "y",
+            "fontPx": 19.2,
+            "time": 10.25,
+            "seconds": 2.375
+          },
+          {
+            "selector": "#msg > span:nth-of-type(4)",
+            "text": "e",
+            "fontPx": 19.2,
+            "time": 10.25,
+            "seconds": 2.375
+          },
+          {
+            "selector": "#msg > span:nth-of-type(5)",
+            "text": "u",
+            "fontPx": 19.2,
+            "time": 10.375,
+            "seconds": 2.25
+          },
+          {
+            "selector": "#msg > span:nth-of-type(6)",
+            "text": "x",
+            "fontPx": 19.2,
+            "time": 10.375,
+            "seconds": 2.25
+          },
+          {
+            "selector": "#msg > span:nth-of-type(8)",
+            "text": "a",
+            "fontPx": 19.2,
+            "time": 10.375,
+            "seconds": 2.25
+          },
+          {
+            "selector": "#msg > span:nth-of-type(9)",
+            "text": "n",
+            "fontPx": 19.2,
+            "time": 10.5,
+            "seconds": 2.125
+          },
+          {
+            "selector": "#msg > span:nth-of-type(10)",
+            "text": "n",
+            "fontPx": 19.2,
+            "time": 10.5,
+            "seconds": 2.125
+          },
+          {
+            "selector": "#msg > span:nth-of-type(11)",
+            "text": "i",
+            "fontPx": 19.2,
+            "time": 10.5,
+            "seconds": 2.125
+          },
+          {
+            "selector": "#msg > span:nth-of-type(12)",
+            "text": "v",
+            "fontPx": 19.2,
+            "time": 10.5,
+            "seconds": 2.125
+          },
+          {
+            "selector": "#msg > span:nth-of-type(13)",
+            "text": "e",
+            "fontPx": 19.2,
+            "time": 10.625,
+            "seconds": 2
+          },
+          {
+            "selector": "#msg > span:nth-of-type(14)",
+            "text": "r",
+            "fontPx": 19.2,
+            "time": 10.625,
+            "seconds": 2
+          },
+          {
+            "selector": "#msg > span:nth-of-type(15)",
+            "text": "s",
+            "fontPx": 19.2,
+            "time": 10.625,
+            "seconds": 2
+          },
+          {
+            "selector": "#msg > span:nth-of-type(16)",
+            "text": "a",
+            "fontPx": 19.2,
+            "time": 10.75,
+            "seconds": 1.875
+          },
+          {
+            "selector": "#msg > span:nth-of-type(17)",
+            "text": "i",
+            "fontPx": 19.2,
+            "time": 10.75,
+            "seconds": 1.875
+          },
+          {
+            "selector": "#msg > span:nth-of-type(18)",
+            "text": "r",
+            "fontPx": 19.2,
+            "time": 10.75,
+            "seconds": 1.875
+          },
+          {
+            "selector": "#msg > span:nth-of-type(19)",
+            "text": "e",
+            "fontPx": 19.2,
+            "time": 10.75,
+            "seconds": 1.875
+          },
+          {
+            "selector": "#msg > span:nth-of-type(21)",
+            "text": "L",
+            "fontPx": 19.2,
+            "time": 10.875,
+            "seconds": 1.75
+          },
+          {
+            "selector": "#msg > span:nth-of-type(22)",
+            "text": "é",
+            "fontPx": 19.2,
+            "time": 10.875,
+            "seconds": 1.75
+          },
+          {
+            "selector": "#msg > span:nth-of-type(23)",
+            "text": "a",
+            "fontPx": 19.2,
+            "time": 11,
+            "seconds": 1.625
+          },
+          {
+            "selector": "#u5",
+            "text": "galzin.fr/commande",
+            "fontPx": 19.71,
+            "time": 13.25,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#co > h4:nth-of-type(1)",
+            "text": "RÉCAPITULATIF ET PAIEMENT DE LA COMMANDE",
+            "fontPx": 19.71,
+            "time": 13.25,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#cmd",
+            "text": "Commander",
+            "fontPx": 19.71,
+            "time": 13.25,
+            "seconds": 4.875
+          },
+          {
+            "selector": "#cmdok",
+            "text": "Commande validée !",
+            "fontPx": 19.71,
+            "time": 17.5,
+            "seconds": 0.625
+          },
+          {
+            "selector": "#u1",
+            "text": "galzin.fr",
+            "fontPx": 20.44,
+            "time": 3.875,
+            "seconds": 3.375
+          },
+          {
+            "selector": "#u2",
+            "text": "galzin.fr/patisseries",
+            "fontPx": 22,
+            "time": 7.25,
+            "seconds": 1.5
+          },
+          {
+            "selector": "#u3",
+            "text": "galzin.fr/produit/royal-chocolat",
+            "fontPx": 22,
+            "time": 8.75,
+            "seconds": 3.875
+          },
+          {
+            "selector": "#u4",
+            "text": "galzin.fr/panier",
+            "fontPx": 22,
+            "time": 12.625,
+            "seconds": 0.625
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 184
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

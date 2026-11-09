@@ -95,7 +95,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="23" data-width="1080" data-height="1920">
       <svg class="abs" style="left: 0; top: 0" width="1080" height="1920" data-layout-allow-overlap>
         <defs>
           <pattern id="doodle" width="420" height="380" patternUnits="userSpaceOnUse">
@@ -204,7 +204,7 @@
     </div>
 
     <script>
-      // Timeline follows the ElevenLabs take (voice starts at 0.25 s):
+      // Times below are on the original 20 s grid; T() maps them onto the calm 23 s take (voice starts at 0.2 s).
       // 0.25 hook · 2.66 « Facile ! Sur galzin.fr » · 5.11 « Boutique en ligne » · 6.16 gâteau · 7.65 taille · 8.43 message
       // 9.45 « au panier » · 11.05 boulangerie / date · 13.81 paiement · 15.11 « avant 15h » · 17.71 « galzin.fr »
       const root = document.getElementById("root");
@@ -223,6 +223,12 @@
 
       const VP = { x: 98, y: 640 + 18 + 52 }; // viewport origin in root coords
       const tl = gsap.timeline({ paused: true });
+      // Retime: the animation was first laid out on a 20 s take; this maps those times onto the calmer 23 s take.
+      const MAP = [[0, 0], [2.35, 3.5], [2.5, 3.7], [4.4, 5.3], [5.1, 6.0], [5.85, 6.9], [6.05, 7.1], [7.0, 8.4], [7.2, 8.6], [7.7, 9.2], [8.15, 9.75],
+        [8.4, 10.1], [9.25, 11.45], [9.5, 11.75], [10.0, 12.2], [10.25, 12.5], [10.7, 12.95], [10.9, 13.1], [11.5, 13.7], [11.75, 14.2], [12.65, 15.4],
+        [13.8, 16.6], [14.45, 17.3], [14.85, 17.75], [15.05, 17.95], [16.3, 19.1], [17.35, 20.15], [17.55, 20.35], [20, 22.8]];
+      const T = (t) => { for (let i = 1; i < MAP.length; i++) { const [a0, b0] = MAP[i - 1], [a1, b1] = MAP[i]; if (t <= a1) return b0 + ((t - a0) * (b1 - b0)) / (a1 - a0); } return t + 2.8; };
+      ["to", "fromTo", "set"].forEach((m) => { const f = tl[m].bind(tl); tl[m] = (...a) => { if (typeof a[a.length - 1] === "number") a[a.length - 1] = T(a[a.length - 1]); return f(...a); }; });
       gsap.set(["#laptop", "#pB", "#pC", "#pD", "#co", ".hl", "#tailles", "#row6", "#row6t", "#sel6", "#cursor", "#rip", "#cart", "#mini", "#b15",
         "#endlogo", "#endurl", "#endt", ".cap", ".sp", "#u2", "#u3", "#u4", "#u5", "#msg", "#cmdok", "#vA", "#vB", "#vC1", "#vC2", "#vC3", "#pin"], { autoAlpha: 0 });
       gsap.set(msgChars, { autoAlpha: 0 });
