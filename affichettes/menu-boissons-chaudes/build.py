@@ -66,12 +66,10 @@ def carte():
 
 def menu():
     L = [f'<rect width="1024" height="{GH}" fill="#FFFFFF"/>', cadre()]
-    ph = HERE / "images"
-    L.append('<g id="PHOTOS">'
-             + image(ph / "chocolat-chaud.png", 60, 330, 300, 330, 700)
-             + image(ph / "cappuccino.png", 50, 650, 320, 260, 700)
-             + image(ph / "cafe-creme.png", 60, 900, 300, 250, 700)
-             + image(ph / "the.png", 90, 1120, 250, 240, 700) + '</g>')
+    # photo du menu d'origine (redressée), en colonne à gauche
+    L.append('<defs><clipPath id="ClipPhoto"><rect x="48" y="300" width="290" height="1100" rx="14"/></clipPath></defs>'
+             '<g id="PHOTO" clip-path="url(#ClipPhoto)">'
+             + image(HERE / "images/photo-cafe.jpg", 48, 300, 290, 1100, 1400, id="photo-cafe") + '</g>')
     L.append(
         '<g id="ENTETE">'
         + image(HERE / "images/galzin-logo.png", 412, 50, 230, 230, 900, id="galzin-logo")
