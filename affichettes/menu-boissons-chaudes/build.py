@@ -66,15 +66,19 @@ def carte():
 
 def menu():
     L = [f'<rect width="1024" height="{GH}" fill="#FFFFFF"/>', cadre()]
-    # photo du menu d'origine (redressée), en colonne à gauche
-    L.append('<defs><clipPath id="ClipPhoto"><rect x="48" y="300" width="290" height="1100" rx="14"/></clipPath></defs>'
-             '<g id="PHOTO" clip-path="url(#ClipPhoto)">'
-             + image(HERE / "images/photo-cafe.jpg", 48, 300, 290, 1100, 1400, id="photo-cafe").replace("meet", "slice")
-             # fondu chocolat qui masque les reflets du haut de la photo
-             + '<linearGradient id="FonduChoco" x1="0" y1="0" x2="0" y2="1">'
-               f'<stop offset="0" stop-color="{CH}"/><stop offset="0.34" stop-color="{CH}" stop-opacity="0.95"/>'
-               f'<stop offset="0.53" stop-color="{CH}" stop-opacity="0"/></linearGradient>'
-             + '<rect id="fondu" x="48" y="300" width="290" height="1100" fill="url(#FonduChoco)"/></g>')
+    # colonne visuelle : panneau chocolat, vague caramel, tasses détourées
+    ph = HERE / "images"
+    L.append('<defs><clipPath id="ClipPanneau"><rect x="48" y="300" width="290" height="1100" rx="18"/></clipPath></defs>'
+             '<g id="VISUEL">'
+             f'<rect x="48" y="300" width="290" height="1100" rx="18" fill="{CH}"/>'
+             '<g clip-path="url(#ClipPanneau)">'
+             f'<path d="M48 860C120 820 220 900 338 840V1400H48Z" fill="{C["caramel"]}"/>'
+             f'<path d="M48 830C120 790 220 870 338 810" fill="none" stroke="{C["cuivre_clair"]}" stroke-width="4"/>'
+             '</g>'
+             + image(ph / "cappuccino.png", 30, 420, 330, 300, 800)
+             + image(ph / "cafe-creme.png", 40, 760, 310, 260, 800)
+             + image(ph / "chocolat-chaud.png", 70, 1040, 250, 320, 800)
+             + '</g>')
     L.append(
         '<g id="ENTETE">'
         + image(HERE / "images/galzin-logo.png", 412, 50, 230, 230, 900, id="galzin-logo")
