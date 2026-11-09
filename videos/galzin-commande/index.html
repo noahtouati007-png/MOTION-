@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Montserrat"; font-weight: 500; src: url(assets/fonts/montserrat-latin-500-normal.woff2); }
+      @font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/montserrat-latin-700-normal.woff2); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/montserrat-latin-800-normal.woff2); }
+      @font-face { font-family: "Montserrat"; font-weight: 900; src: url(assets/fonts/montserrat-latin-900-normal.woff2); }
+      @font-face { font-family: "Anton"; src: url(assets/fonts/anton-latin-400-normal.woff2); }
+      @font-face { font-family: "Zilla Slab"; font-weight: 700; font-style: italic; src: url(assets/fonts/zilla-slab-latin-700-italic.woff2); }
+
+      :root { --cream: #f7eddd; --paper: #fffaf2; --brown: #4a2a17; --choc: #5b2f15; --gold: #c0913a; --gold-l: #ffcf8a; --green: #2e7d4f; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--cream); }
+      #root {
+        position: relative; width: 1080px; height: 1920px; overflow: hidden;
+        background: radial-gradient(ellipse 80% 55% at 50% 48%, #fff6e6 0%, var(--cream) 60%, #efdfc6 100%);
+        font-family: "Montserrat", sans-serif; color: var(--brown);
+      }
+      .abs { position: absolute; }
+      img { display: block; }
+
+      /* captions (TikTok safe zone: y 150–1570, x < 960) */
+      .cap { position: absolute; left: 60px; top: 190px; width: 880px; display: flex; align-items: center; gap: 28px; }
+      .cap .num { flex: none; width: 128px; height: 128px; border-radius: 50%; background: var(--choc); color: var(--gold-l);
+                  font-family: "Anton"; font-size: 84px; line-height: 1; display: flex; align-items: center; justify-content: center; }
+      .cap .txt { font-weight: 800; font-size: 70px; line-height: 1.04; letter-spacing: -1px; }
+      .cap .txt em { font-style: normal; color: #9a5a1c; }
+      #c0 { flex-direction: column; align-items: flex-start; gap: 6px; top: 200px; }
+      #c0 .s { font-family: "Zilla Slab"; font-style: italic; font-weight: 700; font-size: 70px; color: #9a5a1c; line-height: 1; }
+      #c0 .b { font-weight: 900; font-size: 120px; line-height: 0.95; letter-spacing: -3px; }
+
+      /* hook */
+      #royal { left: 230px; top: 640px; width: 620px; filter: drop-shadow(0 30px 30px rgba(74, 42, 23, 0.35)); }
+      .sp { position: absolute; left: 540px; top: 860px; width: 40px; height: 40px; margin: -20px 0 0 -20px; }
+
+      /* laptop */
+      #laptop { left: 80px; top: 640px; width: 880px; height: 660px; transform-origin: 50% 60%; }
+      #lid { position: absolute; left: 0; top: 0; width: 880px; height: 608px; border-radius: 30px; background: #24150c; padding: 18px; box-shadow: 0 40px 70px rgba(74, 42, 23, 0.45); }
+      #chrome { height: 52px; background: #e9ddc9; border-radius: 14px 14px 0 0; display: flex; align-items: center; padding: 0 16px; gap: 10px; }
+      #chrome .dot { width: 14px; height: 14px; border-radius: 50%; }
+      #urlbar { margin-left: 14px; flex: 1; height: 36px; border-radius: 18px; background: #fffaf2; display: flex; align-items: center; padding-left: 16px; gap: 10px;
+                font-weight: 700; font-size: 22px; color: var(--brown); white-space: nowrap; overflow: hidden; }
+      #urlbar { position: relative; }
+      #urlbar .abs { left: 44px; top: 7px; }
+      #vp { position: relative; width: 844px; height: 520px; overflow: hidden; background: #fff; border-radius: 0 0 12px 12px; }
+      .page { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+      #base { position: absolute; left: -20px; top: 606px; width: 920px; height: 40px; border-radius: 4px 4px 30px 30px; background: linear-gradient(180deg, #8a5530, #4a2a17); }
+      #base::after { content: ""; position: absolute; left: 380px; top: 0; width: 160px; height: 12px; border-radius: 0 0 10px 10px; background: #3b2010; }
+      .hl { position: absolute; border: 5px solid #c0913a; border-radius: 14px; box-shadow: 0 0 0 7px rgba(192, 145, 58, 0.25); }
+      .ov { position: absolute; font-family: "Montserrat"; font-weight: 500; color: #222; white-space: pre; }
+
+      /* rebuilt checkout (screenshot too small to zoom) */
+      #co { position: absolute; inset: 0; background: #fff; padding: 18px 22px; font-family: "Montserrat"; }
+      #co h4 { text-align: center; font-weight: 500; font-size: 22px; letter-spacing: 1px; color: #222; border-bottom: 2px solid var(--gold); padding-bottom: 8px; }
+      .cc { position: absolute; border: 2px solid #e0c48e; border-radius: 10px; padding: 12px 14px; background: #fff; }
+      .cc .lb { font-weight: 700; font-size: 17px; color: #85601d; margin-bottom: 8px; }
+      .fld { height: 40px; border: 2px solid #d9c09a; border-radius: 6px; display: flex; align-items: center; padding: 0 10px; font-weight: 500; font-size: 17px; color: #666; position: relative; }
+      .fld .v { position: absolute; left: 10px; top: 0; height: 100%; display: flex; align-items: center; color: #222; background: #fff; right: 10px; }
+      #map { width: 100%; height: 190px; border-radius: 6px; overflow: hidden; position: relative; }
+      #map img { width: 100%; height: 100%; object-fit: cover; }
+      #pin { position: absolute; left: 150px; top: 60px; width: 54px; height: 70px; transform-origin: 50% 100%; }
+      #cmd { position: absolute; left: 22px; right: 22px; bottom: 18px; height: 56px; border-radius: 8px; background: #8f6a24; color: #fff; font-weight: 700; font-size: 22px;
+             display: flex; align-items: center; justify-content: center; overflow: hidden; }
+      #cmdok { position: absolute; inset: 0; background: var(--green); display: flex; align-items: center; justify-content: center; gap: 12px; }
+
+      #cursor { left: 0; top: 0; width: 64px; height: 92px; }
+      #rip { left: 0; top: 0; width: 80px; height: 80px; margin: -40px 0 0 -40px; border-radius: 50%; border: 8px solid var(--gold); }
+      #cart { left: 800px; top: 520px; width: 150px; height: 150px; border-radius: 50%; background: var(--choc); display: flex; align-items: center; justify-content: center;
+              box-shadow: 0 16px 28px rgba(74, 42, 23, 0.35); }
+      #cart .n { position: absolute; right: -6px; top: -6px; width: 62px; height: 62px; border-radius: 50%; background: var(--gold-l); border: 5px solid var(--paper);
+                 font-family: "Anton"; font-size: 40px; color: var(--choc); display: flex; align-items: center; justify-content: center; }
+      #mini { left: 0; top: 0; width: 120px; }
+
+      /* 15h badge */
+      #b15 { left: 140px; top: 560px; width: 800px; height: 800px; }
+      #clock { position: absolute; left: 225px; top: 0; width: 350px; height: 350px; border-radius: 50%; background: var(--choc); border: 14px solid var(--gold-l);
+               box-shadow: 0 24px 40px rgba(74, 42, 23, 0.35); }
+      #clock .h { position: absolute; left: 50%; top: 50%; width: 14px; height: 110px; margin-left: -7px; background: var(--paper); border-radius: 7px; transform-origin: 50% 100%; transform: translateY(-100%); }
+      #clock .m { position: absolute; left: 50%; top: 50%; width: 10px; height: 140px; margin-left: -5px; background: var(--gold-l); border-radius: 5px; transform-origin: 50% 100%; transform: translateY(-100%); }
+      #clock .c { position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; background: var(--gold-l); }
+      #b15 .t1 { position: absolute; left: 0; top: 400px; width: 800px; text-align: center; font-weight: 800; font-size: 64px; color: var(--brown); }
+      #b15 .t1 b { font-family: "Anton"; font-weight: 400; font-size: 96px; color: #9a5a1c; }
+      #b15 .t2 { position: absolute; left: 100px; top: 560px; width: 600px; height: 130px; border-radius: 65px; background: var(--choc); color: var(--gold-l);
+                 font-weight: 900; font-size: 54px; display: flex; align-items: center; justify-content: center; }
+
+      /* end card */
+      #endlogo { left: 330px; top: 470px; width: 420px; }
+      #endurl { left: 270px; top: 980px; width: 540px; height: 130px; border-radius: 65px; background: var(--choc); color: var(--gold-l); font-family: "Anton"; font-size: 84px;
+                display: flex; align-items: center; justify-content: center; letter-spacing: 2px; }
+      #endt { left: 60px; top: 1160px; width: 900px; text-align: center; font-family: "Zilla Slab"; font-style: italic; font-weight: 700; font-size: 60px; color: var(--choc); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <svg class="abs" style="left: 0; top: 0" width="1080" height="1920" data-layout-allow-overlap>
+        <defs>
+          <pattern id="doodle" width="420" height="380" patternUnits="userSpaceOnUse">
+            <g fill="none" stroke="#eadcc6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 90 Q 80 20 150 70 Q 120 60 110 95 Q 95 70 75 80 Q 85 100 60 110 Q 55 90 30 90 Z" />
+              <path d="M210 40 L 380 80 Q 400 95 380 105 L 205 70 Q 190 50 210 40 Z" /><path d="M250 55 l 15 15 M290 63 l 15 15 M330 72 l 15 15" />
+              <path d="M60 250 L 75 320 H 145 L 160 250 Z" /><path d="M50 250 Q 50 200 110 195 Q 170 200 170 250 Z" />
+              <path d="M300 340 Q 300 250 320 180" /><path d="M190 170 Q 190 120 240 120 Q 290 120 290 170 V 205 H 190 Z" />
+            </g>
+          </pattern>
+        </defs>
+        <rect width="1080" height="1920" fill="url(#doodle)" opacity="0.8" />
+      </svg>
+
+      <!-- hook -->
+      <img id="royal" class="abs" src="assets/img/royal.png" alt="Royal Chocolat" />
+
+      <!-- laptop with the real galzin.fr pages -->
+      <div id="laptop" class="abs">
+        <div id="lid">
+          <div id="chrome">
+            <span class="dot" style="background: #e0614f"></span><span class="dot" style="background: #e8b34c"></span><span class="dot" style="background: #6fb36f"></span>
+            <div id="urlbar">
+              <svg width="18" height="22" viewBox="0 0 22 28"><rect x="1" y="12" width="20" height="15" rx="4" fill="#4a2a17" /><path d="M5 12 V 8 a 6 6 0 0 1 12 0 V 12" fill="none" stroke="#4a2a17" stroke-width="3.5" /></svg>
+              <span id="u1">galzin.fr</span><span id="u2" class="abs">galzin.fr/patisseries</span><span id="u3" class="abs">galzin.fr/produit/royal-chocolat</span><span id="u4" class="abs">galzin.fr/panier</span><span id="u5" class="abs">galzin.fr/commande</span>
+            </div>
+          </div>
+          <div id="vp">
+            <div class="page" id="pA"><img src="assets/img/p-accueil.png" alt="" />
+              <div class="hl" id="hlA" style="left: 22px; top: 106px; width: 222px; height: 46px"></div>
+              <div class="hl" id="hlA2" style="left: 28px; top: 206px; width: 244px; height: 34px"></div>
+            </div>
+            <div class="page" id="pB"><img src="assets/img/p-patisseries.png" alt="" />
+              <div class="hl" id="hlB" style="left: 616px; top: 476px; width: 278px; height: 384px"></div>
+            </div>
+            <div class="page" id="pC"><img src="assets/img/p-produit.png" alt="" />
+              <img id="tailles" class="abs" src="assets/img/p-tailles.png" style="left: 438px; top: 662px; width: 345px" alt="" />
+              <div id="row6" class="abs" style="left: 440px; top: 751px; width: 312px; height: 17px; background: #1a73e8"></div>
+              <div id="row6t" class="ov" style="left: 452px; top: 752px; font-size: 12px; color: #fff">6 Personnes</div>
+              <div id="sel6" class="ov" style="left: 446px; top: 688px; width: 300px; height: 22px; background: #fff; font-size: 12px; line-height: 22px">6 Personnes</div>
+              <div id="msg" class="ov" style="left: 448px; top: 776px; width: 320px; height: 22px; background: #fff; font-size: 12px; line-height: 22px"></div>
+              <div class="hl" id="hlC" style="left: 528px; top: 818px; width: 116px; height: 34px"></div>
+            </div>
+            <div class="page" id="pD"><img src="assets/img/p-panier.png" alt="" />
+              <div class="hl" id="hlD" style="left: 560px; top: 614px; width: 210px; height: 58px"></div>
+            </div>
+            <div id="co">
+              <h4>RÉCAPITULATIF ET PAIEMENT DE LA COMMANDE</h4>
+              <div class="cc" id="ccA" style="left: 22px; top: 62px; width: 390px; height: 352px">
+                <div class="lb">Sélectionnez une Boulangerie</div>
+                <div id="map"><img src="assets/img/p-carte.png" alt="" />
+                  <svg id="pin" viewBox="0 0 54 70"><path d="M27 68 C 27 68 4 40 4 25 A 23 23 0 0 1 50 25 C 50 40 27 68 27 68 Z" fill="#c0913a" stroke="#4a2a17" stroke-width="4" /><circle cx="27" cy="25" r="9" fill="#fff" /></svg>
+                </div>
+                <div class="fld" style="margin-top: 14px">Sélectionnez votre relais Galzin<span class="v" id="vA">Boulangerie Victoire – Rodez</span></div>
+              </div>
+              <div class="cc" id="ccB" style="left: 430px; top: 62px; width: 392px; height: 112px">
+                <div class="lb">Date de retrait</div>
+                <div class="fld">Entrez la date de retrait souhaitée<span class="v" id="vB">Demain</span></div>
+              </div>
+              <div class="cc" id="ccC" style="left: 430px; top: 190px; width: 392px; height: 224px">
+                <div class="lb">Carte bancaire</div>
+                <div class="fld">1234 1234 1234 1234<span class="v" id="vC1">4970 •••• •••• 2026</span></div>
+                <div style="display: flex; gap: 10px; margin-top: 10px">
+                  <div class="fld" style="flex: 1">MM / AA<span class="v" id="vC2">12 / 28</span></div>
+                  <div class="fld" style="flex: 1">CVC<span class="v" id="vC3">•••</span></div>
+                </div>
+              </div>
+              <div id="cmd">Commander
+                <div id="cmdok"><svg width="30" height="30" viewBox="0 0 110 110"><path d="M22 58 L 46 82 L 90 30" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" /></svg>Commande validée !</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="base"></div>
+      </div>
+
+      <!-- add-to-cart badge -->
+      <div id="cart" class="abs">
+        <svg width="84" height="84" viewBox="0 0 64 64"><path d="M6 10 H 14 L 22 42 H 50 L 56 20 H 18" fill="none" stroke="#ffcf8a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" /><circle cx="26" cy="52" r="5" fill="#ffcf8a" /><circle cx="46" cy="52" r="5" fill="#ffcf8a" /></svg>
+        <div class="n"><span id="n0">0</span></div>
+      </div>
+      <img id="mini" class="abs" src="assets/img/royal.png" alt="" />
+
+      <!-- 15h -->
+      <div id="b15" class="abs">
+        <div id="clock"><div class="h" style="transform: translateY(-100%) rotate(90deg)"></div><div class="m" id="mh"></div><div class="c"></div></div>
+        <div class="t1">Commandé avant <b>15h</b></div>
+        <div class="t2">= prêt demain !</div>
+      </div>
+
+      <!-- end -->
+      <img id="endlogo" class="abs" src="assets/img/galzin-logo.png" alt="Galzin" />
+      <div id="endurl" class="abs">galzin.fr</div>
+      <div id="endt" class="abs">Click &amp; Collect · retrait en boutique</div>
+
+      <!-- captions -->
+      <div class="cap" id="c0"><div class="s">Commander sur</div><div class="b">galzin.fr</div></div>
+      <div class="cap" id="c1"><div class="num">1</div><div class="txt">Choisissez<br /><em>votre gâteau</em></div></div>
+      <div class="cap" id="c2"><div class="num">2</div><div class="txt">Taille, message…<br /><em>au panier !</em></div></div>
+      <div class="cap" id="c3"><div class="num">3</div><div class="txt">Retrait<br /><em>+ paiement</em></div></div>
+
+      <div id="rip" class="abs"></div>
+      <svg id="cursor" class="abs" viewBox="0 0 64 92" data-layout-allow-overlap>
+        <path d="M4 4 L 4 72 L 20 58 L 32 86 L 46 80 L 34 53 L 56 53 Z" fill="#fffaf2" stroke="#24150c" stroke-width="6" stroke-linejoin="round" />
+      </svg>
+    </div>
+
+    <script>
+      // Timeline follows the ElevenLabs take (voice starts at 0.25 s):
+      // 0.25 hook · 2.66 « Facile ! Sur galzin.fr » · 5.11 « Boutique en ligne » · 6.16 gâteau · 7.65 taille · 8.43 message
+      // 9.45 « au panier » · 11.05 boulangerie / date · 13.81 paiement · 15.11 « avant 15h » · 17.71 « galzin.fr »
+      const root = document.getElementById("root");
+      const sparks = [];
+      const cols = ["#c0913a", "#ffcf8a", "#fffaf2", "#5b2f15"];
+      for (let i = 0; i < 12; i++) {
+        const s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        s.setAttribute("viewBox", "0 0 34 34"); s.setAttribute("class", "sp");
+        s.innerHTML = '<path d="M17 0 L21 13 L34 17 L21 21 L17 34 L13 21 L0 17 L13 13 Z" fill="' + cols[i % 4] + '"/>';
+        root.insertBefore(s, document.getElementById("laptop"));
+        sparks.push(s);
+      }
+      // typed message, char by char
+      const msgEl = document.getElementById("msg");
+      const msgChars = "Joyeux anniversaire Léa !".split("").map((c) => { const s = document.createElement("span"); s.textContent = c; msgEl.appendChild(s); return s; });
+
+      const VP = { x: 98, y: 640 + 18 + 52 }; // viewport origin in root coords
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(["#laptop", "#pB", "#pC", "#pD", "#co", ".hl", "#tailles", "#row6", "#row6t", "#sel6", "#cursor", "#rip", "#cart", "#mini", "#b15",
+        "#endlogo", "#endurl", "#endt", ".cap", ".sp", "#u2", "#u3", "#u4", "#u5", "#msg", "#cmdok", "#vA", "#vB", "#vC1", "#vC2", "#vC3", "#pin"], { autoAlpha: 0 });
+      gsap.set(msgChars, { autoAlpha: 0 });
+      gsap.set(["#pA", "#pB"], { scale: 844 / 1220 });
+      gsap.set("#royal", { autoAlpha: 0, scale: 0, rotation: -20, y: 200 });
+
+      const capIn = (sel, t) => {
+        tl.fromTo(sel, { autoAlpha: 0, x: -60 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: "back.out(1.6)", immediateRender: false }, t);
+        if (sel !== "#c0") tl.fromTo(sel + " .num", { scale: 0.3, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(2)", immediateRender: false }, t);
+      };
+      const capOut = (sel, t) => tl.to(sel, { autoAlpha: 0, x: 60, duration: 0.2, ease: "power2.in" }, t);
+      const click = (vx, vy, t) => {
+        tl.to("#cursor", { scale: 0.85, duration: 0.07, yoyo: true, repeat: 1, transformOrigin: "0 0" }, t);
+        tl.fromTo("#rip", { autoAlpha: 1, x: VP.x + vx, y: VP.y + vy, scale: 0.2 }, { autoAlpha: 0, scale: 2.2, duration: 0.4, ease: "power2.out", immediateRender: false }, t + 0.02);
+      };
+      const moveCursor = (vx, vy, t, d = 0.35) => tl.to("#cursor", { x: VP.x + vx - 4, y: VP.y + vy - 4, duration: d, ease: "power3.out" }, t);
+      const swapUrl = (from, to, t) => { tl.to(from, { autoAlpha: 0, duration: 0.05 }, t); tl.to(to, { autoAlpha: 1, duration: 0.05 }, t); };
+
+      // ═ HOOK (0 → 2.6): the Royal pops, title
+      tl.to("#royal", { autoAlpha: 1, scale: 1.1, rotation: 4, y: -10, duration: 0.4, ease: "back.out(2.2)" }, 0.1);
+      tl.to("#royal", { scale: 1, rotation: 0, y: 0, duration: 0.25, ease: "power2.out" }, 0.5);
+      sparks.forEach((s, i) => {
+        const a = (i / sparks.length) * Math.PI * 2;
+        tl.fromTo(s, { autoAlpha: 1, x: 0, y: 0, scale: 0.4 }, { x: Math.cos(a) * 420, y: Math.sin(a) * 300, scale: 1.2, rotation: 180, duration: 0.6, ease: "power3.out", immediateRender: false }, 0.15);
+        tl.to(s, { autoAlpha: 0, duration: 0.25 }, 0.55 + (i % 3) * 0.05);
+      });
+      capIn("#c0", 0.3);
+      tl.to("#royal", { y: -18, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.8);
+      tl.to("#royal", { scale: 0.2, x: 330, y: -480, autoAlpha: 0, rotation: 20, duration: 0.4, ease: "power3.in" }, 2.35);
+      capOut("#c0", 2.5);
+
+      // ═ STEP 1 (2.6 → 7.5): galzin.fr → Boutique en ligne → Pâtisseries → Royal Chocolat
+      tl.fromTo("#laptop", { autoAlpha: 0, scale: 0.55, y: 160 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, 2.5);
+      capIn("#c1", 2.75);
+      tl.to("#pA", { scale: 1.45, duration: 0.6, ease: "power3.inOut" }, 4.4);
+      tl.fromTo("#cursor", { autoAlpha: 0, x: 900, y: 1500 }, { autoAlpha: 1, x: VP.x + 190, y: VP.y + 190, duration: 0.5, ease: "power3.out", immediateRender: false }, 4.6);
+      tl.fromTo("#hlA", { autoAlpha: 0, scale: 1.3 }, { autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, 5.1);
+      tl.to("#hlA", { autoAlpha: 0, duration: 0.15 }, 5.55);
+      tl.fromTo("#hlA2", { autoAlpha: 0, scale: 1.3 }, { autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, 5.55);
+      moveCursor(205, 322, 5.5, 0.3);
+      click(205, 322, 5.85);
+      tl.to(["#pA", "#hlA2"], { autoAlpha: 0, duration: 0.15 }, 6.05);
+      swapUrl("#u1", "#u2", 6.05);
+      tl.fromTo("#pB", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.25, immediateRender: false }, 6.05);
+      tl.to("#pB", { y: -260, duration: 0.5, ease: "power2.inOut" }, 6.3);
+      tl.fromTo("#hlB", { autoAlpha: 0, scale: 1.2 }, { autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)", immediateRender: false }, 6.75);
+      moveCursor(522, 230, 6.55, 0.35);
+      click(522, 230, 7.0);
+      capOut("#c1", 7.4);
+
+      // ═ STEP 2 (7.5 → 10.8): size, message, add to cart
+      tl.to("#pB", { autoAlpha: 0, duration: 0.15 }, 7.2);
+      swapUrl("#u2", "#u3", 7.2);
+      tl.fromTo("#pC", { autoAlpha: 0, scale: 1.6, x: -480, y: -1024 }, { autoAlpha: 1, duration: 0.25, immediateRender: false }, 7.2);
+      capIn("#c2", 7.5);
+      // viewport point = page * 1.25 + offset ; select at page (611,698) → vp (424,152)
+      moveCursor(498, 98, 7.4, 0.3);
+      click(498, 98, 7.7);
+      tl.fromTo("#tailles", { autoAlpha: 0, scaleY: 0.3, transformOrigin: "50% 0" }, { autoAlpha: 1, scaleY: 1, duration: 0.2, immediateRender: false }, 7.75);
+      tl.fromTo(["#row6", "#row6t"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05, immediateRender: false }, 7.95);
+      moveCursor(400, 190, 7.9, 0.2);
+      click(400, 190, 8.15);
+      tl.to(["#tailles", "#row6", "#row6t"], { autoAlpha: 0, duration: 0.1 }, 8.25);
+      tl.fromTo(["#sel6", "#msg"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.05, immediateRender: false }, 8.25);
+      tl.to(msgChars, { autoAlpha: 1, duration: 0.01, stagger: 0.035 }, 8.4);
+      // add to cart button page (586,835) → vp (392,324)
+      tl.fromTo("#hlC", { autoAlpha: 0, scale: 1.3 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, 9.25);
+      moveCursor(458, 312, 9.2, 0.25);
+      click(458, 312, 9.5);
+      tl.fromTo("#cart", { autoAlpha: 0, scale: 0.3 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)", immediateRender: false }, 9.45);
+      tl.fromTo("#mini", { autoAlpha: 1, x: VP.x + 400, y: VP.y + 260, scale: 1, rotation: 0 }, { autoAlpha: 1, x: 830, y: 560, scale: 0.4, rotation: 25, duration: 0.45, ease: "power2.in", immediateRender: false }, 9.55);
+      tl.to("#mini", { autoAlpha: 0, duration: 0.05 }, 10.0);
+      tl.to("#n0", { textContent: 1, duration: 0.01, snap: { textContent: 1 } }, 10.0);
+      tl.to("#cart", { scale: 1.25, duration: 0.12, yoyo: true, repeat: 1 }, 10.0);
+      // cart page flash
+      tl.to("#pC", { autoAlpha: 0, duration: 0.15 }, 10.25);
+      swapUrl("#u3", "#u4", 10.25);
+      tl.fromTo("#pD", { autoAlpha: 0, x: 0, y: -200 }, { autoAlpha: 1, duration: 0.2, immediateRender: false }, 10.25);
+      tl.fromTo("#hlD", { autoAlpha: 0, scale: 1.3 }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, 10.45);
+      moveCursor(665, 445, 10.3, 0.3);
+      click(665, 445, 10.7);
+      tl.to("#cart", { autoAlpha: 0, scale: 0.5, duration: 0.2 }, 10.6);
+      capOut("#c2", 10.75);
+
+      // ═ STEP 3 (10.9 → 14.9): relais, date, payment
+      tl.to(["#pD", "#hlD"], { autoAlpha: 0, duration: 0.15 }, 10.9);
+      swapUrl("#u4", "#u5", 10.9);
+      tl.fromTo("#co", { autoAlpha: 0, x: 60 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 10.9);
+      capIn("#c3", 10.95);
+      tl.fromTo("#ccA", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.25, immediateRender: false }, 11.0);
+      tl.fromTo(["#ccB", "#ccC"], { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.25, stagger: 0.1, immediateRender: false }, 11.1);
+      tl.fromTo("#pin", { autoAlpha: 0, y: -80, scale: 0.6 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, ease: "bounce.out", immediateRender: false }, 11.5);
+      moveCursor(220, 330, 11.2, 0.35);
+      click(220, 330, 11.75);
+      tl.fromTo("#vA", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, immediateRender: false }, 11.85);
+      moveCursor(620, 140, 12.3, 0.3);
+      click(620, 140, 12.65);
+      tl.fromTo("#vB", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, immediateRender: false }, 12.75);
+      moveCursor(620, 268, 13.4, 0.3);
+      tl.fromTo(["#vC1", "#vC2", "#vC3"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, stagger: 0.18, immediateRender: false }, 13.8);
+      moveCursor(422, 478, 14.15, 0.25);
+      click(422, 478, 14.45);
+      tl.fromTo("#cmdok", { autoAlpha: 0, yPercent: 100 }, { autoAlpha: 1, yPercent: 0, duration: 0.25, ease: "back.out(2)", immediateRender: false }, 14.5);
+      capOut("#c3", 14.85);
+
+      // ═ BEFORE 15h (15.0 → 17.5)
+      tl.to("#cursor", { autoAlpha: 0, duration: 0.15 }, 14.8);
+      tl.to("#laptop", { autoAlpha: 0, scale: 0.6, y: 300, duration: 0.35, ease: "power3.in" }, 14.85);
+      tl.fromTo("#b15", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.01, immediateRender: false }, 15.05);
+      tl.fromTo("#clock", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)", immediateRender: false }, 15.05);
+      tl.fromTo("#mh", { rotation: -180 }, { rotation: 0, duration: 0.6, ease: "power3.out", immediateRender: false }, 15.2);
+      tl.fromTo("#b15 .t1", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out", immediateRender: false }, 15.3);
+      tl.fromTo("#b15 .t2", { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2.2)", immediateRender: false }, 16.3);
+      tl.to("#b15", { autoAlpha: 0, scale: 0.8, duration: 0.3, ease: "power2.in" }, 17.35);
+
+      // ═ END (17.6 → 20)
+      tl.fromTo("#endlogo", { autoAlpha: 0, scale: 0.4, rotation: -20 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.8)", immediateRender: false }, 17.55);
+      tl.fromTo("#endurl", { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: "back.out(2)", immediateRender: false }, 17.75);
+      tl.fromTo("#endt", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, 17.8);
+      tl.to("#endurl", { scale: 1.06, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 18.9);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
