@@ -9,7 +9,7 @@ HERE = Path(__file__).parent
 W, H = 2100, 1480
 LIGNES = [  # (texte, taille, gras)
     ("POUR : MALICIA", 210, True),
-    ("MILLAU", 210, True),
+    ("MILLAU RÉPUBLIQUE", 165, True),
     ("CLÉ USB NOAH", 170, False),
     ("DE : FABRÈGUES", 150, False),
 ]
