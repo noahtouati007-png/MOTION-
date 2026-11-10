@@ -51,7 +51,7 @@ def puces(x, y, rows, size, fill, lead=1.35):
     return out
 
 
-MAIL = "philippe@galzin.fr"
+MAIL = "thomas@galzin.fr"
 QR_URL = (f"mailto:{MAIL}?subject=" + quote("Candidature Galzin")
           + "&body=" + quote("Poste :\r\nZone :\r\nContrat :\r\nHeures/semaine :\r\nDimanches et fériés :\r\n"))
 
@@ -129,7 +129,7 @@ def verso():
     o += (f'<rect x="80" y="1540" width="{W - 160}" height="350" rx="30" fill="none" stroke="{CA}" '
           f'stroke-width="8"/>'
           + t(120, 1610, "Étudiant(e), débutant(e)... postulez !", 46, CH, bold=True)
-          + t(120, 1665, f"Contact : Philippe – {MAIL}", 36, CA, bold=True)
+          + t(120, 1665, f"Contact : Thomas – {MAIL}", 36, CA, bold=True)
           + t(120, 1720, "Dans votre mail, précisez bien :", 36, CH, italic=True, bold=True)
           + puces(120, 1772, ["La zone de Montpellier souhaitée", "Le type de contrat recherché",
                               "Le nombre d'heures par semaine"], 34, CH)
