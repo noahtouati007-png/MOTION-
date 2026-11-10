@@ -36,12 +36,19 @@ def vide(cx, cy):
 
 
 def objet(cx, cy):
-    """Objet oublié dans le four (plaque / boîte)."""
-    o = (f'<rect x="{cx - 80}" y="{cy + 5}" width="100" height="45" rx="6" fill="{C["caramel"]}" '
-         f'stroke="{CH}" stroke-width="8"/>'
-         f'<path d="M{cx - 70} {cy + 5}l15 -30h50l15 30" fill="{C["sable"]}" stroke="{CH}" stroke-width="8"/>')
+    """Métal dans le four : fourchette, cuillère et papier aluminium."""
+    m, ms = "#B8BEC4", "#6F767D"
+    o = (f'<g stroke="{ms}" stroke-width="5" stroke-linejoin="round">'
+         # fourchette
+         f'<path d="M{cx - 75} {cy + 55}l12 -70" stroke="{m}" stroke-width="14" stroke-linecap="round"/>'
+         f'<path d="M{cx - 75} {cy - 20}l4 -32M{cx - 63} {cy - 18}l4 -32M{cx - 51} {cy - 16}l4 -32" '
+         f'stroke="{m}" stroke-width="8" stroke-linecap="round"/>'
+         # cuillère
+         f'<ellipse cx="{cx - 15}" cy="{cy - 30}" rx="16" ry="24" fill="{m}"/>'
+         f'<path d="M{cx - 15} {cy - 6}V{cy + 55}" stroke="{m}" stroke-width="12" stroke-linecap="round"/>'
+         # papier alu froissé
+         f'<path d="M{cx + 10} {cy + 55}l8 -40l18 10l14 -28l12 30l-4 28Z" fill="{m}"/></g>')
     return four(cx, cy, o)
-
 
 def etiquette():
     L = [f'<g id="FOND"><rect width="{W}" height="{H}" rx="40" fill="{CR}"/></g>']
@@ -59,13 +66,13 @@ def etiquette():
     L.append(
         '<g id="TEXTES">'
         + text(340, 790, "NE PAS LAISSER", 66, CH) + text(340, 865, "TOURNER À VIDE", 66, CH)
-        + text(1140, 790, "NE RIEN LAISSER", 66, CH) + text(1140, 865, "À L'INTÉRIEUR", 66, CH)
+        + text(1140, 790, "PAS DE MÉTAL", 66, CH) + text(1140, 865, "À L'INTÉRIEUR", 66, CH)
         + f'<path d="M740 360V880" stroke="{C["caramel"]}" stroke-width="8" stroke-linecap="round"/>'
         + '</g>')
     L.append(
         '<g id="PIED">'
         f'<path fill="{CH}" d="M0 940C500 900 1000 960 {W} 920V{H - 40}Q{W} {H} {W - 40} {H}H40Q0 {H} 0 {H - 40}Z"/>'
-        + text(W / 2, 1015, "Éteignez le four après utilisation · Vérifiez qu'il est vide", 40, CR, HEROICA,
+        + text(W / 2, 1015, "Éteignez le four après utilisation · Ni couverts, ni aluminium", 40, CR, HEROICA,
                italic=True, bold=True)
         + '</g>')
     L.append('<g id="LOGO">' + logo(1300, 960, 80) + '</g>')
