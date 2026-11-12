@@ -173,7 +173,7 @@ def svg(w, h, body, title):
     return (f'<?xml version="1.0" encoding="UTF-8"?>\n'
             f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
             f'width="{w / 10}mm" height="{h / 10}mm" viewBox="0 0 {w} {h}">\n'
-            f'  <title>{title}</title>{DEFS}\n{body}\n</svg>\n')
+            f'  <title>{escape(title, quote=False)}</title>{DEFS}\n{body}\n</svg>\n')
 
 
 # --- Gabarit A4 ---------------------------------------------------------------------------
