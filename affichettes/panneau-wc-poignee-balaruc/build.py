@@ -1,8 +1,8 @@
-"""Panneau rond festonné « Monter la poignée pour fermer la porte des WC » — Balaruc.
+"""Panneau carré (15 x 15 cm) « Monter la poignée pour fermer la porte des WC » — Balaruc.
 
-Même thème que le bandeau poubelle de Balaruc (fond chocolat, liserés caramel). Diamètre 150 mm.
+Même thème que le bandeau poubelle de Balaruc (fond chocolat, liserés caramel). Carré 150 x 150 mm, coupe droite.
 Usage : python3 build.py  ->  galzin-panneau-wc-poignee-balaruc.svg (1 unité = 0,1 mm).
-Calque DECOUPE = contour festonné (ne pas imprimer).
+Calque DECOUPE = carré de coupe (ne pas imprimer) ; fond perdu 2 mm.
 """
 import math
 import sys
@@ -38,8 +38,8 @@ def fleche_poignee(cx, cy):
 
 
 def panneau():
-    L = [f'<g id="FOND"><path d="{feston(712)}" fill="{CH}"/>'
-         f'<circle cx="{CX}" cy="{CY}" r="615" fill="none" stroke="{CA}" stroke-width="10"/></g>']
+    L = [f'<g id="FOND"><rect x="-20" y="-20" width="{D + 40}" height="{D + 40}" fill="{CH}"/>'
+         f'<rect x="70" y="70" width="{D - 140}" height="{D - 140}" rx="40" fill="none" stroke="{CA}" stroke-width="10"/></g>']
     L.append(
         '<g id="TEXTES">'
         + logo(CX - 120, 150, 240)
@@ -50,7 +50,7 @@ def panneau():
         + fleche_poignee(CX - 120, 1130)
         + text(CX, 1320, "Merci !", 100, CC, HEROICA, italic=True, bold=True)
         + '</g>')
-    L.append(f'<g id="DECOUPE"><path d="{feston(695)}" fill="none" stroke="#E30F20" stroke-width="3"/></g>')
+    L.append(f'<g id="DECOUPE"><rect width="{D}" height="{D}" fill="none" stroke="#E30F20" stroke-width="3"/></g>')
     return svg(D, D, "\n".join(L), "Galzin - Panneau WC poignée Balaruc")
 
 
