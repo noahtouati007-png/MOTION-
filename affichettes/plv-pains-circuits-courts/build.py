@@ -24,10 +24,10 @@ FERMES = [
     ("Brigitte Canivenq", "Cornus (12)", 43.904, 3.177, "d", 0),
     ("Jérôme Fontaine", "Le Bousquet-d'Orb (34)", 43.692, 3.165, "d", 0),
 ]
-PRODUITS = [  # (photo ou None, nom ligne 1, nom ligne 2, prix)
+PRODUITS = [  # (photo, nom ligne 1, nom ligne 2, prix) — liste de prix, pas de photo requise
     (None, "Pavé des Causses", "tranché", "2,90€"),
-    ("pain-levain", "Demi-boule campagne", "tranchée", "3,00€"),
-    ("pain-graines", "Demi-boule campagne", "graines tranchée", "3,10€"),
+    ("pain-levain", "Demi-boule", "campagne tranchée", "3,00€"),
+    ("pain-graines", "Demi-boule", "campagne graines tranchée", "3,10€"),
 ]
 
 
@@ -108,20 +108,18 @@ def plv():
         + carte(3520, 880, 1900, 1600)
         + '</g>')
 
-    # --- Partie gauche : les trois pains tranchés ---
-    cartes = ""
-    for i, (img, l1, l2, prix) in enumerate(PRODUITS):
-        x = 100 + i * 1080
-        cx = x + 500
-        if img:
-            cartes += photo(img, x, 560, 1000, 820, rot=(-2, 0, 2)[i], cid=f"p{i}")
-        else:
-            cartes += (f'<g id="photo-pave"><rect x="{x}" y="560" width="1000" height="820" rx="40" fill="{CF}" '
-                       f'stroke="{CR}" stroke-width="10" stroke-dasharray="40 26"/>'
-                       + text(cx, 960, "PHOTO", 90, CC) + text(cx, 1060, "PAVÉ DES CAUSSES", 90, CC) + '</g>')
-        cartes += (text(cx, 1510, l1, 92, CR, HEROICA, bold=True)
-                   + text(cx, 1610, l2, 76, CC, HEROICA, italic=True, bold=True)
-                   + ovale_prix(cx, 1880, 300, 170, prix, "cuivre", size=190, rot=(-5, 3, -4)[i]))
+    # --- Partie gauche : photos des demi-boules + liste des 3 pains avec prix (pas de photo nécessaire) ---
+    cartes = (photo("pain-levain", 110, 600, 1300, 1000, rot=-4, cid="p1")
+              + photo("pain-graines", 560, 1180, 1150, 1000, rot=3, cid="p2"))
+    for i, (_, l1, l2, prix) in enumerate(PRODUITS):
+        y = 760 + i * 520
+        cartes += (f'<g id="prix-{i}">'
+                   + text(1780, y, l1, 110, CR, HEROICA, "start", bold=True)
+                   + text(1780, y + 105, l2, 76, CC, HEROICA, "start", italic=True, bold=True)
+                   + ovale_prix(2960, y + 10, 240, 145, prix, "cuivre", size=160, rot=(-4, 3, -3)[i])
+                   + (f'<path d="M1780 {y + 210}H3150" stroke="{CA}" stroke-width="6" stroke-dasharray="4 22" '
+                      f'stroke-linecap="round"/>' if i < 2 else "")
+                   + '</g>')
     L.append(
         '<g id="PAINS">'
         + logo(90, 60, 380)
@@ -129,7 +127,7 @@ def plv():
         + text(1900, 450, "à la farine de blé bio de nos régions", 110, CC, HEROICA, italic=True, bold=True)
         + tirets(800, 415, "g", CC) + tirets(3000, 415, "d", CC)
         + cartes
-        + pastille(1800, 2310, 2600, 200, "BLÉ BIO · CIRCUITS COURTS", 120, C["orange"], CR, rot=-1)
+        + pastille(2600, 2320, 1500, 190, "BLÉ BIO · CIRCUITS COURTS", 110, C["orange"], CR, rot=-2)
         + '</g>')
     return svg(W, H, "\n".join(L), "Galzin - PLV pains & circuits courts")
 
