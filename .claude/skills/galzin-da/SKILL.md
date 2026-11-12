@@ -62,7 +62,8 @@ Tu es le graphiste PLV de Galzin. Tu livres des visuels **dans la charte**, **mo
    - **Calques** : regrouper en `<g id="FOND">`, `VAGUES`, `PHOTOS`, `TEXTES`, `PRIX`, `LOGO_MENTIONS`.
    - **Photos** : PNG détourés via `image(chemin, x, y, w, h, max_px)`. Les produits existants sont dans le dépôt MOTION- (`videos/*/assets/img/`, `affichettes/*/images/`).
 3. **Vérifie** : `xmllint --noout fichier.svg`, puis l'aperçu avec `node scripts/apercu.js fichier.svg apercu.png 1400`. **Regarde l'image** : chevauchements, textes coupés, produit tronqué, déséquilibre. Corrige et recommence.
-4. **QR code** si besoin : `qrcode` en Python, à dessiner en carrés vectoriels. Le garder court (≥ 0,4 mm par module) et vérifier qu'il se décode.
+4. **Compatibilité Illustrator** : n'utiliser que du SVG simple. **Jamais `paint-order`** (Illustrator l'ignore et le texte devient blanc) : pour un halo, dupliquer le texte en dessous avec un contour blanc. Éviter aussi les filtres SVG, `mix-blend-mode` et les polices web.
+5. **QR code** si besoin : `qrcode` en Python, à dessiner en carrés vectoriels. Le garder court (≥ 0,4 mm par module) et vérifier qu'il se décode.
 
 ## Fichiers de la Skill
 

@@ -3,6 +3,7 @@
 Usage : python3 build.py  ->  galzin-plv-pains-circuits-courts.svg (1 unité = 0,1 mm, 5450 x 2500).
 Prévoir le fond perdu demandé par l'imprimeur (souvent 3 mm) : le fond déborde déjà de 30 unités.
 """
+import re
 import sys
 from pathlib import Path
 
@@ -69,8 +70,13 @@ def carte(x0, y0, w, h):
               f'<circle cx="{x:.0f}" cy="{y:.0f}" r="34" fill="{C["orange"]}" stroke="{CH}" stroke-width="8"/>'
               + text(x + dx, y + dy, nom, 54, CH, HEROICA, anc, bold=True)
               + text(x + dx, y + dy + 60, lieu, 44, CA, HEROICA, anc, italic=True, bold=True) + '</g>')
-    halo = '<text stroke="#FFFFFF" stroke-width="16" stroke-linejoin="round" paint-order="stroke" '
-    return o.replace("<text ", halo) + '</g>'
+    # halo blanc = copie du texte en dessous (Illustrator ne gère pas paint-order)
+    def halo(m):
+        t = m.group(0)
+        dessous = re.sub(r'fill="[^"]*"', 'fill="#FFFFFF" stroke="#FFFFFF" stroke-width="16" stroke-linejoin="round"', t, count=1)
+        return dessous + t
+    return re.sub(r"<text [^>]*>[^<]*</text>", halo, o) + '</g>'
+
 
 
 def photo(nom, x, y, w, h, rot=0, cid=None):
@@ -109,15 +115,15 @@ def plv():
         + '</g>')
 
     # --- Partie gauche : photos des demi-boules + liste des 3 pains avec prix (pas de photo nécessaire) ---
-    cartes = (photo("pain-levain", 110, 600, 1300, 1000, rot=-4, cid="p1")
-              + photo("pain-graines", 560, 1180, 1150, 1000, rot=3, cid="p2"))
+    cartes = (photo("pain-levain", 130, 580, 1060, 810, rot=-2, cid="p1")
+              + photo("pain-graines", 130, 1480, 1060, 810, rot=2, cid="p2"))
     for i, (_, l1, l2, prix) in enumerate(PRODUITS):
         y = 760 + i * 520
         cartes += (f'<g id="prix-{i}">'
-                   + text(1780, y, l1, 110, CR, HEROICA, "start", bold=True)
-                   + text(1780, y + 105, l2, 76, CC, HEROICA, "start", italic=True, bold=True)
-                   + ovale_prix(2960, y + 10, 240, 145, prix, "cuivre", size=160, rot=(-4, 3, -3)[i])
-                   + (f'<path d="M1780 {y + 210}H3150" stroke="{CA}" stroke-width="6" stroke-dasharray="4 22" '
+                   + text(1400, y, l1, 110, CR, HEROICA, "start", bold=True)
+                   + text(1400, y + 105, l2, 76, CC, HEROICA, "start", italic=True, bold=True)
+                   + ovale_prix(2850, y + 10, 240, 145, prix, "cuivre", size=160, rot=(-4, 3, -3)[i])
+                   + (f'<path d="M1400 {y + 210}H3100" stroke="{CA}" stroke-width="6" stroke-dasharray="4 22" '
                       f'stroke-linecap="round"/>' if i < 2 else "")
                    + '</g>')
     L.append(
@@ -127,7 +133,7 @@ def plv():
         + text(1900, 450, "à la farine de blé bio de nos régions", 110, CC, HEROICA, italic=True, bold=True)
         + tirets(800, 415, "g", CC) + tirets(3000, 415, "d", CC)
         + cartes
-        + pastille(2600, 2320, 1500, 190, "BLÉ BIO · CIRCUITS COURTS", 110, C["orange"], CR, rot=-2)
+        + pastille(2300, 2320, 1500, 190, "BLÉ BIO · CIRCUITS COURTS", 110, C["orange"], CR, rot=-2)
         + '</g>')
     return svg(W, H, "\n".join(L), "Galzin - PLV pains & circuits courts")
 
