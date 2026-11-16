@@ -4,3 +4,7 @@ renders/
 .DS_Store
 **/.hyperframes/preview/
 __pycache__/
+
+# CV Nino Poirrier : données personnelles (tél., email, photo) — dépôt public, non versionné
+cv-nino-poirrier/
+banniere-linkedin-noah/assets/Impact.ttf
