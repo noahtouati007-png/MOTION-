@@ -1,7 +1,8 @@
 # MOTION- — Contexte pour Claude (à lire en premier)
 
-Ce dépôt contient tout le travail **motion design** réalisé pour **Galzin** (boulangerie / snacking,
-site : galzin.fr). Il a été repris depuis un autre compte Claude : ce fichier résume ce qui a été
+Ce dépôt contient tout le travail **motion design et print** réalisé pour **Galzin** (boulangerie-pâtisserie,
+Maison fondée en 1938, Montpellier / Millau, site : galzin.fr), ainsi que quelques autres projets
+(Immo Décodé, BUT × ÉCHO, bannières LinkedIn). Branche principale : `main`. Il a été repris depuis un autre compte Claude : ce fichier résume ce qui a été
 décidé pendant les sessions précédentes pour qu'on continue exactement dans le même style.
 
 Langue : l'utilisateur parle **français** — réponds en français, textes à l'écran en français.
@@ -14,6 +15,11 @@ Langue : l'utilisateur parle **français** — réponds en français, textes à 
   `motion-graphics`, `general-video`, `media-use`, `hyperframes-audio`, etc.
 - Chaque projet a son propre `CLAUDE.md` / `AGENTS.md` (règles HyperFrames) et un `hyperframes.json`.
 - Pour mettre à jour les skills : `npx hyperframes skills update`.
+- **`galzin-da`** (`.claude/skills/galzin-da/`, copie zippée `galzin-da-skill.zip`) : la direction
+  artistique officielle Galzin. **À charger pour tout visuel Galzin** (affiche, PLV, menu, vidéo…).
+  C'est la référence pour la charte — elle prime sur la section « Charte visuelle » ci-dessous.
+- `illustrator` : Illustrator via MCP (nécessite Illustrator ouvert sur l'ordinateur de l'utilisateur).
+- `replica-*` : pack de skills pour cloner / reconstruire une app (sans rapport avec Galzin).
 - Voix off : connecteur **ElevenLabs** (à reconnecter sur le compte, avec le même compte ElevenLabs).
 - Guide d'édition manuelle dans Studio (pour l'utilisateur) : `GUIDE-MONTAGE.md`.
 
@@ -25,11 +31,25 @@ videos/<projet>/           un projet HyperFrames par vidéo
   assets/img|fonts|vendor  images détourées, polices woff2 locales, gsap.min.js
   audio/                   voix.wav, musique.wav, sfx.wav, mix.wav, mix-sans-voix.wav (+ prises ElevenLabs)
   renders/                 MP4 finaux (versionnés malgré .gitignore → `git add -f`)
-affichettes/               affiches imprimables A5 (HTML → PNG + PDF)
+affichettes/               PLV Galzin imprimables (affiches, stickers, menus, panneaux) — kit dans `_kit-galzin/`
+print/                     étiquettes prix (SVG/PDF modifiables dans Illustrator)
+charte-graphique/          charte Immo Décodé (logos, polices Fraunces/Inter, .ai)
+dossier-strategique/       dossier stratégique Immo Décodé (web + PDF A4)
+banniere-linkedin-noah/    bannières LinkedIn de l'utilisateur
+references/                vidéo TikTok de référence + son (à déposer par l'utilisateur)
 mon-premier-montage/       projet d'entraînement pour Studio
 ```
 
 ## Charte visuelle Galzin
+
+**Charte officielle (skill `galzin-da`)** : polices **Impact** (titres en capitales, étiquettes) +
+**Eroika Slab** (produits, accroches, prix ; Bold Italic pour slogans/mentions). Couleurs chocolat
+`#5C2E15`, crème `#FDF0E2`, sable `#EEDDC5`, caramel `#C58243`, cuivre `#8A4A1C`→`#F1C680`,
+orange→rouge `#E8721D`→`#E30F20`, turquoise `#51A3A3` (réservé au froid). Vagues, logo rond,
+ovales de prix cuivrés, « Chocolatine » (jamais « pain au chocolat »). Détails et règles validées
+par le client dans `.claude/skills/galzin-da/SKILL.md`.
+
+**Ce que les vidéos existantes utilisent** (avant la formalisation de la charte) :
 
 - **Polices** (fichiers woff2 locaux dans chaque projet, pas de Google Fonts en ligne) :
   - **Crimson Pro** (600 italique / 700) — titres élégants, police principale
@@ -84,8 +104,18 @@ Les pubs TV doivent pouvoir **tourner en boucle** : vraie end card + fondu de so
 - **Boucle affiches 3e écran** : `galzin-affiches`.
 - **TikTok** : `galzin-fidelite-tiktok` (activer sa carte sur galzin.fr, vraies pages du site sur un
   ordinateur portable), `galzin-commande` (comment commander, 23 s).
+- **Galette des rois** : `galzin-minions-tiktok` (22 s), `galzin-minions-tv` (15 s) — Galzin × Les Minions.
 - **Divers** : `galzin-outro` (end card), `galzin-beignet-pop` (overlay Halloween).
-- **Affichettes A5** : `affichettes/petit-dej-a5` et `petit-dej-a5-v2`.
+- **PLV / print** (`affichettes/`) : petit-déj A5, formule matin A3, pizza de la semaine A3, menus
+  boissons chaudes/fraîches, stop-trottoir, stickers (Wi-Fi, allergènes, table), flyer recrutement,
+  panneaux (paiement, WC, toilettes hors service, vidéosurveillance, poubelle Balaruc), étiquettes
+  internes (envoi Millau, four Unox). `print/lot-2-pains-speciaux` : étiquette prix 4€50.
+
+## Autres projets (hors Galzin)
+
+- **Immo Décodé** : `charte-graphique/`, `dossier-strategique/`, vidéos `videos/immo-decode-*`.
+- **BUT × ÉCHO** : `videos/but-echo-ia` (16:9, ~152 s, voix ElevenLabs féminine, prononciation « BUT » corrigée).
+- **Bannières LinkedIn** : `banniere-linkedin-noah/`.
 
 ## Façon de travailler
 
