@@ -79,6 +79,12 @@
       "skillPath": "skills/hyperframes-studio/SKILL.md",
       "computedHash": "073b806d264702d330426248608b7d70efb50050b8c61800f74dd6d77a317559"
     },
+    "illustrator": {
+      "source": "rogue-dev-studio/ai-agents-rogue",
+      "sourceType": "github",
+      "skillPath": "skills/illustrator/SKILL.md",
+      "computedHash": "5a5a40536755d3d0319ce65af9a971fa70530183bc4527701ab5d6cee004eaf6"
+    },
     "media-use": {
       "source": "heygen-com/hyperframes",
       "sourceType": "github",
