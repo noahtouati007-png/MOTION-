@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Big Shoulders";
+        src: url("assets/fonts/big-shoulders-display-latin-800-normal.woff2") format("woff2");
+        font-weight: 800;
+      }
+      @font-face {
+        font-family: "Big Shoulders";
+        src: url("assets/fonts/big-shoulders-display-latin-900-normal.woff2") format("woff2");
+        font-weight: 900;
+      }
+      @font-face {
+        font-family: "DM Mono";
+        src: url("assets/fonts/dm-mono-latin-500-normal.woff2") format("woff2");
+        font-weight: 500;
+      }
+      /* THEME — "Le Championnat des Rois": a sports team sheet on Galzin chocolate.
+         Yellow + red come straight from the fèves (Minion yellow, red shorts). Straight lines only. */
+      :root {
+        --bg: #23170e;
+        --bg-2: #2f2014;
+        --cream: #f6ecd9;
+        --yellow: #ffcc3a;
+        --red: #e2452b;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Big Shoulders", sans-serif;
+        font-weight: 900;
+        color: var(--cream);
+        text-transform: uppercase;
+      }
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 75%);
+      }
+      #pitch {
+        position: absolute;
+        inset: 0;
+      }
+      .mono {
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+        letter-spacing: 3px;
+      }
+      .stripe {
+        position: absolute;
+        left: -200px;
+        width: 2320px;
+        transform: rotate(-6deg);
+      }
+      #st-y {
+        top: 900px;
+        height: 110px;
+        background: var(--yellow);
+      }
+      #st-r {
+        top: 1030px;
+        height: 30px;
+        background: var(--red);
+      }
+      #head {
+        position: absolute;
+        left: 80px;
+        top: 60px;
+        width: 1760px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 30px;
+      }
+      #head b {
+        font-weight: 500;
+        color: var(--yellow);
+      }
+
+      /* Opening */
+      #title {
+        position: absolute;
+        left: 80px;
+        top: 140px;
+        width: 1200px;
+        line-height: 0.84;
+      }
+      .t-s {
+        font-size: 120px;
+      }
+      .t-m {
+        font-size: 210px;
+        letter-spacing: -3px;
+      }
+      .t-l {
+        font-size: 300px;
+        letter-spacing: -5px;
+      }
+      .t-y {
+        color: var(--yellow);
+      }
+      #ref {
+        position: absolute;
+        left: 1300px;
+        top: 150px;
+        width: 480px;
+        height: 760px;
+        object-fit: contain;
+        filter: drop-shadow(22px 30px 0 rgba(0, 0, 0, 0.35));
+      }
+      #kick {
+        position: absolute;
+        left: 80px;
+        top: 770px;
+        font-size: 64px;
+        line-height: 1;
+      }
+      #kick span {
+        color: var(--yellow);
+      }
+
+      /* Team sheet */
+      #team-h {
+        position: absolute;
+        left: 80px;
+        top: 110px;
+        font-size: 96px;
+        line-height: 1;
+      }
+      #team-h span {
+        color: var(--yellow);
+      }
+      .tm {
+        position: absolute;
+        width: 320px;
+        height: 400px;
+        margin-left: -160px;
+      }
+      .tm img {
+        position: absolute;
+        left: 60px;
+        top: 0;
+        width: 200px;
+        height: 300px;
+        object-fit: contain;
+        object-position: 50% 100%;
+        filter: drop-shadow(12px 16px 0 rgba(0, 0, 0, 0.35));
+      }
+      .tm-n {
+        position: absolute;
+        left: 0;
+        top: 306px;
+        width: 320px;
+        text-align: center;
+        font-size: 34px;
+        color: var(--yellow);
+      }
+      .tm-t {
+        position: absolute;
+        left: 0;
+        top: 344px;
+        width: 320px;
+        text-align: center;
+        font-size: 46px;
+        line-height: 1;
+      }
+
+      /* Galette slot: viewfinder frame until the real photo arrives */
+      #galette {
+        position: absolute;
+        left: 560px;
+        top: 620px;
+        width: 800px;
+        height: 330px;
+      }
+      #galette .slot {
+        position: absolute;
+        inset: 0;
+        background: rgba(246, 236, 217, 0.04);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: rgba(246, 236, 217, 0.7);
+      }
+      #galette .c {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border-color: var(--yellow);
+        border-style: solid;
+        border-width: 0;
+      }
+      #galette .shot {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      #q {
+        position: absolute;
+        left: 80px;
+        top: 150px;
+        width: 1760px;
+        text-align: center;
+        font-size: 170px;
+        line-height: 0.86;
+      }
+      #q span {
+        color: var(--yellow);
+      }
+
+      /* Score table */
+      #score {
+        position: absolute;
+        left: 1000px;
+        top: 170px;
+        width: 840px;
+      }
+      #score-h {
+        font-size: 30px;
+        color: var(--yellow);
+        margin-bottom: 18px;
+      }
+      .row {
+        height: 150px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 44px;
+        background: var(--cream);
+        color: var(--bg);
+        clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+      }
+      .row .p {
+        font-size: 96px;
+        line-height: 1;
+      }
+      .row .p small {
+        font-family: "DM Mono", monospace;
+        font-weight: 500;
+        font-size: 30px;
+        letter-spacing: 3px;
+      }
+      .row .e {
+        font-size: 130px;
+        line-height: 1;
+        color: var(--red);
+      }
+      #date {
+        position: absolute;
+        left: 80px;
+        top: 200px;
+        width: 820px;
+        font-size: 150px;
+        line-height: 0.86;
+      }
+      #date span {
+        color: var(--yellow);
+      }
+      #logo {
+        position: absolute;
+        left: 80px;
+        top: 600px;
+        width: 160px;
+        height: 160px;
+      }
+      #legal {
+        position: absolute;
+        left: 80px;
+        top: 800px;
+        font-size: 28px;
+        color: rgba(246, 236, 217, 0.75);
+      }
+      #veil {
+        position: absolute;
+        inset: 0;
+        background: var(--bg);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-fps="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="bg"></div>
+      <svg id="pitch" viewBox="0 0 1920 1080" fill="none" stroke="rgba(246,236,217,0.08)" stroke-width="4">
+        <rect x="40" y="40" width="1840" height="1000" />
+        <line x1="960" y1="40" x2="960" y2="1040" />
+        <rect x="40" y="290" width="300" height="500" />
+        <rect x="40" y="420" width="110" height="240" />
+        <rect x="1580" y="290" width="300" height="500" />
+        <rect x="1770" y="420" width="110" height="240" />
+      </svg>
+      <div class="stripe" id="st-y"></div>
+      <div class="stripe" id="st-r"></div>
+
+      <div id="head" class="mono"><span>GALZIN <b>×</b> LES MINIONS</span><span id="head-r">SAISON 2027</span></div>
+
+      <div id="title">
+        <div class="t-s">LE</div>
+        <div class="t-m">CHAMPIONNAT</div>
+        <div class="t-l">DES <span class="t-y">ROIS</span></div>
+      </div>
+      <img id="ref" src="assets/img/feve-01.png" alt="" />
+      <div id="kick">10 FÈVES <span>LES MINIONS</span> ENTRENT SUR LE TERRAIN</div>
+
+      <div id="team-h">LA <span>COMPOSITION</span></div>
+      <div id="team"></div>
+
+      <div id="galette">
+        <div class="slot mono" id="gal-slot">[ PHOTO GALETTE ]</div>
+        <div class="c" style="left: 0; top: 0; border-left-width: 8px; border-top-width: 8px"></div>
+        <div class="c" style="right: 0; top: 0; border-right-width: 8px; border-top-width: 8px"></div>
+        <div class="c" style="left: 0; bottom: 0; border-left-width: 8px; border-bottom-width: 8px"></div>
+        <div class="c" style="right: 0; bottom: 0; border-right-width: 8px; border-bottom-width: 8px"></div>
+      </div>
+      <div id="q">QUEL <span>CHAMPION</span> SE CACHE<br />DANS VOTRE GALETTE ?</div>
+
+      <div id="date">DÈS LE<br />2 JANVIER<br /><span>CHEZ GALZIN</span></div>
+      <img id="logo" src="assets/img/galzin-logo.png" alt="Galzin" />
+      <div id="legal" class="mono">PHOTOS NON CONTRACTUELLES</div>
+      <div id="score">
+        <div id="score-h" class="mono">// TABLEAU DES PRIX</div>
+        <div id="rows"></div>
+      </div>
+
+      <div id="veil"></div>
+    </div>
+
+    <script>
+      // ── CONTENT — edit here
+      const FEVES = [
+        { name: "L'ARBITRE", img: "feve-01.png" },
+        { name: "LE RUGBYMAN", img: "feve-02.png" },
+        { name: "LE VOLLEYEUR", img: "feve-03.png" },
+        { name: "LE BOXEUR", img: "feve-04.png" },
+        { name: "LE BASKETTEUR", img: "feve-05.png" },
+        { name: "LE FOOTBALLEUR", img: "feve-06.png" },
+        { name: "LE SPRINTEUR", img: "feve-07.png" },
+        { name: "LE TENNISMAN", img: "feve-08.png" },
+        { name: "LE SUPPORTER", img: "feve-09.png" },
+        { name: "LE CHAMPION", img: "feve-10.png" },
+      ];
+      const GALETTE_IMG = ""; // e.g. "galette.png" — replaces the [ PHOTO GALETTE ] frame
+      const PRICES = [
+        ["4", "12,90 €"],
+        ["6", "17,90 €"],
+        ["8", "22,90 €"],
+      ];
+
+      const pad = (n) => (n < 10 ? "0" : "") + n;
+      const teamEl = document.getElementById("team");
+      const TPOS = (i) => ({ x: 960 + ((i % 5) - 2) * 340, y: i < 5 ? 230 : 640 });
+      FEVES.forEach((f, i) => {
+        const p = TPOS(i);
+        teamEl.insertAdjacentHTML(
+          "beforeend",
+          '<div class="tm" id="tm' + i + '" style="left:' + p.x + "px;top:" + p.y + 'px"><img src="assets/img/' + f.img + '" alt="" />' +
+            '<div class="tm-n mono">N°' + pad(i + 1) + '</div><div class="tm-t">' + f.name + "</div></div>"
+        );
+      });
+      if (GALETTE_IMG) document.getElementById("gal-slot").innerHTML = '<img class="shot" src="assets/img/' + GALETTE_IMG + '" alt="" />';
+      document.getElementById("rows").innerHTML = PRICES.map(
+        (p, i) => '<div class="row" id="rw' + i + '"><div class="p">' + p[0] + ' <small>PARTS</small></div><div class="e">' + p[1] + "</div></div>"
+      ).join("");
+
+      gsap.set(["#team-h", ".tm", "#galette", "#q", "#date", "#logo", "#legal", "#score", "#veil"], { autoAlpha: 0 });
+
+      const tl = gsap.timeline({ paused: true });
+
+      // ── 0 → 2.6 Opening
+      tl.fromTo("#title", { autoAlpha: 0, x: -80 }, { autoAlpha: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.1);
+      tl.fromTo("#ref", { autoAlpha: 0, x: 300, rotation: 10 }, { autoAlpha: 1, x: 0, rotation: 0, duration: 0.5, ease: "back.out(1.4)" }, 0.3);
+      tl.fromTo("#ref", { y: 0 }, { y: -16, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.9);
+      tl.fromTo("#st-y", { x: -2400 }, { x: 0, duration: 0.5, ease: "power4.out" }, 0.2);
+      tl.fromTo("#st-r", { x: 2400 }, { x: 0, duration: 0.5, ease: "power4.out" }, 0.3);
+      tl.fromTo("#kick", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.8);
+      tl.to(["#title", "#kick"], { x: -1500, duration: 0.45, ease: "power3.in" }, 2.6);
+      tl.to("#ref", { x: 900, duration: 0.45, ease: "power3.in" }, 2.6);
+      tl.to(["#st-y", "#st-r"], { y: 200, duration: 0.45, ease: "power3.inOut" }, 2.6);
+
+      // ── 3.1 → 7.6 Team sheet: each player takes his spot
+      tl.set("#head-r", { textContent: "COMPOSITION" }, 3.1);
+      tl.fromTo("#team-h", { autoAlpha: 0, x: -60 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: "power3.out" }, 3.1);
+      tl.to("#team-h", { autoAlpha: 0, duration: 0.25 }, 3.9);
+      FEVES.forEach((f, i) => {
+        tl.fromTo("#tm" + i, { autoAlpha: 0, y: 90 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 3.4 + i * 0.3);
+      });
+
+      // ── 7.7 → 9.9 They all dive into the galette
+      tl.to(".tm-n, .tm-t", { autoAlpha: 0, duration: 0.25 }, 7.6);
+      tl.to(["#st-y", "#st-r"], { autoAlpha: 0, duration: 0.3 }, 7.6);
+      tl.fromTo("#galette", { autoAlpha: 0, y: 100 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 7.7);
+      FEVES.forEach((f, i) => {
+        const p = TPOS(i);
+        const t = 8.0 + i * 0.09;
+        tl.to("#tm" + i, { keyframes: [{ y: -40, duration: 0.14, ease: "power2.out" }, { x: 960 - p.x, y: 700 - p.y, scale: 0.35, duration: 0.32, ease: "power2.in" }] }, t);
+        tl.set("#tm" + i, { autoAlpha: 0 }, t + 0.46);
+      });
+      tl.to("#galette", { keyframes: [{ y: 12, duration: 0.06 }, { y: 0, duration: 0.12 }] }, 9.3);
+      tl.set("#head-r", { textContent: "TIRAGE AU SORT" }, 9.3);
+      tl.fromTo("#q", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, 9.35);
+
+      // ── 11.3 → 14.4 Score table + date
+      tl.to(["#q", "#galette"], { autoAlpha: 0, duration: 0.25 }, 11.3);
+      tl.set("#head-r", { textContent: "BILLETTERIE" }, 11.4);
+      tl.fromTo("#date", { autoAlpha: 0, x: -60 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: "power3.out" }, 11.4);
+      tl.set("#score", { autoAlpha: 1 }, 11.5);
+      tl.fromTo("#score-h", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, 11.5);
+      PRICES.forEach((p, i) => {
+        tl.fromTo("#rw" + i, { x: 1000 }, { x: 0, duration: 0.35, ease: "power4.out" }, 11.55 + i * 0.1);
+      });
+      tl.fromTo("#logo", { autoAlpha: 0, rotation: -20 }, { autoAlpha: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 11.9);
+      tl.fromTo("#legal", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, 12.0);
+
+      // ── Clean exit for the loop
+      tl.to("#veil", { autoAlpha: 1, duration: 0.55, ease: "power1.inOut" }, 14.4);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
