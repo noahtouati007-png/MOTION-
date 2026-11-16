@@ -1,0 +1,14 @@
+l01|2040. L'intelligence artificielle écrit les CV, trie les candidatures, répond aux clients.
+l02|Alors une question se pose chez BUT : qu'est-ce qui fait encore la valeur d'un talent ?
+l03|Aujourd'hui, un CV écrit par l'IA ne dit plus qui est le candidat.
+l04|Les jeunes veulent évoluer vite, le CDI n'est plus un but en soi, et les métiers changent plus vite que les formations.
+l05|Notre réponse : l'IA pour aller plus vite. L'humain pour décider.
+l06|Un : recruter. On remplace le CV par le geste.
+l07|Avec le BUT Live Test, le candidat conseille un vrai client, en magasin, en vingt minutes. L'IA organise et répond sous quarante-huit heures. Mais aucun refus sans un regard humain.
+l08|Deux : former. Un coach IA dans la poche, cinq minutes par jour, et un parrain en magasin. Chaque compétence devient un badge reconnu.
+l09|Trois : fidéliser. Un parcours à la carte : vendeur, technicien, chef de rayon, e-commerce. Le temps gagné grâce à l'IA est réinvesti dans le client.
+l10|Ce qui gardera de la valeur en 2040 ? L'écoute, le conseil, la confiance, le savoir-faire. Tout ce que l'IA ne remplace pas.
+l11|Et une IA sous contrôle : audit des biais chaque trimestre, candidatures anonymisées, accessibilité pour tous.
+l12|Le plan : en 2027, dix magasins pilotes. En 2028, toute la France. En 2030, un parcours pour chaque collaborateur.
+l13|Nos objectifs : diviser par deux le délai de recrutement, plus vingt pour cent de rétention à un an.
+l14|BUT, c'est un peu la maison des Français. Demain, ce sera aussi la maison des talents.
