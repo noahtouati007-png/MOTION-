@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+<title>calculatrice</title>
+<g id="calculatrice" fill="none" stroke="#1F2A44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<rect x="28" y="14" width="64" height="92" rx="12"/>
+<rect x="40" y="26" width="40" height="18" rx="4"/>
+<path d="M42 62h8M70 62h8M42 78h8M70 78h8M42 94h8M70 94h8M56 62h8M56 94h8"/>
+</g>
+</svg>

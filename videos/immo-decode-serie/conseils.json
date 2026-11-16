@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "01-lire-un-dpe",
+    "categorie": "immo",
+    "accroche": "Lire un DPE en 30 secondes",
+    "sous_titre": "Le diagnostic que tout le monde survole",
+    "icone": "document",
+    "points": [
+      { "titre": "7 lettres, de A à G", "detail": "A : très économe. G : passoire énergétique.", "icone": "graphique" },
+      { "titre": "Deux étiquettes", "detail": "L'énergie consommée et les émissions de gaz à effet de serre.", "icone": "document" },
+      { "titre": "La pire lettre compte", "detail": "La note finale est la moins bonne des deux étiquettes.", "icone": "loupe" },
+      { "titre": "Attention à la location", "detail": "Depuis 2025, un logement classé G ne peut plus être loué avec un nouveau bail.", "icone": "cle" }
+    ],
+    "a_retenir": "Un mauvais DPE, ce sont des travaux à prévoir. Et un argument pour négocier.",
+    "mention": "Règles en vigueur fin 2026 : vérifie sur service-public.fr."
+  },
+  {
+    "slug": "02-pieges-a-la-visite",
+    "categorie": "immo",
+    "accroche": "5 pièges à repérer pendant une visite",
+    "sous_titre": "Avant de tomber amoureux du parquet",
+    "icone": "loupe",
+    "points": [
+      { "titre": "L'humidité", "detail": "Odeur de moisi, traces au plafond, peinture qui cloque.", "icone": "maison" },
+      { "titre": "L'électricité", "detail": "Tableau ancien, prises sans terre : lis le diagnostic électricité.", "icone": "document" },
+      { "titre": "Les charges de copro", "detail": "Demande le montant annuel et les derniers procès-verbaux d'AG.", "icone": "euro" },
+      { "titre": "Le bruit", "detail": "Reviens en soirée : voisins, rue, terrasses.", "icone": "epingle" },
+      { "titre": "Les fissures", "detail": "Une fissure en escalier sur un mur porteur mérite l'avis d'un pro.", "icone": "marteau" }
+    ],
+    "a_retenir": "Une visite, c'est une checklist. Prends des photos de tout.",
+    "mention": "Conseils généraux : fais-toi accompagner pour un achat."
+  },
+  {
+    "slug": "03-negocier-le-prix",
+    "categorie": "immo",
+    "accroche": "4 arguments pour négocier le prix",
+    "sous_titre": "Sans vexer le vendeur",
+    "icone": "euro",
+    "points": [
+      { "titre": "Les travaux chiffrés", "detail": "Un devis pèse plus qu'une impression : chiffre ce qu'il faut refaire.", "icone": "marteau" },
+      { "titre": "Le prix du quartier", "detail": "Compare avec les ventes réelles publiées sur DVF, le site public des prix.", "icone": "graphique" },
+      { "titre": "Le temps en vente", "detail": "Une annonce en ligne depuis des mois laisse souvent de la marge.", "icone": "loupe" },
+      { "titre": "Le DPE", "detail": "Une étiquette F ou G annonce des travaux d'isolation.", "icone": "document" }
+    ],
+    "a_retenir": "Négocier, ce n'est pas casser le prix. C'est le justifier.",
+    "mention": "Conseils généraux : chaque vente est différente."
+  },
+  {
+    "slug": "04-ce-que-regarde-la-banque",
+    "categorie": "invest",
+    "accroche": "Ce que ta banque regarde avant de te prêter",
+    "sous_titre": "Ton dossier, vu de l'autre côté",
+    "icone": "calculatrice",
+    "points": [
+      { "titre": "Ton taux d'endettement", "detail": "35 % de tes revenus au maximum, assurance comprise.", "icone": "calculatrice" },
+      { "titre": "Ton apport", "detail": "Souvent au moins de quoi payer les frais de notaire.", "icone": "euro" },
+      { "titre": "Ta situation pro", "detail": "Un CDI hors période d'essai, ou des revenus stables depuis plusieurs années.", "icone": "document" },
+      { "titre": "Tes relevés de compte", "detail": "Pas de découvert ni de paris en ligne sur les derniers mois.", "icone": "loupe" }
+    ],
+    "a_retenir": "Prépare ton dossier 3 mois avant : comptes propres, épargne visible.",
+    "mention": "Règle des 35 % : recommandation du HCSF. Chaque banque reste libre."
+  },
+  {
+    "slug": "05-location-nue-ou-meublee",
+    "categorie": "invest",
+    "accroche": "Location nue ou meublée ?",
+    "sous_titre": "Les 4 différences à connaître",
+    "icone": "cle",
+    "points": [
+      { "titre": "La durée du bail", "detail": "Nue : 3 ans. Meublée : 1 an, ou 9 mois pour un étudiant.", "icone": "document" },
+      { "titre": "Le loyer", "detail": "En meublé, il est en général plus élevé.", "icone": "euro" },
+      { "titre": "Le mobilier", "detail": "En meublé, une liste d'équipements minimum est obligatoire.", "icone": "maison" },
+      { "titre": "La fiscalité", "detail": "Revenus fonciers en nu, régime LMNP en meublé.", "icone": "calculatrice" }
+    ],
+    "a_retenir": "Dans une ville étudiante comme Montpellier, le meublé a la cote. Compare toujours les deux.",
+    "mention": "Durées de bail pour un propriétaire particulier. Fiscalité : demande à un expert."
+  },
+  {
+    "slug": "06-travaux-qui-valorisent",
+    "categorie": "reno",
+    "accroche": "3 travaux qui font gagner de la valeur",
+    "sous_titre": "L'avis de notre expert rénovation",
+    "icone": "marteau",
+    "points": [
+      { "titre": "L'isolation", "detail": "Elle améliore le DPE, et le DPE pèse sur le prix.", "icone": "maison" },
+      { "titre": "Cuisine et salle de bain", "detail": "Ce sont les pièces que les acheteurs regardent en premier.", "icone": "loupe" },
+      { "titre": "Le rafraîchissement", "detail": "Peinture claire, sols propres : petit budget, gros effet en photo.", "icone": "appareil-photo" }
+    ],
+    "a_retenir": "Avant de vendre, demande des devis : tous les travaux ne se rentabilisent pas.",
+    "mention": "Conseils généraux : chaque bien demande un avis sur place."
+  }
+]

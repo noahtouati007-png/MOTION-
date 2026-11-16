@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+<title>marteau</title>
+<g id="marteau" fill="none" stroke="#1F2A44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M24 26 h56 a8 8 0 0 1 8 8 v10 a8 8 0 0 1 -8 8 h-56 z"/>
+<path d="M88 34 h14"/>
+<path d="M50 52 v54"/>
+</g>
+</svg>

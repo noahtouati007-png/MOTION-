@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+<title>graphique</title>
+<g id="graphique" fill="none" stroke="#1F2A44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M16 104 H106"/>
+<path d="M30 90 V70 M54 90 V54 M78 90 V40 M102 90 V24"/>
+<path d="M24 50 L48 36 L70 42 L100 16"/>
+</g>
+</svg>

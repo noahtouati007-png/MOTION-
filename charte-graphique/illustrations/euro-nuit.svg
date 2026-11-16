@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+<title>euro</title>
+<g id="euro" fill="none" stroke="#1F2A44" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M88 30 a34 34 0 1 0 0 60"/>
+<path d="M20 52 H70 M20 68 H66"/>
+</g>
+</svg>
