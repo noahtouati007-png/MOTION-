@@ -3,3 +3,4 @@ renders/
 .hf-tmp/
 .DS_Store
 **/.hyperframes/preview/
+__pycache__/
