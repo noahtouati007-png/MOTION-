@@ -105,6 +105,7 @@ Les pubs TV doivent pouvoir **tourner en boucle** : vraie end card + fondu de so
 - **TikTok** : `galzin-fidelite-tiktok` (activer sa carte sur galzin.fr, vraies pages du site sur un
   ordinateur portable), `galzin-commande` (comment commander, 23 s).
 - **Galette des rois** : `galzin-minions-tiktok` (22 s), `galzin-minions-tv` (15 s) — Galzin × Les Minions.
+- **Noël** : `galzin-roue-noel` (21 s, TV 16:9, muette) — pub de l’app « La Roue de Noël » (galzin-roue-noel.vercel.app, repo `app-noel`), fin : « Le QR code se trouve en caisse ».
 - **Divers** : `galzin-outro` (end card), `galzin-beignet-pop` (overlay Halloween).
 - **PLV / print** (`affichettes/`) : petit-déj A5, formule matin A3, pizza de la semaine A3, menus
   boissons chaudes/fraîches, stop-trottoir, stickers (Wi-Fi, allergènes, table), flyer recrutement,
